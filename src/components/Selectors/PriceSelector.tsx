@@ -12,10 +12,11 @@ const Boxer = styled(Box)`
   border: white;
   text-align: left;
   justify-content: space-between;
+  width: 100%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-top: 2%;
-    margin-right:3rem;
-    width:88vw;
+    margin-right: 3rem;
+    width: 88vw;
   }
 `;
 const Flex = styled.div`
@@ -31,8 +32,9 @@ export default function PriceSelector() {
   };
 
   return (
-    <Boxer style={{ width:"88vw" }}>
-      <Twelve>Price Range</Twelve>
+    <Boxer>
+      <Box >
+        <Twelve>Price Range</Twelve>
         <Slider
           defaultValue={50}
           aria-label="Default"
@@ -42,6 +44,7 @@ export default function PriceSelector() {
           <TabFont>0.01 GULF</TabFont>
           <TabFont>10 GULF</TabFont>
         </Flex>
+      </Box>
     </Boxer>
   );
 }

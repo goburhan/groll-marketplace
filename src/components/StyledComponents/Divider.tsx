@@ -26,7 +26,7 @@ interface prop {
 
 export const Vdivider = styled.div<prop>`
   width: 1px;
-  height: ${(props) => props.height ||"90%" }; 
+  height: ${(props) => props.height || "90%" }; 
   margin-left: ${(props) => props.ml};
   /* secondary grey */
 

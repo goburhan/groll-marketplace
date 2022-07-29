@@ -10,7 +10,11 @@ import {
   CardTitle,
 } from "../../StyledComponents/Text";
 
-const Flex = styled.div`
+interface prop {
+  padding?: string;
+}
+
+const Flex = styled.div<prop>`
   display: flex;
   justify-content: space-evenly;
   padding: 12px 24px;
@@ -18,6 +22,9 @@ const Flex = styled.div`
     min-width: 24px;
     margin-left: 2px;
     min-height: 24px;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding:  ${(props) => props.padding};
   }
 `;
 
@@ -54,7 +61,6 @@ export default function TCollectionCard() {
     }
     @media (max-width: ${({ theme }) => theme.mobile}) {
       margin-top: 3rem;
-
     }
   `;
 
@@ -63,7 +69,7 @@ export default function TCollectionCard() {
       <img src="/images/nftexample.svg" alt="nft-example" />
 
       <Box>
-        <Flex>
+        <Flex padding="12px 0px">
           <CardTitle>Not Your Bro!</CardTitle>
           <img
             src="/images/Verified.svg"
@@ -81,12 +87,12 @@ export default function TCollectionCard() {
           <MiniCategoryTitle>1000</MiniCategoryTitle>
           <TabFont>Total</TabFont>
         </Box>
-        <Vdivider />
+        <Vdivider height="36px" />
         <Box>
           <MiniCategoryTitle>$1m</MiniCategoryTitle>
           <TabFont>Volume</TabFont>
         </Box>
-        <Vdivider />
+        <Vdivider  height="36px" />
         <Box>
           <MiniCategoryTitle>25</MiniCategoryTitle>
           <TabFont>Items</TabFont>
