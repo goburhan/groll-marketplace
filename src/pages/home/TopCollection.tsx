@@ -49,7 +49,7 @@ const Slidebox = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-top: 2rem;
   }
-`;
+`; 
 const Flex = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fit, 19.5em);
