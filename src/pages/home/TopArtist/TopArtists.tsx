@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import VisualArt from "./VisualArt";
 import styled from "styled-components";
 import { HomeTitles, Title } from "../../../components/StyledComponents/Text";
@@ -18,7 +18,7 @@ const PrevArrow = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     margin-left:3rem;
-  }
+  } 
 `;
 export default function TopArtists() {
   return (

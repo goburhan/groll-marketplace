@@ -4,7 +4,7 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TCollectionCard from "../../components/NftCards/Cards/TCollectCard";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import { HomeTitles, HomeTitleWrapper, Title } from "../../components/StyledComponents/Text";
 import PriceContainer from "../../components/NftCards/PriceContainer";
 import PriceSelector from "../../components/Selectors/PriceSelector";
 
@@ -65,14 +65,6 @@ const Flex = styled.div`
   }
 `;
 
-const TitleWrapper = styled.div`
-  margin-bottom: 60px;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    position: absolute;
-    margin-bottom: 0px;
-    height: 20px;
-  }
-`;
 
 interface arrow {
   img?: any;
@@ -117,9 +109,9 @@ export default function TopCollection() {
 
   return (
     <NftContainer>
-      <TitleWrapper>
+      <HomeTitleWrapper>
         <HomeTitles> Top collection</HomeTitles>
-      </TitleWrapper>
+      </HomeTitleWrapper>
 
       <Slider {...settings}>
         <Slidebox>

@@ -59,20 +59,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "dark" ? dark : light;
 
- 
-
   return (
     <Web3ReactProvider connectors={connectors}>
       <ThemeContext>
         <ThemeProvider theme={themeMode}>
           <Globalstyle />
           <Provider store={store}>
-              <PersistGate loading={null} persistor={persistor}>
-                <Navbar />
-                <Component {...pageProps} />
-                <ToastContainer />
-                <Footer />
-              </PersistGate>
+            <PersistGate loading={null} persistor={persistor}>
+              <Navbar />
+              <Component {...pageProps} />
+              <ToastContainer />
+              <Footer />
+            </PersistGate>
           </Provider>
         </ThemeProvider>
       </ThemeContext>

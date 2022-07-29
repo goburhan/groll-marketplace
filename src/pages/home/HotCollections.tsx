@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import {
+  HomeTitles,
+  HomeTitleWrapper,
+  Title,
+} from "../../components/StyledComponents/Text";
 import HotCollectionCard from "../../components/NftCards/Cards/HotCollectionCard";
 
 const NftContainer = styled.div`
@@ -24,7 +28,10 @@ const Flex = styled.div`
 export default function HotCollections() {
   return (
     <NftContainer>
-      <HomeTitles> Hot collections</HomeTitles>
+      <HomeTitleWrapper>
+        <HomeTitles> Hot collections</HomeTitles>
+      </HomeTitleWrapper>
+
       <Flex>
         <HotCollectionCard />
         <HotCollectionCard />

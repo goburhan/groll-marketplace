@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import { HomeTitles, HomeTitleWrapper, Title } from "../../components/StyledComponents/Text";
 import UpcomingCard from "../../components/NftCards/Cards/UpcomingCard";
 import { WindowSize } from "../../hooks/useWindowsize";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
@@ -89,15 +89,15 @@ export default function () {
       },
     ],
   };
-
-  const isMobilee = WindowSize();
   const PrevArrow = styled.div`
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      position: absolute;
-      height: 20px;
-      width: 50%;
-    }
-  `;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    position: absolute;
+    height: 20px;
+    width:10%;
+  }
+`;
+  const isMobilee = WindowSize();
+
   return !isMobilee ? (
     <NftContainer>
       <HomeTitles> Upcoming collections</HomeTitles>

@@ -5,6 +5,12 @@ interface marginProp {
   bold?: string;
   mr?: string;
 }
+export const HomeTitleWrapper = styled.div`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    position: absolute;
+    height: 20px;
+  }
+`;
 
 export const Sliderfont = styled.text`
   font-weight: 700;

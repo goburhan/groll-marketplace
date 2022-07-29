@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import { HomeTitles, HomeTitleWrapper, Title } from "../../components/StyledComponents/Text";
 import AllItemCard from "../../components/NftCards/Cards/AllItemCard";
 import BigItemCard from "../../components/NftCards/Cards/BigItemCard";
 import { WindowSize } from "../../hooks/useWindowsize";
@@ -92,12 +92,7 @@ export default function AllItems() {
       },
     ],
   };
-  const PrevArrow = styled.div`
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      position: absolute;
-      height: 20px;
-    }
-  `;
+  
   return !isMobilee ? (
     <NftContainer>
       <HomeTitles mr="10px"> All items</HomeTitles>
@@ -116,9 +111,9 @@ export default function AllItems() {
     </NftContainer>
   ) : (
     <NftContainer>
-      <PrevArrow>
+      <HomeTitleWrapper>
         <HomeTitles> All items</HomeTitles>
-      </PrevArrow>
+      </HomeTitleWrapper>
 
       <Slider {...settings}>
         <Slidebox>

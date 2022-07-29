@@ -15,7 +15,7 @@ const NftContainer = styled.div`
   display: block;
   text-align: left;
   align-items: flex-start;
- 
+
   .slick-prev:before {
     display: none;
     position: absolute;
@@ -30,7 +30,7 @@ const NftContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 100px 0rem 0px 3rem;
+    margin: 60px 0rem 0px 3rem;
     width: 100%;
 
     .slick-prev {
@@ -95,7 +95,7 @@ export default function VisualArt() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.1,
+          slidesToShow: 1.2,
           slidesToScroll: 1,
           initialSlide: 0,
         },

@@ -18,7 +18,7 @@ const NftContainer = styled.div`
   border-radius: 25px;
   background: ${({ theme }) => theme.card};
   @media (max-width: ${({ theme }) => theme.mobile}) {
-   margin-top:84px;
+   margin-top:82px;
    max-width: 300px;
 `;
 interface Nft {
