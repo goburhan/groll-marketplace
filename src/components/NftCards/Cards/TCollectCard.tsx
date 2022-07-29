@@ -14,7 +14,6 @@ interface prop {
   padding?: string;
 }
 
-
 const Flex = styled.div<prop>`
   display: flex;
   white-space: normal;
@@ -27,8 +26,8 @@ const Flex = styled.div<prop>`
     min-height: 24px;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    padding:  ${(props) => props.padding};
-  } 
+    padding: ${(props) => props.padding};
+  }
 `;
 
 const Box = styled.div`
@@ -48,7 +47,7 @@ export const Text = styled.text`
   line-height: 20px;
 `;
 
-export default function TCollectionCard() {
+export default function TCollectionCard({ icon }) {
   const NftContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -69,7 +68,7 @@ export default function TCollectionCard() {
 
   return (
     <NftContainer>
-      <img src="/images/nftexample.svg" alt="nft-example" />
+      <img src={icon} alt="nft-example" style={{marginBottom:"20px"}} />
 
       <Box>
         <Flex padding="12px 0px">
@@ -95,7 +94,7 @@ export default function TCollectionCard() {
           <MiniCategoryTitle>$1m</MiniCategoryTitle>
           <TabFont>Volume</TabFont>
         </Box>
-        <Vdivider  height="36px" />
+        <Vdivider height="36px" />
         <Box>
           <MiniCategoryTitle>25</MiniCategoryTitle>
           <TabFont>Items</TabFont>

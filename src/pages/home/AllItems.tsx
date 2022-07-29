@@ -51,7 +51,6 @@ const Flex = styled.div`
 `;
 const Slidebox = styled.div`
   text-color: white;
-  margin-top: 42px;
 `;
 
 export default function AllItems() {
@@ -92,6 +91,16 @@ export default function AllItems() {
       },
     ],
   };
+  const nft = [
+    { name: "/images/Nft/A1.svg" },
+    { name: "/images/Nft/A2.svg" },
+    { name: "/images/Nft/A3.svg" },
+    { name: "/images/Nft/A4.svg" },
+    { name: "/images/Nft/A5.svg" },
+    { name: "/images/Nft/A6.svg" },
+    { name: "/images/Nft/A7.svg" },
+    { name: "/images/Nft/A8.svg" },
+  ];
   
   return !isMobilee ? (
     <NftContainer>
@@ -99,14 +108,11 @@ export default function AllItems() {
 
       <Flex>
         <BigItemCard />
-        <AllItemCard />
-        <AllItemCard />
-        <AllItemCard />
-        <AllItemCard />
-        <AllItemCard />
-        <AllItemCard />
-        <AllItemCard />
-        <AllItemCard />
+        {nft.map((nfts) => (
+          <Slidebox>
+            <AllItemCard nft={nfts.name} />
+          </Slidebox>
+        ))}
       </Flex>
     </NftContainer>
   ) : (
@@ -116,24 +122,9 @@ export default function AllItems() {
       </HomeTitleWrapper>
 
       <Slider {...settings}>
-        <Slidebox>
-          <AllItemCard />
-        </Slidebox>
-        <Slidebox>
-          <AllItemCard />
-        </Slidebox>
-        <Slidebox>
-          <AllItemCard />
-        </Slidebox>
-        <Slidebox>
-          <AllItemCard />
-        </Slidebox>
-        <Slidebox>
-          <AllItemCard />
-        </Slidebox>
-        <Slidebox>
-          <AllItemCard />
-        </Slidebox>
+      {nft.map((nfts) => (
+            <AllItemCard nft={nfts.name} />
+        ))}
       </Slider>
     </NftContainer>
   );

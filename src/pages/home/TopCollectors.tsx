@@ -10,7 +10,7 @@ import { PrevNextButton } from "../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
   text-align: center;
-  margin: 72px 192px 55px 192px;
+  margin: 72px 192px 70px 192px;
   
   .slick-prev:before {
     display: none;
@@ -43,14 +43,13 @@ const NftContainer = styled.div`
     }
   }
 `;
-const Slidebox = styled.div`
-  text-color: white;
-`;
+
 const TitleWrapper = styled.div`
-margin-bottom:60px;
+margin-bottom:23px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     height: 20px;
+    margin-bottom:0px;
   }
 `;
 export default function TopCollectors() {
@@ -90,6 +89,14 @@ export default function TopCollectors() {
       },
     ],
   };
+
+  const icons = [
+    { name: "/images/Nft/1.svg" },
+    { name: "/images/Nft/2.svg" },
+    { name: "/images/Nft/3.svg" },
+    { name: "/images/Nft/4.svg" },
+    { name: "/images/Nft/5.svg" },
+  ];
   return (
     <NftContainer>
       <TitleWrapper>
@@ -97,24 +104,9 @@ export default function TopCollectors() {
       </TitleWrapper>
 
       <Slider {...settings}>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
+      {icons.map((icon) => (
+          <TopArtistCard nft={icon.name} />
+        ))}
       </Slider>
     </NftContainer>
   );

@@ -11,7 +11,7 @@ const NftContainer = styled.div`
   background: ${({ theme }) => theme.card};
   height: 434px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 80px 0px 0px 0px;
+    margin: 42px 0px 0px 0px;
     width: 100%;
   }
 `;
@@ -57,10 +57,10 @@ const NftWrapper = styled.div<Nft>`
 `;
 
 
-export default function HotCollectionCard() {
+export default function HotCollectionCard({nft}) {
   return (
     <NftContainer>
-      <NftWrapper img="/images/1.png" />
+      <NftWrapper img={nft} />
       <Box img="/images/userpicture.svg" />
 
       <BoxWrapper>

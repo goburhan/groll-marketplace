@@ -87,11 +87,11 @@ export const Text = styled.text`
   font-size: 12px;
 `;
 
-export default function AllItemCard() {
+export default function AllItemCard({nft}) {
   return (
     <NftContainer>
       <Nft>
-        <img src="/images/nftexample.svg" alt="nft-example" />
+        <img src={nft} alt="nft-example" />
       </Nft>
       <Flex margin="20px 0px 0px 0px">
         <Box>

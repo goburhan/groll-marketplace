@@ -3,7 +3,11 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HomeTitles, HomeTitleWrapper, Title } from "../../components/StyledComponents/Text";
+import {
+  HomeTitles,
+  HomeTitleWrapper,
+  Title,
+} from "../../components/StyledComponents/Text";
 import UpcomingCard from "../../components/NftCards/Cards/UpcomingCard";
 import { WindowSize } from "../../hooks/useWindowsize";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
@@ -25,7 +29,7 @@ const NftContainer = styled.div`
     font-size: 30px;
   }
 
- @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0rem 0px 3rem;
     width: 100%;
 
@@ -46,7 +50,6 @@ const NftContainer = styled.div`
 const Flex = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
-  margin-top:75px;
   justify-content: center;
   align-items: center;
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -83,30 +86,38 @@ export default function () {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.1,
+          slidesToShow: 1.2,
           slidesToScroll: 1,
         },
       },
     ],
   };
   const PrevArrow = styled.div`
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    position: absolute;
-    height: 20px;
-    width:10%;
-  }
-`;
+  margin-bottom:54px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      position: absolute;
+      margin-bottom:23px;
+      height: 20px;
+      width: 10%;
+    }
+  `;
   const isMobilee = WindowSize();
-
+  const nft = [
+    { name: "/images/Nft/Up1.svg" },
+    { name: "/images/Nft/Up2.svg" },
+    { name: "/images/Nft/Up3.svg" },
+    { name: "/images/Nft/Up4.svg" },
+    { name: "/images/Nft/Up5.svg" },
+  ];
   return !isMobilee ? (
     <NftContainer>
-      <HomeTitles> Upcoming collections</HomeTitles>
+      <PrevArrow>
+        <HomeTitles>Upcoming collections</HomeTitles>
+      </PrevArrow>
       <Flex>
-        <UpcomingCard />
-        <UpcomingCard />
-        <UpcomingCard />
-        <UpcomingCard />
-        <UpcomingCard />
+        {nft.map((nfts) => (
+          <UpcomingCard nft={nfts.name} />
+        ))}
       </Flex>
     </NftContainer>
   ) : (
@@ -115,11 +126,9 @@ export default function () {
         <HomeTitles>Upcoming collections</HomeTitles>
       </PrevArrow>
       <Slider {...settings}>
-        <UpcomingCard />
-        <UpcomingCard />
-        <UpcomingCard />
-        <UpcomingCard />
-        <UpcomingCard />
+        {nft.map((nfts) => (
+          <UpcomingCard nft={nfts.name} />
+        ))}
       </Slider>
     </NftContainer>
   );

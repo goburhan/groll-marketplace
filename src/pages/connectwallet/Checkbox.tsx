@@ -16,6 +16,7 @@ const BpIcon = styled("span")(({ theme }) => ({
     outline: "2px auto rgba(19,124,189,.6)",
     outlineOffset: 2,
   },
+
   "input:hover ~ &": {
     backgroundColor: theme.palette.mode === "dark" ? "#30404d" : "#aeaeae",
   },

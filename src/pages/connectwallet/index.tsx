@@ -34,7 +34,6 @@ import { animate, motion } from "framer-motion";
 const Flex = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin-left: 20px;
   flex-direction: column;
   flex-wrap: wrap;
 `;
@@ -44,7 +43,6 @@ const WalletWrapper = styled(motion.button)`
   border: 1px solid black;
   display: flex;
   align-items: center;
-  margin-left: 5px;
   div {
     display: flex;
     align-items: center;
@@ -169,8 +167,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
                 ? {
                     border: "1px solid #484d57",
                     width: "700px",
-                    padding: "20px",
-
+                    padding:20,
                     justifyContent: "space-between",
                     borderRadius: "25px",
                   }
@@ -191,13 +188,15 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
           >
             <div>
               {selected === "coinbase" ? (
-                <img src="/images/Walletconnected.svg" />
+                <img src="/images/Walletconnected.svg"  />
               ) : (
                 <img src="/images/Coinbase.svg" />
               )}
               <General24>Coinbase Wallet</General24>
             </div>
-            {selected === "coinbase" && <img src="/images/Staticlogos/Arrow.svg" />}
+            {selected === "coinbase" && (
+              <img src="/images/Staticlogos/Arrow.svg" />
+            )}
           </WalletWrapper>
 
           <WalletWrapper
@@ -251,7 +250,9 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               <General24 type="submit">Metamask Wallet</General24>
             </div>
 
-            {selected === "metamask" && <img src="/images/Staticlogos/Arrow.svg" />}
+            {selected === "metamask" && (
+              <img src="/images/Staticlogos/Arrow.svg" />
+            )}
           </WalletWrapper>
 
           <WalletWrapper
@@ -304,7 +305,9 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               )}
               <General24>Wallet Connect</General24>
             </div>
-            {selected === "walletconnect" && <img src="/images/Staticlogos/Arrow.svg" />}
+            {selected === "walletconnect" && (
+              <img src="/images/Staticlogos/Arrow.svg" />
+            )}
           </WalletWrapper>
         </Flex>
 

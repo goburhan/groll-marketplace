@@ -108,6 +108,14 @@ export default function VisualArt() {
       height: 20px;
     }
   `;
+
+  const icons = [
+    { name: "/images/Nft/1.svg" },
+    { name: "/images/Nft/2.svg" },
+    { name: "/images/Nft/3.svg" },
+    { name: "/images/Nft/4.svg" },
+    { name: "/images/Nft/5.svg" },
+  ];
   return (
     <NftContainer>
       <PrevArrow>
@@ -118,24 +126,9 @@ export default function VisualArt() {
       </PrevArrow>
 
       <Slider {...settings}>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
-        <Slidebox>
-          <TopArtistCard />
-        </Slidebox>
+      {icons.map((icon) => (
+            <TopArtistCard nft={icon.name} />
+        ))}
       </Slider>
     </NftContainer>
   );

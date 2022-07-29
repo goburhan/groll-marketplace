@@ -17,6 +17,7 @@ const Boxer = styled(Box)`
     margin-top: 2%;
     margin-right: 3rem;
     width: 88vw;
+    z-index:-1;
   }
 `;
 const Flex = styled.div`

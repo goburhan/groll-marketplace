@@ -4,7 +4,11 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TCollectionCard from "../../components/NftCards/Cards/TCollectCard";
-import { HomeTitles, HomeTitleWrapper, Title } from "../../components/StyledComponents/Text";
+import {
+  HomeTitles,
+  HomeTitleWrapper,
+  Title,
+} from "../../components/StyledComponents/Text";
 import PriceContainer from "../../components/NftCards/PriceContainer";
 import PriceSelector from "../../components/Selectors/PriceSelector";
 
@@ -49,8 +53,9 @@ const NftContainer = styled.div`
 
 const Slidebox = styled.div`
   text-color: white;
+  margin-top: 60px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 `;
 const Flex = styled.div`
@@ -65,10 +70,14 @@ const Flex = styled.div`
   }
 `;
 
-
-interface arrow {
-  img?: any;
-}
+const icons = [
+  { name: "/images/Nft/1.svg" },
+  { name: "/images/Nft/2.svg" },
+  { name: "/images/Nft/3.svg" },
+  { name: "/images/Nft/4.svg" },
+  { name: "/images/Nft/5.svg" },
+  { name: "/images/Nft/6.svg" },
+];
 
 export default function TopCollection() {
   const settings = {
@@ -114,7 +123,12 @@ export default function TopCollection() {
       </HomeTitleWrapper>
 
       <Slider {...settings}>
-        <Slidebox>
+        {icons.map((icon) => (
+          <Slidebox>
+            <TCollectionCard icon={icon.name} />
+          </Slidebox>
+        ))}
+        {/* <Slidebox>
           <Link href="/collection">
             <TCollectionCard />
           </Link>
@@ -135,7 +149,7 @@ export default function TopCollection() {
         </Slidebox>
         <Slidebox>
           <TCollectionCard />
-        </Slidebox>
+        </Slidebox> */}
       </Slider>
       <Flex>
         <Dropdown title="Price" header="Highes Price" />

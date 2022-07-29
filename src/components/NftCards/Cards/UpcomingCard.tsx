@@ -53,10 +53,10 @@ const NftWrapper = styled.div<Nft>`
   background-position: 50% 0%;
 `;
 
-export default function UpcomingCard() {
+export default function UpcomingCard({nft}) {
   return (
     <NftContainer>
-      <NftWrapper img="/images/1.png" />
+      <NftWrapper img={nft} />
       <Box img="/images/userpicture.svg" />
 
       <BoxWrapper>

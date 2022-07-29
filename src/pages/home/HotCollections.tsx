@@ -24,6 +24,12 @@ const Flex = styled.div`
     flex-direction: column;
   }
 `;
+const nft = [
+  { name: "/images/Nft/Hot1.svg" },
+  { name: "/images/Nft/Hot2.svg" },
+  { name: "/images/Nft/Hot3.svg" },
+
+];
 
 export default function HotCollections() {
   return (
@@ -33,9 +39,9 @@ export default function HotCollections() {
       </HomeTitleWrapper>
 
       <Flex>
-        <HotCollectionCard />
-        <HotCollectionCard />
-        <HotCollectionCard />
+      {nft.map((nfts) => (
+            <HotCollectionCard nft={nfts.name} />
+        ))}
       </Flex>
     </NftContainer>
   );

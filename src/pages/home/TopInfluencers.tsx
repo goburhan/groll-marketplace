@@ -11,7 +11,7 @@ import { PrevNextButton } from "../../components/StyledComponents/Button";
 const NftContainer = styled.div`
   text-align: center;
   margin: 72px 120px 100px 120px;
- 
+
   .slick-prev:before {
     display: none;
     position: absolute;
@@ -46,7 +46,6 @@ const NftContainer = styled.div`
 const Flex = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
-  margin-top: 75px;
   justify-content: center;
   align-items: center;
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -54,9 +53,11 @@ const Flex = styled.div`
   }
 `;
 const PrevArrow = styled.div`
+margin-bottom:23px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     height: 20px;
+    margin-bottom:0px;
   }
 `;
 
@@ -89,7 +90,7 @@ export default function () {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.1,
+          slidesToShow: 1.2,
           slidesToScroll: 1,
         },
       },
@@ -98,15 +99,22 @@ export default function () {
 
   const isMobilee = WindowSize();
 
+  const icons = [
+    { name: "/images/Nft/1.svg" },
+    { name: "/images/Nft/2.svg" },
+    { name: "/images/Nft/3.svg" },
+    { name: "/images/Nft/4.svg" },
+    { name: "/images/Nft/5.svg" },
+  ];
   return !isMobilee ? (
     <NftContainer>
-      <HomeTitles>Top influencers</HomeTitles>
+      <PrevArrow>
+        <HomeTitles>Top influencers</HomeTitles>
+      </PrevArrow>
       <Flex>
-        <TopArtistCard />
-        <TopArtistCard />
-        <TopArtistCard />
-        <TopArtistCard />
-        <TopArtistCard />
+        {icons.map((icon) => (
+          <TopArtistCard nft={icon.name} />
+        ))}
       </Flex>
     </NftContainer>
   ) : (
@@ -115,11 +123,9 @@ export default function () {
         <HomeTitles>Top influencers</HomeTitles>
       </PrevArrow>
       <Slider {...settings}>
-        <TopArtistCard />
-        <TopArtistCard />
-        <TopArtistCard />
-        <TopArtistCard />
-        <TopArtistCard />
+        {icons.map((icon) => (
+          <TopArtistCard nft={icon.name} />
+        ))}
       </Slider>
     </NftContainer>
   );

@@ -13,6 +13,7 @@ import {
 const NftContainer = styled.div`
   max-width: 284px;
   height: 400px;
+  margin-top:32px;
   position: relative;
   border: 1px solid transparent;
   border-radius: 25px;
@@ -75,10 +76,10 @@ const Container = styled.div`
     max-width: 18px;
   }
 `;
-export default function TopArtistCard() {
+export default function TopArtistCard({ nft }) {
   return (
     <NftContainer>
-      <NftWrapper img="/images/1.png" />
+      <NftWrapper img={nft} />
       <Box img="/images/userpicture.svg" />
 
       <BoxWrapper>
