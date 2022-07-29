@@ -21,6 +21,7 @@ const NftContainer = styled.div`
     font-size: 30px;
   }
   .slick-next:before {
+    content: "🡒";
     color: #777e90;
     position: absolute;
     font-size: 30px;
@@ -29,8 +30,7 @@ const NftContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0rem 0px 3rem;
     width: 100%;
-    .slick-prev {
-      content: "🡐";
+    .slick-prev{
       margin-left: 82%;
       z-index: 1;
       margin-top: 3%;
@@ -51,10 +51,10 @@ const Slidebox = styled.div`
   }
 `;
 const Flex = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 19.5em);
-  width: 100%;
-  justify-content: space-between;
+display: grid;
+grid-template-columns: repeat(auto-fit, 19.5em);
+width: 100%;
+justify-content: space-between;
 
   margin-top: 5%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
