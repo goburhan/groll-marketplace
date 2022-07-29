@@ -16,6 +16,8 @@ interface prop {
 
 const Flex = styled.div<prop>`
   display: flex;
+  white-space: normal;
+  white-space: nowrap;
   justify-content: space-evenly;
   padding: 12px 24px;
   img {

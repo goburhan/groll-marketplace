@@ -33,8 +33,8 @@ import { animate, motion } from "framer-motion";
 
 const Flex = styled.div`
   display: flex;
-  justify-content: space-evenly; 
-  margin-left:20px;
+  justify-content: space-evenly;
+  margin-left: 20px;
   flex-direction: column;
   flex-wrap: wrap;
 `;
@@ -197,7 +197,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               )}
               <General24>Coinbase Wallet</General24>
             </div>
-            {selected === "coinbase" && <img src="/images/Arrow.svg" />}
+            {selected === "coinbase" && <img src="/images/Staticlogos/Arrow.svg" />}
           </WalletWrapper>
 
           <WalletWrapper
@@ -251,7 +251,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               <General24 type="submit">Metamask Wallet</General24>
             </div>
 
-            {selected === "metamask" && <img src="/images/Arrow.svg" />}
+            {selected === "metamask" && <img src="/images/Staticlogos/Arrow.svg" />}
           </WalletWrapper>
 
           <WalletWrapper
@@ -304,7 +304,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               )}
               <General24>Wallet Connect</General24>
             </div>
-            {selected === "walletconnect" && <img src="/images/Arrow.svg" />}
+            {selected === "walletconnect" && <img src="/images/Staticlogos/Arrow.svg" />}
           </WalletWrapper>
         </Flex>
 
