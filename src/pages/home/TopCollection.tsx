@@ -25,6 +25,7 @@ const NftContainer = styled.div`
     position: absolute;
     font-size: 30px;
   }
+  
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0rem 0px 3rem;
@@ -37,7 +38,6 @@ const NftContainer = styled.div`
       top: 0;
     }
     .slick-next {
-    
       margin-top: 3%;
       margin-right: 14%;
       top: 0;

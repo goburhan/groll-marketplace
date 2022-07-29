@@ -17,7 +17,7 @@ import {
   hooks as walletConnectHooks,
   walletConnect,
 } from "../connectors/walletconnect";
-import "../styles/slider-dots.css";
+
 import store, { persistor } from "../app/store";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/globals.css";
@@ -59,12 +59,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "dark" ? dark : light;
 
-  const PageWrapper = styled.div`
-    margin-top: 100px;
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      margin-top: 80px;
-    }
-  `;
+ 
 
   return (
     <Web3ReactProvider connectors={connectors}>
@@ -72,14 +67,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={themeMode}>
           <Globalstyle />
           <Provider store={store}>
-            <PageWrapper>
               <PersistGate loading={null} persistor={persistor}>
                 <Navbar />
                 <Component {...pageProps} />
                 <ToastContainer />
                 <Footer />
               </PersistGate>
-            </PageWrapper>
           </Provider>
         </ThemeProvider>
       </ThemeContext>
