@@ -14,6 +14,7 @@ interface prop {
   padding?: string;
 }
 
+
 const Flex = styled.div<prop>`
   display: flex;
   white-space: normal;
@@ -27,7 +28,7 @@ const Flex = styled.div<prop>`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding:  ${(props) => props.padding};
-  }
+  } 
 `;
 
 const Box = styled.div`
