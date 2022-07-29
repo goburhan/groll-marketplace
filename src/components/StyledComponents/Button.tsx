@@ -142,3 +142,12 @@ export const MobileMenu = styled.button(
   }
 `
 );
+
+interface arrow {
+  img?: any;
+}
+export const PrevNextButton = styled.button<arrow>`
+  background-image: url(${({ img }) => img}) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+`;

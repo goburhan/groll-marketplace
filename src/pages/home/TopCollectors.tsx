@@ -6,35 +6,37 @@ import "slick-carousel/slick/slick-theme.css";
 import TopArtistCard from "../../components/NftCards/Cards/TopArtistCard";
 import { HomeTitles, Title } from "../../components/StyledComponents/Text";
 import PriceContainer from "../../components/NftCards/PriceContainer";
+import { PrevNextButton } from "../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
   text-align: center;
   margin: 72px 192px 55px 192px;
+  
   .slick-prev:before {
-    content: "🡐";
+    display: none;
+    position: absolute;
     color: #777e90;
     font-size: 30px;
   }
   .slick-next:before {
-    content: "🡒";
     color: #777e90;
+    display: none;
+    position: absolute;
     font-size: 30px;
   }
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 100px 1rem 0px 3rem;
-    justify-content: center;
-    position: relative;
+    margin: 100px 0rem 0px 3rem;
     width: 100%;
+
     .slick-prev {
-      content: "🡐";
       margin-left: 82%;
       z-index: 1;
       margin-top: 3%;
       top: 0;
+      bottom: 0;
     }
-
     .slick-next {
-      content: "🡒";
       margin-top: 3%;
       margin-right: 14%;
       top: 0;
@@ -56,6 +58,8 @@ export default function TopCollectors() {
     infinite: false,
     speed: 250,
     slidesToShow: 5,
+    prevArrow: <PrevNextButton img="/images/Staticlogos/PrevArrow.svg" />,
+    nextArrow: <PrevNextButton img="/images/Staticlogos/Arrow.svg" />,
     slidesToScroll: 1,
     variableWidth: false,
     arrows: true,

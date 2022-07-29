@@ -7,20 +7,23 @@ import TCollectionCard from "../../components/NftCards/Cards/TCollectCard";
 import { HomeTitles, Title } from "../../components/StyledComponents/Text";
 import PriceContainer from "../../components/NftCards/PriceContainer";
 import PriceSelector from "../../components/Selectors/PriceSelector";
-import Next from "./NextArrow.svg";
+
 import Dropdown from "../../components/Dropdown";
 import Link from "next/link";
+import { PrevNextButton } from "../../components/StyledComponents/Button";
 const NftContainer = styled.div`
   text-align: center;
   margin: 60px 140px 62px 140px;
 
   .slick-prev:before {
+    display: none;
     position: absolute;
     color: #777e90;
     font-size: 30px;
   }
   .slick-next:before {
     color: #777e90;
+    display: none;
     position: absolute;
     font-size: 30px;
   }
@@ -28,18 +31,7 @@ const NftContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0rem 0px 3rem;
     width: 100%;
-    .slick-prev:before {
-      display: none;
-      font-size: 30px;
-    }
-    .slick-next:before {
-      display: none;
-      font-size: 30px;
-    }
-    .slick-next:after {
-      display: none;
-      font-size: 30px;
-    }
+
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
@@ -85,16 +77,6 @@ const TitleWrapper = styled.div`
 interface arrow {
   img?: any;
 }
-const LeftButton = styled.button<arrow>`
-  background-image: url(${({ img }) => img}) !important;
-  background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
-`;
-const RightButton = styled.button<arrow>`
-  background-image: url(${({ img }) => img}) !important;
-  background-repeat: no-repeat;
-  background-size: 100% 100% !important;
-`;
 
 export default function TopCollection() {
   const settings = {
@@ -104,8 +86,8 @@ export default function TopCollection() {
     slidesToScroll: 1,
     arrows: true,
     variableWidth: false,
-    prevArrow: <LeftButton img="/images/Staticlogos/PrevArrow.svg" />,
-    nextArrow: <RightButton img="/images/Staticlogos/Arrow.svg" />,
+    prevArrow: <PrevNextButton img="/images/Staticlogos/PrevArrow.svg" />,
+    nextArrow: <PrevNextButton img="/images/Staticlogos/Arrow.svg" />,
     responsive: [
       {
         breakpoint: 1024,

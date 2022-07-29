@@ -10,36 +10,39 @@ import {
   Title,
 } from "../../../components/StyledComponents/Text";
 import PriceContainer from "../../../components/NftCards/PriceContainer";
+import { PrevNextButton } from "../../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
   display: block;
   text-align: left;
   align-items: flex-start;
+
   .slick-prev:before {
-    content: "🡐";
+    display: none;
+    position: absolute;
     color: #777e90;
     font-size: 30px;
   }
   .slick-next:before {
-    content: "🡒";
     color: #777e90;
+    display: none;
+    position: absolute;
     font-size: 30px;
   }
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 1rem 1rem 0px 3rem;
+    margin: 100px 0rem 0px 3rem;
     width: 100%;
-    position: relative;
+
     .slick-prev {
-      content: "🡐";
       margin-left: 82%;
       z-index: 1;
-      margin-top: 18%;
+      margin-top: 3%;
       top: 0;
+      bottom: 0;
     }
-
     .slick-next {
-      content: "🡒";
-      margin-top: 18%;
+      margin-top: 3%;
       margin-right: 14%;
       top: 0;
     }
@@ -66,6 +69,8 @@ export default function VisualArt() {
     infinite: false,
     speed: 250,
     slidesToShow: 5,
+    prevArrow: <PrevNextButton img="/images/Staticlogos/PrevArrow.svg" />,
+    nextArrow: <PrevNextButton img="/images/Staticlogos/Arrow.svg" />,
     slidesToScroll: 1,
     variableWidth: false,
     arrows: true,
