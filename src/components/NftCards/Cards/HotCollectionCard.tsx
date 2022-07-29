@@ -55,9 +55,7 @@ const NftWrapper = styled.div<Nft>`
   margin: 2% 3% 0 3%;
   background-position: 50% 0%;
 `;
-const StyledBackIcon = styled.div((userr) => ({
-  backgroundImage: `url${userr}`,
-}));
+
 
 export default function HotCollectionCard() {
   return (

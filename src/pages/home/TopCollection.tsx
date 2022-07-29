@@ -15,13 +15,11 @@ const NftContainer = styled.div`
   margin: 60px 140px 62px 140px;
 
   .slick-prev:before {
-    content: "🡐";
     position: absolute;
     color: #777e90;
     font-size: 30px;
   }
   .slick-next:before {
-    content: "🡒";
     color: #777e90;
     position: absolute;
     font-size: 30px;
@@ -30,11 +28,24 @@ const NftContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0rem 0px 3rem;
     width: 100%;
-    .slick-prev{
+    .slick-prev:before {
+      display: none;
+      font-size: 30px;
+    }
+    .slick-next:before {
+      display: none;
+      font-size: 30px;
+    }
+    .slick-next:after {
+      display: none;
+      font-size: 30px;
+    }
+    .slick-prev {
       margin-left: 82%;
       z-index: 1;
       margin-top: 3%;
       top: 0;
+      bottom: 0;
     }
     .slick-next {
       margin-top: 3%;
@@ -49,12 +60,12 @@ const Slidebox = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-top: 2rem;
   }
-`; 
+`;
 const Flex = styled.div`
-display: grid;
-grid-template-columns: repeat(auto-fit, 19.5em);
-width: 100%;
-justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 19.5em);
+  width: 100%;
+  justify-content: space-between;
 
   margin-top: 5%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -62,13 +73,27 @@ justify-content: space-between;
   }
 `;
 
-const PrevArrow = styled.div`
+const TitleWrapper = styled.div`
   margin-bottom: 60px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     margin-bottom: 0px;
     height: 20px;
   }
+`;
+
+interface arrow {
+  img?: any;
+}
+const LeftButton = styled.button<arrow>`
+  background-image: url(${({ img }) => img}) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+`;
+const RightButton = styled.button<arrow>`
+  background-image: url(${({ img }) => img}) !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100% !important;
 `;
 
 export default function TopCollection() {
@@ -79,7 +104,8 @@ export default function TopCollection() {
     slidesToScroll: 1,
     arrows: true,
     variableWidth: false,
-
+    prevArrow: <LeftButton img="/images/Staticlogos/PrevArrow.svg" />,
+    nextArrow: <RightButton img="/images/Staticlogos/Arrow.svg" />,
     responsive: [
       {
         breakpoint: 1024,
@@ -109,9 +135,9 @@ export default function TopCollection() {
 
   return (
     <NftContainer>
-      <PrevArrow>
+      <TitleWrapper>
         <HomeTitles> Top collection</HomeTitles>
-      </PrevArrow>
+      </TitleWrapper>
 
       <Slider {...settings}>
         <Slidebox>
