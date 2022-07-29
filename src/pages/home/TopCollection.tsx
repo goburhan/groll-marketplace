@@ -21,7 +21,6 @@ const NftContainer = styled.div`
     font-size: 30px;
   }
   .slick-next:before {
-    content: "🡒";
     color: #777e90;
     position: absolute;
     font-size: 30px;
@@ -38,7 +37,7 @@ const NftContainer = styled.div`
       top: 0;
     }
     .slick-next {
-      content: "🡒";
+    
       margin-top: 3%;
       margin-right: 14%;
       top: 0;
