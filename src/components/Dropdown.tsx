@@ -9,8 +9,8 @@ const DropDownContainer = styled("div")`
   text-align: left;
   line-height: 30px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width:100%;
-    margin-right: 3rem;
+      margin-right:3rem;
+    width: 88vw;
   }
 `;
 
@@ -50,7 +50,7 @@ const ListItem = styled("li")`
   list-style: none;
   color: ${({ theme }) => theme.linkItems};
   font-size: 14px;
-  padding:0px 0px 0px 10px;
+  padding: 0px 0px 0px 10px;
   height: 2rem;
   &:hover {
     background-color: #484d57;

@@ -45,7 +45,7 @@ export default function TCollectionCard() {
     background: ${({ theme }) => theme.card};
     border: 1px solid transparent;
     border-radius: 18px;
-    height: 398px;
+    min-height: 398px;
     max-width: 300px;
     img {
       width: 100%;
@@ -54,6 +54,7 @@ export default function TCollectionCard() {
     }
     @media (max-width: ${({ theme }) => theme.mobile}) {
       margin-top: 3rem;
+
     }
   `;
 
