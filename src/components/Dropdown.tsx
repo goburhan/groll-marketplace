@@ -31,7 +31,7 @@ const DropDownHeader = styled.div`
 const DropDownListContainer = styled.div`
   background-color: ${({ theme }) => theme.header};
   position: absolute;
-  width: inherit;
+  width: 19.5em;
   padding: 0px 8px 8px 8px;
   border: 2px solid ${({ theme }) => theme.gray};
   border-radius: 20px;

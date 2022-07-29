@@ -33,7 +33,8 @@ import { animate, motion } from "framer-motion";
 
 const Flex = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly; 
+  margin-left:20px;
   flex-direction: column;
   flex-wrap: wrap;
 `;
@@ -63,7 +64,7 @@ const WalletWrapper = styled(motion.button)`
 `;
 const ConnectWalletContainer = styled.div`
   height: 100hw;
-  padding:50px 15% 10% 15%;
+  padding: 50px 15% 10% 15%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

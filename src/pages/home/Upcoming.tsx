@@ -48,10 +48,14 @@ const NftContainer = styled.div`
   }
 `;
 const Flex = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 4%;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  margin-top:75px;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 export default function () {

@@ -45,6 +45,7 @@ const Slidebox = styled.div`
   text-color: white;
 `;
 const TitleWrapper = styled.div`
+margin-bottom:60px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     height: 20px;
