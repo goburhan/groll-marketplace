@@ -63,7 +63,7 @@ const WalletWrapper = styled(motion.button)`
 `;
 const ConnectWalletContainer = styled.div`
   height: 100hw;
-  padding: 8% 15% 10% 15%;
+  padding:50px 15% 10% 15%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

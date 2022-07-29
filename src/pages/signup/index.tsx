@@ -84,7 +84,7 @@ export default function SignUpPage() {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 160px 120px 160px 160px;
+    padding: 60px 120px 160px 160px;
     background-color: ${({ theme }) => theme.background};
   `;
   const Flex = styled.div`
