@@ -67,10 +67,21 @@ export default function Items() {
     { id: 5 },
     { id: 6 },
   ];
+  const nft = [
+    { name: "/images/Nft/A1.svg" },
+    { name: "/images/Nft/A2.svg" },
+    { name: "/images/Nft/A3.svg" },
+    { name: "/images/Nft/A4.svg" },
+    { name: "/images/Nft/A5.svg" },
+    { name: "/images/Nft/A6.svg" },
+    { name: "/images/Nft/A7.svg" },
+    { name: "/images/Nft/A8.svg" },
+  ];
+  
 
   let items = [];
 
-  items.push(<AllItemCard />);
+  items.push(<AllItemCard nft={"/images/Nft/A1.svg"} />);
 
   let gokhan = [];
   let i = 0;
@@ -84,44 +95,42 @@ export default function Items() {
   return !isMobilee ? (
     <NftContainer>
       <Flex>
-      {articles.map((id, i) => (
-        <motion.div
-          initial={{
-            opacity: 0,
-            // translateX: i % 2 === 0 ? 50 : 50,
-            // translateY: -50,
-          }}
-          animate={{ opacity: 1, translateX: 0, translateY: 0 }}
-          transition={{ duration: 0.5, delay: i * 0.2 }}
-        >
-            <AllItemCard />
-          
-        </motion.div>
-      ))}
+        {articles.map((id, i) => (
+          <motion.div
+            initial={{
+              opacity: 0,
+              // translateX: i % 2 === 0 ? 50 : 50,
+              // translateY: -50,
+            }}
+            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.2 }}
+          >
+            <AllItemCard nft={"/images/Nft/A1.svg"} />
+          </motion.div>
+        ))}
       </Flex>
-
     </NftContainer>
   ) : (
     <NftContainer>
       <HomeTitles> All Items</HomeTitles>
       <Slider {...settings}>
         <Slidebox>
-          <AllItemCard />
+          <AllItemCard nft={"/images/Nft/A1.svg"} />
         </Slidebox>
         <Slidebox>
-          <AllItemCard />
+          <AllItemCard nft={"/images/Nft/A1.svg"} />
         </Slidebox>
         <Slidebox>
-          <AllItemCard />
+          <AllItemCard nft={"/images/Nft/A1.svg"} />
         </Slidebox>
         <Slidebox>
-          <AllItemCard />
+          <AllItemCard nft={"/images/Nft/A1.svg"} />
         </Slidebox>
         <Slidebox>
-          <AllItemCard />
+          <AllItemCard nft={"/images/Nft/A1.svg"} />
         </Slidebox>
         <Slidebox>
-          <AllItemCard />
+          <AllItemCard nft={"/images/Nft/A1.svg"} />
         </Slidebox>
       </Slider>
     </NftContainer>
