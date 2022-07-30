@@ -30,6 +30,7 @@ import {
 import Terms from "./Terms";
 import Navbar from "../../components/Navbar";
 import { animate, motion } from "framer-motion";
+import { Backhome } from "../../components/StyledComponents/Button";
 
 const Flex = styled.div`
   display: flex;
@@ -77,22 +78,7 @@ const Box = styled.div`
     max-height: 500px;
   }
 `;
-const Backhome = styled.button`
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: 1px solid #484d57;
-  color: ${({ theme }) => theme.cardTitle};
-  margin-bottom: 80px;
-  cursor: pointer;
-  border-radius: 18px;
-  font-size: 14px;
-  padding: 10px 5px 10px 5px;
-  width: 10%;
-  img {
-    margin-right: 6px;
-  }
-`;
+
 
 export default function ConnectWallet({ isOpen, closeModal }: any) {
   const [selected, setSelected] = useState("");

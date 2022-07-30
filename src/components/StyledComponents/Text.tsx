@@ -63,6 +63,34 @@ export const MiniCardTitle = styled.text`
 
   color: ${({ theme }) => theme.cardTitle};
 `;
+export const EditProfileTitle = styled.text`
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+
+  color: ${({ theme }) => theme.cardTitle};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 24px;
+    line-height: 36px;
+  }
+`;
+export const EditLower = styled.text`
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+  span {
+    color: ${({ theme }) => theme.cardTitle};
+  }
+
+  color: ${({ theme }) => theme.editLower};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+ 
+  }
+`;
+
 export const TartistTitle = styled.text`
   font-weight: 700;
   font-size: 32px;

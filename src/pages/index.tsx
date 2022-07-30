@@ -29,6 +29,7 @@ import ThemeContext from "../contexts/ThemeContext";
 import { light, dark } from "../styles/themes";
 import useThemeMode from "../hooks/useThemeMode";
 import Deneme from "./deneme";
+import Editprofile from "./editprofile";
 const IndexPage: NextPage = () => {
   const { connector } = useWeb3React();
 
@@ -100,6 +101,7 @@ const IndexPage: NextPage = () => {
               <Route path="/carddetails" element={<CardDetails />}></Route>
               <Route path="/connectwallet" element={<ConnectWallet />}></Route>
               <Route path="/deneme" element={<Deneme />}></Route>
+              <Route path="/editprofile" element={<Editprofile />}></Route>
             </Routes>
           </BrowserRouter>
           <Navbar />

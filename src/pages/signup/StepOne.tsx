@@ -11,6 +11,7 @@ import SingleUpload from "../../components/Auth/FileUploader/SingleUpload";
 import {
   selectConnector,
   updateProfile,
+  userSelect,
 } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { StyledButton } from "../../components/StyledComponents/Button";
@@ -18,10 +19,11 @@ import { Web3ReactHooks } from "@web3-react/core";
 import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
 import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
 import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
-import PersonalDetailWrapper from "../../components/PersonalDetailWrapper";
+import PersonalDetailWrapper from "../../components/UploadAvatar";
 import Checkbox from "@mui/material/Checkbox";
 import CustomizedCheckbox from "../connectwallet/Checkbox";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 interface prop {
   width?: string;
@@ -34,13 +36,7 @@ interface checkboxProps {
   defaultChecked?: boolean;
   color?: any;
 }
-const Check = styled(Checkbox)<checkboxProps>`
-  color: #2ae7a8;
-  width: 6%;
-  ::hover {
-    background: transparent;
-  }
-`;
+
 const Flex = styled(motion.div)<prop>`
   display: flex;
   width: 60%;
@@ -61,7 +57,6 @@ const Botwrapper = styled.div`
   justify-content: space-between;
   width: 90%;
 `;
-
 
 const Text = styled.text<prop>`
   font-weight: 700;
@@ -114,8 +109,6 @@ export default function StepOne() {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
-
   function handleChange(e) {
     setUserName(e.target.value);
   }
@@ -139,11 +132,19 @@ export default function StepOne() {
         return metaMaskHooks;
     }
   }
+  const user = useSelector(userSelect);
+  console.log(user.nickname);
 
   return (
     <AnimatePresence>
       <Flex>
-        <PersonalDetailWrapper />
+        <PersonalDetailWrapper
+          title="Upload your avatar"
+          image="/images/Staticlogos/Uploadimg.svg"
+          buttons="Upload"
+          description="We recommend an image of at least 400x400 Gifs work too🙌"
+          tag="s"
+        />
         <InputWrapper>
           <Text color="#b1b5c4">Nickname</Text>
           <Register
@@ -216,24 +217,26 @@ export default function StepOne() {
             <img src="/images/Staticlogos/Clearicon.svg" />
             Clear all
           </Clear>
-          <StyledButton
-            onClick={() => {
-              dispatch(
-                updateProfile({
-                  nickname: userName,
-                  brief: bio,
-                  coinbase: accounts[0],
-                })
-              );
-            }}
-            style={{
-              height: "48px",
-              width: "18%",
-              background: "#00ACFF",
-            }}
-          >
-            Confirm
-          </StyledButton>
+          <Link href="/signup">
+            <StyledButton
+              onClick={() => {
+                dispatch(
+                  updateProfile({
+                    nickname: userName,
+                    brief: bio,
+                    coinbase: accounts[0],
+                  })
+                );
+              }}
+              style={{
+                height: "48px",
+                width: "18%",
+                background: "#00ACFF",
+              }}
+            >
+              Confirm
+            </StyledButton>
+          </Link>
         </Botwrapper>
       </Flex>
     </AnimatePresence>

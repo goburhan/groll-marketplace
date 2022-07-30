@@ -15,10 +15,13 @@ import { useContext } from "react";
 import { MenuToggle } from "./Mobile/Menu/menuToggle";
 import { HamburgerMenu } from "./Mobile/Menu";
 import useThemeMode from "../hooks/useThemeMode";
+import { useSelector } from "react-redux";
+import { userSelect } from "../actions/wallet/walletSlice";
 
 export default function Navbar() {
   const { theme, themeToggler } = useThemeMode();
-
+  const user = useSelector(userSelect);
+  console.log(user)
   const Navibar = styled.div`
     top: 0px;
     display: flex;
@@ -112,6 +115,7 @@ export default function Navbar() {
           </SearchWrapper>
 
           <ConnectButton />
+    {user ? <img src={user.avatar} /> : null}
 
           {/* <img src="/images/bell.svg" />   */}
           <ThemeButton

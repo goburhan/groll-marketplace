@@ -76,7 +76,6 @@ export default {
   accountsChanged(accounts) {
     if (!store.getState().connected) return;
     console.log("accountsChanged");
-    alert("accountsChanged");
     // store.dispatch("logout");
     if (accounts.length) {
       // store.dispatch("connect");

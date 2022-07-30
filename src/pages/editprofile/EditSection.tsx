@@ -1,23 +1,29 @@
+import { Web3ReactHooks } from "@web3-react/core";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { Register } from "../../components/SearchBar";
-
-import FileUpload from "../../components/Auth/FileUploader/FileUpload";
-import SingleUpload from "../../components/Auth/FileUploader/SingleUpload";
 import {
   selectConnector,
   updateProfile,
 } from "../../actions/wallet/walletSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { StyledButton } from "../../components/StyledComponents/Button";
-import { Web3ReactHooks } from "@web3-react/core";
+import FileUpload from "./FileUpload";
+import PersonalDetailWrapper from "../../components/UploadAvatar";
+import { Register } from "../../components/SearchBar";
+import {
+  Backhome,
+  StyledButton,
+} from "../../components/StyledComponents/Button";
+import {
+  CardTitle,
+  EditLower,
+  EditProfileTitle,
+  LowerDetail,
+} from "../../components/StyledComponents/Text";
 import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
 import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
 import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
-import PersonalDetailWrapper from "../../components/UploadAvatar";
-import Checkbox from "@mui/material/Checkbox";
-import Toggle from "../../components/Toggle";
-import StepTwoUploader from "../../components/Auth/FileUploader/StepTwoUploader";
+import CustomizedCheckbox from "../connectwallet/Checkbox";
+import Dropdown from "./Dropdown";
 
 interface prop {
   width?: string;
@@ -26,20 +32,17 @@ interface prop {
   mr?: string;
   innerRef?: any;
 }
-interface checkboxProps {
-  defaultChecked?: boolean;
-  color?: any;
-}
 
 const Flex = styled.div<prop>`
   display: flex;
-  width: 60%;
+  width: 100%;
   flex-direction: ${(props) => props.direction || "column"};
   text-align: left;
   justify-content: space-between;
   img {
-    max-height: 60px;
-    max-width: 60px;
+    max-width: 100px;
+    border-radius: 50%;
+    border: 1px solid transparent;
   }
   button {
     place-self: right;
@@ -48,6 +51,7 @@ const Flex = styled.div<prop>`
 const Botwrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-content: center;
   width: 90%;
 `;
 
@@ -61,24 +65,43 @@ const Text = styled.text<prop>`
 const InputWrapper = styled.div<prop>`
   display: flex;
   flex-direction: column;
-  width: ${(props) => props.width || "100%"};
   margin-right: ${(props) => props.mr};
 `;
 interface boxprops {
   justify?: any;
 }
-
+const Checker = styled.div<boxprops>`
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: ${({ justify }) => justify};
+`;
+const AddMore = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: transparent;
+  border: 1px solid #484d57;
+  width: 30%;
+  padding: 10px 2px 10px 2px;
+  border-radius: 25px;
+  color: #777e91;
+  margin-bottom: 6%;
+`;
 const Clear = styled.button`
   display: flex;
-  cursor: pointer;
   align-items: center;
-  gap: 4px;
   background: transparent;
   border: 1px solid transparent;
   color: #777e91;
+  margin-bottom: 6%;
 `;
-
-export default function StepOne() {
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 72px;
+`;
+export default function EditSection() {
   const [userName, setUserName] = useState("");
   const [bio, setBio] = useState("");
   const defaultConnector = useSelector(selectConnector);
@@ -86,8 +109,6 @@ export default function StepOne() {
   const accounts = getDefaultConnector().useAccounts();
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
-
-  console.log(isActive);
 
   useEffect(() => {}, []);
 
@@ -114,46 +135,29 @@ export default function StepOne() {
         return metaMaskHooks;
     }
   }
-
-  const Twelve = styled.text`
-    font-family: "Poppins", normaml;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
-
-    margin-top: 4px;
-    margin-top: ${({ theme }) => theme.mt};
-    color: ${({ theme }) => theme.gray};
-
-    span {
-      color: ${({ theme }) => theme.linkItems};
-    }
-  `;
-  interface marginProp {
-    margin?: string;
-  }
-  const CardTitle = styled.text<marginProp>`
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    margin: ${(props) => props.margin};
-    color: ${({ theme }) => theme.cardTitle};
-  `;
-
   return (
     <Flex>
-      <img
-        style={{ marginTop: "3rem" }}
-        src="/images/Staticlogos/Kycicon.svg"
-        alt="kyc"
-      />
-      <CardTitle margin="17px 0px 28px 0px">
-        KYC Verification requirements
+      <Backhome>
+        <img src="/images/back.svg" />
+        Back to home
+      </Backhome>
+      <Container>
+        <EditProfileTitle>Edit Your Profile</EditProfileTitle>
+        <EditLower>
+          You can set preferred display name, create{" "}
+          <span> your profile URL </span> and manage other personal settings.
+        </EditLower>
+      </Container>
+
+      <CardTitle margin="0px 0px 30px 0px" color="#fff">
+        Personal Details
       </CardTitle>
+
       <InputWrapper>
-        <Text color="#b1b5c4">PASSPORT OR ID NUMBER</Text>
+        <Text color="#b1b5c4">Nickname</Text>
         <Register
-          placeholder="e.g 13212456"
+          height="56px"
+          placeholder="e.g Mehdi Mairez"
           id="userName"
           name="userName"
           onChange={(w) => handleChange(w)}
@@ -162,30 +166,56 @@ export default function StepOne() {
       </InputWrapper>
 
       <InputWrapper>
-        <Text color="#b1b5c4">LOCATION</Text>
-        <Register placeholder="e.g Istanbul" />
+        <Text color="#b1b5c4">TYPE OF PROFILE</Text>
+        <Dropdown header="Collector" />
       </InputWrapper>
-      <InputWrapper width="100%">
-        <Flex direction="row" width="90%">
-          <CardTitle>Code Generated</CardTitle>
-          <Toggle />
-        </Flex>
+
+      
+
+      <InputWrapper>
+        <Text size="16px" color="#fff">
+          Cover
+        </Text>
+
+        <FileUpload></FileUpload>
+      </InputWrapper>
+
+      <InputWrapper>
+        <Text color="#b1b5c4">BIO / ABOUT ME </Text>
         <Register
-          placeholder=""
-          innerRef={(x) => {
-            this.input = x;
-          }}
+          id="bio"
+          name="bio"
+          onChange={(e) => bioChange(e)}
+          value={bio}
+          placeholder="e.g  SpaceShips NFT... "
         />
       </InputWrapper>
 
       <InputWrapper>
-        <CardTitle>Upload Files</CardTitle>
-        <Twelve>
-          Confirm your identity by Uploading the picture of the id or passport
-          first,then the picture witht he code and passport.
-        </Twelve>
-        <StepTwoUploader></StepTwoUploader>
+        <Text color="#b1b5c4">Email</Text>
+        <Register placeholder="example@Gulfcoin.com" />
       </InputWrapper>
+
+   
+
+      <CardTitle margin="8px 0px 20px 0px">Social</CardTitle>
+
+      <InputWrapper>
+        <Text color="#b1b5c4">Instagram</Text>
+        <Register placeholder="@goburhan" />
+      </InputWrapper>
+      <InputWrapper>
+        <Text color="#b1b5c4">Twitter</Text>
+        <Register placeholder="@gobur" />
+      </InputWrapper>
+      <InputWrapper>
+        <Text color="#b1b5c4">Portfolio or website</Text>
+        <Register placeholder="@gobur" />
+      </InputWrapper>
+      <AddMore>
+        <img src="/images/Staticlogos/Addicon.svg" />
+        Add more social account
+      </AddMore>
 
       <Botwrapper>
         <Clear>

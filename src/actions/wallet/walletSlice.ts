@@ -134,6 +134,7 @@ export const updateProfile = createAsyncThunk(
         address: _.coinbase,
         id: '3',
         nickname: _.nickname,
+        avatar: _.avatar,
         //selectUser ile id yi al
       };
       return api("user.setprofile", data).then((res) => {
@@ -338,6 +339,7 @@ const slice = createSlice({
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectConfig = (state: AppState) => state.config
 export const selectConnector = (state: AppState) => state.defaultConnector
+export const userSelect = (state: AppState) => state.user
 
 export default slice.reducer
 

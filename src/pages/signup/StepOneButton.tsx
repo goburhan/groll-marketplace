@@ -5,8 +5,11 @@ import StepOne from "../signup/StepOne";
 import styled from "styled-components";
 import SignUpPage from "../signup";
 import BasicCard from "../signup/BasicCard";
-import { KycTitle } from "../../components/StyledComponents/Text";
+import { KycTitle, TabFont } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
+import { useSelector } from "react-redux";
+import { userSelect } from "../../actions/wallet/walletSlice";
+import Link from "next/link";
 
 export default function StepOneButton() {
   function ProgressBar(one: any) {
@@ -16,7 +19,7 @@ export default function StepOneButton() {
       background: rgba(0, 172, 255, 0.25);
       width: 10px;
       height: auto;
-      margin-right:40px;
+      margin-right: 40px;
     `;
     useEffect(() => {
       setGokhan(one);
@@ -44,8 +47,7 @@ export default function StepOneButton() {
   // This approach is if you only want max one section open at a time. If you want multiple
   // sections to potentially be open simultaneously, they can all be given their own `useState`.
   const [open, toggleOpen] = useState(false);
-
-  const Header = styled(motion.header)``;
+  const [disable, setDisable] = useState(false);
   const Section = styled(motion.section)`
     overflow: hidden;
   `;
@@ -63,6 +65,7 @@ export default function StepOneButton() {
     border: 1px solid transparent;
     background: transparent;
     color: ${({ theme }) => theme.cardTitle};
+    opacity: ${(props) => (user.nickname !== "" ? "0.1" : "1")};
     font-size: 18px;
   `;
   const Progress = styled(motion.text)`
@@ -86,6 +89,13 @@ export default function StepOneButton() {
       max-width: 90px;
     }
   `;
+  const EditButton = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-right: 22px;
+    justify-conent: center;
+  `;
   interface prop {
     width?: string;
     direction?: string;
@@ -94,12 +104,14 @@ export default function StepOneButton() {
     innerRef?: any;
     mb?: any;
     gap?: any;
+    disabled?: any;
   }
 
-  const ButtonWrapper = styled(motion.div)`
+  const ButtonWrapper = styled(motion.button)<prop>`
     display: flex;
     width: 100%;
     justify-content: space-between;
+    opacity: ${(props) => (props.disabled === true ? "0.5" : "1")};
   `;
 
   const ChildVariants = {
@@ -148,28 +160,16 @@ export default function StepOneButton() {
       },
     },
   };
-  const Mainbar = styled.div`
-    background: linear-gradient(
-      272.59deg,
-      #00d2ff -100.51%,
-      #db00ff -14.24%,
-      #09abf9 -1.51%
-    );
-    width: 18px;
-    height: auto;
-  `;
-  const ChildBard = styled.div`
-    background: yellow;
+  const user = useSelector(userSelect);
 
-    width: 18px;
-    height: 160vh;
-  `;
-  const Flex = styled.div`
-    display: flex;
-  `;
-  const Flex2 = styled(motion.div)`
-    width: 100%;
-  `;
+  useEffect(() => {
+    if (user.nickname !== "") {
+      toggleOpen(false);
+      setDisable(true);
+    }
+  });
+  console.log(user.nickname);
+
   return (
     <div style={{ display: "flex", width: "100%" }}>
       <ProgressBar one={open} />
@@ -181,6 +181,7 @@ export default function StepOneButton() {
             variants={ButtonParentVariants}
             animate={open ? "open" : "closed"}
             onClick={() => toggleOpen(!open)}
+            disabled={disable}
           >
             <StyledTitle style={{ cursor: "pointer" }}>
               <Box direction="row">
@@ -205,7 +206,14 @@ export default function StepOneButton() {
                 toggleOpen(!open);
               }}
             >
-              {open ? (
+              {disable ? (
+                <Link href="/editprofile">
+                  <EditButton>
+                    <img src="/images/Icons/Editbutton.svg" />
+                    <TabFont>Edit</TabFont>
+                  </EditButton>
+                </Link>
+              ) : open ? (
                 <img src="/images/Staticlogos/Uparrow.svg" />
               ) : (
                 <img src="/images/Staticlogos/Downarrow.svg" />

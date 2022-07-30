@@ -15,23 +15,44 @@ export const StyledButton = styled.button`
   }
 `;
 export const SliderButton = styled.button`
-border: 1px solid  ${({ theme }) => theme.blue};
-border-radius: 90px;
-width: 140px;
-padding: 16px 0px;
-text-align: center;
-background: transparent;
-font-size: 16px;
-color: #00ACFF;
-font-weight: bold;
-cursor: pointer;
-:hover {
-  opacity: 0.9;
-}
+  border: 1px solid ${({ theme }) => theme.blue};
+  border-radius: 90px;
+  width: 140px;
+  padding: 16px 0px;
+  text-align: center;
+  background: transparent;
+  font-size: 16px;
+  color: #00acff;
+  font-weight: bold;
+  cursor: pointer;
+  :hover {
+    opacity: 0.9;
+  }
+`;
+
+export const Backhome = styled.button`
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #484d57;
+  color: #9197ae;
+  margin-bottom: 80px;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 14px;
+  padding: 10px 5px 10px 5px;
+  max-width: 150px;
+  img {
+    margin-right: 6px;
+  }
+  :hover {
+    opacity: 0.8;
+  }
 `;
 
 export const NavButton = styled.button`
-  border: 1px solid #484D57;
+  border: 1px solid #484d57;
   background: ${({ theme }) => theme.card};
   border-radius: 25px;
   padding: 8px 20px;

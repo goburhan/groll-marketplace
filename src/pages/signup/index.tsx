@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AccountInformation from "./StepOneButton";
 import SelfieCard from "./KycCard";
-import { StyledButton } from "../../components/StyledComponents/Button";
+import { Backhome, StyledButton } from "../../components/StyledComponents/Button";
 import { selectConnector } from "../../actions/wallet/walletSlice";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -90,25 +90,7 @@ export default function SignUpPage() {
   const Flex = styled.div`
     display: flex;
   `;
-  const Backhome = styled.button`
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: 1px solid #484d57;
-    color: ${({ theme }) => theme.cardTitle};
-    margin-bottom: 80px;
-    cursor: pointer;
-    border-radius: 18px;
-    font-size: 14px;
-    padding: 10px 5px 10px 5px;
-    width: 8%;
-    img {
-      margin-right: 6px;
-    }
-    :hover {
-      opacity: 0.8;
-    }
-  `;
+
   const [onee, setOnee] = useState("");
   useEffect(() => {}, []);
 

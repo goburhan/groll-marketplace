@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Navbar />
               <Component {...pageProps} />
               <ToastContainer />
-              <Footer />
+              {/* <Footer /> */}
             </PersistGate>
           </Provider>
         </ThemeProvider>

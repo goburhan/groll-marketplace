@@ -34,17 +34,16 @@ const PersonalDetail = styled.div`
 
 const Flex = styled.div<prop>`
   display: flex;
-  width: 74%;
   padding: ${(props) => props.padding};
   flex-direction: ${(props) => props.direction || "row"};
-  div{
-    width:65.4%;
+  div {
     line-height: 20px;
   }
-  img{
-    min-height: 128px;
+  img {
+    max-height: 128px;
     min-width: 128px;
-    margin-bottom:24px;
+    margin-bottom: 24px;
+    border-radius: 50%;
   }
 `;
 
@@ -55,7 +54,13 @@ const Text = styled.text<prop>`
   line-height: 20px;
 `;
 
-export default function PersonalDetailWrapper() {
+export default function PersonalDetailWrapper({
+  title,
+  image,
+  buttons,
+  description,
+  tag,
+}) {
   const defaultConnector = useSelector(selectConnector);
 
   function getDefaultConnector(): Web3ReactHooks {
@@ -79,7 +84,6 @@ export default function PersonalDetailWrapper() {
 
   let Buttontag = "";
 
-
   // var accountEllipsis = accounts ? { tag: accounts[0] + tag.substring(0, 4) + "..." + tag.substring(accounts.length - 4)} : "Connect Wallet";
 
   if (accounts !== undefined && accounts.length > 0) {
@@ -91,22 +95,19 @@ export default function PersonalDetailWrapper() {
     Buttontag = "Connect";
   }
 
-
   return (
     <PersonalDetail>
-      <CardTitle color="#fff">Personal Details</CardTitle>
-      <Text color="#777E90">{Buttontag}</Text>
+      <CardTitle color="#fff">{tag === "" ? "" : "Personal Details"}</CardTitle>
+      <Text color="#777E90">{tag === "" ? "" : Buttontag}</Text>
       <Flex>
-        <img src="/images/Staticlogos/Uploadimg.svg" alt="basic" />
-        <Flex  padding="10px 1rem 0rem 1rem" direction="column">
-          <CardTitle color="#fff">Upload your avatar</CardTitle>
+        <img src={image} alt="basic" />
+        <Flex padding="10px 1rem 0rem 1rem" direction="column">
+          <CardTitle color="#fff">{title}</CardTitle>
           <div>
-            <Text color="#777E90">
-              We recommend an image of at least 400x400 Gifs work too🙌
-            </Text>
+            <Text color="#777E90">{description}</Text>
           </div>
 
-          <SingleUpload></SingleUpload>
+          <SingleUpload button={buttons}></SingleUpload>
         </Flex>
       </Flex>
     </PersonalDetail>

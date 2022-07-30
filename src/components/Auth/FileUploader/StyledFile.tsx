@@ -43,10 +43,12 @@ export const InputLabel = styled.label`
 `;
 
 export const DragDropText = styled.p`
+
   color: #777e90;
   font-weight: 400;
   font-size: 12px;
   margin-bottom:20px;
+ 
 `;
 
 export const UploadFileBtn = styled.button`
