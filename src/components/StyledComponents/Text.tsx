@@ -4,6 +4,7 @@ interface marginProp {
   margin?: string;
   bold?: string;
   mr?: string;
+  weight?: string;
 }
 export const HomeTitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -77,9 +78,9 @@ export const EditProfileTitle = styled.text`
   }
 `;
 export const EditLower = styled.text`
-font-weight: 400;
-font-size: 14px;
-line-height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
   span {
     color: ${({ theme }) => theme.cardTitle};
   }
@@ -87,7 +88,6 @@ line-height: 24px;
   color: ${({ theme }) => theme.editLower};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
- 
   }
 `;
 
@@ -157,6 +157,13 @@ export const General24 = styled.text`
   letter-spacing: -0.01em;
 
   color: ${({ theme }) => theme.titles};
+`;
+export const ProfileName = styled.text`
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+
+  color: ${({ theme }) => theme.lowerDetail};
 `;
 
 export const MiniCategoryTitle = styled.text`
@@ -231,8 +238,8 @@ export const BuyerTitle = styled.text`
 
   color: ${({ theme }) => theme.gray};
 `;
-export const Twelve = styled.text`
-  font-weight: 700;
+export const Twelve = styled.text<marginProp>`
+  font-weight: ${(props) => props.weight || "700"};
   font-size: 12px;
   line-height: 20px;
   margin-top: 8px;

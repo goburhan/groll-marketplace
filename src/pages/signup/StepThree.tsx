@@ -75,7 +75,7 @@ export default function StepOne() {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
 
-  console.log(isActive);
+  // console.log(isActive);
 
   useEffect(() => {}, []);
 

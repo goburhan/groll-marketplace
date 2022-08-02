@@ -32,9 +32,7 @@ function ProgressBar(one: any) {
     height: ${burhan[0] === true ? "100%" : "0px"};
   `;
 
-  if (burhan[0] === false) {
-    console.log("deneme");
-  }
+ 
 
   return (
     <Mainbar>

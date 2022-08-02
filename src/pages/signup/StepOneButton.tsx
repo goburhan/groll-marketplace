@@ -34,10 +34,7 @@ export default function StepOneButton() {
       height: ${burhan[0] === true ? "100%" : "0px"};
     `;
 
-    if (burhan[0] === false) {
-      console.log("deneme");
-    }
-
+  
     return (
       <Mainbar>
         <ChildBard></ChildBard>
@@ -163,12 +160,13 @@ export default function StepOneButton() {
   const user = useSelector(userSelect);
 
   useEffect(() => {
+    //user.nickname !== "" mean is user doesnt finished first step of auth
     if (user.nickname !== "") {
       toggleOpen(false);
       setDisable(true);
     }
   });
-  console.log(user.nickname);
+  console.log(user);
 
   return (
     <div style={{ display: "flex", width: "100%" }}>

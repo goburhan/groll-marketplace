@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {
   selectConnector,
   updateProfile,
+  userSelect,
 } from "../../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Web3ReactHooks } from "@web3-react/core";
@@ -11,36 +12,44 @@ import { hooks as coinbaseWalletHooks } from "../../../connectors/coinbasewallet
 import { hooks as metaMaskHooks, metaMask } from "../../../connectors/metamask";
 import { hooks as walletConnectHooks } from "../../../connectors/walletconnect";
 
+
 export default function SingleUpload({ button }) {
   const [images, setImages] = useState([]);
   const maxNumber = 69;
   const dispatch = useDispatch();
   const defaultConnector = useSelector(selectConnector);
+  const user = useSelector(userSelect);
+  const accounts = getDefaultConnector().useAccounts();
+  const id = user.id;
+  const nick = user.nickname;
 
   const onChange = (
     imageList: ImageListType,
     addUpdateIndex: number[] | undefined
   ) => {
     // data for submit
-    {imageList.map((image, index) => (
-      dispatch(
-        updateProfile({
-          avatar: image.dataURL,
-          coinbase: accounts[0],
-        })
-      )
-    ))}
+    {
+      imageList.map((image) =>
+        dispatch(
+          updateProfile({
+            avatar: image,
+            coinbase: accounts[0],
+            id:id,
+            nickname:nick
+          })
+        )
+      );
+    }
     // dispatch(
     //   updateProfile({
     //     avatar: imageList[0],
     //     coinbase: accounts[0],
     //   })
     // )
-   
+
     console.log(imageList, addUpdateIndex);
     setImages(imageList as never[]);
   };
-
 
   function getDefaultConnector(): Web3ReactHooks {
     switch (defaultConnector) {
@@ -58,7 +67,6 @@ export default function SingleUpload({ button }) {
         return metaMaskHooks;
     }
   }
-  const accounts = getDefaultConnector().useAccounts();
   // useEffect(() => {
   //   const change = async () => {
   //     dispatch(
@@ -70,7 +78,12 @@ export default function SingleUpload({ button }) {
   //   };
   //   console.log(images[0]);
   // }, [images]);
+  
+  
+  
 
+  const [imageUrl, setImageUrl] = useState(null);
+    
   const UploadButton = styled.button`
     font-family: "Popins", sans-serif;
     cursor: pointer;
@@ -117,6 +130,7 @@ export default function SingleUpload({ button }) {
               {button}
             </UploadButton>
             &nbsp;
+           
             {/* <button onClick={onImageRemoveAll}>Remove all images</button> */}
             {/* {imageList.map((image, index) => (
               <div key={index} className="image-item">

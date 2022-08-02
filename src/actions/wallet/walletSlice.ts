@@ -132,7 +132,7 @@ export const updateProfile = createAsyncThunk(
       console.log(_)
       let data = {
         address: _.coinbase,
-        id: '3',
+        id: _.id,
         nickname: _.nickname,
         avatar: _.avatar,
         //selectUser ile id yi al
@@ -239,7 +239,8 @@ const slice = createSlice({
     },
     config: {
       loginMessage: "", 
-
+      ipfsUrl:"",
+      cdnUrl:"",
       contract: {
         multiCallAddress:"",
         auctionExchangeAddress:"",

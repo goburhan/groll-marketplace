@@ -4,7 +4,7 @@ import { Divider } from "../../components/StyledComponents/Divider";
 import { CardTitle } from "../../components/StyledComponents/Text";
 import Toggle from "../../components/Toggle";
 import UploadAvatar from "../../components/UploadAvatar";
-
+import FileInput from "../../components/Auth/FileUploader/Material";
 const Wrapper = styled.div`
   display: grid;
   margin-top: 28%;
@@ -68,6 +68,7 @@ export default function AvatarSettings() {
   return (
     <Wrapper>
       <Flex>
+        {/* <FileInput></FileInput> */}
         <UploadAvatar
           tag=""
           title="Profile Photo 2D"

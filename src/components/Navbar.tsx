@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { Flex } from "./StyledComponents/Flex";
 import {
@@ -17,11 +17,38 @@ import { HamburgerMenu } from "./Mobile/Menu";
 import useThemeMode from "../hooks/useThemeMode";
 import { useSelector } from "react-redux";
 import { userSelect } from "../actions/wallet/walletSlice";
+import store from "../app/store";
+import ProfileIcon from "./ProfileMenu/ProfileIcon";
+
+export function fullImageUrl(url) {
+  if (!url) return "";
+  if (url.toLowerCase().startsWith("ipfs:/")) {
+    let urlArr = url.split("/");
+    if (url.indexOf("image") > -1 || url.indexOf("animation") > -1) {
+      url =
+        "ipfs/" + urlArr[urlArr.length - 2] + "/" + urlArr[urlArr.length - 1];
+    } else {
+      url = "ipfs/" + urlArr[urlArr.length - 1];
+    }
+    return store.getState().config.ipfsUrl + "/" + url;
+  }
+  // not ipfs url
+
+  var cdnUrl = store.getState().config.cdnUrl;
+  return cdnUrl ? cdnUrl + url : url;
+}
 
 export default function Navbar() {
   const { theme, themeToggler } = useThemeMode();
   const user = useSelector(userSelect);
-  console.log(user)
+  const [imageUrl, setImageUrl] = useState(null);
+  const [avatar, setAvatar] = useState();
+
+  useEffect(() => {
+    setAvatar(fullImageUrl(user.avatar));
+  }, []);
+
+  console.log(user.avatar);
   const Navibar = styled.div`
     top: 0px;
     display: flex;
@@ -35,7 +62,7 @@ export default function Navbar() {
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       padding: 14px 20px 14px 14px;
-      width:100%;
+      width: 100%;
     }
   `;
   const Search = styled.input`
@@ -74,10 +101,10 @@ export default function Navbar() {
     }
   `;
 
-  interface item {
+  interface Item {
     justifyContent?: string;
   }
-  const Items = styled.div<item>`
+  const Items = styled.div<Item>`
     color: white;
     display: flex;
     width: 48%;
@@ -90,6 +117,7 @@ export default function Navbar() {
       display: none;
     }
   `;
+  console.log(user);
   return (
     <Flex>
       <Navibar>
@@ -115,7 +143,11 @@ export default function Navbar() {
           </SearchWrapper>
 
           <ConnectButton />
-    {user ? <img src={user.avatar} /> : null}
+          {/* <img
+            style={{ borderRadius: "50%", maxHeight: "60px", minWidth: "60px" }}
+            src={avatar}
+          /> */}
+          <ProfileIcon />
 
           {/* <img src="/images/bell.svg" />   */}
           <ThemeButton

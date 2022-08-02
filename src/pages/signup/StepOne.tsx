@@ -133,7 +133,7 @@ export default function StepOne() {
     }
   }
   const user = useSelector(userSelect);
-  console.log(user.nickname);
+  // console.log(user.nickname);
 
   return (
     <AnimatePresence>

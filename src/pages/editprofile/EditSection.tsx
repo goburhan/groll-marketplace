@@ -170,8 +170,6 @@ export default function EditSection() {
         <Dropdown header="Collector" />
       </InputWrapper>
 
-      
-
       <InputWrapper>
         <Text size="16px" color="#fff">
           Cover
@@ -195,8 +193,6 @@ export default function EditSection() {
         <Text color="#b1b5c4">Email</Text>
         <Register placeholder="example@Gulfcoin.com" />
       </InputWrapper>
-
-   
 
       <CardTitle margin="8px 0px 20px 0px">Social</CardTitle>
 

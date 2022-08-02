@@ -94,7 +94,7 @@ export default function SignUpPage() {
   const [onee, setOnee] = useState("");
   useEffect(() => {}, []);
 
-  console.log(onee);
+  // console.log(onee);
   return (
     <SignupWrapper>
       <Backhome>
