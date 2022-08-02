@@ -43,6 +43,18 @@ export default function ConnectButton() {
 
 
   // var accountEllipsis = accounts ? { tag: accounts[0] + tag.substring(0, 4) + "..." + tag.substring(accounts.length - 4)} : "Connect Wallet";
+useEffect(() => {
+  if (accounts !== undefined && accounts.length > 0) {
+    Buttontag =
+      accounts[0].substring(0, 5) +
+      "..." +
+      accounts[0].substring(accounts[0].length - 4);
+  } else {
+    Buttontag = "Connect";
+  }
+
+
+})
 
   if (accounts !== undefined && accounts.length > 0) {
     Buttontag =

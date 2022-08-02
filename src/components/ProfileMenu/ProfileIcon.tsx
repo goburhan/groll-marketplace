@@ -19,6 +19,8 @@ import BalanceContainer from "./BalanceContainer";
 import { Divider } from "../StyledComponents/Divider";
 import Link from "next/link";
 import Toggle from "../Toggle";
+import { AnimatePresence, motion } from "framer-motion";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 export function fullImageUrl(url) {
   if (!url) return "";
@@ -41,7 +43,7 @@ export function fullImageUrl(url) {
 interface nft {
   img?: string;
 }
-const ProfileButton = styled.button<nft>`
+const ProfileButton = styled(motion.button)<nft>`
   background-image: url(${({ img }) => img});
   background-size: 100% 100%;
   min-height: 56px;
@@ -54,10 +56,10 @@ const ProfileWrapper = styled.div<nft>`
 `;
 
 export default function ProfileIcon() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const user = store.getState().user;
   const [avatar, setAvatar] = useState();
-
+  const [selectedOption, setSelectedOption] = useState(null);
   //////DROPDOWN STARTED///////
   function Menu() {
     const defaultConnector = useSelector(selectConnector);
@@ -102,9 +104,9 @@ export default function ProfileIcon() {
     `;
     const Wrapper = styled.div`
       display: flex;
-      padding:10px 20px 0px 20px;
+      padding: 10px 20px 0px 20px;
       text-align: left;
-      img{
+      img {
         max-width: 72px;
         min-height: 72px;
       }
@@ -119,7 +121,7 @@ export default function ProfileIcon() {
     const Box = styled.div`
       display: flex;
       flex-direction: column;
-      margin-left:8px;
+      margin-left: 8px;
     `;
 
     interface prop {
@@ -223,13 +225,88 @@ export default function ProfileIcon() {
     setAvatar(fullImageUrl(user.avatar));
   }, []);
 
+  const onOptionClicked = (value) => () => {
+    setSelectedOption(value);
+    setIsOpen(false);
+    console.log(selectedOption);
+  };
+  const handleClickAway = () => {
+    setIsOpen(false);
+  };
+
+  const ButtonParentVariants = {
+    closed: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        when: "afterChildren",
+        duration: 0.5,
+      },
+    },
+    open: {
+      height: 0,
+      opacity: 1,
+      y:0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+
+  const ChildVariants = {
+    closed: {
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+
+    open: {
+      opacity: 1,
+      y: ["0vw" ,"0vw"],
+      x:["16vw","12vw"],
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: ["0vw" ,"0vw"],
+      x:["12vw","-4vw"],
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+  const Section = styled(motion.section)`
+  `;
   return (
+    <ClickAwayListener onClickAway={handleClickAway}>
+
     <ProfileWrapper>
-      <ProfileButton
-        onClick={() => setIsOpen(!isOpen)}
-        img={avatar}
-      ></ProfileButton>
-      {isOpen && <Menu></Menu>}
+      <AnimatePresence>
+        <ProfileButton
+          key="parent"
+          initial="closed"
+          variants={ButtonParentVariants}
+          animate={open ? "open" : "closed"}
+          onClick={() => setIsOpen(!isOpen)}
+          img={avatar}
+        ></ProfileButton>
+        {isOpen && (
+          <Section
+            key="child"
+            initial="closed"
+            animate="open"
+            exit="exit"
+            variants={ChildVariants}
+          >
+            <Menu></Menu>
+          </Section>
+        )}
+      </AnimatePresence>
     </ProfileWrapper>
+    </ClickAwayListener>
+
   );
 }
