@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import Dropdown from "../../components/Dropdown";
 import PriceSelector from "./PriceSlider";
+import Items from "./Items";
 
 interface Props {
   children: React.ReactNode;
@@ -129,10 +130,10 @@ export default function SectionSelectButtons() {
           <Dropdown title="Creator" header="Verified Only" />
           <PriceSelector />
         </Flex>
-        gokhan
+        <Items/>
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        gokhan
+ 
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
         gokhan

@@ -252,3 +252,15 @@ export const Twelve = styled.text<marginProp>`
     color: ${({ theme }) => theme.linkItems};
   }
 `;
+export const Gray14 = styled.text<marginProp>`
+  font-weight: ${(props) => props.weight || "400"};
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  margin-top: ${({ theme }) => theme.mt};
+  color: ${({ theme }) => theme.gray};
+
+  span {
+    color: ${({ theme }) => theme.linkItems};
+  }
+`;

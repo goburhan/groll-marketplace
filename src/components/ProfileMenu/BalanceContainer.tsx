@@ -12,7 +12,7 @@ const Container = styled.div<border>`
   img{
     margin-top: 12px;
   }
-  border: ${(props) => props.border || "1px solid #aeaeae"};
+  border: ${(props) => props.border || "1px solid #484D57"};
 `;
 const Box = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ interface border {
 const Wrapper = styled.div`
   display: flex;
   padding: 0px 10px 10px 10px;
-  border: 1px solid #aeaeae;
+  border: 1px solid #484D57;
   border-radius: 15px;
   margin: 0 auto;
   flex-direction: column;

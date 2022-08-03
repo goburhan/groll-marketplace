@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import type { AppDispatch, AppState } from './store'
+import store from './store'
 
 export const useForm =
   <TContent>(defaultValues: TContent) =>
@@ -40,6 +41,24 @@ export const useInterval = (callback: Function, delay: number) => {
       return () => clearInterval(id)
     }
   }, [delay])
+}
+
+export function fullImageUrl(url) {
+  if (!url) return "";
+  if (url.toLowerCase().startsWith("ipfs:/")) {
+    let urlArr = url.split("/");
+    if (url.indexOf("image") > -1 || url.indexOf("animation") > -1) {
+      url =
+        "ipfs/" + urlArr[urlArr.length - 2] + "/" + urlArr[urlArr.length - 1];
+    } else {
+      url = "ipfs/" + urlArr[urlArr.length - 1];
+    }
+    return store.getState().config.ipfsUrl + "/" + url;
+  }
+  // not ipfs url
+
+  var cdnUrl = store.getState().config.cdnUrl;
+  return cdnUrl ? cdnUrl + url : url;
 }
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
