@@ -2,18 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import bg from "./collectionbg.png";
 import profile from "./userpicture.svg";
-import { Title, CollectionLower, JoinTime } from "../../components/StyledComponents/Text";
+import {
+  Title,
+  CollectionLower,
+  JoinTime,
+} from "../../components/StyledComponents/Text";
 import Socials from "../../components/Socials";
 import { StyledButton } from "../../components/StyledComponents/Button";
 import Statistics from "../../components/Statistics";
 
-
 const Side = styled.div`
   display: flex;
-  flex-direction:  column;
-  align-items:flex-end;
-  align-self:flex-end;
-  width:100%;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+  width: 100%;
 `;
 const ProfilPic = styled.div`
   background-image: url(${profile});
@@ -34,12 +37,11 @@ const HeaderWrapper = styled.div`
   background-repeat: no-repeat;
 `;
 export default function CollectionsHeader() {
-
   const Flex = styled.div`
-  display: flex;
-  flex-direction: ${(props) => props.about || "column"};
-  width:700px;
-`;
+    display: flex;
+    flex-direction: ${(props) => props.about || "column"};
+    width: 700px;
+  `;
 
   return (
     <HeaderWrapper>
@@ -72,17 +74,17 @@ export default function CollectionsHeader() {
       </Flex>
 
       <Side>
-      <StyledButton
-            style={{
-              background:
-                "linear-gradient(244.53deg, #00D2FF 18.15%, #DB00FF 122.78%, #09ABF9 147.81%)",
-              color: "#fff",
-              minWidth: "200px",
-              maxWidth: "300px",
-            }}
-          >
-            Follow
-          </StyledButton>
+        <StyledButton
+          style={{
+            background:
+              "linear-gradient(244.53deg, #00D2FF 18.15%, #DB00FF 122.78%, #09ABF9 147.81%)",
+            color: "#fff",
+            minWidth: "200px",
+            maxWidth: "300px",
+          }}
+        >
+          Follow
+        </StyledButton>
       </Side>
     </HeaderWrapper>
   );

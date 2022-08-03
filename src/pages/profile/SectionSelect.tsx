@@ -7,10 +7,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Items from "../pages/collection/Items";
-import PriceSelector from "./Selectors/PriceSelector";
-import Dropdown from "./Dropdown";
 import styled from "styled-components";
+import Dropdown from "../../components/Dropdown";
+import PriceSelector from "./PriceSlider";
 
 interface Props {
   children: React.ReactNode;
@@ -42,17 +41,19 @@ const Flex = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
+
   margin: 0 10% 0 5%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
 const AppBar1 = styled(AppBar)`
-  margin: 0 10% 0 5%;
+  margin: 48px 10% 0 9%;
   border: 1px solid transparent;
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
 const Tabs1 = styled(Tabs)`
+  width: 700px;
   button {
     color: #777e90;
   }
@@ -79,15 +80,17 @@ export default function SectionSelectButtons() {
   return (
     <Box
       sx={{
-        bgcolor: "transparent",
         width: "100%",
-        position: "relative",
         minHeight: 200,
       }}
     >
       <AppBar1
         position="static"
-        style={{ width: 350, backgroundColor: "transparent" }}
+        style={{
+          width: 350,
+          backgroundColor: "transparent",
+          boxShadow: "none",
+        }}
       >
         <Tabs1
           value={value}
@@ -98,16 +101,21 @@ export default function SectionSelectButtons() {
         >
           <Tab
             style={{ border: "1px solid transparent", fontSize: 18 }}
-            label="Items"
+            label="CREATED"
             {...a11yProps(0)}
           />
           <Tab
             style={{ border: "1px solid transparent", fontSize: 18 }}
-            label="3D Gallery"
+            label="COLLECTED"
             {...a11yProps(1)}
           />
           <Tab
-            label="Activity"
+            label="Collaborations"
+            {...a11yProps(2)}
+            style={{ border: "1px solid transparent", fontSize: 18 }}
+          />
+          <Tab
+            label="Transactions"
             {...a11yProps(2)}
             style={{ border: "1px solid transparent", fontSize: 18 }}
           />
@@ -121,13 +129,13 @@ export default function SectionSelectButtons() {
           <Dropdown title="Creator" header="Verified Only" />
           <PriceSelector />
         </Flex>
-        <Items />
+        gokhan
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        <Items />
+        gokhan
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        <Items />
+        gokhan
       </TabPanel>
     </Box>
   );

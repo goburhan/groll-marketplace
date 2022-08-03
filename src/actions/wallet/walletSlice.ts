@@ -15,6 +15,7 @@ import api from '../../api';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 import Router from "next/router";
+import { useSelector } from 'react-redux';
 
 
 export const GET_CONFIG = 'config/getConfig';
@@ -124,17 +125,19 @@ export const signUpUser = createAsyncThunk(
     }
   },
 )
-
 export const updateProfile = createAsyncThunk(
   UPDATE_PROFILE,
+  
   async (_: any, thunkAPI) => {
     try {
+
       console.log(_)
       let data = {
         address: _.coinbase,
         id: _.id,
         nickname: _.nickname,
         avatar: _.avatar,
+        brief: _.brief,
         //selectUser ile id yi al
       };
       return api("user.setprofile", data).then((res) => {
@@ -295,7 +298,7 @@ const slice = createSlice({
       state.connected = true
     })
     builder.addCase(userLogin.fulfilled, (state, { payload }) => {
-      //state.data = payload
+      // state.data = payload
       console.log(payload)
       state.token = payload.token;
       state.isLogin= true;

@@ -28,8 +28,8 @@ import GlobalStyle from "../styles/Globalstyle";
 import ThemeContext from "../contexts/ThemeContext";
 import { light, dark } from "../styles/themes";
 import useThemeMode from "../hooks/useThemeMode";
-import Deneme from "./deneme";
 import Editprofile from "./editprofile";
+import Profile from "./profile";
 const IndexPage: NextPage = () => {
   const { connector } = useWeb3React();
 
@@ -100,8 +100,8 @@ const IndexPage: NextPage = () => {
               <Route path="/collection" element={<Collection />}></Route>
               <Route path="/carddetails" element={<CardDetails />}></Route>
               <Route path="/connectwallet" element={<ConnectWallet />}></Route>
-              <Route path="/deneme" element={<Deneme />}></Route>
               <Route path="/editprofile" element={<Editprofile />}></Route>
+              <Route path="/profile" element={<Profile/>}></Route>
             </Routes>
           </BrowserRouter>
           <Navbar />

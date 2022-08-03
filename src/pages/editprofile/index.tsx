@@ -26,6 +26,7 @@ import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
 import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
 import CustomizedCheckbox from "../connectwallet/Checkbox";
 import Dropdown from "./Dropdown";
+import store from "../../app/store";
 
 const PageWrapper = styled.div`
   display: grid;
@@ -111,6 +112,7 @@ const Container = styled.div`
 export default function Editprofile() {
   const [userName, setUserName] = useState("");
   const [bio, setBio] = useState("");
+  const user = store.getState().user;
   const defaultConnector = useSelector(selectConnector);
   const isActive = getDefaultConnector().useIsActive();
   const accounts = getDefaultConnector().useAccounts();
@@ -122,6 +124,13 @@ export default function Editprofile() {
   function bioChange(e) {
     setBio(e.target.value);
   }
+  let id 
+  let avatar
+  useEffect(() => {
+     id =user.id
+     avatar = user.avatar
+  }, )
+  
 
   function getDefaultConnector(): Web3ReactHooks {
     switch (defaultConnector) {
@@ -139,7 +148,6 @@ export default function Editprofile() {
         return metaMaskHooks;
     }
   }
-
   return (
     <PageWrapper>
       <Flex>
@@ -231,6 +239,9 @@ export default function Editprofile() {
                   nickname: userName,
                   brief: bio,
                   coinbase: accounts[0],
+                  id:id,
+                  avatar:avatar
+                  
                 })
               );
             }}

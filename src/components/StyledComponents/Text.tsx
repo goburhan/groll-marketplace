@@ -5,6 +5,8 @@ interface marginProp {
   bold?: string;
   mr?: string;
   weight?: string;
+  spacing?: string;
+
 }
 export const HomeTitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -39,12 +41,12 @@ export const HomeTitles = styled.text<marginProp>`
   }
 `;
 
-export const Title = styled.text`
+export const Title = styled.text<marginProp>`
   font-family: "Poppins", normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-  letter-spacing: -0.03em;
+  letter-spacing:${(props) => props.spacing || "-0.03em"};
   color: ${({ theme }) => theme.titles};
 `;
 

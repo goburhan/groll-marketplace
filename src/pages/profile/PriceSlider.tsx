@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
-import { Twelve, TabFont } from "../StyledComponents/Text";
+import { TabFont, Twelve } from "../../components/StyledComponents/Text";
 
 function valuetext(value) {
   return `${value}°C`;
@@ -11,7 +11,6 @@ function valuetext(value) {
 interface prop {
   width?: any;
 }
-
 
 const Flex = styled.div`
   display: flex;
@@ -25,20 +24,20 @@ export default function PriceSelector() {
     setValue(newValue);
   };
   const Boxer = styled(Box)<prop>`
-  border: white;
-  text-align: left;
-  justify-content: space-between;
-  width:${(props) => props.width || "100%"};
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-top: 2%;
-    margin-right: 3rem;
-    width: 88vw;
-    z-index:-1;
-  }
-`;
+    border: white;
+    text-align: left;
+    justify-content: space-between;
+    width: 20%;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-top: 2%;
+      margin-right: 3rem;
+      width: 88vw;
+      z-index: -1;
+    }
+  `;
   return (
     <Boxer>
-      <Box >
+      <Box>
         <Twelve>Price Range</Twelve>
         <Slider
           defaultValue={50}

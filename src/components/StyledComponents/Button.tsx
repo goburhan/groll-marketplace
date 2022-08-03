@@ -64,18 +64,27 @@ export const NavButton = styled.button`
     opacity: 0.9;
   }
 `;
-export const Transparent = styled.button`
-  border: 2px solid #353945;
+
+interface but {
+  padding?: string;
+}
+export const Transparent = styled.button<but>`
+  display: flex;
+  place-items:center;
+  gap:6px;
+  border: 1px solid #353945;
   border-radius: 90px;
   color: white;
   background: transparent;
   cursor: pointer;
-  width: 100%;
-  padding: 8px 20px;
-  font-size: 16px;
+  font-size: 14px;
+  padding:${(props) => props.padding || " 0px 44px"};
+  margin-top: 8px;
   font-weight: bold;
+ 
   :hover {
     opacity: 0.9;
+    background: rgba(0, 0, 0, 0.1);
   }
 `;
 export const OpenCloseButton = styled.button`

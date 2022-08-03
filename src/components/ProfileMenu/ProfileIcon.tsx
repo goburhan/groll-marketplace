@@ -60,10 +60,14 @@ export default function ProfileIcon() {
   const user = store.getState().user;
   const [avatar, setAvatar] = useState();
   const [selectedOption, setSelectedOption] = useState(null);
+  const [nick,setNick] = useState(user.nickname);
+  useEffect(() => {
+    setNick(user.nickname);
+  }, []);
   //////DROPDOWN STARTED///////
   function Menu() {
     const defaultConnector = useSelector(selectConnector);
-
+ 
     function getDefaultConnector(): Web3ReactHooks {
       switch (defaultConnector) {
         case "metamask":
@@ -132,6 +136,7 @@ export default function ProfileIcon() {
       text-align: center;
       margin-top: ${(props) => props.margin || "12px"};
       gap: 10px;
+      cursor: pointer;
     `;
 
     if (accounts !== undefined && accounts.length > 0) {
@@ -145,7 +150,7 @@ export default function ProfileIcon() {
 
     const MenuItems = [
       { name: "Edit my profile", url: "/editprofile", icon: "Editprofile" },
-      { name: "My items", url: "/", icon: "Myitems" },
+      { name: "My items", url: "/profile", icon: "Myitems" },
       { name: "Apply for KYC / Blue Tick", url: "/signup", icon: "Applykyc" },
       { name: "Manage Settings", url: "/", icon: "Settings" },
       { name: "Communication", url: "/", icon: "Communication" },
@@ -161,7 +166,7 @@ export default function ProfileIcon() {
           </ProfileWrapper>
 
           <Box>
-            <ProfileName>{user.nickname}</ProfileName>
+            <ProfileName>{nick}</ProfileName>
             <MenuItem>{Buttontag}</MenuItem>
           </Box>
         </Wrapper>
@@ -272,7 +277,7 @@ export default function ProfileIcon() {
     exit: {
       opacity: 0,
       y: ["0vw" ,"0vw"],
-      x:["12vw","-4vw"],
+      x:["12vw","-1vw"],
       transition: {
         duration: 0.4,
       },

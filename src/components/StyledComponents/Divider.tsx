@@ -21,12 +21,12 @@ export const Divider = styled.div<Divid>`
 interface prop {
   display?: any;
   ml?: any;
-  height?:any;
+  height?: any;
 }
 
 export const Vdivider = styled.div<prop>`
   width: 1px;
-  height: ${(props) => props.height || "90%" }; 
+  height: ${(props) => props.height || "90%"};
   margin-left: ${(props) => props.ml};
   /* secondary grey */
 

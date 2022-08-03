@@ -225,6 +225,7 @@ export default function StepOne() {
                     nickname: userName,
                     brief: bio,
                     coinbase: accounts[0],
+                    id: user.id,
                   })
                 );
               }}

@@ -3,43 +3,45 @@ import styled from "styled-components";
 import { Vdivider, Divider } from "./StyledComponents/Divider";
 import { StatisticValues, TartistLower } from "./StyledComponents/Text";
 
-const Flex = styled.div`
-  display:flex;
-  align-items:center;
-`
-;
+interface props {
+  gap?: string;
+}
+const Flex = styled.div<props>`
+  display: flex;
+  align-items: center;
+  gap:${(props)=>props.gap || "20px"} ;
+`;
 const Container = styled.div`
-  display:flex;
-  margin-top:20px;
-  flex-direction:column;
-  text-align:right;
-  `
-;
-
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  text-align: right;
+`;
 export default function Statistics() {
   return (
     <Flex>
       <Container>
-        <StatisticValues>21.7K</StatisticValues>
-        <TartistLower>Items</TartistLower>
-      </Container>
-      <Vdivider />
-      <Container>
-        <StatisticValues>21.7K</StatisticValues>
-        <TartistLower>Items</TartistLower>
-      </Container>
-      <Vdivider />
-      <Container>
-        <StatisticValues>21.7K</StatisticValues>
-        <TartistLower>Items</TartistLower>
-      </Container>
-      <Vdivider />
-      <Container>
-        <StatisticValues>
-          {" "}
+        <Flex gap="4px">
           <img src="/images/increase.svg" alt="increasing" />
-          21.7K
-        </StatisticValues>
+
+          <StatisticValues>1.7K</StatisticValues>
+        </Flex>
+
+        <TartistLower>Items</TartistLower>
+      </Container>
+      <Vdivider height="80%" />
+      <Container>
+        <StatisticValues>221.7K</StatisticValues>
+        <TartistLower>Items</TartistLower>
+      </Container>
+      <Vdivider />
+      <Container>
+        <StatisticValues>37.7K</StatisticValues>
+        <TartistLower>Items</TartistLower>
+      </Container>
+      <Vdivider />
+      <Container>
+        <StatisticValues>21.7K</StatisticValues>
         <TartistLower>Items</TartistLower>
       </Container>
     </Flex>

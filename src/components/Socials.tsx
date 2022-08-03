@@ -9,8 +9,16 @@ const social = [
 
 const Flex = styled.div`
   display: flex;
-  a {
-    margin-left: 8px;
+  background: #22242f;
+  align-items: center;
+  border-radius: 80px;
+  border: 1px solid #484d57;
+  padding: 8px 16px 8px 16px;
+  width: max-content;
+  margin-top:8px;
+  gap: 16px;
+  img {
+    max-width: 24px;
   }
 `;
 
