@@ -40,7 +40,7 @@ const Text = styled.text<text>`
 export default function KycCard() {
   return (
     <SelfieContainer>
-      <img width="120px" src="/images/StaticLogos/Kyclogo.svg" alt="selfie" />
+      <img width="120px" src="/images/Staticlogos/Kyclogo.svg" alt="selfie" />
       <Divider mt="0.5rem" mb="2rem" width="100%" />
       <Box>
         <Text>Secure your account</Text>

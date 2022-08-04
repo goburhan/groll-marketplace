@@ -255,7 +255,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               {selected === "walletconnect" ? (
                 <img src="/images/Walletconnected.svg" />
               ) : (
-                <img src="/images/WalletConnect.svg" />
+                <img src="/images/Walletconnect.svg" />
               )}
               <General24>Wallet Connect</General24>
             </div>
