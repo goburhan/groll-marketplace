@@ -17,13 +17,13 @@ export const FileUploadContainer = styled.section`
 export const FormField = styled.input`
   font-size: 18px;
   display: block;
-  width: 35%;
+  width: 0px;
   cursor: pointer;
   border: none;
   text-transform: none;
   position: absolute;
   top: 73%;
-  height:200px;
+  height:0px;
   left: 10%;
   right: 0;
   bottom: 0;

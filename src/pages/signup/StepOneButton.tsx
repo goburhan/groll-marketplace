@@ -119,7 +119,7 @@ export default function StepOneButton() {
     },
 
     open: {
-      height: "160vh",
+      height: "190vh",
       opacity: 1,
 
       transition: {
