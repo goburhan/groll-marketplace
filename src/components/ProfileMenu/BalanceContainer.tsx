@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   padding: 0px 10px 10px 10px;
   border: 1px solid #484D57;
   border-radius: 15px;
-  margin: 0 auto;
+  margin: 24px auto;
   flex-direction: column;
   width: 90%;
   img{

@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import EmailBg from "./EmailButton.svg";
 import MobileBg from "./MobileButton.svg";
+interface ButtonInterface {
+  padding?: string;
+  bg?: string;
+  img?: any;
+  margin?: string;
+}
 
 export const StyledButton = styled.button`
   border: 1px solid transparent;
@@ -22,7 +28,7 @@ export const SliderButton = styled.button`
   text-align: center;
   background: transparent;
   font-size: 16px;
-  color: #00acff;
+  color: ${(props) => props.color || "#00acff"};
   font-weight: bold;
   cursor: pointer;
   :hover {
@@ -30,18 +36,19 @@ export const SliderButton = styled.button`
   }
 `;
 
-export const Backhome = styled.button`
+export const Backhome = styled.button<ButtonInterface>`
   display: flex;
   align-items: center;
   background: transparent;
   border: 1px solid #484d57;
-  color: #9197ae;
-  margin-bottom: 80px;
+  color: ${({ theme }) => theme.cardTitle};
   cursor: pointer;
+  height: 100%;
+  margin : ${(props) => props.margin };
   justify-content: center;
-  border-radius: 18px;
+  border-radius: 24px;
   font-size: 14px;
-  padding: 10px 5px 10px 5px;
+  padding: 10px 8px 10px 8px;
   max-width: 150px;
   img {
     margin-right: 6px;
@@ -65,23 +72,22 @@ export const NavButton = styled.button`
   }
 `;
 
-interface but {
-  padding?: string;
-}
-export const Transparent = styled.button<but>`
+
+
+export const Transparent = styled.button<ButtonInterface>`
   display: flex;
-  place-items:center;
-  gap:6px;
+  place-items: center;
+  gap: 6px;
   border: 1px solid #353945;
   border-radius: 90px;
   color: white;
   background: transparent;
   cursor: pointer;
   font-size: 14px;
-  padding:${(props) => props.padding || " 0px 44px"};
+  padding: ${(props) => props.padding || " 0px 44px"};
   margin-top: 8px;
   font-weight: bold;
- 
+
   :hover {
     opacity: 0.9;
     background: rgba(0, 0, 0, 0.1);
@@ -107,10 +113,8 @@ export const BlueButton = styled.button`
   }
 `;
 
-interface bg {
-  bg?: string;
-}
-export const EmailButton = styled.button<bg>`
+
+export const EmailButton = styled.button<ButtonInterface>`
   border: 1px solid transparent;
   background-image: url(${({ bg }) => bg});
   background-repeat: no-repeat;
@@ -173,10 +177,8 @@ export const MobileMenu = styled.button(
 `
 );
 
-interface arrow {
-  img?: any;
-}
-export const PrevNextButton = styled.button<arrow>`
+
+export const PrevNextButton = styled.button<ButtonInterface>`
   background-image: url(${({ img }) => img}) !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;

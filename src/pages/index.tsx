@@ -30,6 +30,7 @@ import { light, dark } from "../styles/themes";
 import useThemeMode from "../hooks/useThemeMode";
 import Editprofile from "./editprofile";
 import Profile from "./profile";
+import CreateNft from "./createnft";
 const IndexPage: NextPage = () => {
   const { connector } = useWeb3React();
 
@@ -101,11 +102,11 @@ const IndexPage: NextPage = () => {
               <Route path="/carddetails" element={<CardDetails />}></Route>
               <Route path="/connectwallet" element={<ConnectWallet />}></Route>
               <Route path="/editprofile" element={<Editprofile />}></Route>
-              <Route path="/profile" element={<Profile/>}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/createnft" element={<CreateNft />}></Route>
             </Routes>
           </BrowserRouter>
           <Navbar />
-
 
           <Cookie />
           <GlobalStyle />

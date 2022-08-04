@@ -33,7 +33,7 @@ interface checkboxProps {
 
 const Flex = styled.div<prop>`
   display: flex;
-  width: 60%;
+  width:${(props) => props.width ||"60%"};
   flex-direction: ${(props) => props.direction || "column"};
   text-align: left;
   justify-content: space-between;

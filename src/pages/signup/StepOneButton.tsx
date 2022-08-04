@@ -41,8 +41,6 @@ export default function StepOneButton() {
       </Mainbar>
     );
   }
-  // This approach is if you only want max one section open at a time. If you want multiple
-  // sections to potentially be open simultaneously, they can all be given their own `useState`.
   const [open, toggleOpen] = useState(false);
   const [disable, setDisable] = useState(false);
   const Section = styled(motion.section)`
@@ -169,7 +167,7 @@ export default function StepOneButton() {
   console.log(user);
 
   return (
-    <div style={{ display: "flex", width: "100%" }}>
+    <div style={{ display: "flex", width: "100%" , margin:"40px 0px 0px 0px" }}>
       <ProgressBar one={open} />
       <div style={{ width: "100%" }}>
         <AnimatePresence>

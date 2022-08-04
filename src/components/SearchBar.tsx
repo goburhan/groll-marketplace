@@ -17,50 +17,27 @@ const NavInput = styled.input<prop>`
 interface prop {
   onchange?: string;
   innerRef?: any;
+  width?: string;
+  height?: string;
 }
 
-export const Register = styled.input<prop>`
+export const Register = styled.textarea<prop>`
   width: ${(props) => props.width || "90%"};
-  height: ${(props) => props.height || "100%"};
+  height: ${(props) => props.height || "50%"};
   padding: 12px 16px;
   margin: 10px 0 24px 0;
-  color:white;
+  color: white;
+  resize: none;
   background: transparent;
   background-repeat: no-repeat;
-  border: 1.5px solid #484D57;
+  border: 1.5px solid #484d57;
   border-radius: 12px;
   ::placeholder {
-    padding:  0px 2px;
+    padding:4px 0px 0px 0px;
   }
   :focus {
     outline: none !important;
-    border: 1.5px solid #00ACFF;
+    border: 1.5px solid #00acff;
   }
 `;
 
-const Email = styled.input(
-  ({ theme }) => `
-background-color:transparent;
-padding:5px;
-outline: none;
-::placeholder {
-   color: #777E91;
- }
-@media (max-width:  ${theme.mobile}) {
-}
- }
-`
-);
-
-export default function StyledInput() {
-  return (
-    <NavInput
-      onchange={""}
-      placeholder="Search Everything"
-      innerRef={(x) => {
-        this.input = x;
-      }}
-      onMouseEnter={() => this.input.focus()}
-    />
-  );
-}

@@ -16,7 +16,7 @@ import MyCollectionCard from "../../components/NftCards/Cards/MyCollectionCard";
 
 const NftContainer = styled.div`
   text-align: left;
-  margin: 66px 140px 60px 110px;
+  margin: 66px 0px 60px 152px;
 
   .slick-prev:before {
     display: none;

@@ -27,6 +27,7 @@ import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
 import CustomizedCheckbox from "../connectwallet/Checkbox";
 import Dropdown from "./Dropdown";
 import store from "../../app/store";
+import { getDefaultConnector } from "../../app/hooks";
 
 const PageWrapper = styled.div`
   display: grid;
@@ -114,7 +115,6 @@ export default function Editprofile() {
   const [bio, setBio] = useState("");
   const user = store.getState().user;
   const defaultConnector = useSelector(selectConnector);
-  const isActive = getDefaultConnector().useIsActive();
   const accounts = getDefaultConnector().useAccounts();
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
@@ -132,26 +132,11 @@ export default function Editprofile() {
   }, )
   
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
 
-      default:
-        return metaMaskHooks;
-    }
-  }
   return (
     <PageWrapper>
       <Flex>
-        <Backhome>
+        <Backhome margin="32px 0px 68px 0px">
           <img src="/images/back.svg" />
           Back to home
         </Backhome>
@@ -170,7 +155,6 @@ export default function Editprofile() {
         <InputWrapper>
           <Text color="#b1b5c4">Nickname</Text>
           <Register
-            height="56px"
             placeholder="e.g Mehdi Mairez"
             id="userName"
             name="userName"
@@ -196,6 +180,7 @@ export default function Editprofile() {
           <Text color="#b1b5c4">BIO / ABOUT ME </Text>
           <Register
             id="bio"
+            height="240px"
             name="bio"
             onChange={(e) => bioChange(e)}
             value={bio}

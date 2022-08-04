@@ -6,7 +6,6 @@ interface marginProp {
   mr?: string;
   weight?: string;
   spacing?: string;
-
 }
 export const HomeTitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -46,7 +45,7 @@ export const Title = styled.text<marginProp>`
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-  letter-spacing:${(props) => props.spacing || "-0.03em"};
+  letter-spacing: ${(props) => props.spacing || "-0.03em"};
   color: ${({ theme }) => theme.titles};
 `;
 
@@ -121,7 +120,7 @@ export const TartistLower = styled.text`
 `;
 export const CollectionLower = styled.text`
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 29px;
   letter-spacing: -0.01em;
 
@@ -145,7 +144,7 @@ export const TopCollectorTitle = styled.text`
 `;
 
 export const StatisticValues = styled.text`
-  font-weight: 400;
+  font-weight: 700;
   font-size: 28px;
   line-height: 31px;
   letter-spacing: -0.01em;
@@ -162,7 +161,7 @@ export const General24 = styled.text`
 `;
 export const ProfileName = styled.text`
   font-weight: 600;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 24px;
 
   color: ${({ theme }) => theme.lowerDetail};

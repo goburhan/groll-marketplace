@@ -1,14 +1,11 @@
-import { Web3ReactHooks } from "@web3-react/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import {
-  selectConnector,
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import FileUpload from "./FileUpload";
-import PersonalDetailWrapper from "../../components/UploadAvatar";
-import { Register } from "../../components/SearchBar";
+import { Register} from "../../components/SearchBar";
 import {
   Backhome,
   StyledButton,
@@ -17,13 +14,9 @@ import {
   CardTitle,
   EditLower,
   EditProfileTitle,
-  LowerDetail,
 } from "../../components/StyledComponents/Text";
-import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
-import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
-import CustomizedCheckbox from "../connectwallet/Checkbox";
 import Dropdown from "./Dropdown";
+import { getDefaultConnector } from "../../app/hooks";
 
 interface prop {
   width?: string;
@@ -104,10 +97,7 @@ const Container = styled.div`
 export default function EditSection() {
   const [userName, setUserName] = useState("");
   const [bio, setBio] = useState("");
-  const defaultConnector = useSelector(selectConnector);
-  const isActive = getDefaultConnector().useIsActive();
   const accounts = getDefaultConnector().useAccounts();
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
 
   useEffect(() => {}, []);
@@ -119,25 +109,9 @@ export default function EditSection() {
     setBio(e.target.value);
   }
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
-
-      default:
-        return metaMaskHooks;
-    }
-  }
   return (
     <Flex>
-      <Backhome>
+      <Backhome  >
         <img src="/images/back.svg" />
         Back to home
       </Backhome>
@@ -182,11 +156,13 @@ export default function EditSection() {
         <Text color="#b1b5c4">BIO / ABOUT ME </Text>
         <Register
           id="bio"
+          height="240px"
           name="bio"
           onChange={(e) => bioChange(e)}
           value={bio}
           placeholder="e.g  SpaceShips NFT... "
         />
+        
       </InputWrapper>
 
       <InputWrapper>

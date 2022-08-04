@@ -167,6 +167,7 @@ export default function StepOne() {
           <Register
             id="bio"
             name="bio"
+            height="240px"
             onChange={(e) => bioChange(e)}
             value={bio}
             placeholder="e.g  SpaceShips NFT... "

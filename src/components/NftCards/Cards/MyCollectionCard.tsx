@@ -107,7 +107,7 @@ export default function MyCollectionCard({ nft }) {
         <img src={avatar} alt="avatar" style={{ minWidth: 36 }} />
         <Container padding="0px 0px 0px 6px" direction="column">
           <TabFont>Artist</TabFont>
-          <TabFont>{user.nickname}</TabFont>
+          <TabFont style={{color:"#fff"}}>{user.nickname}</TabFont>
         </Container>
       </Container>
     </NftContainer>

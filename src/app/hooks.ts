@@ -1,7 +1,17 @@
+import { Web3ReactHooks } from '@web3-react/core/dist/hooks'
 import type { ChangeEvent } from 'react'
 import { useEffect, useRef } from 'react'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-
+import { selectConnector } from '../actions/wallet/walletSlice';
+import {
+  hooks as coinbaseWalletHooks,
+  coinbaseWallet,
+} from "../connectors/coinbasewallet";
+import { hooks as metaMaskHooks, metaMask } from "../connectors/metamask";
+import {
+  hooks as walletConnectHooks,
+  walletConnect,
+} from "../connectors/walletconnect";
 import type { AppDispatch, AppState } from './store'
 import store from './store'
 
@@ -59,6 +69,24 @@ export function fullImageUrl(url) {
 
   var cdnUrl = store.getState().config.cdnUrl;
   return cdnUrl ? cdnUrl + url : url;
+}
+
+export function getDefaultConnector(): Web3ReactHooks {
+  const defaultConnector = useSelector(selectConnector);
+  switch (defaultConnector) {
+    case "metamask":
+      return metaMaskHooks;
+      break;
+    case "coinbase":
+      return coinbaseWalletHooks;
+      break;
+    case "walletconnect":
+      return walletConnectHooks;
+      break;
+
+    default:
+      return metaMaskHooks;
+  }
 }
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`

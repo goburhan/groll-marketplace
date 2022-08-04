@@ -3,34 +3,23 @@ import styled from "styled-components";
 import { Divider } from "../../components/StyledComponents/Divider";
 import { General24 } from "../../components/StyledComponents/Text";
 import { Title } from "../../components/StyledComponents/Text";
-import { useWeb3React, Web3ReactHooks } from "@web3-react/core";
 import {
-  userLogin,
-  connectWallet,
   getConfig,
   selectConnector,
   DEFAULT_CONNECTOR,
 } from "../../actions/wallet/walletSlice";
-// import { metaMask } from "../../connectors/metamask";
 import store from "../../app/store";
-// import { walletConnect } from "../../connectors/walletconnect";
-// import { coinbaseWallet } from "../../connectors/coinbasewallet";
-import { darkScrollbar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { ethers } from "ethers";
-import {
-  hooks as coinbaseWalletHooks,
-  coinbaseWallet,
-} from "../../connectors/coinbasewallet";
+
 import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
 import {
   hooks as walletConnectHooks,
   walletConnect,
 } from "../../connectors/walletconnect";
 import Terms from "./Terms";
-import Navbar from "../../components/Navbar";
 import { animate, motion } from "framer-motion";
 import { Backhome } from "../../components/StyledComponents/Button";
+import { getDefaultConnector } from "../../app/hooks";
 
 const Flex = styled.div`
   display: flex;
@@ -82,36 +71,15 @@ const Box = styled.div`
 
 export default function ConnectWallet({ isOpen, closeModal }: any) {
   const [selected, setSelected] = useState("");
-  const setProvider = (type) => {
-    window.localStorage.setItem("provider", type);
-  };
+
 
   const defaultConnector = useSelector(selectConnector);
   const isActive = getDefaultConnector().useIsActive();
   console.log(isActive);
-
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
-
-      default:
-        return metaMaskHooks;
-    }
-  }
   const accounts = getDefaultConnector().useAccounts();
   console.log(accounts);
 
-  const [connector, setConnector] = useState(defaultConnector);
 
-  console.log(defaultConnector);
 
   const dispatch = useDispatch();
 
@@ -121,13 +89,13 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
 
   return (
     <ConnectWalletContainer>
-      <Backhome>
+      <Backhome margin="0px 0px 80px 0px">
         <img src="/images/back.svg" />
         Back to home
       </Backhome>
 
       <Title>Connect your wallet</Title>
-      <Divider mt="2%" width="50%" />
+      <Divider mt="2%" width="50%" /> 
       <Box>
         <Flex>
           <WalletWrapper

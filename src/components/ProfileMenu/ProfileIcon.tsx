@@ -2,7 +2,7 @@ import * as React from "react";
 import store from "../../app/store";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { EditLower, ProfileName } from "../StyledComponents/Text";
+import { EditLower, ProfileName, TabFont } from "../StyledComponents/Text";
 import { useSelector } from "react-redux";
 import { selectConnector } from "../../actions/wallet/walletSlice";
 import { Web3ReactHooks } from "@web3-react/core";
@@ -21,9 +21,8 @@ import Link from "next/link";
 import Toggle from "../Toggle";
 import { AnimatePresence, motion } from "framer-motion";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import { fullImageUrl } from "../../app/hooks";
-
-
+import { fullImageUrl, getDefaultConnector } from "../../app/hooks";
+import { Flex } from "../StyledComponents/Flex";
 
 interface nft {
   img?: string;
@@ -45,31 +44,12 @@ export default function ProfileIcon() {
   const user = store.getState().user;
   const [avatar, setAvatar] = useState();
   const [selectedOption, setSelectedOption] = useState(null);
-  const [nick,setNick] = useState(user.nickname);
+  const [nick, setNick] = useState(user.nickname);
   useEffect(() => {
     setNick(user.nickname);
   }, []);
   //////DROPDOWN STARTED///////
   function Menu() {
-    const defaultConnector = useSelector(selectConnector);
- 
-    function getDefaultConnector(): Web3ReactHooks {
-      switch (defaultConnector) {
-        case "metamask":
-          return metaMaskHooks;
-          break;
-        case "coinbase":
-          return coinbaseWalletHooks;
-          break;
-        case "walletconnect":
-          return walletConnectHooks;
-          break;
-
-        default:
-          return metaMaskHooks;
-      }
-    }
-
     const accounts: string[] = getDefaultConnector().useAccounts();
 
     let Buttontag = "";
@@ -95,10 +75,6 @@ export default function ProfileIcon() {
       display: flex;
       padding: 10px 20px 0px 20px;
       text-align: left;
-      img {
-        max-width: 72px;
-        min-height: 72px;
-      }
     `;
     const Wrappers = styled.div`
       display: flex;
@@ -111,6 +87,7 @@ export default function ProfileIcon() {
       display: flex;
       flex-direction: column;
       margin-left: 8px;
+      gap: 8px;
     `;
 
     interface prop {
@@ -135,7 +112,7 @@ export default function ProfileIcon() {
 
     const MenuItems = [
       { name: "Edit my profile", url: "/editprofile", icon: "Editprofile" },
-      { name: "My items", url: "/profile", icon: "Myitems" },
+      { name: "My items", url: "/", icon: "Myitems" },
       { name: "Apply for KYC / Blue Tick", url: "/signup", icon: "Applykyc" },
       { name: "Manage Settings", url: "/", icon: "Settings" },
       { name: "Communication", url: "/", icon: "Communication" },
@@ -146,13 +123,25 @@ export default function ProfileIcon() {
     return (
       <Container>
         <Wrapper>
-          <ProfileWrapper>
+          <Link href="/profile">
             <ProfileButton img={avatar}></ProfileButton>
-          </ProfileWrapper>
-
+          </Link>
           <Box>
             <ProfileName>{nick}</ProfileName>
-            <MenuItem>{Buttontag}</MenuItem>
+            <Flex>
+              <TabFont
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  navigator.clipboard.writeText(user.coinbase);
+                }}
+              >
+                {Buttontag}{" "}
+              </TabFont>
+              <img
+                style={{ marginLeft: "6px" }}
+                src="/images/Icons/ProfileMenu/Copy.svg"
+              />
+            </Flex>
           </Box>
         </Wrapper>
 
@@ -197,16 +186,6 @@ export default function ProfileIcon() {
             <EditLower>Disconnect</EditLower>
           </MenuItem>
         </Wrappers>
-
-        {/*<MenuItem>1</MenuItem>
-        <Divider />
-        <MenuItem>1</MenuItem>
-        <Divider />
-        <MenuItem>1</MenuItem>
-        <Divider />
-        <MenuItem>1</MenuItem>
-        <Divider />
-        <MenuItem>1</MenuItem> */}
       </Container>
     );
   }
@@ -215,11 +194,6 @@ export default function ProfileIcon() {
     setAvatar(fullImageUrl(user.avatar));
   }, []);
 
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setIsOpen(false);
-    console.log(selectedOption);
-  };
   const handleClickAway = () => {
     setIsOpen(false);
   };
@@ -236,7 +210,7 @@ export default function ProfileIcon() {
     open: {
       height: 0,
       opacity: 1,
-      y:0,
+      y: 0,
       transition: {
         duration: 0.4,
       },
@@ -253,50 +227,47 @@ export default function ProfileIcon() {
 
     open: {
       opacity: 1,
-      y: ["0vw" ,"0vw"],
-      x:["16vw","12vw"],
+      y: ["0vw", "0vw"],
+      x: ["16vw", "12vw"],
       transition: {
         duration: 0.3,
       },
     },
     exit: {
       opacity: 0,
-      y: ["0vw" ,"0vw"],
-      x:["12vw","-1vw"],
+      y: ["0vw", "0vw"],
+      x: ["12vw", "-1vw"],
       transition: {
         duration: 0.4,
       },
     },
   };
-  const Section = styled(motion.section)`
-  `;
+  const Section = styled(motion.section)``;
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-
-    <ProfileWrapper>
-      <AnimatePresence>
-        <ProfileButton
-          key="parent"
-          initial="closed"
-          variants={ButtonParentVariants}
-          animate={open ? "open" : "closed"}
-          onClick={() => setIsOpen(!isOpen)}
-          img={avatar}
-        ></ProfileButton>
-        {isOpen && (
-          <Section
-            key="child"
+      <ProfileWrapper>
+        <AnimatePresence>
+          <ProfileButton
+            key="parent"
             initial="closed"
-            animate="open"
-            exit="exit"
-            variants={ChildVariants}
-          >
-            <Menu></Menu>
-          </Section>
-        )}
-      </AnimatePresence>
-    </ProfileWrapper>
+            variants={ButtonParentVariants}
+            animate={open ? "open" : "closed"}
+            onClick={() => setIsOpen(!isOpen)}
+            img={avatar}
+          ></ProfileButton>
+          {isOpen && (
+            <Section
+              key="child"
+              initial="closed"
+              animate="open"
+              exit="exit"
+              variants={ChildVariants}
+            >
+              <Menu></Menu>
+            </Section>
+          )}
+        </AnimatePresence>
+      </ProfileWrapper>
     </ClickAwayListener>
-
   );
 }

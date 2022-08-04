@@ -22,8 +22,8 @@ export const FormField = styled.input`
   border: none;
   text-transform: none;
   position: absolute;
-  top: 85%;
-  height:300px;
+  top: 60%;
+  height:200px;
   left: 10%;
   right: 0;
   bottom: 0;
