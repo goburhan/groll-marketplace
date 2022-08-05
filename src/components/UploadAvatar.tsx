@@ -14,6 +14,7 @@ import {
   walletConnect,
 } from "../connectors/walletconnect";
 import { Web3ReactHooks } from "@web3-react/core";
+import { getDefaultConnector } from "../app/hooks";
 interface prop {
   width?: string;
   direction?: string;
@@ -63,22 +64,7 @@ export default function PersonalDetailWrapper({
 }) {
   const defaultConnector = useSelector(selectConnector);
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
 
-      default:
-        return metaMaskHooks;
-    }
-  }
 
   const accounts: string[] = getDefaultConnector().useAccounts();
 
@@ -107,7 +93,7 @@ export default function PersonalDetailWrapper({
             <Text color="#777E90">{description}</Text>
           </div>
 
-          <SingleUpload button={buttons}></SingleUpload>
+          <SingleUpload></SingleUpload>
         </Flex>
       </Flex>
     </PersonalDetail>

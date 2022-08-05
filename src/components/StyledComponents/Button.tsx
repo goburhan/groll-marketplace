@@ -21,7 +21,7 @@ export const StyledButton = styled.button`
   }
 `;
 export const SliderButton = styled.button`
-  border: 1px solid  ${({ theme }) => theme.blue};
+  border: 1px solid ${({ theme }) => theme.blue};
   border-radius: 90px;
   width: 140px;
   padding: 16px 0px;
@@ -44,7 +44,7 @@ export const Backhome = styled.button<ButtonInterface>`
   color: ${({ theme }) => theme.cardTitle};
   cursor: pointer;
   height: 100%;
-  margin : ${(props) => props.margin };
+  margin: ${(props) => props.margin};
   justify-content: center;
   border-radius: 24px;
   font-size: 14px;
@@ -71,8 +71,6 @@ export const NavButton = styled.button`
     opacity: 0.9;
   }
 `;
-
-
 
 export const Transparent = styled.button<ButtonInterface>`
   display: flex;
@@ -113,7 +111,6 @@ export const BlueButton = styled.button`
   }
 `;
 
-
 export const EmailButton = styled.button<ButtonInterface>`
   border: 1px solid transparent;
   background-image: url(${({ bg }) => bg});
@@ -126,21 +123,24 @@ export const EmailButton = styled.button<ButtonInterface>`
   font-weight: bold;
 `;
 
-export const TransparentCancel = styled.button`
+interface prop {
+  padding?: string;
+  mb?: string;
+  color?: string;
+}
+
+export const TransparentCancel = styled.button<prop>`
   border: 1px solid #353945;
   font-weight: 500;
-  color: #777e91;
+  color: ${(props) => props.color || "#777e91"};
   font-size: 16px;
-  line-height: 24px;
   border-radius: 90px;
   background: transparent;
-  padding: 14px 32px;
-  font-size: 16px;
-  font-weight: bold;
+  padding:${(props) => props.padding || " 14px 32px;"} ;
   cursor: pointer;
-  :hover {
-    background-color: #484d57;
-    color: #b1b5c3;
+  margin-bottom:${(props) => props.mb};
+  :hover{
+    opacity:0.8;
     border: 1px solid #484d57;
   }
 `;
@@ -176,7 +176,6 @@ export const MobileMenu = styled.button(
   }
 `
 );
-
 
 export const PrevNextButton = styled.button<ButtonInterface>`
   background-image: url(${({ img }) => img}) !important;

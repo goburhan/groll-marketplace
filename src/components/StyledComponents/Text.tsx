@@ -30,8 +30,8 @@ export const HomeTitles = styled.text<marginProp>`
   font-weight: 700;
   font-size: 40px;
   margin-right: ${(props) => props.mr};
+  margin: ${(props) => props.margin};
   line-height: 48px;
-  /* identical to box height, or 120% */
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.titles};
   @media (max-width: ${({ theme }) => theme.mobile}) {

@@ -124,6 +124,13 @@ export default function Navbar() {
             <Search placeholder="Search Everything" />
           </SearchWrapper>
 
+          {user.nickname !==  "" && 
+          <Link href="/createnft">
+          <BlueButton>Create</BlueButton> 
+          </Link>
+          
+          }
+
           <ConnectButton />
           {/* <img
             style={{ borderRadius: "50%", maxHeight: "60px", minWidth: "60px" }}
@@ -131,6 +138,7 @@ export default function Navbar() {
           /> */}
           <ProfileIcon />
 
+          
           {/* <img src="/images/bell.svg" />   */}
           <ThemeButton
             onClick={() => {

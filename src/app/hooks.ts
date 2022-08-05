@@ -52,8 +52,8 @@ export const useInterval = (callback: Function, delay: number) => {
     }
   }, [delay])
 }
-
-export function fullImageUrl(url) {
+export function fullImageUrl(url:any) {
+  const isAbsoluteURL = (str) => /^[a-z][a-z0-9+.-]*:/.test(str);
   if (!url) return "";
   if (url.toLowerCase().startsWith("ipfs:/")) {
     let urlArr = url.split("/");
@@ -64,6 +64,9 @@ export function fullImageUrl(url) {
       url = "ipfs/" + urlArr[urlArr.length - 1];
     }
     return store.getState().config.ipfsUrl + "/" + url;
+  }
+  if (isAbsoluteURL(url)) {
+    return url;
   }
   // not ipfs url
 

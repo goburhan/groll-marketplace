@@ -1,13 +1,19 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 interface props {
-    column?: string;
+  direction?: string;
+  width?: string;
+  textAlign?: string;
+  margin?: string;
 }
 
 export const Flex = styled.div<props>`
-display:flex;
-flex-direction: ${(props)=>props.column};
-`
+  display: flex;
+  flex-direction: ${(props) => props.direction};
+  width: ${(props) => props.width};
+  text-align: ${(props) => props.textAlign};
+  margin: ${(props) => props.margin};
+`;
 export const Box = styled.div`
-display:flex;
-`
+  display: flex;
+`;

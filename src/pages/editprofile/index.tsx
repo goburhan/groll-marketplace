@@ -124,14 +124,12 @@ export default function Editprofile() {
   function bioChange(e) {
     setBio(e.target.value);
   }
-  let id 
-  let avatar
+  let id;
+  let avatar;
   useEffect(() => {
-     id =user.id
-     avatar = user.avatar
-  }, )
-  
-
+    id = user.id;
+    avatar = user.avatar;
+  });
 
   return (
     <PageWrapper>
@@ -224,9 +222,8 @@ export default function Editprofile() {
                   nickname: userName,
                   brief: bio,
                   coinbase: accounts[0],
-                  id:id,
-                  avatar:avatar
-                  
+                  id: id,
+                  avatar: avatar,
                 })
               );
             }}
