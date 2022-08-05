@@ -13,13 +13,14 @@ const UploadCard = styled.div`
   display: flex;
   flex-direction: column;
   place-items: center;
-  background-color:${({ theme }) => theme.card};
-  min-width:352px;
-  min-height:360px;
-  border:1px solid black;
+  background-color: ${({ theme }) => theme.card};
+  
+  min-width: 352px;
+  min-height: 360px;
+  border: 1px solid black;
 `;
 const ImageWrapper = styled.div`
-  background-color:${({ theme }) => theme.card};
+  background-color: ${({ theme }) => theme.card};
 `;
 
 export default function CreateNft() {
@@ -34,8 +35,7 @@ export default function CreateNft() {
       </EditLower>
       <Flex>
         <UploadCard>
-          <ImageWrapper>
-          </ImageWrapper>
+          <ImageWrapper></ImageWrapper>
         </UploadCard>
       </Flex>
     </Wrapper>

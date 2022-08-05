@@ -17,22 +17,25 @@ import {
   walletConnect,
 } from "../../connectors/walletconnect";
 import Terms from "./Terms";
-import { animate, motion } from "framer-motion";
+import { animate, AnimatePresence, motion } from "framer-motion";
 import { Backhome } from "../../components/StyledComponents/Button";
 import { getDefaultConnector } from "../../app/hooks";
 
 const Flex = styled.div`
   display: flex;
+  height:400px;
   justify-content: space-evenly;
+  place-items: center;
   flex-direction: column;
   flex-wrap: wrap;
 `;
 const WalletWrapper = styled(motion.button)`
   background: transparent;
   cursor: pointer;
-  border: 1px solid black;
   display: flex;
+  padding: 20px 20px 20px 20px;
   align-items: center;
+  width: 100%;
   div {
     display: flex;
     align-items: center;
@@ -46,40 +49,34 @@ const WalletWrapper = styled(motion.button)`
   :hover {
     text {
       color: #ebebed;
-      transition: width 2s;
     }
   }
 `;
 const ConnectWalletContainer = styled.div`
-  height: 100hw;
-  padding: 50px 15% 10% 15%;
+  padding: 0px 160px 10% 160px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 `;
-const Box = styled.div`
+const Box = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
-
   justify-content: space-between;
+  min-height: 100%;
   img {
     max-width: 500px;
     max-height: 500px;
   }
 `;
 
-
+const Side = styled(motion.div)``;
 export default function ConnectWallet({ isOpen, closeModal }: any) {
   const [selected, setSelected] = useState("");
 
-
-  const defaultConnector = useSelector(selectConnector);
   const isActive = getDefaultConnector().useIsActive();
   console.log(isActive);
   const accounts = getDefaultConnector().useAccounts();
   console.log(accounts);
-
-
 
   const dispatch = useDispatch();
 
@@ -87,18 +84,58 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
     dispatch(getConfig());
   }, []);
 
+  const ButtonParentVariants = {
+    closed: {
+      opacity: 1,
+      transition: {
+        when: "afterChildren",
+        duration: 0.5,
+      },
+    },
+    open: {
+      width: "100%",
+      opacity: 1,
+      transition: {
+        duration: 0.00001,
+      },
+    },
+  };
+
+  const ChildVariants = {
+    closed: {
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+
+    open: {
+      opacity: 1,
+      width: "32vw",
+      x:"4vw",
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
   return (
     <ConnectWalletContainer>
-      <Backhome margin="0px 0px 80px 0px">
+      <Backhome margin="40px 0px 60px 0px">
         <img src="/images/back.svg" />
         Back to home
       </Backhome>
-
       <Title>Connect your wallet</Title>
-      <Divider mt="2%" width="50%" /> 
+      <Divider mt="50px" width="50%" />
       <Box>
         <Flex>
           <WalletWrapper
+            key="parent"
             initial={
               selected === "coinbase"
                 ? {
@@ -120,10 +157,10 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               selected === "coinbase"
                 ? {
                     border: "1px solid #484d57",
-                    width: "700px",
-                    padding:20,
+                    width: "45vw",
+                    padding: "20px 20px 20px 20px",
                     justifyContent: "space-between",
-                    borderRadius: "25px",
+                    borderRadius: "16px",
                   }
                 : {}
             }
@@ -142,7 +179,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
           >
             <div>
               {selected === "coinbase" ? (
-                <img src="/images/Walletconnected.svg"  />
+                <img src="/images/Walletconnected.svg" />
               ) : (
                 <img src="/images/Coinbase.svg" />
               )}
@@ -154,6 +191,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
           </WalletWrapper>
 
           <WalletWrapper
+            key="parent"
             initial={
               selected === "metamask"
                 ? {
@@ -175,11 +213,11 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               selected === "metamask"
                 ? {
                     border: "1px solid #484d57",
-                    width: "700px",
+                    width: "45vw",
                     padding: "20px",
 
                     justifyContent: "space-between",
-                    borderRadius: "25px",
+                    borderRadius: "16px",
                   }
                 : {}
             }
@@ -210,6 +248,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
           </WalletWrapper>
 
           <WalletWrapper
+            key="parent"
             initial={
               selected === "walletconnect"
                 ? {
@@ -231,11 +270,11 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               selected === "walletconnect"
                 ? {
                     border: "1px solid #484d57",
-                    width: "700px",
+                    width: "45vw",
                     padding: "20px",
 
                     justifyContent: "space-between",
-                    borderRadius: "25px",
+                    borderRadius: "16px",
                   }
                 : {}
             }
@@ -264,8 +303,33 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
             )}
           </WalletWrapper>
         </Flex>
+        <AnimatePresence>
+          <div style={{ width: "" }}>
+            {selected === "" && (
+              <Side
+                key="parent"
+                initial="closed"
+                variants={ButtonParentVariants}
+                animate={open ? "open" : "closed"}
+              >
+                <motion.img
+                  src="/images/coinwallet.png"
+                />
+              </Side>
+            )}
 
-        {selected === "" ? <img src="/images/coinwallet.png" /> : <Terms />}
+            {selected !== "" && (
+              <Side
+                key="child"
+                initial="closed"
+                variants={ChildVariants}
+                animate={open ? "open" : "closed"}
+              >
+                <Terms />
+              </Side>
+            )}
+          </div>
+        </AnimatePresence>
         {/* <img src="/images/coinwallet.png" alt="coinwallet" /> */}
       </Box>
     </ConnectWalletContainer>

@@ -89,6 +89,8 @@ export default function Header() {
             Dada loving documentarist and multidisciplinary artist living in
             Dada loving documentarist and multidisciplinary artist living in
             Dada loving documentarist and multidisciplinary artist living in
+            Dada loving documentarist and multidisciplinary artist living in
+            Dada loving documentarist and multidisciplinary artist living in
            
           </CollectionLower>
 

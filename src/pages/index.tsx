@@ -31,6 +31,7 @@ import useThemeMode from "../hooks/useThemeMode";
 import Editprofile from "./editprofile";
 import Profile from "./profile";
 import CreateNft from "./createnft";
+import Deneme from "./deneme";
 const IndexPage: NextPage = () => {
   const { connector } = useWeb3React();
 
@@ -104,6 +105,7 @@ const IndexPage: NextPage = () => {
               <Route path="/editprofile" element={<Editprofile />}></Route>
               <Route path="/profile" element={<Profile />}></Route>
               <Route path="/createnft" element={<CreateNft />}></Route>
+              <Route path="/deneme" element={<Deneme />}></Route>
             </Routes>
           </BrowserRouter>
           <Navbar />

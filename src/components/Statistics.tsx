@@ -8,7 +8,7 @@ interface props {
 }
 const Flex = styled.div<props>`
   display: flex;
-  align-items: center;
+  align-items: end;
   gap:${(props)=>props.gap || "20px"} ;
 `;
 const Container = styled.div`
@@ -29,17 +29,17 @@ export default function Statistics() {
 
         <TartistLower>Items</TartistLower>
       </Container>
-      <Vdivider height="80%" />
+      <Vdivider height="50px"/>
       <Container>
         <StatisticValues>221.7K</StatisticValues>
         <TartistLower>Items</TartistLower>
       </Container>
-      <Vdivider />
+      <Vdivider height="50px"/>
       <Container>
         <StatisticValues>37.7K</StatisticValues>
         <TartistLower>Items</TartistLower>
       </Container>
-      <Vdivider />
+      <Vdivider height="50px"/>
       <Container>
         <StatisticValues>21.7K</StatisticValues>
         <TartistLower>Items</TartistLower>

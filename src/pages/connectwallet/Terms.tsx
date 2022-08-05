@@ -9,6 +9,7 @@ import {
 } from "../../components/StyledComponents/Button";
 import AcceptSignModal from "../../components/AcceptSignModal";
 import CustomizedCheckbox from "./Checkbox";
+import { motion } from "framer-motion";
 
 export default function Terms() {
   const [checked, setChecked] = React.useState(true);
@@ -23,8 +24,8 @@ export default function Terms() {
     iconStyle?: any;
   }
 
-  const Flex = styled.div`
-    width: 30%;
+  const Flex = styled(motion.div)`
+    width: 80%;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -54,20 +55,7 @@ export default function Terms() {
     color: ${({ theme }) => theme.termTitle};
   `;
 
-  const Check = styled(Checkbox)<checkboxProps>`
-    color: #2ae7a8;
-    width: 8%;
-    height:30px;
-    root: {
-      '&$checked': {
-        color: #fff,
-      },
-    },
-    :hover {
-      background: transparent;
-    }
-  `;
-
+  
   const Twelve = styled.text`
     font-weight: 400;
     font-size: 14px;
@@ -80,7 +68,6 @@ export default function Terms() {
       color: ${({ theme }) => theme.linkItems};
     }
   `;
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   return (
     <Flex>

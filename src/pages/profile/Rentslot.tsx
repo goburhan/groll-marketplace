@@ -62,7 +62,7 @@ export default function Rentslot() {
         <img src="/images/Icons/Addrent.svg" alt="rent" />
         Rentslot
       </Rentslot>
-      <SliderButton color="#fff">3D Gallery</SliderButton>
+      <SliderButton style={{border:"1px solid #fff"}} color="#fff">3D Gallery</SliderButton>
     </BoxWrapper>
   );
 }

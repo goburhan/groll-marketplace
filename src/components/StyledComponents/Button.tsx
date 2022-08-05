@@ -21,7 +21,7 @@ export const StyledButton = styled.button`
   }
 `;
 export const SliderButton = styled.button`
-  border: 1px solid ${({ theme }) => theme.blue};
+  border: 1px solid  ${({ theme }) => theme.blue};
   border-radius: 90px;
   width: 140px;
   padding: 16px 0px;
