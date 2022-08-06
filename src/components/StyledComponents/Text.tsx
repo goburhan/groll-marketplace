@@ -7,6 +7,104 @@ interface marginProp {
   weight?: string;
   spacing?: string;
 }
+export interface TextProps {
+  lineHeight?: string;
+  fontWeight?: string;
+  margin?: string;
+  letterSpacing?: string;
+  color?: any;
+  mobileSize?: string;
+}
+
+export const Text = styled.text<TextProps>`
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: ${(props) => props.mobileSize};
+    line-height: 62px;
+  }
+`;
+export const Title40 = styled.text<TextProps>`
+  font-size: 40px;
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+  }
+`;
+export const Text72 = styled.text<TextProps>`
+  font-size: 72px;
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 62px;
+    line-height: 62px;
+  }
+`;
+export const Text22 = styled.text<TextProps>`
+  font-size: 22px;
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 62px;
+    line-height: 62px;
+  }
+`;
+export const Text14 = styled.text<TextProps>`
+  font-size: 14px;
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 62px;
+    line-height: 62px;
+  }
+`;
+export const Text16 = styled.text<TextProps>`
+  font-size: 16px;
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 62px;
+    line-height: 62px;
+  }
+`;
+export const Text18 = styled.text<TextProps>`
+  font-size: 18px;
+  font-weight: ${(props) => props.fontWeight};
+  font-size: ${(props) => props.fontSize};
+  line-height: ${(props) => props.lineHeight};
+  letter-spacing: ${(props) => props.letterSpacing};
+  color: ${(props) => props.color};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 62px;
+    line-height: 62px;
+  }
+`;
+
 export const HomeTitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
@@ -41,7 +139,6 @@ export const HomeTitles = styled.text<marginProp>`
 `;
 
 export const Title = styled.text<marginProp>`
-  font-family: "Poppins", normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
@@ -57,8 +154,7 @@ export const KycTitle = styled.text`
   color: ${({ theme }) => theme.titles};
 `;
 export const MiniCardTitle = styled.text`
-  font-family: "Poppins", normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 22px;
   line-height: 48px;
   letter-spacing: -0.01em;
@@ -134,6 +230,7 @@ export const JoinTime = styled.text`
 
   color: ${({ theme }) => theme.gray};
 `;
+
 export const TopCollectorTitle = styled.text`
   font-weight: 400;
   font-size: 18px;
@@ -236,6 +333,9 @@ export const BuyerTitle = styled.text`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  span{
+    
+  }
 
   color: ${({ theme }) => theme.gray};
 `;
@@ -243,7 +343,6 @@ export const Twelve = styled.text<marginProp>`
   font-weight: ${(props) => props.weight || "700"};
   font-size: 12px;
   line-height: 20px;
-  margin-top: 8px;
   margin-top: ${({ theme }) => theme.mt};
   color: ${({ theme }) => theme.gray};
 
@@ -251,11 +350,11 @@ export const Twelve = styled.text<marginProp>`
     color: ${({ theme }) => theme.linkItems};
   }
 `;
+
 export const Gray14 = styled.text<marginProp>`
-  font-weight: ${(props) => props.weight || "400"};
+  font-weight: ${(props) => props.weight || "500"};
   font-size: 14px;
   line-height: 20px;
-  margin-top: 8px;
   margin-top: ${({ theme }) => theme.mt};
   color: ${({ theme }) => theme.gray};
 

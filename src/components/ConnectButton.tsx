@@ -16,26 +16,11 @@ import {
   walletConnect,
 } from "../connectors/walletconnect";
 import { Status } from "./Status";
+import { getDefaultConnector } from "../app/hooks";
 
 export default function ConnectButton() {
   const defaultConnector = useSelector(selectConnector);
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
-
-      default:
-        return metaMaskHooks;
-    }
-  }
 
   const accounts: string[] = getDefaultConnector().useAccounts();
 

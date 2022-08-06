@@ -1,15 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { EmailButton } from "./StyledComponents/Button";
-import { Divider } from "./StyledComponents/Divider";
-import ParentChild from "./Mobile/ParentChild";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  useMobileOrientation,
-  isMobile,
-} from "react-device-detect";
+
 import {
   CardTitle,
   FooterTitle,
@@ -18,13 +10,7 @@ import {
   Twelve,
 } from "./StyledComponents/Text";
 
-interface Divid {
-  align?: string;
-  font?: string;
-  mb?: string;
-  ml?: string;
-  mr?: string;
-}
+
 
 const Email = styled.input`
  background-color:transparent;

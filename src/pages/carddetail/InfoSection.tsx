@@ -3,10 +3,10 @@ import {
   Title,
   LowerDetail,
   Text14,
-} from "../../../components/StyledComponents/Text";
+} from "../../components/StyledComponents/Text";
 import styled from "styled-components";
-import SelectButton from "./SelectButton";
-import { Flex } from "../../../components/StyledComponents/Flex";
+import { Flex } from "../../components/StyledComponents/Flex";
+import SelectButton from "../collection/Components/SelectButton";
 
 const Flexs = styled(Flex)`
   align-items: center;

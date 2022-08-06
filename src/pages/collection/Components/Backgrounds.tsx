@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import BgBox from "./BgBox";
-// import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Typography,
 } from "@mui/material";
+import { MiniCardTitle } from "../../../components/StyledComponents/Text";
 
 const Flex = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  gap: 20px;
-  @media (max-width:  ${({ theme }) => theme.mobile}) {
-    justify-content:center;
+  gap: 14px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    justify-content: center;
     gap: 14px;
   }
 `;
@@ -24,8 +24,15 @@ const Flex = styled.div`
 export default function Backgrounds() {
   return (
     <>
-      {/* <Accordion style={{background:"transparent" , color:"white" , fontSize:"32px"}}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} >Properties</AccordionSummary>
+      <Accordion
+        style={{ background: "transparent", color: "white", fontSize: "32px" }}
+      >
+        <AccordionSummary
+          sx={{ svg: { color: "white" } }}
+          expandIcon={<ExpandMoreIcon />}
+        >
+          <MiniCardTitle>Properties</MiniCardTitle>
+        </AccordionSummary>
         <AccordionDetails>
           <Flex>
             <BgBox
@@ -35,38 +42,38 @@ export default function Backgrounds() {
               text="0.94% have tried..."
             />
             <BgBox
-              title="BACKGROUND"
+              title="COLORS"
               color="Purple"
               border="#01CC7F"
-              text="0.94% have tried..."
+              text="20% have tried..."
+            />
+            <BgBox
+              title="TEXTURE"
+              color="Purple"
+              border="#01CC7F"
+              text="2% have tried..."
             />
             <BgBox
               title="BACKGROUND"
               color="Purple"
-              border="#01CC7F"
-              text="0.94% have tried..."
+              border="#56CCF2"
+              text="12% have tried..."
             />
             <BgBox
               title="BACKGROUND"
               color="Purple"
-              border="#01CC7F"
-              text="0.94% have tried..."
+              border="#EB5757"
+              text="5% have tried..."
             />
             <BgBox
               title="BACKGROUND"
               color="Purple"
-              border="#01CC7F"
-              text="0.94% have tried..."
-            />
-            <BgBox
-              title="BACKGROUND"
-              color="Purple"
-              border="#01CC7F"
+              border="#E7DF2A"
               text="0.94% have tried..."
             />
           </Flex>
         </AccordionDetails>
-      </Accordion> */}
+      </Accordion>
     </>
   );
 }

@@ -114,7 +114,7 @@ text-align:left;
   const isMobilee = WindowSize();
 
   return isMobilee ? <MobileFooter /> : <DesktopFooter />;
-  //   isLandscape ?
+
   //  (
   //  <Footer>
   //     <Flex>

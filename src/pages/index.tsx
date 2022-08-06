@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useWeb3React } from "@web3-react/core";
 import type { NextPage } from "next";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import styles from "../styles/Home.module.css";
 import { getName } from "../utils/wallets";
 import Home from "./home";
@@ -20,7 +20,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUpPage from "./signup";
 import ConnectWallet from "./connectwallet";
 import Collection from "./collection";
-import CardDetails from "./collection/CardDetails";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Cookie } from "@mui/icons-material";
@@ -32,40 +31,44 @@ import Editprofile from "./editprofile";
 import Profile from "./profile";
 import CreateNft from "./createnft";
 import Deneme from "./deneme";
-const IndexPage: NextPage = () => {
+import CardDetails from "./carddetail";
+
+
+
+const IndexPage: NextPage = () => { function getDefaultConnector(): string {
+  switch (defaultConnector) {
+    case "metamask":
+      void metaMask.connectEagerly().catch(() => {
+        console.debug("Failed to connect eagerly to metamask");
+      });
+      util_web3.connectWallet();
+      return "metamask";
+      break;
+    case "coinbase":
+      void coinbaseWallet.connectEagerly().catch(() => {
+        console.debug("Failed to connect eagerly to coinbase wallet");
+      });
+      return "coinbase";
+      break;
+    case "walletconnect":
+      walletConnect.events.on(URI_AVAILABLE, (uri: string) => {
+        console.log(`uri: ${uri}`);
+      });
+      walletConnect.connectEagerly().catch(() => {
+        console.debug("Failed to connect eagerly to walletconnect");
+      });
+      return "walletconnect";
+      break;
+
+    default:
+      return "metamask";
+  }
+}
   const { connector } = useWeb3React();
 
   const defaultConnector = useSelector(selectConnector);
 
-  function getDefaultConnector(): string {
-    switch (defaultConnector) {
-      case "metamask":
-        void metaMask.connectEagerly().catch(() => {
-          console.debug("Failed to connect eagerly to metamask");
-        });
-        util_web3.connectWallet();
-        return "metamask";
-        break;
-      case "coinbase":
-        void coinbaseWallet.connectEagerly().catch(() => {
-          console.debug("Failed to connect eagerly to coinbase wallet");
-        });
-        return "coinbase";
-        break;
-      case "walletconnect":
-        walletConnect.events.on(URI_AVAILABLE, (uri: string) => {
-          console.log(`uri: ${uri}`);
-        });
-        walletConnect.connectEagerly().catch(() => {
-          console.debug("Failed to connect eagerly to walletconnect");
-        });
-        return "walletconnect";
-        break;
-
-      default:
-        return "metamask";
-    }
-  }
+ 
 
   useEffect(() => {
     console.log(`Priority Connector is: ${getName(connector)}`);
@@ -91,28 +94,33 @@ const IndexPage: NextPage = () => {
     dispatch(getConfig());
   }, []);
 
+  const Wrapper = styled.div`
+    margin: 110px 160px 0 160px;
+  `;
   return (
     <div className={styles.container}>
       <ThemeContext>
-        <ThemeProvider theme={themeMode}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/signup" element={<SignUpPage />}></Route>
-              <Route path="/collection" element={<Collection />}></Route>
-              <Route path="/carddetails" element={<CardDetails />}></Route>
-              <Route path="/connectwallet" element={<ConnectWallet />}></Route>
-              <Route path="/editprofile" element={<Editprofile />}></Route>
-              <Route path="/profile" element={<Profile />}></Route>
-              <Route path="/createnft" element={<CreateNft />}></Route>
-              <Route path="/deneme" element={<Deneme />}></Route>
-            </Routes>
-          </BrowserRouter>
-          <Navbar />
+          <ThemeProvider theme={themeMode}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/signup" element={<SignUpPage />}></Route>
+                <Route path="/collection" element={<Collection />}></Route>
+                <Route
+                  path="/connectwallet"
+                  element={<ConnectWallet />}
+                ></Route>
+                <Route path="/editprofile" element={<Editprofile />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route path="/createnft" element={<CreateNft />}></Route>
+                <Route path="/deneme" element={<Deneme />}></Route>
+                <Route path="/carddetail" element={<CardDetails />}></Route>
+              </Routes>
+            </BrowserRouter>
+            <Navbar />
 
-          <Cookie />
-          <GlobalStyle />
-        </ThemeProvider>
+            <GlobalStyle />
+          </ThemeProvider>
       </ThemeContext>
     </div>
   );

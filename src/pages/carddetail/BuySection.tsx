@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { FlexProp } from "../../../app/types";
 import {
   BuyButton,
   StyledButton,
-} from "../../../components/StyledComponents/Button";
-import { Flex } from "../../../components/StyledComponents/Flex";
+} from "../../components/StyledComponents/Button";
+import { Flex } from "../../components/StyledComponents/Flex";
 import {
   BuyerTitle,
   General24,
   Gray14,
   Twelve,
-} from "../../../components/StyledComponents/Text";
+} from "../../components/StyledComponents/Text";
 
 const BuyWrapper = styled.div`
   display: flex;

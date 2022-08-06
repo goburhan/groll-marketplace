@@ -90,12 +90,12 @@ export default function MyCollectionCard({ nft }) {
       </Nft>
       <Flex margin="20px 0px 0px 0px">
           <CardTitle bold="500">Amazing Digital Art</CardTitle>
-        <Gray14>Price </Gray14>
+        <Gray14 weight="400">Price </Gray14>
       </Flex>
       <Flex >
         <Box>
           <img src="/images/like.svg" />
-          <Gray14 >1299k</Gray14>
+          <Gray14 weight="400">1299k</Gray14>
         </Box>
 
         <PriceContainer />

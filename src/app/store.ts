@@ -21,12 +21,7 @@ const persistConfig = {
   version: 1,
   storage,
 }
-interface pers {
-  defaultConnector: string;
-  web3: any;
-  config:any
-  
-}
+
 // const rootReducer = combineReducers({ 
 //   user: walletSlice,
 // })

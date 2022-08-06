@@ -15,14 +15,13 @@ import BidsOffer from "./BidsOffer";
 import Backgrounds from "./Backgrounds";
 import Details from "./Details";
 interface Props {
-  children? : React.ReactNode
-  value?:number  
-  index?:number
-  dir?:any
+  children?: React.ReactNode;
+  value?: number;
+  index?: number;
+  dir?: any;
 }
 
-function TabPanel({children ,value ,index, ...other} : Props) {
-
+function TabPanel({ children, value, index, ...other }: Props) {
   return (
     <Typography
       component="div"
@@ -32,32 +31,37 @@ function TabPanel({children ,value ,index, ...other} : Props) {
       aria-labelledby={`action-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box>{children}</Box>}
     </Typography>
   );
 }
 
-const AppBar1 = styled(AppBar)(
-  ({ theme }) =>
-    `
-    margin:2rem 0% 0 0%;
-  border:1px solid gray;
-  border-radius:15px;
-  @media (max-width:  ${theme.mobile}) {
+const AppBar1 = styled(AppBar)`
+  border: 1px solid gray;
+  margin: 20px 0px;
+  border-radius: 90px;
+  box-shadow: 0px;
+  span {
+    z-index: -1 !important;
+    height: 80%;
+    border-radius: 50px;
+    margin-bottom: 5px;
   }
-`
-);
+`;
 const Tabs1 = styled(Tabs)(
   ({ theme }) =>
     `
+     margin-left:4px;
     button{
-      color:#777E90;
-    }
+      color:#fff;
+    }  
 
     @media (max-width:  ${theme.mobile}) {
   }
+  
 `
 );
+
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
@@ -87,10 +91,9 @@ export default function SelectButton() {
   return (
     <Box
       sx={{
-        bgcolor: "transparent",
         width: "100%",
-        position: "relative",
         minHeight: 200,
+        color: "#fff",
       }}
     >
       <AppBar1
@@ -98,10 +101,11 @@ export default function SelectButton() {
         style={{ width: "100%", backgroundColor: "transparent" }}
       >
         <Tabs1
+          sx={{
+            ".Mui-selected": { color: "#fff !important" },
+          }}
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
         >
           <Tab
             style={{ border: "1px solid transparent", fontSize: 18 }}

@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 // import ParentChild from "../../../views/Components/Mobile/ParentChild";
 import BgBox from "./BgBox";
-// import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import {
-  // Accordion,
-  // AccordionDetails,
-  // AccordionSummary,
-  // Typography,
-// } from "@mui/material";
-import { LowerDetail } from "../../../components/StyledComponents/Text";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { LowerDetail, MiniCardTitle } from "../../../components/StyledComponents/Text";
 import { Divider } from "../../../components/StyledComponents/Divider";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
+} from "@mui/material";
 
 const Flex = styled.div`
   display: flex;
@@ -30,12 +30,15 @@ export default function Details() {
   return (
     <>
       <Divider width="100%" mb="2rem" mt="2rem" />
-      {/* <Accordion
+      <Accordion
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
-        {/* <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          Details
-        </AccordionSummary> 
+       <AccordionSummary
+          sx={{ svg: { color: "white" } }}
+          expandIcon={<ExpandMoreIcon />}
+        >
+        <MiniCardTitle>Details</MiniCardTitle>
+        </AccordionSummary>
         <AccordionDetails>
           <Flex>
             <Box>
@@ -64,7 +67,7 @@ export default function Details() {
             </Box>
           </Flex>
         </AccordionDetails>
-      </Accordion> */}
+      </Accordion>
     </>
   );
 }

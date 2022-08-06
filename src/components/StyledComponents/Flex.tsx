@@ -5,6 +5,7 @@ interface props {
   width?: string;
   textAlign?: string;
   margin?: string;
+  gap?: string;
 }
 
 export const Flex = styled.div<props>`
@@ -13,6 +14,7 @@ export const Flex = styled.div<props>`
   width: ${(props) => props.width};
   text-align: ${(props) => props.textAlign};
   margin: ${(props) => props.margin};
+  gap:  ${(props) => props.gap};
 `;
 export const Box = styled.div`
   display: flex;
