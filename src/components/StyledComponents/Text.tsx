@@ -248,11 +248,11 @@ export const StatisticValues = styled.text`
 
   color: ${({ theme }) => theme.white};
 `;
-export const General24 = styled.text`
+export const General24 = styled.text<TextProps>`
   font-weight: 600;
   font-size: 24px;
   line-height: 32px;
-  letter-spacing: -0.01em;
+  letter-spacing: ${(props) => props.lineHeight || "-0.01em"} ;
 
   color: ${({ theme }) => theme.titles};
 `;

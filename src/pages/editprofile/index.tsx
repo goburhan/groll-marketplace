@@ -10,7 +10,7 @@ import {
 } from "../../actions/wallet/walletSlice";
 import FileUpload from "./FileUpload";
 import PersonalDetailWrapper from "../../components/UploadAvatar";
-import { Register } from "../../components/SearchBar";
+import { InputField, Register } from "../../components/SearchBar";
 import {
   Backhome,
   StyledButton,
@@ -31,6 +31,7 @@ import { getDefaultConnector } from "../../app/hooks";
 
 const PageWrapper = styled.div`
   display: grid;
+  gap:80px;
   margin: 60px 150px 0px 150px;
   grid-template-columns: 2fr 2fr;
 `;
@@ -61,7 +62,6 @@ const Botwrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  width: 90%;
 `;
 
 const Text = styled.text<prop>`
@@ -152,7 +152,7 @@ export default function Editprofile() {
 
         <InputWrapper>
           <Text color="#b1b5c4">Nickname</Text>
-          <Register
+          <InputField
             placeholder="e.g Mehdi Mairez"
             id="userName"
             name="userName"
@@ -188,22 +188,22 @@ export default function Editprofile() {
 
         <InputWrapper>
           <Text color="#b1b5c4">Email</Text>
-          <Register placeholder="example@Gulfcoin.com" />
+          <InputField placeholder="example@Gulfcoin.com" />
         </InputWrapper>
 
         <CardTitle margin="8px 0px 20px 0px">Social</CardTitle>
 
         <InputWrapper>
           <Text color="#b1b5c4">Instagram</Text>
-          <Register placeholder="@goburhan" />
+          <InputField placeholder="@goburhan" />
         </InputWrapper>
         <InputWrapper>
           <Text color="#b1b5c4">Twitter</Text>
-          <Register placeholder="@gobur" />
+          <InputField placeholder="@gobur" />
         </InputWrapper>
         <InputWrapper>
           <Text color="#b1b5c4">Portfolio or website</Text>
-          <Register placeholder="@gobur" />
+          <InputField placeholder="@gobur" />
         </InputWrapper>
         <AddMore>
           <img src="/images/Staticlogos/Addicon.svg" />

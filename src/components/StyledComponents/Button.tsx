@@ -11,7 +11,10 @@ interface ButtonInterface {
 
 export const StyledButton = styled.button`
   border: 1px solid transparent;
+  display: flex;
   border-radius: 25px;
+  align-items: center;
+  justify-content: center;
   padding: 8px 20px;
   font-size: 16px;
   color: #fff;
@@ -20,13 +23,17 @@ export const StyledButton = styled.button`
   :hover {
     opacity: 0.9;
   }
+  img {
+    width: 20px;
+  }
 `;
+
 export const CircleButton = styled.button<ButtonInterface>`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-size: 40%;
   background-position: center;
-  border: 1px solid #484D57;
+  border: 1px solid #484d57;
   border-radius: 50%;
   padding: 24px;
   cursor: pointer;

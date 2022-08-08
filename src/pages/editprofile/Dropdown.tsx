@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { Twelve } from "../../components/StyledComponents/Text";
 
 const DropDownContainer = styled("div")`
-  width: 90%;
   text-align: left;
-  line-height: 30px;
-  margin:12px 0px 28px 0px;
+  margin: 12px 0px 46px 0px;
+  width: 100%;
+  position: relative;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-right: 3rem;
     width: 88vw;
@@ -17,7 +17,7 @@ const DropDownContainer = styled("div")`
 const DropDownHeader = styled.div`
   display: flex;
   padding: 8px 14px 8px 14px;
-  width: 100%;
+  height: 148%;
   background-color: transparent;
   align-items: center;
   justify-content: space-between;
@@ -31,18 +31,17 @@ const DropDownHeader = styled.div`
 const DropDownListContainer = styled.div`
   background-color: ${({ theme }) => theme.header};
   position: absolute;
-  width: 19.5em;
-  padding: 0px 8px 8px 8px;
+  width: inherit;
+  padding: 0px 8px 6px 8px;
   border: 2px solid ${({ theme }) => theme.gray};
   border-radius: 20px;
 `;
 const DropDownList = styled("ul")`
   box-sizing: border-box;
   color: #3faffa;
-  font-size: 1.3rem;
   font-weight: 500;
   &:first-child {
-    padding-top: 0.8em;
+    padding-top: 1em;
   }
 `;
 

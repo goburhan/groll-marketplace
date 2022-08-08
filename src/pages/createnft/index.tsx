@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { Backhome } from "../../components/StyledComponents/Button";
@@ -34,6 +35,11 @@ const UploadCard = styled.div`
 
   :hover {
     border: 1px solid ${({ theme }) => theme.blue};
+
+    button {
+      background:${({ theme }) => theme.blue};
+    }
+
   }
 `;
 
@@ -55,7 +61,7 @@ const CardWrapper = styled.div`
   margin-bottom: 32px;
 `;
 
-export const Button = styled.button<prop>`
+ const Button = styled.button<prop>`
   border: 1px solid #353945;
   font-weight: 500;
   color: #fff;
@@ -97,7 +103,10 @@ export default function CreateNft() {
         <CardWrapper>
           <UploadCard>
             <ImageWrapper img="/images/Singlenft.svg" />
+            <Link href="/nftform">
             <Button>Create Single</Button>
+
+            </Link>
           </UploadCard>
           <UploadCard>
             <ImageWrapper img="/images/Multiplenft.svg" />

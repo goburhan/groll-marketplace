@@ -45,7 +45,7 @@ const AddMore = styled.button`
 `;
 const InputWrapper = styled.div<prop>`
   display: flex;
-  justify-content: space-between;
+  gap:20px;
   width: 74%;
 `;
 const Circle = styled.div<prop>`

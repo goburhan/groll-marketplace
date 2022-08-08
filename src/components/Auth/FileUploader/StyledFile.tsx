@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
 export const FileUploadContainer = styled.section`
-  width: 90%;
-  margin: 14px  0px;
-  background: transparent ;
-  height: 200px;
-  border: 1px solid #484D57;
+  width: 100%;
+  margin: 14px 0px;
+  background: transparent;
+  min-height: 200px;
+  border: 1px solid #484d57;
   border-radius: 16px;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
-  
-  `;
+`;
 
 export const FormField = styled.input`
   font-size: 18px;
@@ -23,7 +22,7 @@ export const FormField = styled.input`
   text-transform: none;
   position: absolute;
   top: 73%;
-  height:0px;
+  height: 0px;
   left: 10%;
   right: 0;
   bottom: 0;
@@ -43,12 +42,10 @@ export const InputLabel = styled.label`
 `;
 
 export const DragDropText = styled.p`
-
   color: #777e90;
   font-weight: 400;
   font-size: 12px;
-  margin-bottom:20px;
- 
+  margin-bottom: 20px;
 `;
 
 export const UploadFileBtn = styled.button`
@@ -153,7 +150,7 @@ export const PreviewList = styled.section`
 `;
 
 interface file {
-  isImageFile?:boolean
+  isImageFile?: boolean;
 }
 
 export const FileMetaData = styled.div<file>`

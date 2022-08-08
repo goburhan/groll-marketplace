@@ -22,22 +22,36 @@ interface prop {
 }
 
 export const Register = styled.textarea<prop>`
-  width: ${(props) => props.width || "90%"};
+  width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "50%"};
   padding: 12px 16px;
   margin: 10px 0 24px 0;
-  color: white;
   resize: none;
+  color: white;
   background: transparent;
-  background-repeat: no-repeat;
   border: 1.5px solid #484d57;
   border-radius: 12px;
   ::placeholder {
-    padding:4px 0px 0px 0px;
   }
   :focus {
     outline: none !important;
     border: 1.5px solid #00acff;
   }
 `;
-
+export const InputField = styled.input<prop>`
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "100%"};
+  padding: 16px;
+  margin: 10px 0 24px 0;
+  resize: none;
+  color: white;
+  background: transparent;
+  border: 1.5px solid #484d57;
+  border-radius: 12px;
+  ::placeholder {
+  }
+  :focus {
+    outline: none !important;
+    border: 1.5px solid #00acff;
+  }
+`;

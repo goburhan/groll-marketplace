@@ -8,7 +8,6 @@ import {
   Twelve,
 } from "../../StyledComponents/Text";
 import PriceContainer from "../PriceContainer";
-import Profile from "../Profile";
 import { Gprice, Nft } from "./BigItemCard";
 
 const NftContainer = styled.div`
@@ -87,7 +86,7 @@ export const Text = styled.text`
   font-size: 12px;
 `;
 
-export default function AllItemCard({nft}) {
+export default function AllItemCard({ nft }) {
   return (
     <NftContainer>
       <Nft>

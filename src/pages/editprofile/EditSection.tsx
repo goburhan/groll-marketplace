@@ -5,7 +5,7 @@ import {
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import FileUpload from "./FileUpload";
-import { Register} from "../../components/SearchBar";
+import { InputField, Register} from "../../components/SearchBar";
 import {
   Backhome,
   StyledButton,
@@ -129,8 +129,7 @@ export default function EditSection() {
 
       <InputWrapper>
         <Text color="#b1b5c4">Nickname</Text>
-        <Register
-          height="56px"
+        <InputField
           placeholder="e.g Mehdi Mairez"
           id="userName"
           name="userName"
@@ -167,7 +166,7 @@ export default function EditSection() {
 
       <InputWrapper>
         <Text color="#b1b5c4">Email</Text>
-        <Register placeholder="example@Gulfcoin.com" />
+        <InputField placeholder="example@Gulfcoin.com" />
       </InputWrapper>
 
       <CardTitle margin="8px 0px 20px 0px">Social</CardTitle>

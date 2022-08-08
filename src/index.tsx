@@ -6,7 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
 import Web3 from "web3";
-import { ChakraProvider } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import { MetaMask } from "@web3-react/metamask";
 import { WalletConnect } from "@web3-react/walletconnect";

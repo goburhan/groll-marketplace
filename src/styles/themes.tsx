@@ -25,6 +25,7 @@ export default interface ThemeProps {
   blue: any;
   editLower: any;
   uploadNftBorder: any;
+  preview:any;
 }
 
 export const dark: ThemeProps = {
@@ -54,6 +55,7 @@ export const dark: ThemeProps = {
   gprice: "#7F8DB6",
   editLower: "#B1B5C3",
   uploadNftBorder:"#484D57",
+  preview:"#2E333B",
 };
 
 export const light: ThemeProps = {
@@ -83,5 +85,6 @@ export const light: ThemeProps = {
   kycBottom: "#fff",
   gprice: "#433D5B",
   editLower: "#777E91",
-  uploadNftBorder:"#00ACFF"
+  uploadNftBorder:"#00ACFF",
+  preview:"#2E333B",
 };

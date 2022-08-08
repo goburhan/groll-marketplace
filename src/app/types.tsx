@@ -8,11 +8,14 @@ lineHeight?: string;
 fontWeight?: string;
 margin?: string;
 }
+
 export interface FlexProp {
     direction?:string;
     gap?:string;
     width?:string;
-    }
+    margin?:string;
+    justifyContent?:string; 
+}
 
 export interface Mo  {
     fontSize?: string;

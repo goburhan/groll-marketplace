@@ -19,6 +19,7 @@ const Grid = styled.div`
 const Card = styled.div<Background>`
   background-image: url(${({ img }) => img});
   background-size: cover;
+  aspect-ratio: 16:9; 
   background-repeat: no-repeat;
   border: 1px solid transparent;
   border-radius: 25px;
@@ -27,9 +28,9 @@ const Card = styled.div<Background>`
 `;
 const Box = styled.div`
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   column-height: 100%;
-  height: calc(100vh - 10px);
+  min-height: 100vh ;
   margin: 0px 100px;
   gap: 120px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -53,9 +54,9 @@ export default function CardDetails() {
           <Card img="/images/detailsitem.svg" />
           <BuySection />
         </Grid>
-        <Flex gap="60px"> 
+        <Flex gap="60px">
           <InfoSection />
-          <Flex gap="16px"  direction="column">
+          <Flex gap="16px" direction="column">
             <CircleButton img="/images/Icons/X.svg" />
             <CircleButton img="/images/Icons/Share.svg" />
             <CircleButton img="/images/Icons/Like.svg" />
