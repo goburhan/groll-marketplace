@@ -252,7 +252,7 @@ export const General24 = styled.text<TextProps>`
   font-weight: 600;
   font-size: 24px;
   line-height: 32px;
-  letter-spacing: ${(props) => props.lineHeight || "-0.01em"} ;
+  letter-spacing: ${(props) => props.lineHeight || "-0.01em"};
 
   color: ${({ theme }) => theme.titles};
 `;
@@ -333,8 +333,7 @@ export const BuyerTitle = styled.text`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  span{
-    
+  span {
   }
 
   color: ${({ theme }) => theme.gray};

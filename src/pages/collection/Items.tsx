@@ -83,14 +83,14 @@ export default function Items() {
 
   items.push(<AllItemCard nft={"/images/Nft/A1.svg"} />);
 
-  let gokhan = [];
-  let i = 0;
-  const burhan = async () => {
-    for (i = 0; i < 10; i++) {
-      gokhan.push(items);
-    }
-  };
-  burhan();
+  // let gokhan = [];
+  // let i = 0;
+  // const burhan = async () => {
+  //   for (i = 0; i < 10; i++) {
+  //     gokhan.push(items);
+  //   }
+  // };
+  // burhan();
 
   return !isMobilee ? (
     <NftContainer>

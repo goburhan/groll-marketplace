@@ -43,7 +43,7 @@ export default function BalanceContainer() {
   return (
     <Wrapper>
       <Container border="none">
-        <img src="/images/Icons/ProfileMenu/Balance.svg" alt="gokhan" />
+        <img src="/images/Icons/ProfileMenu/Balance.svg" alt="balance" />
 
         <Box>
           <Twelve weight="400">Balance</Twelve>

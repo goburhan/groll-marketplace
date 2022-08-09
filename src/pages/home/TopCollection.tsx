@@ -128,28 +128,7 @@ export default function TopCollection() {
             <TCollectionCard icon={icon.name} />
           </Slidebox>
         ))}
-        {/* <Slidebox>
-          <Link href="/collection">
-            <TCollectionCard />
-          </Link>
-        </Slidebox>
-        <Slidebox>
-          <Link href="/carddetails">
-            <TCollectionCard />
-          </Link>
-        </Slidebox>
-        <Slidebox>
-          <TCollectionCard />
-        </Slidebox>
-        <Slidebox>
-          <TCollectionCard />
-        </Slidebox>
-        <Slidebox>
-          <TCollectionCard />
-        </Slidebox>
-        <Slidebox>
-          <TCollectionCard />
-        </Slidebox> */}
+
       </Slider>
       <Flex>
         <Dropdown title="Price" header="Highes Price" />

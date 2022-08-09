@@ -12,12 +12,7 @@ import { coinbaseWallet } from '../../connectors/coinbasewallet'
 import { walletConnect } from '../../connectors/walletconnect'
 import { setLocalStorage } from '../../utils/local-storage';
 import api from '../../api';
-import { useWeb3React } from '@web3-react/core';
-import { ethers } from 'ethers';
 import Router from "next/router";
-import { useSelector } from 'react-redux';
-
-
 export const GET_CONFIG = 'config/getConfig';
 export const CONNECT_WALLET = 'config/connectWallet';
 export const USER_LOGIN = 'config/userLogin';
@@ -25,6 +20,7 @@ export const GET_USER_INFO = 'config/getUserInfo';
 export const SIGNUP_USER = 'config/signUpUser';
 export const SIGN_LOGIN = 'config/signLogin';
 export const UPDATE_PROFILE = 'config/updateProfile';
+
 function getDefaultConnector(defaultConnector): MetaMask | CoinbaseWallet | WalletConnect {
   switch (defaultConnector) {
     case 'metamask':

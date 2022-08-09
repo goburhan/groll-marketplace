@@ -48,10 +48,6 @@ const NftContainer = styled.div`
     }
   }
 `;
-const Slidebox = styled.div`
-  text-color: white;
-  margin-top: 36px;
-`;
 
 export const Flex = styled.div`
   display: flex;
@@ -61,7 +57,7 @@ export const Flex = styled.div`
 const TitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
-    height: 20px;
+    margin-top: -36px;
   }
 `;
 export default function VisualArt() {

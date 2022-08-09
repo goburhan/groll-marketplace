@@ -14,7 +14,6 @@ import storage from 'redux-persist/lib/storage';
 
 import { axiosMiddleware } from '../utils/axios';
 import rootReducer from '../actions/wallet/walletSlice';
-import walletSlice from '../actions/wallet/walletSlice';
 
 const persistConfig = {
   key: 'root',

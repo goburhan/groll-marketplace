@@ -79,12 +79,7 @@ const Grid = styled.div`
   }
 `;
 
-export const Text = styled.text`
-  color: ${({ theme }) => theme.linkItems};
-  margin-left: 6px;
-  font-weight: bold;
-  font-size: 12px;
-`;
+
 
 export default function AllItemCard({ nft }) {
   return (

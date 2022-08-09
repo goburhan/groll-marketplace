@@ -10,7 +10,6 @@ import {
 import { hooks as metaMaskHooks, metaMask } from "../connectors/metamask";
 import {
   hooks as walletConnectHooks,
-  walletConnect,
 } from "../connectors/walletconnect";
 import type { AppDispatch, AppState } from './store'
 import store from './store'

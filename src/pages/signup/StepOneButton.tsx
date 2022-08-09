@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function StepOneButton() {
   function ProgressBar(one: any) {
-    const [gokhan, setGokhan] = useState(one);
+    const [open, setOpen] = useState(one);
 
     const Mainbar = styled.div`
       background: rgba(0, 172, 255, 0.25);
@@ -22,22 +22,22 @@ export default function StepOneButton() {
       margin-right: 40px;
     `;
     useEffect(() => {
-      setGokhan(one);
+      setOpen(one);
     }, [one]);
-    let burhan = Object.values(gokhan);
+    let isOpen = Object.values(open);
 
-    const ChildBard = styled.button`
+    const ChildBar = styled.button`
       background: #00acff;
-      ${burhan[0] === false && "display: none;"}
+      ${isOpen[0] === false && "display: none;"}
       width: 10px;
       border: none;
-      height: ${burhan[0] === true ? "100%" : "0px"};
+      height: ${isOpen[0] === true ? "100%" : "0px"};
     `;
 
   
     return (
       <Mainbar>
-        <ChildBard></ChildBard>
+        <ChildBar></ChildBar>
       </Mainbar>
     );
   }

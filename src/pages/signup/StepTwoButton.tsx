@@ -11,32 +11,30 @@ import StepTwo from "./StepTwo";
 import KycCard from "./KycCard";
 
 function ProgressBar(one: any) {
-  const [gokhan, setGokhan] = useState(one);
+  const [open, setOpen] = useState(one);
 
   const Mainbar = styled.div`
     background: rgba(0, 172, 255, 0.25);
     width: 10px;
     height: auto;
-    margin-right:40px;
+    margin-right: 40px;
   `;
   useEffect(() => {
-    setGokhan(one);
+    setOpen(one);
   }, [one]);
-  let burhan = Object.values(gokhan);
+  let isOpen = Object.values(open);
 
-  const ChildBard = styled.button`
+  const ChildBar = styled.button`
     background: #00acff;
     width: 10px;
-    ${burhan[0] === false && "display: none;"}
+    ${isOpen[0] === false && "display: none;"}
     border: none;
-    height: ${burhan[0] === true ? "100%" : "0px"};
+    height: ${isOpen[0] === true ? "100%" : "0px"};
   `;
-
- 
 
   return (
     <Mainbar>
-      <ChildBard></ChildBard>
+      <ChildBar></ChildBar>
     </Mainbar>
   );
 }

@@ -69,13 +69,6 @@ const Box = styled.div`
 
 `;
 
-export const Text = styled.text`
-  color: ${({ theme }) => theme.linkItems};
-  margin-left: 6px;
-  font-weight: bold;
-  font-size: 12px;
-`;
-
 export default function MyCollectionCard({ nft }) {
   const user = store.getState().user;
   const [avatar, setAvatar] = useState();
