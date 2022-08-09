@@ -28,7 +28,6 @@ import Globalstyle from "../styles/Globalstyle";
 import ThemeContext from "../contexts/ThemeContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import styled from "styled-components";
 const connectors: [
   MetaMask | WalletConnect | CoinbaseWallet,
   Web3ReactHooks

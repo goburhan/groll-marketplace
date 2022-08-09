@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Text14, Text40 } from "../../components/StyledComponents/Text";
 import Checkbox from "@mui/material/Checkbox";
 import {
-  GetStartedNow,
   Transparent,
   TransparentCancel,
 } from "../../components/StyledComponents/Button";
@@ -45,17 +44,11 @@ export default function Terms() {
     display: flex;
     text-align: left;
     align-items: center;
+    gap: ${(props) => props.gap};
     justify-content: ${({ justify }) => justify};
     margin-bottom: ${(props) => props.gap};
   `;
-  const Title = styled.text`
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 48px;
-    color: ${({ theme }) => theme.termTitle};
-  `;
 
-  
   const Text12 = styled.text`
     font-weight: 400;
     font-size: 14px;
@@ -71,7 +64,9 @@ export default function Terms() {
 
   return (
     <Flex>
-      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">Terms of service</Text40>
+      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">
+        Terms of service
+      </Text40>
       <Text12 style={{ marginTop: "8px", marginBottom: "38px" }}>
         Please take a few minutes to read and understand <br />
         <span>Stacks Terms of Service.</span> To continue, you’ll need to accept
@@ -82,15 +77,19 @@ export default function Terms() {
       <div>
         <Box style={{ marginTop: "38px" }}>
           <CustomizedCheckbox />
-          <Text14 color={({ theme }) => theme.lowerdetail}>I am at least 13 year old</Text14>
+          <Text14 color={({ theme }) => theme.lowerdetail}>
+            I am at least 13 year old
+          </Text14>
         </Box>
         <Box style={{ marginBottom: "38px" }}>
           <CustomizedCheckbox />
-          <Text14 color={({ theme }) => theme.lowerdetail}>I agree Stack terms of service</Text14>
+          <Text14 color={({ theme }) => theme.lowerdetail}>
+            I agree Stack terms of service
+          </Text14>
         </Box>
       </div>
 
-      <Box>
+      <Box gap="10px">
         <TransparentCancel>Cancel</TransparentCancel>
         <AcceptSignModal />
       </Box>

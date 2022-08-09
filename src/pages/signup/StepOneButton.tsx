@@ -47,9 +47,9 @@ export default function StepOneButton() {
     overflow: hidden;
   `;
   const SignupWrapper = styled(motion.div)`
-    display: flex;
-    width: 92%;
-    padding: 2.5% 0px 0px 0.5%;
+ display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:238px;
     /* opacity: 0; */
   `;
 
@@ -119,9 +119,9 @@ export default function StepOneButton() {
     },
 
     open: {
-      height: "190vh",
+      height: "200vh",
       opacity: 1,
-
+      y:30,
       transition: {
         duration: 0.5,
       },

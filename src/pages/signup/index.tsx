@@ -4,7 +4,6 @@ import AccountInformation from "./StepOneButton";
 import SelfieCard from "./KycCard";
 import {
   Backhome,
-  StyledButton,
 } from "../../components/StyledComponents/Button";
 import { selectConnector, userSelect } from "../../actions/wallet/walletSlice";
 

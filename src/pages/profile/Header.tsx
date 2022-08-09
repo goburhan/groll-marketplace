@@ -7,7 +7,6 @@ import {
 } from "../../components/StyledComponents/Text";
 import Socials from "../../components/Socials";
 import {
-  StyledButton,
   Transparent,
 } from "../../components/StyledComponents/Button";
 import Statistics from "../../components/Statistics";

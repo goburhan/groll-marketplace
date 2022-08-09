@@ -22,7 +22,6 @@ export const HomeTitleWrapper = styled.div`
   }
 `;
 
-
 export const Text12 = styled.text<marginProp>`
   font-weight: ${(props) => props.weight || "700"};
   font-size: 12px;

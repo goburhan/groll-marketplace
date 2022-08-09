@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled, { ThemeContext } from "styled-components";
-import {
-  BlueButton,
-  MobileMenu,
-  StyledButton,
-} from "./StyledComponents/Button";
+import { BlueButton } from "./StyledComponents/Button";
 import { Vdivider } from "./StyledComponents/Divider";
 import ConnectButton from "./ConnectButton";
 import Link from "next/link";
 import { Text14 } from "./StyledComponents/Text";
-import { useContext } from "react";
-import { MenuToggle } from "./Mobile/Menu/menuToggle";
 import { HamburgerMenu } from "./Mobile/Menu";
 import useThemeMode from "../hooks/useThemeMode";
 import { useSelector } from "react-redux";
 import { userSelect } from "../actions/wallet/walletSlice";
-import store from "../app/store";
 import ProfileIcon from "./ProfileMenu/ProfileIcon";
 import { fullImageUrl } from "../app/hooks";
 
@@ -73,10 +66,10 @@ export default function Navbar() {
     border: 1px solid #484d57;
     border-radius: 25px;
     background-color: transparent;
-    padding: 6px 44px 6px 15px;
+    padding: 6px 14px 6px 14px;
     width: 48%;
     justify-content: space-between;
-
+    
     @media (max-width: ${({ theme }) => theme.mobile}) {
       display: none;
     }
@@ -137,13 +130,9 @@ export default function Navbar() {
         )}
 
         <ConnectButton />
-        {/* <img
-            style={{ borderRadius: "50%", maxHeight: "60px", minWidth: "60px" }}
-            src={avatar}
-          /> */}
+
         <ProfileIcon />
 
-        {/* <img src="/images/bell.svg" />   */}
         <ThemeButton
           onClick={() => {
             themeToggler();

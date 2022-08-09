@@ -10,7 +10,7 @@ Text16,
   Text40,
 } from "../../components/StyledComponents/Text";
 import Socials from "../../components/Socials";
-import { StyledButton } from "../../components/StyledComponents/Button";
+import { BlueButton } from "../../components/StyledComponents/Button";
 import Statistics from "../../components/Statistics";
 
 const Side = styled.div`
@@ -59,34 +59,22 @@ export default function CollectionsHeader() {
         </Text16>
         <Text18 color={({ theme }) => theme.gray}>Joined: 5th December 2021</Text18>
         <Flex about="row">
-          <StyledButton
-            style={{
-              background:
-                "linear-gradient(244.53deg, #00D2FF 18.15%, #DB00FF 122.78%, #09ABF9 147.81%)",
-              color: "#fff",
-              minWidth: "200px",
-              maxWidth: "300px",
-            }}
+          <BlueButton
+           
           >
             Follow
-          </StyledButton>
+          </BlueButton>
           <Socials />
         </Flex>
         <Statistics />
       </Flex>
 
       <Side>
-        <StyledButton
-          style={{
-            background:
-              "linear-gradient(244.53deg, #00D2FF 18.15%, #DB00FF 122.78%, #09ABF9 147.81%)",
-            color: "#fff",
-            minWidth: "200px",
-            maxWidth: "300px",
-          }}
+        <BlueButton
+          
         >
           Follow
-        </StyledButton>
+        </BlueButton>
       </Side>
     </HeaderWrapper>
   );

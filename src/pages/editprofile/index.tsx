@@ -1,19 +1,16 @@
-import { Web3ReactHooks } from "@web3-react/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import AvatarSettings from "./AvatarSettings";
-import EditSection from "./EditSection";
 import {
   selectConnector,
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import FileUpload from "./FileUpload";
-import PersonalDetailWrapper from "../../components/UploadAvatar";
 import { InputField, Register } from "../../components/SearchBar";
 import {
   Backhome,
-  StyledButton,
+  BlueButton,
 } from "../../components/StyledComponents/Button";
 import {
   Text16,
@@ -21,10 +18,6 @@ import {
   
   Text14,
 } from "../../components/StyledComponents/Text";
-import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
-import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
-import CustomizedCheckbox from "../connectwallet/Checkbox";
 import Dropdown from "./Dropdown";
 import store from "../../app/store";
 import { getDefaultConnector } from "../../app/hooks";
@@ -215,7 +208,7 @@ export default function Editprofile() {
             <img src="/images/Staticlogos/Clearicon.svg" />
             Clear all
           </Clear>
-          <StyledButton
+          <BlueButton
             onClick={() => {
               dispatch(
                 updateProfile({
@@ -229,12 +222,11 @@ export default function Editprofile() {
             }}
             style={{
               height: "48px",
-              width: "18%",
-              background: "#00ACFF",
             }}
+            padding="0px 32px"
           >
             Confirm
-          </StyledButton>
+          </BlueButton>
         </Botwrapper>
       </Flex>
       <AvatarSettings />

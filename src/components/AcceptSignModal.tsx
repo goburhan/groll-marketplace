@@ -3,11 +3,9 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
-import Router from "next/router";
-import Typography from "@mui/material/Typography";
 import {
-  GetStartedNow,
+  BlueButton,
+
   Transparent,
   TransparentCancel,
 } from "./StyledComponents/Button";
@@ -29,9 +27,8 @@ import {
   hooks as walletConnectHooks,
   walletConnect,
 } from "../connectors/walletconnect";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import { ethers } from "ethers";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -96,7 +93,7 @@ function AcceptSignModal(props: any) {
 
   return (
     <div>
-      <GetStartedNow onClick={handleOpen}>Get Started Now</GetStartedNow>
+      <BlueButton padding="14px 32px" onClick={handleOpen}>Get Started Now</BlueButton>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -113,7 +110,8 @@ function AcceptSignModal(props: any) {
             <img src="/images/AcceptSign.svg" alt="modal" />
             <Text>Accept sign in</Text>
 
-            <GetStartedNow
+            <BlueButton
+            padding="14px 32px"
               onClick={() => {
                 let timestamp = parseInt(`${new Date().getTime() / 1000}`);
                 var message =
@@ -134,10 +132,10 @@ function AcceptSignModal(props: any) {
                     console.log(err);
                   });
               }}
-              style={{ width: "100%", marginLeft: "0rem" }}
+              style={{ width: "100%" }}
             >
               Continue
-            </GetStartedNow>
+            </BlueButton>
             <TransparentCancel style={{ width: "100%" }}>
               Cancel
             </TransparentCancel>

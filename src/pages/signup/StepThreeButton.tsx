@@ -16,10 +16,10 @@ function ProgressBar(one: any) {
   const [open, setOpen] = useState(one);
 
   const Mainbar = styled.div`
-  background: rgba(0, 172, 255, 0.25);
+    background: rgba(0, 172, 255, 0.25);
     width: 10px;
     height: auto;
-    margin-right:40px;
+    margin-right: 40px;
   `;
   useEffect(() => {
     setOpen(one);
@@ -27,14 +27,12 @@ function ProgressBar(one: any) {
   let isOpen = Object.values(open);
 
   const ChildBar = styled.button`
-  background: #00ACFF;
-  ${isOpen[0] === false && "display: none;"}
+    background: #00acff;
+    ${isOpen[0] === false && "display: none;"}
     width: 10px;
     border: none;
     height: ${isOpen[0] === true ? "100%" : "0px"};
   `;
-
-
 
   return (
     <Mainbar>
@@ -53,9 +51,9 @@ export default function StepOneButton() {
     overflow: hidden;
   `;
   const SignupWrapper = styled(motion.div)`
-    display: flex;
-    width: 92%;
-    padding: 2.5% 0px 0px 0.5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 236px;
     /* opacity: 0; */
   `;
 
@@ -117,7 +115,7 @@ export default function StepOneButton() {
     open: {
       height: "100vh",
       opacity: 1,
-
+      y:30,
       transition: {
         duration: 0.5,
       },
@@ -159,7 +157,7 @@ export default function StepOneButton() {
     width: 100%;
   `;
   return (
-    <div  style={{ display: "flex", width: "100%" }}>
+    <div style={{ display: "flex", width: "100%" }}>
       <ProgressBar one={open}></ProgressBar>
       <div style={{ width: "100%" }}>
         <AnimatePresence>
@@ -176,10 +174,12 @@ export default function StepOneButton() {
               <Box direction="row">
                 <Box>
                   <Box gap="15px" mb="15px" direction="row">
-                    <Text40  color="#00ACFF" >Step 3</Text40>
+                    <Text40 color="#00ACFF">Step 3</Text40>
                     <Progress>25% progress</Progress>
                   </Box>
-                  <Text40 color={({ theme }) => theme.titles}>Apply for The Blue Tick</Text40>
+                  <Text40 color={({ theme }) => theme.titles}>
+                    Apply for The Blue Tick
+                  </Text40>
                 </Box>
 
                 <img

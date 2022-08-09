@@ -5,7 +5,7 @@ import StepOne from "../signup/StepOne";
 import styled from "styled-components";
 import SignUpPage from "../signup";
 import BasicCard from "../signup/BasicCard";
-import {  Text40 } from "../../components/StyledComponents/Text";
+import { Text40 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
 import StepTwo from "./StepTwo";
 import KycCard from "./KycCard";
@@ -49,9 +49,9 @@ export default function StepOneButton() {
     overflow: hidden;
   `;
   const SignupWrapper = styled(motion.div)`
-    display: flex;
-    width: 92%;
-    padding: 2.5% 0px 0px 0.5%;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 238px;
     /* opacity: 0; */
   `;
 
@@ -113,6 +113,7 @@ export default function StepOneButton() {
     open: {
       height: "100vh",
       opacity: 1,
+      y:30,
 
       transition: {
         duration: 0.5,
@@ -167,7 +168,9 @@ export default function StepOneButton() {
                     <Text40 color="#00ACFF">Step 2</Text40>
                     <Progress>25% progress</Progress>
                   </Box>
-                  <Text40 color={({ theme }) => theme.titles}>Apply for KYC</Text40>
+                  <Text40 color={({ theme }) => theme.titles}>
+                    Apply for KYC
+                  </Text40>
                 </Box>
 
                 <img

@@ -5,7 +5,7 @@ import {
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { StyledButton } from "../../components/StyledComponents/Button";
+import { BlueButton } from "../../components/StyledComponents/Button";
 import Toggle from "../../components/Toggle";
 import StepTwoUploader from "../../components/Auth/FileUploader/StepTwoUploader";
 import { Text16 } from "../../components/StyledComponents/Text";
@@ -25,7 +25,7 @@ interface checkboxProps {
 
 const Flex = styled.div<prop>`
   display: flex;
-  width: ${(props) => props.width || "60%"};
+  width: ${(props) => props.width  };
   flex-direction: ${(props) => props.direction || "column"};
   text-align: left;
   justify-content: space-between;
@@ -149,7 +149,7 @@ export default function StepOne() {
           <img src="/images/Staticlogos/Clearicon.svg" />
           Clear all
         </Clear>
-        <StyledButton
+        <BlueButton
           onClick={() => {
             dispatch(
               updateProfile({
@@ -159,14 +159,10 @@ export default function StepOne() {
               })
             );
           }}
-          style={{
-            height: "48px",
-            width: "18%",
-            background: "#00ACFF",
-          }}
+       
         >
           Confirm
-        </StyledButton>
+        </BlueButton>
       </Botwrapper>
     </Flex>
   );

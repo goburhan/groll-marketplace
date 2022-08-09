@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { SliderButton, StyledButton } from "../StyledComponents/Button";
+import { SliderButton } from "../StyledComponents/Button";
 import Bg from "./slider1bg.png";
 import { Sliderfont } from "../StyledComponents/Text";
 

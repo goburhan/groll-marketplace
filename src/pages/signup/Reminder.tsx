@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {
   Backhome,
-  StyledButton,
 } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
 

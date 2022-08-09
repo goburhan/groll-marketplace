@@ -136,10 +136,13 @@ export const OpenCloseButton = styled.button`
   cursor: pointer;
 `;
 
-export const BlueButton = styled.button`
+export const BlueButton = styled.button<ButtonInterface>`
   border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 25px;
-  padding: 8px 20px;
+  padding: ${(props) => props.padding || "8px 20px"};
   color: #fff;
   cursor: pointer;
   font-size: 16px;
@@ -147,6 +150,9 @@ export const BlueButton = styled.button`
   background-color: #00acff;
   :hover {
     opacity: 0.9;
+  }
+  img {
+    width: 20px;
   }
 `;
 
@@ -183,23 +189,7 @@ export const TransparentCancel = styled.button<prop>`
     border: 1px solid #484d57;
   }
 `;
-export const GetStartedNow = styled.button`
-  border: 1px solid #00acff;
-  margin-left: 1rem;
-  cursor: pointer;
-  font-weight: 400;
-  background: #00acff;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 45px;
-  padding: 16px 32px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  :hover {
-    opacity: 0.9;
-  }
-`;
+
 export const MobileMenu = styled.button(
   ({ theme }) => `
   border: 1px solid transparent;

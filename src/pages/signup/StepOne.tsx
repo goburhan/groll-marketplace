@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Register } from "../../components/SearchBar";
+import { InputField, Register } from "../../components/SearchBar";
 import {
   Text16,
 Text14
 } from "../../components/StyledComponents/Text";
 import FileUpload from "../../components/Auth/FileUploader/FileUpload";
-import SingleUpload from "../../components/Auth/FileUploader/SingleUpload";
 import {
   selectConnector,
   updateProfile,
   userSelect,
 } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { StyledButton } from "../../components/StyledComponents/Button";
-import { Web3ReactHooks } from "@web3-react/core";
-import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
-import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
+import { BlueButton } from "../../components/StyledComponents/Button";
 import PersonalDetailWrapper from "../../components/UploadAvatar";
-import Checkbox from "@mui/material/Checkbox";
 import CustomizedCheckbox from "../connectwallet/Checkbox";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { getDefaultConnector } from "../../app/hooks";
 
 interface prop {
   width?: string;
@@ -38,7 +33,7 @@ interface checkboxProps {
 
 const Flex = styled(motion.div)<prop>`
   display: flex;
-  width: 60%;
+  width: ${(props) => props.width};
   flex-direction: ${(props) => props.direction || "column"};
   text-align: left;
   justify-content: space-between;
@@ -115,22 +110,7 @@ export default function StepOne() {
     setBio(e.target.value);
   }
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
-
-      default:
-        return metaMaskHooks;
-    }
-  }
+ 
   const user = useSelector(userSelect);
   // console.log(user.nickname);
 
@@ -158,7 +138,7 @@ export default function StepOne() {
 
         <InputWrapper>
           <Text color="#b1b5c4">TYPE OF PROFILE</Text>
-          <Register placeholder="e.g 12/03/1984" />
+          <InputField placeholder="e.g 12/03/1984" />
         </InputWrapper>
 
         <InputWrapper>
@@ -183,7 +163,7 @@ export default function StepOne() {
 
         <InputWrapper>
           <Text color="#b1b5c4">Email</Text>
-          <Register placeholder="example@Gulfcoin.com" />
+          <InputField placeholder="example@Gulfcoin.com" />
         </InputWrapper>
 
         <Checker>
@@ -200,11 +180,11 @@ export default function StepOne() {
 
         <InputWrapper>
           <Text color="#b1b5c4">Instagram</Text>
-          <Register placeholder="@goburhan" />
+          <InputField placeholder="@goburhan" />
         </InputWrapper>
         <InputWrapper>
           <Text color="#b1b5c4">Twitter</Text>
-          <Register placeholder="@gobur" />
+          <InputField placeholder="@gobur" />
         </InputWrapper>
 
         <AddMore>
@@ -218,7 +198,7 @@ export default function StepOne() {
             Clear all
           </Clear>
           <Link href="/signup">
-            <StyledButton
+            <BlueButton
               onClick={() => {
                 dispatch(
                   updateProfile({
@@ -229,14 +209,10 @@ export default function StepOne() {
                   })
                 );
               }}
-              style={{
-                height: "48px",
-                width: "18%",
-                background: "#00ACFF",
-              }}
+           
             >
               Confirm
-            </StyledButton>
+            </BlueButton>
           </Link>
         </Botwrapper>
       </Flex>

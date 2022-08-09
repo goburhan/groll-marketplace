@@ -8,7 +8,7 @@ import FileUpload from "./FileUpload";
 import { InputField, Register} from "../../components/SearchBar";
 import {
   Backhome,
-  StyledButton,
+  BlueButton,
 } from "../../components/StyledComponents/Button";
 import {
   Text16,
@@ -193,7 +193,7 @@ export default function EditSection() {
           <img src="/images/Staticlogos/Clearicon.svg" />
           Clear all
         </Clear>
-        <StyledButton
+        <BlueButton
           onClick={() => {
             dispatch(
               updateProfile({
@@ -203,14 +203,10 @@ export default function EditSection() {
               })
             );
           }}
-          style={{
-            height: "48px",
-            width: "18%",
-            background: "#00ACFF",
-          }}
+         
         >
           Confirm
-        </StyledButton>
+        </BlueButton>
       </Botwrapper>
     </Flex>
   );

@@ -10,7 +10,7 @@ import FileUpload from "../editprofile/FileUpload";
 import { InputField, Register } from "../../components/SearchBar";
 import {
   Backhome,
-  StyledButton,
+  BlueButton,
   Transparent,
 } from "../../components/StyledComponents/Button";
 import {
@@ -151,14 +151,26 @@ export default function NftForm() {
             <Text48>Create single collectible</Text48>
           </Botwrapper>
 
-          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 4px 0px">Upload File</Text16>
+          <Text16
+            color={({ theme }) => theme.cardTitle}
+            fontWeight="600"
+            margin="8px 0px 4px 0px"
+          >
+            Upload File
+          </Text16>
 
           <InputWrapper>
             <Text12 weight="400">Drag or choose your file to upload</Text12>
             <FileUpload></FileUpload>
           </InputWrapper>
 
-          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 4px 0px">Item Details</Text16>
+          <Text16
+            color={({ theme }) => theme.cardTitle}
+            fontWeight="600"
+            margin="8px 0px 4px 0px"
+          >
+            Item Details
+          </Text16>
 
           <InputWrapper>
             <Text>ITEM NAME</Text>
@@ -200,7 +212,9 @@ export default function NftForm() {
           <Flex gap="32px">
             <Flex direction="row">
               <Flex>
-                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Put on sale</Text16>
+                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
+                  Put on sale
+                </Text16>
                 <Text color="#777E90">You'll receive bids on this item</Text>
               </Flex>
               <Toggle />
@@ -208,7 +222,9 @@ export default function NftForm() {
 
             <Flex direction="row">
               <Flex>
-                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Unlock once purchased</Text16>
+                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
+                  Unlock once purchased
+                </Text16>
                 <Text color="#777E90">
                   Content will be unlocked after successful transaction
                 </Text>
@@ -219,7 +235,9 @@ export default function NftForm() {
 
             <Flex direction="row">
               <Flex>
-                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Choose collection</Text16>
+                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
+                  Choose collection
+                </Text16>
                 <Text color="#777E90">
                   Choose an exiting collection or create a new one
                 </Text>
@@ -248,7 +266,7 @@ export default function NftForm() {
           </Collections>
 
           <Botwrapper>
-            <StyledButton
+            <BlueButton
               onClick={() => {
                 dispatch(
                   updateProfile({
@@ -266,7 +284,7 @@ export default function NftForm() {
             >
               Create item
               <img src="/images/Icons/Rightarrow.svg" />
-            </StyledButton>
+            </BlueButton>
           </Botwrapper>
         </Flex>
         <Container>

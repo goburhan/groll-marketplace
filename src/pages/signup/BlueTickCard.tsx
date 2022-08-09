@@ -10,8 +10,7 @@ const SelfieContainer = styled.div`
 display: flex;
 flex-direction: column;
 border-radius: 16px;
-width: 30%;
-margin-left:15%;
+width: 70%;
 height: max-content;
 padding: 2rem 2rem 4rem 2rem;
 border: 1px solid #00acff;

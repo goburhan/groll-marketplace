@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import {
   BuyButton,
-  StyledButton,
 } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
 import {

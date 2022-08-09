@@ -5,13 +5,10 @@ import {
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { StyledButton } from "../../components/StyledComponents/Button";
-import { Web3ReactHooks } from "@web3-react/core";
-import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
-import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
+import { BlueButton } from "../../components/StyledComponents/Button";
 import Toggle from "../../components/Toggle";
 import { Text14, Text16 } from "../../components/StyledComponents/Text";
+import { getDefaultConnector } from "../../app/hooks";
 
 interface prop {
   width?: string;
@@ -21,14 +18,10 @@ interface prop {
   justify?: string;
   innerRef?: any;
 }
-interface checkboxProps {
-  defaultChecked?: boolean;
-  color?: any;
-}
+
 
 const Flex = styled.div<prop>`
   display: flex;
-  width: 60%;
   flex-direction: ${(props) => props.direction || "column"};
   text-align: left;
   justify-content: ${(props) => props.justify};
@@ -43,7 +36,6 @@ const Flex = styled.div<prop>`
 const Botwrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 90%;
   margin-top: 3rem;
 `;
 
@@ -51,7 +43,6 @@ const InputWrapper = styled.div<prop>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
   margin-right: ${(props) => props.mr};
 `;
 interface boxprops {
@@ -87,38 +78,8 @@ export default function StepOne() {
     setBio(e.target.value);
   }
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
 
-      default:
-        return metaMaskHooks;
-    }
-  }
-  interface marginProp {
-    margin?: string;
-  }
 
-  const TabFont = styled.text`
-    font-weight: 400;
-    font-size: 14px;
-    width: 80%;
-    line-height: 20px;
-    span {
-      color: ${({ theme }) => theme.cardTitle};
-      font-weight: bold;
-    }
-
-    color: ${({ theme }) => theme.gray};
-  `;
 
   return (
     <Flex>
@@ -138,7 +99,7 @@ export default function StepOne() {
         <Toggle />
       </InputWrapper>
 
-      <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+      <Text14 style={{width:"80%"}}  color={({ theme }) => theme.gray} fontWeight="600">
         In order to be eligible to apply for the blue checkmark, your account
         must meet the following criteria for verification: The Account Must Be
         Authentic: In order to be considered for verification, your account must
@@ -151,7 +112,7 @@ export default function StepOne() {
           <img src="/images/Staticlogos/Clearicon.svg" />
           Clear all
         </Clear>
-        <StyledButton
+        <BlueButton
           onClick={() => {
             dispatch(
               updateProfile({
@@ -161,14 +122,10 @@ export default function StepOne() {
               })
             );
           }}
-          style={{
-            height: "48px",
-            width: "18%",
-            background: "#00ACFF",
-          }}
+         
         >
           Confirm
-        </StyledButton>
+        </BlueButton>
       </Botwrapper>
     </Flex>
   );
