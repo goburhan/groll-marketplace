@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  HomeTitles,
+  Text40,
   HomeTitleWrapper,
-  Title,
 } from "../../components/StyledComponents/Text";
 import HotCollectionCard from "../../components/NftCards/Cards/HotCollectionCard";
 
@@ -35,7 +34,7 @@ export default function HotCollections() {
   return (
     <NftContainer>
       <HomeTitleWrapper>
-        <HomeTitles> Hot collections</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}> Hot collections</Text40>
       </HomeTitleWrapper>
 
       <Flex>

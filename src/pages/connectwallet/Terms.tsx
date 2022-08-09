@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LowerDetail } from "../../components/StyledComponents/Text";
+import { Text14, Text40 } from "../../components/StyledComponents/Text";
 import Checkbox from "@mui/material/Checkbox";
 import {
   GetStartedNow,
@@ -56,7 +56,7 @@ export default function Terms() {
   `;
 
   
-  const Twelve = styled.text`
+  const Text12 = styled.text`
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -71,22 +71,22 @@ export default function Terms() {
 
   return (
     <Flex>
-      <Title>Terms of service</Title>
-      <Twelve style={{ marginTop: "8px", marginBottom: "38px" }}>
+      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">Terms of service</Text40>
+      <Text12 style={{ marginTop: "8px", marginBottom: "38px" }}>
         Please take a few minutes to read and understand <br />
         <span>Stacks Terms of Service.</span> To continue, you’ll need to accept
         the terms of services by checking the boxes.
-      </Twelve>
+      </Text12>
       <img src="/images/Termsimg.svg" alt="terms" />
 
       <div>
         <Box style={{ marginTop: "38px" }}>
           <CustomizedCheckbox />
-          <LowerDetail>I am at least 13 year old</LowerDetail>
+          <Text14 color={({ theme }) => theme.lowerdetail}>I am at least 13 year old</Text14>
         </Box>
         <Box style={{ marginBottom: "38px" }}>
           <CustomizedCheckbox />
-          <LowerDetail>I agree Stack terms of service</LowerDetail>
+          <Text14 color={({ theme }) => theme.lowerdetail}>I agree Stack terms of service</Text14>
         </Box>
       </div>
 

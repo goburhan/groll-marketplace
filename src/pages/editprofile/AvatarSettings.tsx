@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Divider } from "../../components/StyledComponents/Divider";
-import { CardTitle } from "../../components/StyledComponents/Text";
+import {  Text16 } from "../../components/StyledComponents/Text";
 import Toggle from "../../components/Toggle";
 import UploadAvatar from "../../components/UploadAvatar";
 import FileInput from "../../components/Auth/FileUploader/Material";
@@ -89,7 +89,7 @@ export default function AvatarSettings() {
         <Divider width="100%" mb="28px" />
         <Flex margin="0px 0px 32px 0px">
           <Flex direction="column">
-            <CardTitle>3D Photo Avatar</CardTitle>
+            <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">3D Photo Avatar</Text16>
             <Text color="#777E90">
               You can shoose and Customize your 3D Photo avatar
             </Text>
@@ -99,7 +99,7 @@ export default function AvatarSettings() {
 
         <Flex>
           <Flex justify="ss" direction="column">
-            <CardTitle>2D Photo Avatar</CardTitle>
+            <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">2D Photo Avatar</Text16>
             <Text color="#777E90">
               You can shoose and Customize your 2D Photo avatar
             </Text>
@@ -126,7 +126,7 @@ export default function AvatarSettings() {
 
       <Flex>
         <Flex justify="ss" direction="column">
-          <CardTitle>2D Photo Avatar</CardTitle>
+          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">2D Photo Avatar</Text16>
           <Text color="#777E90">
             You can shoose and Customize your 2D Photo avatar
           </Text>

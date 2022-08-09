@@ -8,7 +8,7 @@ import {
 import { Vdivider } from "./StyledComponents/Divider";
 import ConnectButton from "./ConnectButton";
 import Link from "next/link";
-import { ItemsFont } from "./StyledComponents/Text";
+import { Text14 } from "./StyledComponents/Text";
 import { useContext } from "react";
 import { MenuToggle } from "./Mobile/Menu/menuToggle";
 import { HamburgerMenu } from "./Mobile/Menu";
@@ -18,8 +18,6 @@ import { userSelect } from "../actions/wallet/walletSlice";
 import store from "../app/store";
 import ProfileIcon from "./ProfileMenu/ProfileIcon";
 import { fullImageUrl } from "../app/hooks";
-
-
 
 export default function Navbar() {
   const { theme, themeToggler } = useThemeMode();
@@ -101,53 +99,59 @@ export default function Navbar() {
     }
   `;
   console.log(user);
+
+  const Menu = [
+    { name: "Discover" },
+    { name: "How it Work" },
+    { name: "Features" },
+  ];
+
   return (
-      <Navibar>
-        <Link href="/">
-          <img
-            src="/images/Logo.svg"
-            style={{ maxWidth: "53px", cursor: "pointer" }}
-          />
-        </Link>
-        <Items>
-          <Vdivider ml="2rem" height="70%" />
-          {/* <img src="/images/divider.svg" style={{ maxWidth: "53px" }} /> */}
-          <ItemsFont>Discover</ItemsFont>
-          <ItemsFont>How it Work</ItemsFont>
-          <ItemsFont>Features</ItemsFont>
-        </Items>
-        <HamburgerMenu />
+    <Navibar>
+      <Link href="/">
+        <img
+          src="/images/Logo.svg"
+          style={{ maxWidth: "53px", cursor: "pointer" }}
+        />
+      </Link>
+      <Items>
+        <Vdivider ml="2rem" height="70%" />
+        {Menu.map((item) => (
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            {item.name}
+          </Text14>
+        ))}
+      </Items>
+      <HamburgerMenu />
 
-        <Items justifyContent="right">
-          <SearchWrapper>
-            <img src="/images/Shape.svg" />
-            <Search placeholder="Search Everything" />
-          </SearchWrapper>
+      <Items justifyContent="right">
+        <SearchWrapper>
+          <img src="/images/Shape.svg" />
+          <Search placeholder="Search Everything" />
+        </SearchWrapper>
 
-          {user.nickname !==  "" && 
+        {user.nickname !== "" && (
           <Link href="/createnft">
-          <BlueButton>Create</BlueButton> 
+            <BlueButton>Create</BlueButton>
           </Link>
-          
-          }
+        )}
 
-          <ConnectButton />
-          {/* <img
+        <ConnectButton />
+        {/* <img
             style={{ borderRadius: "50%", maxHeight: "60px", minWidth: "60px" }}
             src={avatar}
           /> */}
-          <ProfileIcon />
+        <ProfileIcon />
 
-          
-          {/* <img src="/images/bell.svg" />   */}
-          <ThemeButton
-            onClick={() => {
-              themeToggler();
-            }}
-          >
-            <img src="/images/triangle.svg" />
-          </ThemeButton>
-        </Items>
-      </Navibar>
+        {/* <img src="/images/bell.svg" />   */}
+        <ThemeButton
+          onClick={() => {
+            themeToggler();
+          }}
+        >
+          <img src="/images/triangle.svg" />
+        </ThemeButton>
+      </Items>
+    </Navibar>
   );
 }

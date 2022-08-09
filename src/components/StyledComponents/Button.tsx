@@ -27,7 +27,7 @@ export const StyledButton = styled.button`
     width: 20px;
   }
 `;
-
+// gray circle , background as props
 export const CircleButton = styled.button<ButtonInterface>`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
@@ -41,6 +41,7 @@ export const CircleButton = styled.button<ButtonInterface>`
     opacity: 0.8;
   }
 `;
+
 export const BuyButton = styled.button<ButtonInterface>`
   border: 1px solid transparent;
   background: ${(props) => props.color};

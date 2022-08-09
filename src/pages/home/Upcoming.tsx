@@ -4,9 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-  HomeTitles,
+  Text40,
   HomeTitleWrapper,
-  Title,
 } from "../../components/StyledComponents/Text";
 import UpcomingCard from "../../components/NftCards/Cards/UpcomingCard";
 import { WindowSize } from "../../hooks/useWindowsize";
@@ -93,10 +92,10 @@ export default function () {
     ],
   };
   const PrevArrow = styled.div`
-  margin-bottom:54px;
+    margin-bottom: 54px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: absolute;
-      margin-bottom:23px;
+      margin-bottom: 23px;
       height: 20px;
       width: 10%;
     }
@@ -112,7 +111,9 @@ export default function () {
   return !isMobilee ? (
     <NftContainer>
       <PrevArrow>
-        <HomeTitles>Upcoming collections</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}>
+          Upcoming collections
+        </Text40>
       </PrevArrow>
       <Flex>
         {nft.map((nfts) => (
@@ -123,7 +124,9 @@ export default function () {
   ) : (
     <NftContainer>
       <PrevArrow>
-        <HomeTitles>Upcoming collections</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}>
+          Upcoming collections
+        </Text40>
       </PrevArrow>
       <Slider {...settings}>
         {nft.map((nfts) => (

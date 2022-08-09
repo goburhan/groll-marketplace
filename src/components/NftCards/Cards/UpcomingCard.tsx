@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
-import { MiniCardTitle, TabFont } from "../../StyledComponents/Text";
+import { Text22 } from "../../StyledComponents/Text";
 import bg from "./1.png";
 
 const NftContainer = styled.div`
@@ -53,14 +53,14 @@ const NftWrapper = styled.div<Nft>`
   background-position: 50% 0%;
 `;
 
-export default function UpcomingCard({nft}) {
+export default function UpcomingCard({ nft }) {
   return (
     <NftContainer>
       <NftWrapper img={nft} />
       <Box img="/images/userpicture.svg" />
 
       <BoxWrapper>
-        <MiniCardTitle>G-NO Digital</MiniCardTitle>
+        <Text22 lineHeight="48px" color={({ theme }) => theme.cardTitle}>G-NO Digital</Text22>
       </BoxWrapper>
     </NftContainer>
   );

@@ -14,10 +14,10 @@ import {
   Transparent,
 } from "../../components/StyledComponents/Button";
 import {
-  CardTitle,
-  EditProfileTitle,
-  Gray14,
-  Twelve,
+  Text16,
+  Text48,
+  Text14,
+  Text12,
 } from "../../components/StyledComponents/Text";
 import Dropdown from "../editprofile/Dropdown";
 import store from "../../app/store";
@@ -36,7 +36,13 @@ interface prop {
   innerRef?: any;
   gap?: string;
 }
-
+const Text = styled(Text14)`
+  color: ${({ theme }) => theme.gray};
+  fontweight: 500;
+  span {
+    color: ${({ theme }) => theme.linkItems};
+  }
+`;
 const PageWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -142,51 +148,51 @@ export default function NftForm() {
       <PageWrapper>
         <Flex>
           <Botwrapper width="60%" margin="0px 0px 44px 0px">
-            <EditProfileTitle>Create single collectible</EditProfileTitle>
+            <Text48>Create single collectible</Text48>
           </Botwrapper>
 
-          <CardTitle margin="8px 0px 4px 0px">Upload File</CardTitle>
+          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 4px 0px">Upload File</Text16>
 
           <InputWrapper>
-            <Twelve weight="400">Drag or choose your file to upload</Twelve>
+            <Text12 weight="400">Drag or choose your file to upload</Text12>
             <FileUpload></FileUpload>
           </InputWrapper>
 
-          <CardTitle margin="8px 0px 4px 0px">Item Details</CardTitle>
+          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 4px 0px">Item Details</Text16>
 
           <InputWrapper>
-            <Gray14>ITEM NAME</Gray14>
+            <Text>ITEM NAME</Text>
             <InputField placeholder="e. g.  “Redeemable Bitcoin Card with logo” " />
           </InputWrapper>
           <InputWrapper>
-            <Gray14>Description</Gray14>
+            <Text>Description</Text>
             <InputField placeholder="e. g. “After purchasing you will able to recived the logo...” " />
           </InputWrapper>
 
           <InputWrapper>
-            <Gray14>PRICE</Gray14>
+            <Text>PRICE</Text>
             <InputField placeholder="e. g. “#price” " />
           </InputWrapper>
 
           <LinkWrapper>
             <InputWrapper>
-              <Gray14>EXTERNAL LINKS</Gray14>
+              <Text>EXTERNAL LINKS</Text>
               <InputField placeholder="e. g. “#price” " />
             </InputWrapper>
 
             <InputWrapper>
-              <Gray14>ROYALITIES</Gray14>
+              <Text>ROYALITIES</Text>
               <Dropdown header="Collector" />
             </InputWrapper>
 
             <InputWrapper>
-              <Gray14>PROPERTIE</Gray14>
+              <Text>PROPERTIE</Text>
               <InputField placeholder="e. g. “#price” " />
             </InputWrapper>
           </LinkWrapper>
 
           <InputWrapper>
-            <Gray14>HASHTAG</Gray14>
+            <Text>HASHTAG</Text>
             <InputField placeholder="e. g. “#Nftmusic”" />
           </InputWrapper>
           <Divider width="100%" mb="44px" mt="20px" />
@@ -194,20 +200,18 @@ export default function NftForm() {
           <Flex gap="32px">
             <Flex direction="row">
               <Flex>
-                <CardTitle>Put on sale</CardTitle>
-                <Gray14 color="#777E90">
-                  You'll receive bids on this item
-                </Gray14>
+                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Put on sale</Text16>
+                <Text color="#777E90">You'll receive bids on this item</Text>
               </Flex>
               <Toggle />
             </Flex>
 
             <Flex direction="row">
               <Flex>
-                <CardTitle>Unlock once purchased</CardTitle>
-                <Gray14 color="#777E90">
+                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Unlock once purchased</Text16>
+                <Text color="#777E90">
                   Content will be unlocked after successful transaction
-                </Gray14>
+                </Text>
               </Flex>
 
               <Toggle />
@@ -215,10 +219,10 @@ export default function NftForm() {
 
             <Flex direction="row">
               <Flex>
-                <CardTitle>Choose collection</CardTitle>
-                <Gray14 color="#777E90">
+                <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Choose collection</Text16>
+                <Text color="#777E90">
                   Choose an exiting collection or create a new one
-                </Gray14>
+                </Text>
               </Flex>
 
               <Toggle />

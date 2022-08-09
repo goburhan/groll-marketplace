@@ -5,9 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TCollectionCard from "../../components/NftCards/Cards/TCollectCard";
 import {
-  HomeTitles,
   HomeTitleWrapper,
-  Title,
+  Text40,
 } from "../../components/StyledComponents/Text";
 import PriceContainer from "../../components/NftCards/PriceContainer";
 import PriceSelector from "../../components/Selectors/PriceSelector";
@@ -119,7 +118,7 @@ export default function TopCollection() {
   return (
     <NftContainer>
       <HomeTitleWrapper>
-        <HomeTitles> Top collection</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles} > Top collection</Text40>
       </HomeTitleWrapper>
 
       <Slider {...settings}>

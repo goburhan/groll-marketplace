@@ -1,7 +1,6 @@
 import React from "react";
 import {
-  Title,
-  LowerDetail,
+  Text40,
   Text14,
 } from "../../components/StyledComponents/Text";
 import styled from "styled-components";
@@ -39,7 +38,7 @@ export default function InfoSection() {
   return (
     <Box>
       <Flexs margin="0px 0px 18px 0px">
-        <Title>Not Your Bro # 6548</Title>
+        <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em"  >Not Your Bro # 6548</Text40>
         <img
           src="/images/verified.svg"
           style={{ minWidth: 34, marginLeft: 10 }}
@@ -57,10 +56,10 @@ export default function InfoSection() {
           About this collection
         </Text14>
       </Flexs>
-      <LowerDetail>
+      <Text14 color={({ theme }) => theme.lowerdetail}>
         Not Your Bro is a movement celebrating and empowering Womxn, LGBTQIA+
         people & their allies.
-      </LowerDetail>
+      </Text14>
       <SelectButton />
     </Box>
   );

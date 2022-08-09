@@ -1,7 +1,7 @@
  import React from "react";
 import VisualArt from "./VisualArt";
 import styled from "styled-components";
-import { HomeTitles, Title } from "../../../components/StyledComponents/Text";
+import { Text40} from "../../../components/StyledComponents/Text";
 import AudioArt from "./AudioArt";
 
 const TopArtistContainer = styled.div`
@@ -24,7 +24,7 @@ export default function TopArtists() {
   return (
     <TopArtistContainer>
       <PrevArrow>
-        <HomeTitles> Top artists</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}> Top artists</Text40>
       </PrevArrow>
       <VisualArt />
       <AudioArt />

@@ -3,9 +3,11 @@ import styled from "styled-components";
 import bg from "./collectionbg.png";
 import profile from "./userpicture.svg";
 import {
-  Title,
-  CollectionLower,
-  JoinTime,
+
+Text16,
+
+  Text18,
+  Text40,
 } from "../../components/StyledComponents/Text";
 import Socials from "../../components/Socials";
 import { StyledButton } from "../../components/StyledComponents/Button";
@@ -47,15 +49,15 @@ export default function CollectionsHeader() {
     <HeaderWrapper>
       <Flex>
         <ProfilPic />
-        <Title style={{ color: "white" }}>
+        <Text40 color={({ theme }) => theme.white} letterSpacing="-0.03em" >
           Not You Bro!
           <img src="/images/Verified.svg" style={{ minWidth: 40 }} />
-        </Title>
-        <CollectionLower>
+        </Text40>
+        <Text16 color={({ theme }) => theme.white} fontWeight="400" >
           6969 Degenerate Cyber Trash out of the swamp hangry for the next big
           mint or really any munchies they can find first.
-        </CollectionLower>
-        <JoinTime>Joined: 5th December 2021</JoinTime>
+        </Text16>
+        <Text18 color={({ theme }) => theme.gray}>Joined: 5th December 2021</Text18>
         <Flex about="row">
           <StyledButton
             style={{

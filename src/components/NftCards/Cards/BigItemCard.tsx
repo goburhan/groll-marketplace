@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  BigCardTitle,
-  LowerDetail,
-  TabFont,
+  Text22,
+  Text14,
+  
 } from "../../StyledComponents/Text";
 import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
@@ -94,7 +94,7 @@ export default function BigItemCard() {
 
       <Flex>
         <Box>
-          <BigCardTitle bold="500"> STATIC NAME</BigCardTitle>
+          <Text22 color={({ theme }) => theme.cardTitle} fontWeight="500"> STATIC NAME</Text22>
         </Box>
         <PriceContainer />
       </Flex>
@@ -117,24 +117,24 @@ export default function BigItemCard() {
               alt="likes"
             />
           </Grid>
-          <LowerDetail>1 in Stock</LowerDetail>
+          <Text14 color={({ theme }) => theme.lowerdetail}>1 in Stock</Text14>
         </Container>
         <Container>
-          <TabFont>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
             <img
               src="/images/Highestbidlogo.svg"
               style={{ marginRight: "4px" }}
               alt="likes"
             />
             Highest Bid{" "}
-          </TabFont>
+          </Text14>
           <Gprice style={{ marginLeft: "6px", marginRight: "6px" }}>
             0.001 Gulf
           </Gprice>
-          <TabFont>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
             New Bid
             <img src="/images/fire.svg" alt="likes" />
-          </TabFont>
+          </Text14>
         </Container>
       </Bottom>
     </NftContainer>

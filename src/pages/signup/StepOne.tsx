@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Register } from "../../components/SearchBar";
 import {
-  Title,
-  CardTitle,
-  LowerDetail,
+  Text16,
+Text14
 } from "../../components/StyledComponents/Text";
 import FileUpload from "../../components/Auth/FileUploader/FileUpload";
 import SingleUpload from "../../components/Auth/FileUploader/SingleUpload";
@@ -189,15 +188,15 @@ export default function StepOne() {
 
         <Checker>
           <CustomizedCheckbox />
-          <LowerDetail>Yes, you may send me marketing emails</LowerDetail>
+          <Text14 color={({ theme }) => theme.lowerdetail}>Yes, you may send me marketing emails</Text14>
         </Checker>
 
         <Checker>
           <CustomizedCheckbox />
-          <LowerDetail>I’d like to receive email notifactions</LowerDetail>
+          <Text14 color={({ theme }) => theme.lowerdetail}>I’d like to receive email notifactions</Text14>
         </Checker>
 
-        <CardTitle margin="20px 0px">Social</CardTitle>
+        <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="20px 0px">Social</Text16>
 
         <InputWrapper>
           <Text color="#b1b5c4">Instagram</Text>

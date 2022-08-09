@@ -5,7 +5,7 @@ import StepOne from "../signup/StepOne";
 import styled from "styled-components";
 import SignUpPage from "../signup";
 import BasicCard from "../signup/BasicCard";
-import { KycTitle, Title } from "../../components/StyledComponents/Text";
+import { Text40 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
 import StepTwo from "./StepTwo";
 import KycCard from "./KycCard";
@@ -176,10 +176,10 @@ export default function StepOneButton() {
               <Box direction="row">
                 <Box>
                   <Box gap="15px" mb="15px" direction="row">
-                    <KycTitle style={{ color: "#00ACFF" }}>Step 3</KycTitle>
+                    <Text40  color="#00ACFF" >Step 3</Text40>
                     <Progress>25% progress</Progress>
                   </Box>
-                  <KycTitle>Apply for The Blue Tick</KycTitle>
+                  <Text40 color={({ theme }) => theme.titles}>Apply for The Blue Tick</Text40>
                 </Box>
 
                 <img

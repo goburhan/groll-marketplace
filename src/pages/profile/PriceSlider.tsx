@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
-import { TabFont, Twelve } from "../../components/StyledComponents/Text";
+import { Text14, Text12 } from "../../components/StyledComponents/Text";
 
 function valuetext(value) {
   return `${value}°C`;
@@ -38,15 +38,15 @@ export default function PriceSelector() {
   return (
     <Boxer>
       <Box>
-        <Twelve>Price Range</Twelve>
+        <Text12>Price Range</Text12>
         <Slider
           defaultValue={50}
           aria-label="Default"
           valueLabelDisplay="auto"
         />
         <Flex>
-          <TabFont>0.01 GULF</TabFont>
-          <TabFont>10 GULF</TabFont>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">0.01 GULF</Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">10 GULF</Text14>
         </Flex>
       </Box>
     </Boxer>

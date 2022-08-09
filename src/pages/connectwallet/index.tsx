@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Divider } from "../../components/StyledComponents/Divider";
-import { General24 } from "../../components/StyledComponents/Text";
-import { Title } from "../../components/StyledComponents/Text";
+import { Text24, Text40 } from "../../components/StyledComponents/Text";
 import {
   getConfig,
   selectConnector,
@@ -130,7 +129,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
         <img src="/images/back.svg" />
         Back to home
       </Backhome>
-      <Title>Connect your wallet</Title>
+      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em" >Connect your wallet</Text40>
       <Divider mt="50px" width="50%" />
       <Box>
         <Flex>
@@ -183,7 +182,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               ) : (
                 <img src="/images/Coinbase.svg" />
               )}
-              <General24>Coinbase Wallet</General24>
+              <Text24>Coinbase Wallet</Text24>
             </div>
             {selected === "coinbase" && (
               <img src="/images/Staticlogos/Arrow.svg" />
@@ -239,7 +238,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               ) : (
                 <img src="/images/Metamask.svg" />
               )}
-              <General24 type="submit">Metamask Wallet</General24>
+              <Text24 type="submit">Metamask Wallet</Text24>
             </div>
 
             {selected === "metamask" && (
@@ -296,7 +295,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               ) : (
                 <img src="/images/Walletconnect.svg" />
               )}
-              <General24>Wallet Connect</General24>
+              <Text24>Wallet Connect</Text24>
             </div>
             {selected === "walletconnect" && (
               <img src="/images/Staticlogos/Arrow.svg" />

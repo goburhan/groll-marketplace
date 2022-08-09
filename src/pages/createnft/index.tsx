@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { Backhome } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
-import { EditLower, HomeTitles } from "../../components/StyledComponents/Text";
+import {  Text40, Text14 } from "../../components/StyledComponents/Text";
 
 interface img {
   img?: any;
@@ -91,13 +91,13 @@ export default function CreateNft() {
           width="35%"
           textAlign="center"
         >
-          <HomeTitles margin="0px 0px 8px 0px">Upload item</HomeTitles>
-          <EditLower>
+          <Text40 color={({ theme }) => theme.titles} margin="0px 0px 8px 0px">Upload item</Text40>
+          <Text14 color={({ theme }) => theme.editLower}>
             Choose <span> “Single” </span>if you want your collectible to be one
             of a kind or <span>“Multiple” </span> if you want to sell one
             collectible multiple times, you can also create a{" "}
             <span> “collection”</span> or a <span>“Mystery Box” </span> .
-          </EditLower>
+          </Text14>
         </Flex>
 
         <CardWrapper>
@@ -121,10 +121,10 @@ export default function CreateNft() {
             <Button>Create a NFT Box</Button>
           </UploadCard>
         </CardWrapper>
-        <EditLower>
+        <Text14 color={({ theme }) => theme.editLower}>
           We do not own your private keys and cannot access your funds without
           your confirmation.
-        </EditLower>
+        </Text14>
       </Wrapper>
     </>
   );

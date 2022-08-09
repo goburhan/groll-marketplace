@@ -10,7 +10,7 @@ import {
   useMobileOrientation,
   isMobile,
 } from "react-device-detect";
-import { FooterTitle, Twelve } from "./StyledComponents/Text";
+import { FooterTitle, Text12 } from "./StyledComponents/Text";
 
 interface text {
   font?: string;
@@ -124,7 +124,7 @@ export default function MobileFooter() {
         </Container>
         <Box>
           <Divider width="100%" />
-          <Twelve>Copyright © 2022 Gulf Coin. All rights reserved</Twelve>
+          <Text12>Copyright © 2022 Gulf Coin. All rights reserved</Text12>
         </Box>
       </Flex>
     </Footer>

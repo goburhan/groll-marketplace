@@ -11,9 +11,9 @@ import {
   StyledButton,
 } from "../../components/StyledComponents/Button";
 import {
-  CardTitle,
-  EditLower,
-  EditProfileTitle,
+  Text16,
+  Text48,
+  Text14,
 } from "../../components/StyledComponents/Text";
 import Dropdown from "./Dropdown";
 import { getDefaultConnector } from "../../app/hooks";
@@ -116,16 +116,16 @@ export default function EditSection() {
         Back to home
       </Backhome>
       <Container>
-        <EditProfileTitle>Edit Your Profile</EditProfileTitle>
-        <EditLower>
+        <Text48>Edit Your Profile</Text48>
+        <Text14 color={({ theme }) => theme.editLower}>
           You can set preferred display name, create{" "}
           <span> your profile URL </span> and manage other personal settings.
-        </EditLower>
+        </Text14>
       </Container>
 
-      <CardTitle margin="0px 0px 30px 0px" color="#fff">
+      <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="0px 0px 30px 0px" >
         Personal Details
-      </CardTitle>
+      </Text16>
 
       <InputWrapper>
         <Text color="#b1b5c4">Nickname</Text>
@@ -169,7 +169,7 @@ export default function EditSection() {
         <InputField placeholder="example@Gulfcoin.com" />
       </InputWrapper>
 
-      <CardTitle margin="8px 0px 20px 0px">Social</CardTitle>
+      <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 20px 0px">Social</Text16>
 
       <InputWrapper>
         <Text color="#b1b5c4">Instagram</Text>

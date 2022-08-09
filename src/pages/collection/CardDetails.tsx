@@ -3,7 +3,6 @@ import BuySection from "./Components/BuySection";
 import styled from "styled-components";
 import InfoSection from "./Components/InfoSection";
 import SelectButton from "./Components/SelectButton";
-import bg from "./detailsitem.svg";
 
 const Flex = styled.div`
   display: flex;
@@ -21,7 +20,6 @@ const Flex = styled.div`
   }
 `;
 const Card = styled.div`
-  background-image: url(${bg});
   background-size: cover;
   background-repeat: no-repeat;
   width: 70%;

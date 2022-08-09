@@ -5,7 +5,7 @@ import StepOne from "../signup/StepOne";
 import styled from "styled-components";
 import SignUpPage from "../signup";
 import BasicCard from "../signup/BasicCard";
-import { KycTitle, TabFont } from "../../components/StyledComponents/Text";
+import { Text40, Text14 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
 import { useSelector } from "react-redux";
 import { userSelect } from "../../actions/wallet/walletSlice";
@@ -183,10 +183,10 @@ export default function StepOneButton() {
               <Box direction="row">
                 <Box>
                   <Box gap="15px" mb="15px" direction="row">
-                    <KycTitle style={{ color: "#00ACFF" }}>Step 1</KycTitle>
+                    <Text40 color="#00ACFF" >Step 1</Text40>
                     <Progress>50% progress</Progress>
                   </Box>
-                  <KycTitle>Basic information</KycTitle>
+                  <Text40 color={({ theme }) => theme.titles} >Basic information</Text40>
                 </Box>
 
                 <img
@@ -206,7 +206,7 @@ export default function StepOneButton() {
                 <Link href="/editprofile">
                   <EditButton>
                     <img src="/images/Icons/Editbutton.svg" />
-                    <TabFont>Edit</TabFont>
+                    <Text14 color={({ theme }) => theme.gray} fontWeight="600">Edit</Text14>
                   </EditButton>
                 </Link>
               ) : open ? (

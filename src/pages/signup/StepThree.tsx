@@ -11,6 +11,7 @@ import { hooks as coinbaseWalletHooks } from "../../connectors/coinbasewallet";
 import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
 import { hooks as walletConnectHooks } from "../../connectors/walletconnect";
 import Toggle from "../../components/Toggle";
+import { Text14, Text16 } from "../../components/StyledComponents/Text";
 
 interface prop {
   width?: string;
@@ -48,9 +49,9 @@ const Botwrapper = styled.div`
 
 const InputWrapper = styled.div<prop>`
   display: flex;
-  align-items:center;
-  justify-content:space-between;
-  width:90%;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
   margin-right: ${(props) => props.mr};
 `;
 interface boxprops {
@@ -105,13 +106,6 @@ export default function StepOne() {
   interface marginProp {
     margin?: string;
   }
-  const CardTitle = styled.text<marginProp>`
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    margin: ${(props) => props.margin};
-    color: ${({ theme }) => theme.cardTitle};
-  `;
 
   const TabFont = styled.text`
     font-weight: 400;
@@ -133,20 +127,24 @@ export default function StepOne() {
         src="/images/Staticlogos/BlueTick.svg"
         alt="kyc"
       />
-      <CardTitle>Blue check Verification requirements</CardTitle>
+      <Text16 color={({ theme }) => theme.cardTitle}>
+        Blue check Verification requirements
+      </Text16>
 
       <InputWrapper>
-          <CardTitle margin="16px 0px">Apply for Blue Tick ?</CardTitle>
-          <Toggle />
+        <Text16 color={({ theme }) => theme.cardTitle} margin="16px 0px">
+          Apply for Blue Tick ?
+        </Text16>
+        <Toggle />
       </InputWrapper>
 
-      <TabFont>
+      <Text14 color={({ theme }) => theme.gray} fontWeight="600">
         In order to be eligible to apply for the blue checkmark, your account
         must meet the following criteria for verification: The Account Must Be
         Authentic: In order to be considered for verification, your account must
         represent a registered business or entity, or it must belong to a real
         person.
-      </TabFont>
+      </Text14>
 
       <Botwrapper>
         <Clear>

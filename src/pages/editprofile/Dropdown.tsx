@@ -1,7 +1,7 @@
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Twelve } from "../../components/StyledComponents/Text";
+import { Text12 } from "../../components/StyledComponents/Text";
 
 const DropDownContainer = styled("div")`
   text-align: left;

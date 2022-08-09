@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { EmailButton } from "./StyledComponents/Button";
 
 import {
-  CardTitle,
+
   FooterTitle,
-  General24,
-  ItemsFont,
-  Twelve,
+  Text24,
+  Text14,
+  Text16,
+  Text12,
 } from "./StyledComponents/Text";
-
-
 
 const Email = styled.input`
  background-color:transparent;
@@ -57,12 +56,12 @@ text-align:left;
   }
 `;
 interface cont {
-  width?:any;
+  width?: any;
 }
 const Container = styled.div<cont>`
   display: flex;
   gap: 24px;
-  width:${(props) => props.width };
+  width: ${(props) => props.width};
   flex-direction: column;
   a {
     text-decoration: none;
@@ -84,6 +83,10 @@ const Footer = styled.div`
   }
 `;
 
+const Text = styled(Text16)`
+color: ${({ theme }) => theme.cardTitle};
+`
+
 export default function DesktopFooter() {
   return (
     <Footer>
@@ -98,7 +101,7 @@ export default function DesktopFooter() {
                 marginRight: "8px",
               }}
             />
-            <General24>GRoll marketplace</General24>
+            <Text24>GRoll marketplace</Text24>
           </Flex>
 
           <FooterTitle>
@@ -107,23 +110,35 @@ export default function DesktopFooter() {
         </Container>
 
         <Container>
-          <CardTitle bold="500">Gulf Coin</CardTitle>
-          <ItemsFont>Discover</ItemsFont>
-          <ItemsFont>Connect Wallet</ItemsFont>
-          <ItemsFont>Create Item</ItemsFont>
+          <Text >Gulf Coin</Text>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            Discover
+          </Text14>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            Connect Wallet
+          </Text14>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            Create Item
+          </Text14>
         </Container>
 
         <Container>
-          <CardTitle bold="500">Info</CardTitle>
-          <ItemsFont>Download</ItemsFont>
-          <ItemsFont>Demos</ItemsFont>
-          <ItemsFont>Support</ItemsFont>
+          <Text>Info</Text>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            Download
+          </Text14>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            Demos
+          </Text14>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            Support
+          </Text14>
         </Container>
         <Container width="24%">
-          <CardTitle bold="500">Join Newsletter</CardTitle>
-          <ItemsFont>
+          <Text >Join Newsletter</Text>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
             Subscribe our newsletter to get more free design course and resource
-          </ItemsFont>
+          </Text14>
           <InputWrapper>
             <Email placeholder="Enter Your Email" />
             <EmailButton bg="/images/Emailbutton.svg" type="submit" />

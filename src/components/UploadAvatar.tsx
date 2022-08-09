@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectConnector } from "../actions/wallet/walletSlice";
 import SingleUpload from "./Auth/FileUploader/SingleUpload";
-import { CardTitle, Title } from "./StyledComponents/Text";
+import {  Text16 } from "./StyledComponents/Text";
 import {
   hooks as coinbaseWalletHooks,
   coinbaseWallet,
@@ -83,12 +83,12 @@ export default function PersonalDetailWrapper({
 
   return (
     <PersonalDetail>
-      <CardTitle color="#fff">{tag === "" ? "" : "Personal Details"}</CardTitle>
+      <Text16 fontWeight="600" color="#fff">{tag === "" ? "" : "Personal Details"}</Text16>
       <Text color="#777E90">{tag === "" ? "" : Buttontag}</Text>
       <Flex>
         <img src={image} alt="basic" />
         <Flex padding="10px 1rem 0rem 1rem" direction="column">
-          <CardTitle color="#fff">{title}</CardTitle>
+          <Text16 fontWeight="600" color="#fff">{title}</Text16>
           <div>
             <Text color="#777E90">{description}</Text>
           </div>

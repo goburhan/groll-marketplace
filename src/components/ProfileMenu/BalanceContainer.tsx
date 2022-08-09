@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BigCardTitle, Twelve } from "../StyledComponents/Text";
+import { Text22, Text12 } from "../StyledComponents/Text";
 
 const Container = styled.div<border>`
   display: flex;
@@ -46,8 +46,8 @@ export default function BalanceContainer() {
         <img src="/images/Icons/ProfileMenu/Balance.svg" alt="balance" />
 
         <Box>
-          <Twelve weight="400">Balance</Twelve>
-          <BigCardTitle>4.123 GULF</BigCardTitle>
+          <Text12 weight="400">Balance</Text12>
+          <Text22 color={({ theme }) => theme.cardTitle} >4.123 GULF</Text22>
         </Box>
       </Container>
       <Container padding="6px 44px">Manage fun on Coinbase</Container>

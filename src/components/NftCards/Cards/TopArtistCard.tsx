@@ -4,10 +4,9 @@ import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
 import { Vdivider } from "../../StyledComponents/Divider";
 import {
-  MiniCategoryTitle,
-  TabFont,
-  MiniCardTitle,
-  TopCollectorTitle,
+
+  Text18,
+  Text14,
 } from "../../StyledComponents/Text";
 
 const NftContainer = styled.div`
@@ -83,22 +82,43 @@ export default function TopArtistCard({ nft }) {
       <Box img="/images/userpicture.svg" />
 
       <BoxWrapper>
-        <TopCollectorTitle>G-NO Digital</TopCollectorTitle>
+        <Text18 color={({ theme }) => theme.cardTitle}>G-NO Digital</Text18>
       </BoxWrapper>
       <Flex>
         <Container>
-          <MiniCategoryTitle>1000</MiniCategoryTitle>
-          <TabFont>Total</TabFont>
+          <Text14
+            color={({ theme }) => theme.cardTitle}
+            letterSpacing="-0.01em"
+          >
+            1000
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Total
+          </Text14>
         </Container>
         <Vdivider height="30px" />
         <Container>
-          <MiniCategoryTitle>$1m</MiniCategoryTitle>
-          <TabFont>Volume</TabFont>
+          <Text14
+            color={({ theme }) => theme.cardTitle}
+            letterSpacing="-0.01em"
+          >
+            $1m
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Volume
+          </Text14>
         </Container>
         <Vdivider height="30px" />
         <Container>
-          <MiniCategoryTitle>25</MiniCategoryTitle>
-          <TabFont>Items</TabFont>
+          <Text14
+            color={({ theme }) => theme.cardTitle}
+            letterSpacing="-0.01em"
+          >
+            25
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Items
+          </Text14>
         </Container>
       </Flex>
     </NftContainer>

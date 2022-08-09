@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MiniCardTitle, TabFont } from "../../StyledComponents/Text";
+import { Text22, Text14 } from "../../StyledComponents/Text";
 
 const NftContainer = styled.div`
   max-width: 376px;
@@ -56,18 +56,19 @@ const NftWrapper = styled.div<Nft>`
   background-position: 50% 0%;
 `;
 
-
-export default function HotCollectionCard({nft}) {
+export default function HotCollectionCard({ nft }) {
   return (
     <NftContainer>
       <NftWrapper img={nft} />
       <Box img="/images/userpicture.svg" />
 
       <BoxWrapper>
-        <MiniCardTitle>G-NO Digital</MiniCardTitle>
-        <TabFont>
+        <Text22 color={({ theme }) => theme.cardTitle} lineHeight="48px">
+          G-NO Digital
+        </Text22>
+        <Text14 color={({ theme }) => theme.gray} fontWeight="600">
           Floor <span>$2.12</span>{" "}
-        </TabFont>
+        </Text14>
       </BoxWrapper>
     </NftContainer>
   );

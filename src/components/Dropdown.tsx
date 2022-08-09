@@ -1,7 +1,7 @@
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Twelve } from "./StyledComponents/Text";
+import { Text12 } from "./StyledComponents/Text";
 
 const DropDownContainer = styled("div")`
   width: 19.5em;
@@ -79,7 +79,7 @@ export default function Dropdown({ header, title }) {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <DropDownContainer>
-        <Twelve>{title}</Twelve>
+        <Text12>{title}</Text12>
         <DropDownHeader onClick={toggling}>
           {selectedOption || header}
           <img

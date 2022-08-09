@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BgBox from "./BgBox";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { LowerDetail, MiniCardTitle } from "../../../components/StyledComponents/Text";
+import { Text14, Text22 } from "../../../components/StyledComponents/Text";
 import { Divider } from "../../../components/StyledComponents/Divider";
 import {
   Accordion,
@@ -26,6 +26,10 @@ const Box = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
+
+const Text = styled(Text14)`
+  color: ${({ theme }) => theme.lowerdetail};
+`;
 export default function Details() {
   return (
     <>
@@ -33,37 +37,42 @@ export default function Details() {
       <Accordion
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
-       <AccordionSummary
+        <AccordionSummary
           sx={{ svg: { color: "white" } }}
           expandIcon={<ExpandMoreIcon />}
         >
-        <MiniCardTitle>Details</MiniCardTitle>
+          <Text22 lineHeight="48px" color={({ theme }) => theme.cardTitle}>
+            Details
+          </Text22>
         </AccordionSummary>
         <AccordionDetails>
           <Flex>
             <Box>
-              <LowerDetail>Contract Address</LowerDetail>
-              <LowerDetail>0x1231241</LowerDetail>
+              <Text>Contract Address</Text>
+              <Text>0x1231241</Text>
             </Box>
             <Box>
-              <LowerDetail>Token Id</LowerDetail>
-              <LowerDetail>REŞasbf42</LowerDetail>
+              <Text>Token Id</Text>
+              <Text>REŞasbf42</Text>
             </Box>
             <Box>
-              <LowerDetail>Token Standart</LowerDetail>
-              <LowerDetail>ERC-721</LowerDetail>
+              <Text>Token Standart</Text>
+              <Text>ERC-721</Text>
             </Box>
             <Box>
-              <LowerDetail>Blockchain</LowerDetail>
-              <LowerDetail>BSC Network</LowerDetail>
+              <Text>Blockchain</Text>
+              <Text>BSC Network</Text>
             </Box>
             <Box>
-              <LowerDetail>Metadata</LowerDetail>
-              <LowerDetail>Decenteralized</LowerDetail>
+              <Text>Metadata</Text>
+              <Text>Decenteralized</Text>
             </Box>
             <Box>
-              <LowerDetail>Date of Mint</LowerDetail>
-              <LowerDetail> 05/03/2021 - 23h:13 GMT+3</LowerDetail>
+              <Text>Date of Mint</Text>
+              <Text14 color={({ theme }) => theme.lowerdetail}>
+                {" "}
+                05/03/2021 - 23h:13 GMT+3
+              </Text14>
             </Box>
           </Flex>
         </AccordionDetails>

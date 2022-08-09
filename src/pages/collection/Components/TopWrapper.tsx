@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FlexProp } from "../../../app/types";
 import { Divider } from "../../../components/StyledComponents/Divider";
-import { LowerDetail } from "../../../components/StyledComponents/Text";
+import { Text14 } from "../../../components/StyledComponents/Text";
 const Box = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,15 +26,15 @@ export default function TopWrapper() {
         <Flex width="40%">
           <img src="/images/Staticlogos/Userlogo.svg" />
           <Box>
-            <LowerDetail>Collection</LowerDetail>
-            <LowerDetail>Not Your Bro</LowerDetail>
+            <Text14 color={({ theme }) => theme.lowerdetail}>Collection</Text14>
+            <Text14 color={({ theme }) => theme.lowerdetail}>Not Your Bro</Text14>
           </Box>
         </Flex>
         <Flex >
           <img src="/images/Avatar/Avatar3.png" />
           <Box>
-            <LowerDetail>Creator 7.5% royalities</LowerDetail>
-            <LowerDetail>0x3cfbd...4323</LowerDetail>
+            <Text14 color={({ theme }) => theme.lowerdetail}>Creator 7.5% royalities</Text14>
+            <Text14 color={({ theme }) => theme.lowerdetail}>0x3cfbd...4323</Text14>
           </Box>
         </Flex>
       </Flex>

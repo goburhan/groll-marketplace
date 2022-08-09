@@ -5,9 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TopArtistCard from "../../../components/NftCards/Cards/TopArtistCard";
 import {
-  TartistLower,
-  TartistTitle,
-  Title,
+  Text14,
+  Text32,
 } from "../../../components/StyledComponents/Text";
 import PriceContainer from "../../../components/NftCards/PriceContainer";
 import { PrevNextButton } from "../../../components/StyledComponents/Button";
@@ -110,8 +109,8 @@ export default function VisualArt() {
     <NftContainer>
       <TitleWrapper>
         <Flex dir="column">
-          <TartistTitle>Audio art</TartistTitle>
-          <TartistLower>Some audio art from the gallery</TartistLower>
+          <Text32>Audio art</Text32>
+          <Text14 letterSpacing="-0.01em">Some audio art from the gallery</Text14>
         </Flex>
       </TitleWrapper>
 

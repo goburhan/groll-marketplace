@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { CardTitle } from "../StyledComponents/Text";
+import { Text16 } from "../StyledComponents/Text";
 
 const Flex = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const Flex = styled.div`
 export default function Profile() {
   return (
     <Flex>
-      <CardTitle>Not Your Bro!</CardTitle>
+      <Text16  color={({ theme }) => theme.cardTitle} fontWeight="600">Not Your Bro!</Text16>
       <img
         src="/images/Verified.svg"
         style={{ border: "none" }}

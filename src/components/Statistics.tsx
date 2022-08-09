@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Vdivider, Divider } from "./StyledComponents/Divider";
-import { StatisticValues, TartistLower } from "./StyledComponents/Text";
+import { Text28, Text14 } from "./StyledComponents/Text";
 
 interface props {
   gap?: string;
@@ -24,25 +24,25 @@ export default function Statistics() {
         <Flex gap="4px">
           <img src="/images/increase.svg" alt="increasing" />
 
-          <StatisticValues>1.7K</StatisticValues>
+          <Text28>1.7K</Text28>
         </Flex>
 
-        <TartistLower>Items</TartistLower>
+        <Text14 letterSpacing="-0.01em">Items</Text14>
       </Container>
       <Vdivider height="50px"/>
       <Container>
-        <StatisticValues>221.7K</StatisticValues>
-        <TartistLower>Items</TartistLower>
+        <Text28>221.7K</Text28>
+        <Text14 letterSpacing="-0.01em">Items</Text14>
       </Container>
       <Vdivider height="50px"/>
       <Container>
-        <StatisticValues>37.7K</StatisticValues>
-        <TartistLower>Items</TartistLower>
+        <Text28>37.7K</Text28>
+        <Text14 letterSpacing="-0.01em">Items</Text14>
       </Container>
       <Vdivider height="50px"/>
       <Container>
-        <StatisticValues>21.7K</StatisticValues>
-        <TartistLower>Items</TartistLower>
+        <Text28>21.7K</Text28>
+        <Text14 letterSpacing="-0.01em">Items</Text14>
       </Container>
     </Flex>
   );

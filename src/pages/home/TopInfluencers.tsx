@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import { Text40 } from "../../components/StyledComponents/Text";
 import { WindowSize } from "../../hooks/useWindowsize";
 import TopArtistCard from "../../components/NftCards/Cards/TopArtistCard";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
@@ -109,7 +109,7 @@ export default function () {
   return !isMobilee ? (
     <NftContainer>
       <PrevArrow>
-        <HomeTitles>Top influencers</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}>Top influencers</Text40>
       </PrevArrow>
       <Flex>
         {icons.map((icon) => (
@@ -120,7 +120,7 @@ export default function () {
   ) : (
     <NftContainer>
       <PrevArrow>
-        <HomeTitles>Top influencers</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}>Top influencers</Text40>
       </PrevArrow>
       <Slider {...settings}>
         {icons.map((icon) => (

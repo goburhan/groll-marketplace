@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
-import { Twelve, TabFont } from "../StyledComponents/Text";
+import { Text12, Text14 } from "../StyledComponents/Text";
 
 function valuetext(value) {
   return `${value}°C`;
@@ -11,7 +11,6 @@ function valuetext(value) {
 interface prop {
   width?: any;
 }
-
 
 const Flex = styled.div`
   display: flex;
@@ -25,29 +24,33 @@ export default function PriceSelector() {
     setValue(newValue);
   };
   const Boxer = styled(Box)<prop>`
-  border: white;
-  text-align: left;
-  justify-content: space-between;
-  width:${(props) => props.width || "100%"};
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-top: 2%;
-    margin-right: 3rem;
-    width: 88vw;
-    z-index:-1;
-  }
-`;
+    border: white;
+    text-align: left;
+    justify-content: space-between;
+    width: ${(props) => props.width || "100%"};
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-top: 2%;
+      margin-right: 3rem;
+      width: 88vw;
+      z-index: -1;
+    }
+  `;
   return (
     <Boxer>
-      <Box >
-        <Twelve>Price Range</Twelve>
+      <Box>
+        <Text12>Price Range</Text12>
         <Slider
           defaultValue={50}
           aria-label="Default"
           valueLabelDisplay="auto"
         />
         <Flex>
-          <TabFont>0.01 GULF</TabFont>
-          <TabFont>10 GULF</TabFont>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            0.01 GULF
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            10 GULF
+          </Text14>
         </Flex>
       </Box>
     </Boxer>

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Twelve } from "../../../components/StyledComponents/Text";
+import { Text12 } from "../../../components/StyledComponents/Text";
 
 interface text {
   title?: string;
@@ -33,8 +33,8 @@ export default function BgBox({ title, color, text, border }: text) {
   return (
     <Box border={border}>
       <Text border={border}>{title}</Text>
-      <Twelve> {color}</Twelve>
-      <Twelve> {text}</Twelve>
+      <Text12> {color}</Text12>
+      <Text12> {text}</Text12>
     </Box>
   );
 }

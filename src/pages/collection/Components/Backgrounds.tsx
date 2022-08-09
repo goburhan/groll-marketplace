@@ -8,7 +8,7 @@ import {
   AccordionSummary,
   Typography,
 } from "@mui/material";
-import { MiniCardTitle } from "../../../components/StyledComponents/Text";
+import { Text22 } from "../../../components/StyledComponents/Text";
 
 const Flex = styled.div`
   display: grid;
@@ -31,7 +31,7 @@ export default function Backgrounds() {
           sx={{ svg: { color: "white" } }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <MiniCardTitle>Properties</MiniCardTitle>
+          <Text22 lineHeight="48px" color={({ theme }) => theme.cardTitle}>Properties</Text22>
         </AccordionSummary>
         <AccordionDetails>
           <Flex>

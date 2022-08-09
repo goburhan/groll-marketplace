@@ -2,7 +2,7 @@ import * as React from "react";
 import store from "../../app/store";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { EditLower, ProfileName, TabFont } from "../StyledComponents/Text";
+import {  Text14, Text18 } from "../StyledComponents/Text";
 import { useSelector } from "react-redux";
 import { selectConnector } from "../../actions/wallet/walletSlice";
 import { Web3ReactHooks } from "@web3-react/core";
@@ -127,16 +127,18 @@ export default function ProfileIcon() {
             <ProfileButton img={avatar}></ProfileButton>
           </Link>
           <Box>
-            <ProfileName>{nick}</ProfileName>
+            <Text18 letterSpacing="0" color={({ theme }) => theme.lowerDetail} fontWeight="600" >{nick}</Text18>
             <Flex>
-              <TabFont
+              <Text14
+                color={({ theme }) => theme.gray}
+                fontWeight="600"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   navigator.clipboard.writeText(user.coinbase);
                 }}
               >
                 {Buttontag}{" "}
-              </TabFont>
+              </Text14>
               <img
                 style={{ marginLeft: "6px" }}
                 src="/images/Icons/ProfileMenu/Copy.svg"
@@ -159,7 +161,9 @@ export default function ProfileIcon() {
                 <MenuItem>
                   <img src={`/images/Icons/ProfileMenu/${items.icon}.svg`} />
 
-                  <EditLower>{items.name}</EditLower>
+                  <Text14 color={({ theme }) => theme.editLower}>
+                    {items.name}
+                  </Text14>
                 </MenuItem>
               </Link>
               <Divider />
@@ -174,7 +178,7 @@ export default function ProfileIcon() {
             <div style={{ display: "flex", gap: "10px" }}>
               <img src={`/images/Icons/ProfileMenu/Theme.svg`} />
 
-              <EditLower>Dark Theme</EditLower>
+              <Text14>Dark Theme</Text14>
             </div>
 
             <Toggle />
@@ -183,7 +187,7 @@ export default function ProfileIcon() {
 
           <MenuItem margin="0px">
             <img src={`/images/Icons/ProfileMenu/Disconnect.svg`} />
-            <EditLower>Disconnect</EditLower>
+            <Text14 color={({ theme }) => theme.editLower}>Disconnect</Text14>
           </MenuItem>
         </Wrappers>
       </Container>

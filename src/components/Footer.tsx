@@ -190,7 +190,7 @@ text-align:left;
   //       </Container>
   //       <Box>
   //         <Divider width="100%" />
-  //         <Twelve>Copyright © 2022 Gulf Coin. All rights reserved</Twelve>
+  //         <Text12>Copyright © 2022 Gulf Coin. All rights reserved</Text12>
   //       </Box>
   //     </Flex>
   //   </Footer>
@@ -232,7 +232,7 @@ text-align:left;
   //       </Container>
   //       <Box>
   //         <Divider width="100%" />
-  //         <Twelve>Copyright © 2022 Gulf Coin. All rights reserved</Twelve>
+  //         <Text12>Copyright © 2022 Gulf Coin. All rights reserved</Text12>
   //       </Box>
   //     </Flex>
   //   </Footer>

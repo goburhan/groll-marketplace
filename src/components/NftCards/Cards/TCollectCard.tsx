@@ -3,12 +3,7 @@ import styled from "styled-components";
 import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
 import { Vdivider } from "../../StyledComponents/Divider";
-import {
-  MiniCategoryTitle,
-  TabFont,
-  MiniCardTitle,
-  CardTitle,
-} from "../../StyledComponents/Text";
+import {  Text22, Text14, Text16 } from "../../StyledComponents/Text";
 
 interface prop {
   padding?: string;
@@ -68,11 +63,11 @@ export default function TCollectionCard({ icon }) {
 
   return (
     <NftContainer>
-      <img src={icon} alt="nft-example" style={{marginBottom:"20px"}} />
+      <img src={icon} alt="nft-example" style={{ marginBottom: "20px" }} />
 
       <Box>
         <Flex padding="12px 0px">
-          <CardTitle>Not Your Bro!</CardTitle>
+          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">Not Your Bro!</Text16>
           <img
             src="/images/Verified.svg"
             style={{ border: "none" }}
@@ -80,24 +75,52 @@ export default function TCollectionCard({ icon }) {
           />
         </Flex>
 
-        <MiniCategoryTitle style={{ color: "#B1B5C3" }}>
+        <Text14
+          fontWeight="700"
+          style={{ color: "#B1B5C3" }}
+          letterSpacing="-0.01em"
+        >
           Art collection
-        </MiniCategoryTitle>
+        </Text14>
       </Box>
       <Flex>
         <Box>
-          <MiniCategoryTitle>1000</MiniCategoryTitle>
-          <TabFont>Total</TabFont>
+          <Text14
+            color={({ theme }) => theme.cardTitle}
+            fontWeight="700"
+            letterSpacing="-0.01em"
+          >
+            1000
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Total
+          </Text14>
         </Box>
         <Vdivider height="36px" />
         <Box>
-          <MiniCategoryTitle>$1m</MiniCategoryTitle>
-          <TabFont>Volume</TabFont>
+          <Text14
+            color={({ theme }) => theme.cardTitle}
+            fontWeight="700"
+            letterSpacing="-0.01em"
+          >
+            $1m
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Volume
+          </Text14>
         </Box>
         <Vdivider height="36px" />
         <Box>
-          <MiniCategoryTitle>25</MiniCategoryTitle>
-          <TabFont>Items</TabFont>
+          <Text14
+            color={({ theme }) => theme.cardTitle}
+            fontWeight="700"
+            letterSpacing="-0.01em"
+          >
+            25
+          </Text14>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Items
+          </Text14>
         </Box>
       </Flex>
     </NftContainer>

@@ -4,9 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {
-  HomeTitles,
+  Text40,
   HomeTitleWrapper,
-  Title,
 } from "../../components/StyledComponents/Text";
 import AllItemCard from "../../components/NftCards/Cards/AllItemCard";
 import BigItemCard from "../../components/NftCards/Cards/BigItemCard";
@@ -109,7 +108,7 @@ export default function AllItems() {
 
   return !isMobilee ? (
     <NftContainer>
-      <HomeTitles> Space Collections</HomeTitles>
+      <Text40 color={({ theme }) => theme.titles}> Space Collections</Text40>
 
       <Flex>
         <BigItemCard />
@@ -123,7 +122,7 @@ export default function AllItems() {
   ) : (
     <NftContainer>
       <HomeTitleWrapper>
-        <HomeTitles> All items</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}> All items</Text40>
       </HomeTitleWrapper>
 
       <Slider {...settings}>

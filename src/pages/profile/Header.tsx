@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
-  Title,
-  CollectionLower,
-  JoinTime,
+  Text16,
+  Text18,
+  Text40,
 } from "../../components/StyledComponents/Text";
 import Socials from "../../components/Socials";
 import {
@@ -76,25 +76,25 @@ export default function Header() {
       <Flex >
         <ProfilPic img={avatar} />
         <Flex mb="6px" direction="row">
-          <Title spacing="-0.01em" style={{ color: "white" }}>
+          <Text40 color={({ theme }) => theme.white}  >
             {user.nickname}
-          </Title>
+          </Text40>
           <img
             src="/images/Verified.svg"
             style={{ minWidth: 28, marginLeft: 10 }}
           />
         </Flex>
         <TitleAchviments />
-          <CollectionLower>
+          <Text16 color={({ theme }) => theme.white} fontWeight="400">
             Dada loving documentarist and multidisciplinary artist living in
             Dada loving documentarist and multidisciplinary artist living in
             Dada loving documentarist and multidisciplinary artist living in
             Dada loving documentarist and multidisciplinary artist living in
             Dada loving documentarist and multidisciplinary artist living in
            
-          </CollectionLower>
+          </Text16>
 
-          <JoinTime>Joined: 5th December 2021</JoinTime>
+          <Text18 color={({ theme }) => theme.gray}>Joined: 5th December 2021</Text18>
           <Flex gap="8px" direction="row">
             <Socials />
             <Transparent>Follow</Transparent>

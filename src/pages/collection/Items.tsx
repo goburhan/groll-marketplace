@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import { Text40 } from "../../components/StyledComponents/Text";
 import AllItemCard from "../../components/NftCards/Cards/AllItemCard";
 import BigItemCard from "../../components/NftCards/Cards/BigItemCard";
 import { WindowSize } from "../../hooks/useWindowsize";
@@ -112,7 +112,7 @@ export default function Items() {
     </NftContainer>
   ) : (
     <NftContainer>
-      <HomeTitles> All Items</HomeTitles>
+      <Text40 color={({ theme }) => theme.titles}> All Items</Text40>
       <Slider {...settings}>
         <Slidebox>
           <AllItemCard nft={"/images/Nft/A1.svg"} />

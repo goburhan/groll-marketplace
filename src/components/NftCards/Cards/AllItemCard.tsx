@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Divider } from "../../StyledComponents/Divider";
 import {
-  CardTitle,
-  ItemsFont,
-  TabFont,
-  Twelve,
+  Text14,
+  Text16,
+  Text12,
 } from "../../StyledComponents/Text";
 import PriceContainer from "../PriceContainer";
 import { Gprice, Nft } from "./BigItemCard";
@@ -89,7 +88,7 @@ export default function AllItemCard({ nft }) {
       </Nft>
       <Flex margin="20px 0px 0px 0px">
         <Box>
-          <CardTitle bold="500">Amazing Digital Art</CardTitle>
+          <Text16 color={({ theme }) => theme.cardTitle}>Amazing Digital Art</Text16>
         </Box>
         <PriceContainer />
       </Flex>
@@ -112,27 +111,27 @@ export default function AllItemCard({ nft }) {
           />
         </Grid>
 
-        <ItemsFont>1 in Stock</ItemsFont>
+        <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>1 in Stock</Text14>
       </Flex>
 
       <Divider width="90%" ml="12px" />
 
       <Container>
-        <TabFont>
+        <Text14 color={({ theme }) => theme.gray} fontWeight="600">
           <img
             src="/images/Highestbidlogo.svg"
             style={{ marginRight: "4px" }}
             alt="likes"
           />
           Highest Bid{" "}
-        </TabFont>
+        </Text14>
         <Gprice style={{ marginLeft: "6px", marginRight: "6px" }}>
           0.001 Gulf
         </Gprice>
-        <TabFont>
+        <Text14 color={({ theme }) => theme.gray} fontWeight="600">
           New Bid
           <img src="/images/fire.svg" alt="likes" />
-        </TabFont>
+        </Text14>
       </Container>
     </NftContainer>
   );

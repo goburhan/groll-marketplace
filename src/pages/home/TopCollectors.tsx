@@ -4,7 +4,7 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TopArtistCard from "../../components/NftCards/Cards/TopArtistCard";
-import { HomeTitles, Title } from "../../components/StyledComponents/Text";
+import { Text40 } from "../../components/StyledComponents/Text";
 import PriceContainer from "../../components/NftCards/PriceContainer";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
 
@@ -100,7 +100,7 @@ export default function TopCollectors() {
   return (
     <NftContainer>
       <TitleWrapper>
-        <HomeTitles> Top Collectors</HomeTitles>
+        <Text40 color={({ theme }) => theme.titles}> Top Collectors</Text40>
       </TitleWrapper>
 
       <Slider {...settings}>

@@ -3,12 +3,7 @@ import styled from "styled-components";
 import { fullImageUrl } from "../../../app/hooks";
 import store from "../../../app/store";
 import { Divider } from "../../StyledComponents/Divider";
-import {
-  CardTitle,
-  ItemsFont,
-  TabFont,
-  Gray14,
-} from "../../StyledComponents/Text";
+import { Text14, Text16 } from "../../StyledComponents/Text";
 import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
 import { Gprice, Nft } from "./BigItemCard";
@@ -61,12 +56,11 @@ const Container = styled.div<FlexProps>`
 `;
 const Box = styled.div`
   display: flex;
-  place-items:center;
-  img{
-    min-width:20px;
-    margin-top:6px;
+  place-items: center;
+  img {
+    min-width: 20px;
+    margin-top: 6px;
   }
-
 `;
 
 export default function MyCollectionCard({ nft }) {
@@ -82,13 +76,15 @@ export default function MyCollectionCard({ nft }) {
         <img src={nft} alt="nft-example" />
       </Nft>
       <Flex margin="20px 0px 0px 0px">
-          <CardTitle bold="500">Amazing Digital Art</CardTitle>
-        <Gray14 weight="400">Price </Gray14>
+        <Text16 color={({ theme }) => theme.cardTitle}>
+          Amazing Digital Art
+        </Text16>
+        <Text14 color={({ theme }) => theme.gray}>Price </Text14>
       </Flex>
-      <Flex >
+      <Flex>
         <Box>
           <img src="/images/like.svg" />
-          <Gray14 weight="400">1299k</Gray14>
+          <Text14 color={({ theme }) => theme.gray}>1299k</Text14>
         </Box>
 
         <PriceContainer />
@@ -99,8 +95,12 @@ export default function MyCollectionCard({ nft }) {
       <Container padding="10px 0px 12px 12px" direction="row">
         <img src={avatar} alt="avatar" style={{ minWidth: 36 }} />
         <Container padding="0px 0px 0px 6px" direction="column">
-          <TabFont>Artist</TabFont>
-          <TabFont style={{color:"#fff"}}>{user.nickname}</TabFont>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            Artist
+          </Text14>
+          <Text14 fontWeight="600" style={{ color: "#fff" }}>
+            {user.nickname}
+          </Text14>
         </Container>
       </Container>
     </NftContainer>
