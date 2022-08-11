@@ -33,6 +33,7 @@ import CreateNft from "./createnft";
 import Deneme from "./deneme";
 import CardDetails from "./carddetail";
 import NftForm from "./nftform";
+import CreateBox from "./createbox";
 
 const IndexPage: NextPage = () => {
   function getDefaultConnector(): string {
@@ -111,6 +112,7 @@ const IndexPage: NextPage = () => {
               <Route path="/deneme" element={<Deneme />}></Route>
               <Route path="/carddetail" element={<CardDetails />}></Route>
               <Route path="/nftform" element={<NftForm />}></Route>
+              <Route path="/createbox" element={<CreateBox />}></Route>
             </Routes>
           </BrowserRouter>
           <Navbar />

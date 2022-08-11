@@ -54,6 +54,7 @@ function BpCheckbox(props) {
     <Checkbox
       sx={{
         "&:hover": { bgcolor: "transparent" },
+        padding: 0,
       }}
       disableRipple
       color="default"
@@ -66,9 +67,5 @@ function BpCheckbox(props) {
 }
 
 export default function CustomizedCheckbox() {
-  return (
-    <div>
-      <BpCheckbox defaultChecked />
-    </div>
-  );
+  return <BpCheckbox defaultChecked />;
 }

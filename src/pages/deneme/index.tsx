@@ -95,7 +95,7 @@ const nft = [
   { name: "/images/Nft/A8.svg" },
 ];
 
-export default function Deneme({ nft }) {
+export default function Deneme() {
   return (
     <NftContainer>
       <Nft img="/images/Nft/A4.svg" />

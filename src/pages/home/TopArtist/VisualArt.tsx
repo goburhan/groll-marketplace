@@ -55,7 +55,7 @@ const Slidebox = styled.div`
   }
 `;
 
-export const Flex = styled.div`
+ const Flex = styled.div`
   display: flex;
   margin-top: 50px;
   flex-direction: ${(props) => props.dir};

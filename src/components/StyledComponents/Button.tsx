@@ -80,12 +80,12 @@ export const Backhome = styled.button<ButtonInterface>`
   border: 1px solid #484d57;
   color: ${({ theme }) => theme.cardTitle};
   cursor: pointer;
-  margin: ${(props) => props.margin};
+  margin: ${(props) => props.margin};2
   justify-content: center;
   border-radius: 24px;
   font-size: 14px;
   white-space: nowrap;
-  padding: ${(props) => props.padding || " 10px 8px 10px 8px"};
+  padding: ${(props) => props.padding || "10px 16px"};
   max-width: 170px;
   max-height: 40px;
   img {
@@ -113,18 +113,17 @@ export const NavButton = styled.button`
 
 export const Transparent = styled.button<ButtonInterface>`
   display: flex;
+  border: 1px solid #353945;
   place-items: center;
   gap: 6px;
-  border: 1px solid #353945;
+  justify-content: center;
   border-radius: 90px;
   color: white;
   background: transparent;
   cursor: pointer;
   font-size: 14px;
   padding: ${(props) => props.padding || " 0px 44px"};
-  margin-top: 8px;
   font-weight: bold;
-
   :hover {
     opacity: 0.9;
     background: rgba(0, 0, 0, 0.1);
@@ -174,22 +173,6 @@ interface prop {
   color?: string;
 }
 
-export const TransparentCancel = styled.button<prop>`
-  border: 1px solid #353945;
-  font-weight: 500;
-  color: ${(props) => props.color || "#777e91"};
-  font-size: 16px;
-  border-radius: 90px;
-  background: transparent;
-  padding: ${(props) => props.padding || " 14px 32px;"};
-  cursor: pointer;
-  margin-bottom: ${(props) => props.mb};
-  :hover {
-    opacity: 0.8;
-    border: 1px solid #484d57;
-  }
-`;
-
 export const MobileMenu = styled.button(
   ({ theme }) => `
   border: 1px solid transparent;
@@ -229,7 +212,7 @@ export function ClearAll() {
     </Clear>
   );
 }
-export function BackButton({margin}) {
+export function BackButton({ margin }) {
   return (
     <Backhome margin={margin}>
       <img src="/images/back.svg" />

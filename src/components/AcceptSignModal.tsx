@@ -3,12 +3,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import {
-  BlueButton,
-
-  Transparent,
-  TransparentCancel,
-} from "./StyledComponents/Button";
+import { BlueButton, Transparent } from "./StyledComponents/Button";
 import styled from "styled-components";
 import signLogin, {
   DEFAULT_CONNECTOR,
@@ -93,7 +88,9 @@ function AcceptSignModal(props: any) {
 
   return (
     <div>
-      <BlueButton padding="14px 32px" onClick={handleOpen}>Get Started Now</BlueButton>
+      <BlueButton padding="14px 32px" onClick={handleOpen}>
+        Get Started Now
+      </BlueButton>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -111,7 +108,7 @@ function AcceptSignModal(props: any) {
             <Text>Accept sign in</Text>
 
             <BlueButton
-            padding="14px 32px"
+              padding="14px 32px"
               onClick={() => {
                 let timestamp = parseInt(`${new Date().getTime() / 1000}`);
                 var message =
@@ -136,9 +133,9 @@ function AcceptSignModal(props: any) {
             >
               Continue
             </BlueButton>
-            <TransparentCancel style={{ width: "100%" }}>
+            <Transparent padding="14px 32px" style={{ width: "100%" }}>
               Cancel
-            </TransparentCancel>
+            </Transparent>
           </Flex>
         </Fade>
       </Modal>

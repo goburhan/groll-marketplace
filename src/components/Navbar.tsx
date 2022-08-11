@@ -11,7 +11,36 @@ import { useSelector } from "react-redux";
 import { userSelect } from "../actions/wallet/walletSlice";
 import ProfileIcon from "./ProfileMenu/ProfileIcon";
 import { fullImageUrl } from "../app/hooks";
+import Searchbar from "./StyledComponents/Searchbar";
 
+export const Search = styled.input`
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: transparent;
+  color: white;
+
+  ::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  :focus {
+    outline: none;
+  }
+`;
+export const SearchWrapper = styled.div`
+  display: flex;
+  border: 1px solid #484d57;
+  border-radius: 25px;
+  background-color: transparent;
+  padding: 6px 14px 6px 14px;
+  width: 48%;
+  justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+  }
+`;
 export default function Navbar() {
   const { theme, themeToggler } = useThemeMode();
   const user = useSelector(userSelect);
@@ -39,39 +68,13 @@ export default function Navbar() {
       width: 100%;
     }
   `;
-  const Search = styled.input`
-    border: 1px solid transparent;
-    border-radius: 25px;
-    background-color: transparent;
-    color: white;
-
-    ::placeholder {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 24px;
-    }
-    :focus {
-      outline: none;
-    }
-  `;
 
   const ThemeButton = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
-  `;
-
-  const SearchWrapper = styled.div`
-    display: flex;
-    border: 1px solid #484d57;
-    border-radius: 25px;
-    background-color: transparent;
-    padding: 6px 14px 6px 14px;
-    width: 48%;
-    justify-content: space-between;
-
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      display: none;
+    img {
+      min-width: 24px;
     }
   `;
 
@@ -118,10 +121,11 @@ export default function Navbar() {
       <HamburgerMenu />
 
       <Items justifyContent="right">
-        <SearchWrapper>
+        {/* <SearchWrapper>
           <img src="/images/Shape.svg" />
           <Search placeholder="Search Everything" />
-        </SearchWrapper>
+        </SearchWrapper> */}
+        <Searchbar />
 
         {user.nickname !== "" && (
           <Link href="/createnft">

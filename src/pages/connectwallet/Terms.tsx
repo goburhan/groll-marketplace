@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Text14, Text40 } from "../../components/StyledComponents/Text";
 import Checkbox from "@mui/material/Checkbox";
-import {
-  Transparent,
-  TransparentCancel,
-} from "../../components/StyledComponents/Button";
+import { Transparent } from "../../components/StyledComponents/Button";
 import AcceptSignModal from "../../components/AcceptSignModal";
 import CustomizedCheckbox from "./Checkbox";
 import { motion } from "framer-motion";
@@ -90,7 +87,7 @@ export default function Terms() {
       </div>
 
       <Box gap="10px">
-        <TransparentCancel>Cancel</TransparentCancel>
+        <Transparent padding="16px 32px">Cancel</Transparent>
         <AcceptSignModal />
       </Box>
     </Flex>

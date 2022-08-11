@@ -1,7 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { BackButton, Backhome } from "../../components/StyledComponents/Button";
+import {
+  BackButton,
+  Transparent,
+} from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
 import { Text40, Text14 } from "../../components/StyledComponents/Text";
 
@@ -30,9 +33,7 @@ const UploadCard = styled.div`
   width: 352px;
   min-height: 366px;
   border: 1px solid ${({ theme }) => theme.uploadNftBorder};
-
   border-radius: 16px;
-
   :hover {
     border: 1px solid ${({ theme }) => theme.blue};
 
@@ -59,28 +60,15 @@ const CardWrapper = styled.div`
   gap: 32px;
   margin-bottom: 32px;
 `;
-
-const Button = styled.button<prop>`
-  border: 1px solid #353945;
-  font-weight: 500;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 90px;
-  background: transparent;
-  padding: 8px 16px;
-  cursor: pointer;
-  margin-bottom: 4px;
-  :hover {
-    background-color: ${({ theme }) => theme.blue};
-    border: 1px solid ${({ theme }) => theme.blue};
-  }
+const Button = styled(Transparent)`
+  padding: 8px 32px;
 `;
 
 export default function CreateNft() {
   return (
     <>
-      <BackButton margin="152px 0px 104px 148px"/>
-     
+      <BackButton margin="152px 0px 104px 148px" />
+
       <Wrapper>
         <Flex
           margin="0px 0px 20px 0px"
@@ -116,7 +104,9 @@ export default function CreateNft() {
           </UploadCard>
           <UploadCard>
             <ImageWrapper img="/images/Nftbox.svg" />
-            <Button>Create a NFT Box</Button>
+            <Link href="/createbox">
+              <Button>Create a NFT Box</Button>
+            </Link>
           </UploadCard>
         </CardWrapper>
         <Text14 color={({ theme }) => theme.editLower}>

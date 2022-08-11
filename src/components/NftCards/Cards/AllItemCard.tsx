@@ -84,7 +84,7 @@ const Grid = styled.div`
   }
 `;
 
-export default function Deneme({ nft }) {
+export default function AllItemCard({ nft }) {
   return (
     <NftContainer>
       <Nft img={nft} />

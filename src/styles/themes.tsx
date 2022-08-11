@@ -26,6 +26,9 @@ export default interface ThemeProps {
   editLower: any;
   uploadNftBorder: any;
   preview:any;
+  rare: any,
+  epic: any,
+  legendary: any,
 }
 
 export const dark: ThemeProps = {
@@ -56,6 +59,9 @@ export const dark: ThemeProps = {
   editLower: "#B1B5C3",
   uploadNftBorder:"#484D57",
   preview:"#2E333B",
+  rare: "#00ACFF",
+  epic: "#853AFF",
+  legendary: "#FEDD88",
 };
 
 export const light: ThemeProps = {
@@ -87,4 +93,7 @@ export const light: ThemeProps = {
   editLower: "#777E91",
   uploadNftBorder:"#00ACFF",
   preview:"#2E333B",
+  rare: "#00ACFF",
+  epic: "#853AFF",
+  legendary: "#FEDD88",
 };
