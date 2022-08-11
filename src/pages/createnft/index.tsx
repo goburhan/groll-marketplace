@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { Backhome } from "../../components/StyledComponents/Button";
+import { BackButton, Backhome } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
-import {  Text40, Text14 } from "../../components/StyledComponents/Text";
+import { Text40, Text14 } from "../../components/StyledComponents/Text";
 
 interface img {
   img?: any;
@@ -37,9 +37,8 @@ const UploadCard = styled.div`
     border: 1px solid ${({ theme }) => theme.blue};
 
     button {
-      background:${({ theme }) => theme.blue};
+      background: ${({ theme }) => theme.blue};
     }
-
   }
 `;
 
@@ -61,7 +60,7 @@ const CardWrapper = styled.div`
   margin-bottom: 32px;
 `;
 
- const Button = styled.button<prop>`
+const Button = styled.button<prop>`
   border: 1px solid #353945;
   font-weight: 500;
   color: #fff;
@@ -80,10 +79,8 @@ const CardWrapper = styled.div`
 export default function CreateNft() {
   return (
     <>
-      <Backhome margin="148px 0px 104px 148px">
-        <img src="/images/back.svg" />
-        Back to home
-      </Backhome>
+      <BackButton margin="152px 0px 104px 148px"/>
+     
       <Wrapper>
         <Flex
           margin="0px 0px 20px 0px"
@@ -91,7 +88,9 @@ export default function CreateNft() {
           width="35%"
           textAlign="center"
         >
-          <Text40 color={({ theme }) => theme.titles} margin="0px 0px 8px 0px">Upload item</Text40>
+          <Text40 color={({ theme }) => theme.titles} margin="0px 0px 8px 0px">
+            Upload item
+          </Text40>
           <Text14 color={({ theme }) => theme.editLower}>
             Choose <span> “Single” </span>if you want your collectible to be one
             of a kind or <span>“Multiple” </span> if you want to sell one
@@ -104,8 +103,7 @@ export default function CreateNft() {
           <UploadCard>
             <ImageWrapper img="/images/Singlenft.svg" />
             <Link href="/nftform">
-            <Button>Create Single</Button>
-
+              <Button>Create Single</Button>
             </Link>
           </UploadCard>
           <UploadCard>

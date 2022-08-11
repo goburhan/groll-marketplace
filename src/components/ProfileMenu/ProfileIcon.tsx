@@ -3,25 +3,13 @@ import store from "../../app/store";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {  Text14, Text18 } from "../StyledComponents/Text";
-import { useSelector } from "react-redux";
-import { selectConnector } from "../../actions/wallet/walletSlice";
-import { Web3ReactHooks } from "@web3-react/core";
-import {
-  hooks as coinbaseWalletHooks,
-  coinbaseWallet,
-} from "../../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../../connectors/metamask";
-import {
-  hooks as walletConnectHooks,
-  walletConnect,
-} from "../../connectors/walletconnect";
 import BalanceContainer from "./BalanceContainer";
 import { Divider } from "../StyledComponents/Divider";
 import Link from "next/link";
 import Toggle from "../Toggle";
 import { AnimatePresence, motion } from "framer-motion";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import { fullImageUrl, getDefaultConnector } from "../../app/hooks";
+import { addressWrapper, fullImageUrl, getDefaultConnector } from "../../app/hooks";
 import { Flex } from "../StyledComponents/Flex";
 
 interface nft {
@@ -100,16 +88,12 @@ export default function ProfileIcon() {
       gap: 10px;
       cursor: pointer;
     `;
-
+let Address
     if (accounts !== undefined && accounts.length > 0) {
-      Buttontag =
-        accounts[0].substring(0, 9) +
-        "..." +
-        accounts[0].substring(accounts[0].length - 4);
+      Address = addressWrapper(user.coinbase);
     } else {
-      Buttontag = "";
+      Address = "Connect";
     }
-
     const MenuItems = [
       { name: "Edit my profile", url: "/editprofile", icon: "Editprofile" },
       { name: "My items", url: "/", icon: "Myitems" },
@@ -137,7 +121,7 @@ export default function ProfileIcon() {
                   navigator.clipboard.writeText(user.coinbase);
                 }}
               >
-                {Buttontag}{" "}
+                {Address}{" "}
               </Text14>
               <img
                 style={{ marginLeft: "6px" }}

@@ -5,7 +5,7 @@ import {
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { BlueButton } from "../../components/StyledComponents/Button";
+import { BlueButton, ClearAll } from "../../components/StyledComponents/Button";
 import Toggle from "../../components/Toggle";
 import { Text14, Text16 } from "../../components/StyledComponents/Text";
 import { getDefaultConnector } from "../../app/hooks";
@@ -49,14 +49,6 @@ interface boxprops {
   justify?: any;
 }
 
-const Clear = styled.button`
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: none;
-  color: #777e91;
-  gap: 4px;
-`;
 
 export default function StepOne() {
   const [userName, setUserName] = useState("");
@@ -108,10 +100,7 @@ export default function StepOne() {
       </Text14>
 
       <Botwrapper>
-        <Clear>
-          <img src="/images/Staticlogos/Clearicon.svg" />
-          Clear all
-        </Clear>
+      <ClearAll/>
         <BlueButton
           onClick={() => {
             dispatch(

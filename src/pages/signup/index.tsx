@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AccountInformation from "./StepOneButton";
 import SelfieCard from "./KycCard";
-import {
-  Backhome,
-} from "../../components/StyledComponents/Button";
+import { BackButton, Backhome } from "../../components/StyledComponents/Button";
 import { selectConnector, userSelect } from "../../actions/wallet/walletSlice";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -27,13 +25,11 @@ export default function SignUpPage() {
     padding: 60px 120px 160px 160px;
     background-color: ${({ theme }) => theme.background};
   `;
-  
+
   return (
     <SignupWrapper>
-      <Backhome margin="0px 0px 40px 0px">
-        <img src="/images/back.svg"  />
-        Back to home
-      </Backhome>
+      <BackButton margin="0px 0px 40px 0px" />
+
       {user.nickname === "" ? <Reminder /> : null}
       <StepOneButton />
       <StepTwoButton />

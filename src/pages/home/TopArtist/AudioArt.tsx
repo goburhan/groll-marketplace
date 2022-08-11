@@ -4,11 +4,7 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TopArtistCard from "../../../components/NftCards/Cards/TopArtistCard";
-import {
-  Text14,
-  Text32,
-} from "../../../components/StyledComponents/Text";
-import PriceContainer from "../../../components/NftCards/PriceContainer";
+import { Text14, Text32 } from "../../../components/StyledComponents/Text";
 import { PrevNextButton } from "../../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
@@ -110,7 +106,9 @@ export default function VisualArt() {
       <TitleWrapper>
         <Flex dir="column">
           <Text32>Audio art</Text32>
-          <Text14 letterSpacing="-0.01em">Some audio art from the gallery</Text14>
+          <Text14 color={({ theme }) => theme.filterText} letterSpacing="-0.01em">
+            Some audio art from the gallery
+          </Text14>
         </Flex>
       </TitleWrapper>
 

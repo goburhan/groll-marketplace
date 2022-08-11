@@ -1,15 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  BuyButton,
-} from "../../components/StyledComponents/Button";
-import { Flex } from "../../components/StyledComponents/Flex";
+import { BuyButton } from "../../../components/StyledComponents/Button";
+import { Flex } from "../../../components/StyledComponents/Flex";
 import {
   Text16,
   Text24,
   Text14,
-  Text12,
-} from "../../components/StyledComponents/Text";
+} from "../../../components/StyledComponents/Text";
 
 const BuyWrapper = styled.div`
   display: flex;
@@ -22,7 +19,13 @@ const BuyWrapper = styled.div`
     display: none;
   }
 `;
-
+const Text = styled(Text14)`
+  color: ${({ theme }) => theme.gray};
+  fontweight: 500;
+  span {
+    color: ${({ theme }) => theme.linkItems};
+  }
+`;
 interface box {
   justify?: string;
   mb?: string;
@@ -44,22 +47,18 @@ const Box = styled.div<box>`
     min-width: 53px;
   }
 `;
-
-const Text = styled(Text14)`
-  color: ${({ theme }) => theme.gray};
-  fontweight: 500;
-  span {
-    color: ${({ theme }) => theme.linkItems};
-  }
-`;
 export default function BuySection() {
   return (
     <BuyWrapper>
       <Box mb="18px">
         <img src="/images/Staticlogos/avatar.svg" alt="nft-example" />
         <Flex direction="column">
-          <Text16 lineHeight="0"  color={({ theme }) => theme.gray}>Highes Bid by Requel</Text16>
-          <Text24>1.46 GULF $4,324.5</Text24>
+          <Text16 letterSpacing="0" color={({ theme }) => theme.gray}>
+            Highes Bid by Requel
+          </Text16>
+          <Text24 color={({ theme }) => theme.filterText}>
+            1.46 GULF $4,324.5
+          </Text24>
         </Flex>
       </Box>
 
@@ -83,13 +82,13 @@ export default function BuySection() {
 
         <Box justify="space-between">
           <Box>
-            <Text14>Gas Fees</Text14>
-            <Text14>
+            <Text>Gas Fees</Text>
+            <Text>
               <span>3.5%</span>
-            </Text14>
+            </Text>
           </Box>
 
-          <Text14>5/3/2021 - 23h:13 GMT+3</Text14>
+          <Text>5/3/2021 - 23h:13 GMT+3</Text>
         </Box>
       </Flex>
     </BuyWrapper>

@@ -8,7 +8,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import { green } from "@mui/material/colors";
 import Box from "@mui/material/Box";
-import Items from "../Items";
+import Items from "../../collection/Items";
 import styled from "styled-components";
 import TopWrapper from "./TopWrapper";
 import BidsOffer from "./BidsOffer";

@@ -1,15 +1,11 @@
 import React from "react";
-import {
-  Text40,
-  Text14,
-} from "../../components/StyledComponents/Text";
+import { Text40, Text14 } from "../../components/StyledComponents/Text";
 import styled from "styled-components";
 import { Flex } from "../../components/StyledComponents/Flex";
-import SelectButton from "../collection/Components/SelectButton";
+import SelectButton from "./Components/SelectButton";
 
 const Flexs = styled(Flex)`
   align-items: center;
-  
 `;
 
 const Box = styled.div`
@@ -28,17 +24,14 @@ const PriceBox = styled.div`
   font-weight: 700;
   margin-right: 1rem;
 `;
-const PriceBox2 = styled.div`
-  border: 1px solid ${({ theme }) => theme.gray};
-  border-radius: 16px;
-  padding: 4px 16px;
-`;
 
 export default function InfoSection() {
   return (
     <Box>
       <Flexs margin="0px 0px 18px 0px">
-        <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em"  >Not Your Bro # 6548</Text40>
+        <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">
+          Not Your Bro # 6548
+        </Text40>
         <img
           src="/images/verified.svg"
           style={{ minWidth: 34, marginLeft: 10 }}

@@ -123,9 +123,12 @@ export default function TopCollection() {
 
       <Slider {...settings}>
         {icons.map((icon) => (
+          <Link style={{cursor:"pointer"}} href="/carddetail">
           <Slidebox>
             <TCollectionCard icon={icon.name} />
           </Slidebox>
+          </Link>
+
         ))}
 
       </Slider>

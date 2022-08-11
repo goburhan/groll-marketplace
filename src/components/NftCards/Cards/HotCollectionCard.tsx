@@ -46,14 +46,14 @@ const BoxWrapper = styled.div`
 const NftWrapper = styled.div<Nft>`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 
   height: 54%;
   border: 1px solid transparent;
   border-radius: 14px;
 
   margin: 2% 3% 0 3%;
-  background-position: 50% 0%;
 `;
 
 export default function HotCollectionCard({ nft }) {

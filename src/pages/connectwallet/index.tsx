@@ -17,12 +17,12 @@ import {
 } from "../../connectors/walletconnect";
 import Terms from "./Terms";
 import { animate, AnimatePresence, motion } from "framer-motion";
-import { Backhome } from "../../components/StyledComponents/Button";
+import { BackButton } from "../../components/StyledComponents/Button";
 import { getDefaultConnector } from "../../app/hooks";
 
 const Flex = styled.div`
   display: flex;
-  height:400px;
+  height: 400px;
   justify-content: space-evenly;
   place-items: center;
   flex-direction: column;
@@ -111,7 +111,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
     open: {
       opacity: 1,
       width: "32vw",
-      x:"4vw",
+      x: "4vw",
       transition: {
         duration: 0.3,
       },
@@ -125,11 +125,10 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
   };
   return (
     <ConnectWalletContainer>
-      <Backhome margin="40px 0px 60px 0px">
-        <img src="/images/back.svg" />
-        Back to home
-      </Backhome>
-      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em" >Connect your wallet</Text40>
+      <BackButton margin="32px 0px 64px 0px" />
+      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">
+        Connect your wallet
+      </Text40>
       <Divider mt="50px" width="50%" />
       <Box>
         <Flex>
@@ -311,9 +310,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
                 variants={ButtonParentVariants}
                 animate={open ? "open" : "closed"}
               >
-                <motion.img
-                  src="/images/coinwallet.png"
-                />
+                <motion.img src="/images/coinwallet.png" />
               </Side>
             )}
 

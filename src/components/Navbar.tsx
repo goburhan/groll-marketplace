@@ -69,7 +69,7 @@ export default function Navbar() {
     padding: 6px 14px 6px 14px;
     width: 48%;
     justify-content: space-between;
-    
+
     @media (max-width: ${({ theme }) => theme.mobile}) {
       display: none;
     }

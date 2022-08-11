@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { InputField } from "../../components/SearchBar";
-import {
-  updateProfile,
-} from "../../actions/wallet/walletSlice";
+import { updateProfile } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { BlueButton } from "../../components/StyledComponents/Button";
+import { BlueButton, ClearAll } from "../../components/StyledComponents/Button";
 import Toggle from "../../components/Toggle";
 import StepTwoUploader from "../../components/Auth/FileUploader/StepTwoUploader";
 import { Text16 } from "../../components/StyledComponents/Text";
 import { getDefaultConnector } from "../../app/hooks";
+import DragDrop from "../../components/Dropzone/Dropzone";
 
 interface prop {
   width?: string;
@@ -25,7 +24,7 @@ interface checkboxProps {
 
 const Flex = styled.div<prop>`
   display: flex;
-  width: ${(props) => props.width  };
+  width: ${(props) => props.width};
   flex-direction: ${(props) => props.direction || "column"};
   text-align: left;
   justify-content: space-between;
@@ -56,15 +55,7 @@ const InputWrapper = styled.div<prop>`
   margin-right: ${(props) => props.mr};
 `;
 
-const Clear = styled.button`
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  gap: 4px;
-  background: transparent;
-  border: 1px solid transparent;
-  color: #777e91;
-`;
+
 
 export default function StepOne() {
   const [userName, setUserName] = useState("");
@@ -141,14 +132,11 @@ export default function StepOne() {
           Confirm your identity by Uploading the picture of the id or passport
           first,then the picture witht he code and passport.
         </Text12>
-        <StepTwoUploader></StepTwoUploader>
+        <DragDrop></DragDrop>
       </InputWrapper>
 
       <Botwrapper>
-        <Clear>
-          <img src="/images/Staticlogos/Clearicon.svg" />
-          Clear all
-        </Clear>
+      <ClearAll/>
         <BlueButton
           onClick={() => {
             dispatch(
@@ -159,7 +147,6 @@ export default function StepOne() {
               })
             );
           }}
-       
         >
           Confirm
         </BlueButton>

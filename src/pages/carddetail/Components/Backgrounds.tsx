@@ -6,7 +6,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Typography,
 } from "@mui/material";
 import { Text22 } from "../../../components/StyledComponents/Text";
 

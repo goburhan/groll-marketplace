@@ -3,7 +3,10 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Text40, HomeTitleWrapper } from "../../components/StyledComponents/Text";
+import {
+  Text40,
+  HomeTitleWrapper,
+} from "../../components/StyledComponents/Text";
 import AllItemCard from "../../components/NftCards/Cards/AllItemCard";
 import BigItemCard from "../../components/NftCards/Cards/BigItemCard";
 import { WindowSize } from "../../hooks/useWindowsize";
@@ -26,7 +29,7 @@ const NftContainer = styled.div`
     font-size: 30px;
   }
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0rem 0px 3rem;
     width: 100%;
 
@@ -48,9 +51,6 @@ const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-`;
-const Slidebox = styled.div`
-  text-color: white;
 `;
 
 export default function AllItems() {
@@ -101,17 +101,18 @@ export default function AllItems() {
     { name: "/images/Nft/A7.svg" },
     { name: "/images/Nft/A8.svg" },
   ];
-  
+
   return !isMobilee ? (
     <NftContainer>
-      <Text40 color={({ theme }) => theme.titles} margin="0px 10px 0px 0px"> All items</Text40>
+      <Text40 color={({ theme }) => theme.titles} margin="0px 10px 0px 0px">
+        {" "}
+        All items
+      </Text40>
 
       <Flex>
         <BigItemCard />
         {nft.map((nfts) => (
-          <Slidebox>
-            <AllItemCard nft={nfts.name} />
-          </Slidebox>
+          <AllItemCard nft={nfts.name} />
         ))}
       </Flex>
     </NftContainer>
@@ -122,8 +123,8 @@ export default function AllItems() {
       </HomeTitleWrapper>
 
       <Slider {...settings}>
-      {nft.map((nfts) => (
-            <AllItemCard nft={nfts.name} />
+        {nft.map((nfts) => (
+          <AllItemCard nft={nfts.name} />
         ))}
       </Slider>
     </NftContainer>

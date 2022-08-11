@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import EmailBg from "./EmailButton.svg";
+import React from "react";
 import MobileBg from "./MobileButton.svg";
 interface ButtonInterface {
   padding?: string;
@@ -211,3 +211,29 @@ export const PrevNextButton = styled.button<ButtonInterface>`
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
 `;
+const Clear = styled.button`
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #777e91;
+`;
+
+export function ClearAll() {
+  return (
+    <Clear>
+      <img src="/images/Staticlogos/Clearicon.svg" />
+      Clear All
+    </Clear>
+  );
+}
+export function BackButton({margin}) {
+  return (
+    <Backhome margin={margin}>
+      <img src="/images/back.svg" />
+      Back to home
+    </Backhome>
+  );
+}

@@ -77,7 +77,6 @@ export default function Items() {
     { name: "/images/Nft/A7.svg" },
     { name: "/images/Nft/A8.svg" },
   ];
-  
 
   let items = [];
 

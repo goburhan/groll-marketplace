@@ -45,8 +45,6 @@ export const Text14 = styled.text<TextProps>`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 62px;
-    line-height: 62px;
   }
 `;
 export const Text16 = styled.text<TextProps>`
@@ -57,8 +55,6 @@ export const Text16 = styled.text<TextProps>`
   color: ${(props) => props.color};
   margin: ${(props) => props.margin};
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 62px;
-    line-height: 62px;
   }
 `;
 export const Text18 = styled.text<TextProps>`
@@ -69,8 +65,6 @@ export const Text18 = styled.text<TextProps>`
   color: ${(props) => props.color};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 62px;
-    line-height: 62px;
   }
 `;
 export const Text22 = styled.text<TextProps>`
@@ -99,8 +93,8 @@ export const Text28 = styled.text`
 
   color: ${({ theme }) => theme.white};
 `;
-export const Text32 = styled.text`
-  font-weight: 700;
+export const Text32 = styled.text<TextProps>`
+  font-weight: ${(props) => props.fontWeight || "700"};
   font-size: 32px;
   line-height: 48px;
   letter-spacing: -0.01em;
@@ -108,8 +102,6 @@ export const Text32 = styled.text`
   color: ${({ theme }) => theme.cardTitle};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 24px;
-    line-height: 36px;
   }
 `;
 
@@ -134,8 +126,6 @@ export const Text48 = styled.text`
   color: ${({ theme }) => theme.cardTitle};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 24px;
-    line-height: 36px;
   }
 `;
 export const Sliderfont = styled.text`
@@ -146,8 +136,6 @@ export const Sliderfont = styled.text`
   letter-spacing: -0.065em;
   color: ${({ theme }) => theme.white};
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 62px;
-    line-height: 62px;
   }
 `;
 

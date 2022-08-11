@@ -7,8 +7,10 @@ import {
 import FileUpload from "./FileUpload";
 import { InputField, Register} from "../../components/SearchBar";
 import {
+  BackButton,
   Backhome,
   BlueButton,
+  ClearAll,
 } from "../../components/StyledComponents/Button";
 import {
   Text16,
@@ -81,14 +83,7 @@ const AddMore = styled.button`
   color: #777e91;
   margin-bottom: 6%;
 `;
-const Clear = styled.button`
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: 1px solid transparent;
-  color: #777e91;
-  margin-bottom: 6%;
-`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -111,10 +106,8 @@ export default function EditSection() {
 
   return (
     <Flex>
-      <Backhome  >
-        <img src="/images/back.svg" />
-        Back to home
-      </Backhome>
+      <BackButton margin="0px" />
+   
       <Container>
         <Text48>Edit Your Profile</Text48>
         <Text14 color={({ theme }) => theme.editLower}>
@@ -189,10 +182,7 @@ export default function EditSection() {
       </AddMore>
 
       <Botwrapper>
-        <Clear>
-          <img src="/images/Staticlogos/Clearicon.svg" />
-          Clear all
-        </Clear>
+       <ClearAll/>
         <BlueButton
           onClick={() => {
             dispatch(

@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 
 import type { BigNumber } from '@ethersproject/bignumber';
 
-import { useAppDispatch } from '../../app/hooks';
+import { getDefaultConnector, useAppDispatch } from '../../app/hooks';
 import { userLogin, connectWallet, getConfig, selectConnector, DEFAULT_CONNECTOR } from '../../actions/wallet/walletSlice';
 
 import { hooks as coinbaseWalletHooks, coinbaseWallet } from '../../connectors/coinbasewallet'
@@ -49,22 +49,7 @@ export const Home = (props) => {
 
   const defaultConnector = useSelector(selectConnector);
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case 'metamask':
-          return metaMaskHooks;
-        break;
-      case 'coinbase':
-          return coinbaseWalletHooks;
-        break;
-      case 'walletconnect':
-          return walletConnectHooks;
-        break;
-
-      default:
-        return metaMaskHooks;
-    }
-  }
+ 
 
   const chainId = getDefaultConnector().useChainId()
   const accounts = getDefaultConnector().useAccounts()

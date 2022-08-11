@@ -34,42 +34,39 @@ import Deneme from "./deneme";
 import CardDetails from "./carddetail";
 import NftForm from "./nftform";
 
+const IndexPage: NextPage = () => {
+  function getDefaultConnector(): string {
+    switch (defaultConnector) {
+      case "metamask":
+        void metaMask.connectEagerly().catch(() => {
+          console.debug("Failed to connect eagerly to metamask");
+        });
+        util_web3.connectWallet();
+        return "metamask";
+        break;
+      case "coinbase":
+        void coinbaseWallet.connectEagerly().catch(() => {
+          console.debug("Failed to connect eagerly to coinbase wallet");
+        });
+        return "coinbase";
+        break;
+      case "walletconnect":
+        walletConnect.events.on(URI_AVAILABLE, (uri: string) => {
+          console.log(`uri: ${uri}`);
+        });
+        walletConnect.connectEagerly().catch(() => {
+          console.debug("Failed to connect eagerly to walletconnect");
+        });
+        return "walletconnect";
+        break;
 
-
-const IndexPage: NextPage = () => { function getDefaultConnector(): string {
-  switch (defaultConnector) {
-    case "metamask":
-      void metaMask.connectEagerly().catch(() => {
-        console.debug("Failed to connect eagerly to metamask");
-      });
-      util_web3.connectWallet();
-      return "metamask";
-      break;
-    case "coinbase":
-      void coinbaseWallet.connectEagerly().catch(() => {
-        console.debug("Failed to connect eagerly to coinbase wallet");
-      });
-      return "coinbase";
-      break;
-    case "walletconnect":
-      walletConnect.events.on(URI_AVAILABLE, (uri: string) => {
-        console.log(`uri: ${uri}`);
-      });
-      walletConnect.connectEagerly().catch(() => {
-        console.debug("Failed to connect eagerly to walletconnect");
-      });
-      return "walletconnect";
-      break;
-
-    default:
-      return "metamask";
+      default:
+        return "metamask";
+    }
   }
-}
   const { connector } = useWeb3React();
 
   const defaultConnector = useSelector(selectConnector);
-
- 
 
   useEffect(() => {
     console.log(`Priority Connector is: ${getName(connector)}`);
@@ -101,28 +98,25 @@ const IndexPage: NextPage = () => { function getDefaultConnector(): string {
   return (
     <div className={styles.container}>
       <ThemeContext>
-          <ThemeProvider theme={themeMode}>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/signup" element={<SignUpPage />}></Route>
-                <Route path="/collection" element={<Collection />}></Route>
-                <Route
-                  path="/connectwallet"
-                  element={<ConnectWallet />}
-                ></Route>
-                <Route path="/editprofile" element={<Editprofile />}></Route>
-                <Route path="/profile" element={<Profile />}></Route>
-                <Route path="/createnft" element={<CreateNft />}></Route>
-                <Route path="/deneme" element={<Deneme />}></Route>
-                <Route path="/carddetail" element={<CardDetails />}></Route>
-                <Route path="/nftform" element={<NftForm />}></Route>
-              </Routes>
-            </BrowserRouter>
-            <Navbar />
+        <ThemeProvider theme={themeMode}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/signup" element={<SignUpPage />}></Route>
+              <Route path="/collection" element={<Collection />}></Route>
+              <Route path="/connectwallet" element={<ConnectWallet />}></Route>
+              <Route path="/editprofile" element={<Editprofile />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/createnft" element={<CreateNft />}></Route>
+              <Route path="/deneme" element={<Deneme />}></Route>
+              <Route path="/carddetail" element={<CardDetails />}></Route>
+              <Route path="/nftform" element={<NftForm />}></Route>
+            </Routes>
+          </BrowserRouter>
+          <Navbar />
 
-            <GlobalStyle />
-          </ThemeProvider>
+          <GlobalStyle />
+        </ThemeProvider>
       </ThemeContext>
     </div>
   );

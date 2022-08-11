@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import AvatarSettings from "../editprofile/AvatarSettings";
 import {
   selectConnector,
   updateProfile,
@@ -9,7 +8,7 @@ import {
 import FileUpload from "../editprofile/FileUpload";
 import { InputField, Register } from "../../components/SearchBar";
 import {
-  Backhome,
+  BackButton,
   BlueButton,
   Transparent,
 } from "../../components/StyledComponents/Button";
@@ -38,7 +37,7 @@ interface prop {
 }
 const Text = styled(Text14)`
   color: ${({ theme }) => theme.gray};
-  fontweight: 500;
+  font-weight: 500;
   span {
     color: ${({ theme }) => theme.linkItems};
   }
@@ -141,10 +140,8 @@ export default function NftForm() {
 
   return (
     <Page>
-      <Backhome margin="154px 0px 68px 0px">
-        <img src="/images/back.svg" />
-        Back to home
-      </Backhome>
+      <BackButton margin="154px 0px 68px 0px" />
+
       <PageWrapper>
         <Flex>
           <Botwrapper width="60%" margin="0px 0px 44px 0px">

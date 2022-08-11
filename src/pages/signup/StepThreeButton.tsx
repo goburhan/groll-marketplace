@@ -115,14 +115,14 @@ export default function StepOneButton() {
     open: {
       height: "100vh",
       opacity: 1,
-      y:30,
+      y: 30,
       transition: {
         duration: 0.5,
       },
     },
     exit: {
       opacity: 0,
-      y: [-180, -250],
+      y: [-160, -250],
       height: "1vh",
       transition: {
         duration: 0.5,

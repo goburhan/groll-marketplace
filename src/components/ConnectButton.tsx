@@ -1,59 +1,32 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { NavButton, StyledButton } from "./StyledComponents/Button";
+import React from "react";
+import { NavButton } from "./StyledComponents/Button";
 import Link from "next/link";
-import { useWeb3React, Web3ReactHooks } from "@web3-react/core";
-import { getUserInfo, selectConnector } from "../actions/wallet/walletSlice";
-import store from "../app/store";
+import {
+  selectConnector,
+  userSelect,
+} from "../actions/wallet/walletSlice";
+
 import { useSelector } from "react-redux";
-import {
-  hooks as coinbaseWalletHooks,
-  coinbaseWallet,
-} from "../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../connectors/metamask";
-import {
-  hooks as walletConnectHooks,
-  walletConnect,
-} from "../connectors/walletconnect";
-import { Status } from "./Status";
-import { getDefaultConnector } from "../app/hooks";
+
+import { addressWrapper, getDefaultConnector } from "../app/hooks";
 
 export default function ConnectButton() {
   const defaultConnector = useSelector(selectConnector);
 
-
+  const user = useSelector(userSelect);
   const accounts: string[] = getDefaultConnector().useAccounts();
-
-  let Buttontag = "";
-
-
-  // var accountEllipsis = accounts ? { tag: accounts[0] + tag.substring(0, 4) + "..." + tag.substring(accounts.length - 4)} : "Connect Wallet";
-useEffect(() => {
+  let Address;
+  
   if (accounts !== undefined && accounts.length > 0) {
-    Buttontag =
-      accounts[0].substring(0, 5) +
-      "..." +
-      accounts[0].substring(accounts[0].length - 4);
+    Address = addressWrapper(user.coinbase);
   } else {
-    Buttontag = "Connect";
-  }
-
-
-})
-
-  if (accounts !== undefined && accounts.length > 0) {
-    Buttontag =
-      accounts[0].substring(0, 5) +
-      "..." +
-      accounts[0].substring(accounts[0].length - 4);
-  } else {
-    Buttontag = "Connect";
+    Address = "Connect";
   }
 
   return (
     <Link href="/connectwallet" as="/connectwallet">
       <a>
-        <NavButton type="submit">{Buttontag}</NavButton>
+        <NavButton type="submit">{Address}</NavButton>
       </a>
     </Link>
   );

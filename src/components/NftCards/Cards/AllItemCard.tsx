@@ -1,25 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { Divider } from "../../StyledComponents/Divider";
-import {
-  Text14,
-  Text16,
-  Text12,
-} from "../../StyledComponents/Text";
+import { Text14, Text16, Text12 } from "../../StyledComponents/Text";
 import PriceContainer from "../PriceContainer";
-import { Gprice, Nft } from "./BigItemCard";
+import { Gprice } from "./BigItemCard";
 
 const NftContainer = styled.div`
+  display: grid;
+  grid-template-rows: 1.8fr 1fr;
   background: ${({ theme }) => theme.card};
   border: 1px solid transparent;
   border-radius: 18px;
   margin-right: 20px;
   margin-top: 6vh;
-  height: max-content;
+  min-height: max-content;
   max-width: 300px;
-  img {
-    border-radius: 20px;
-  }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     img {
       width: 100%;
@@ -30,6 +25,18 @@ interface FlexProps {
   padding?: string;
   margin?: string;
 }
+interface Background {
+  img?: any;
+}
+
+const Nft = styled.div<Background>`
+  background-image: url(${({ img }) => img});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  margin: 16px 16px 0px 16px;
+`;
 
 const Flex = styled.div<FlexProps>`
   display: flex;
@@ -61,8 +68,7 @@ const Container = styled.div`
 `;
 const Box = styled.div`
   display: flex;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto 0;
   vertical-align: center;
   img {
     margin-right: 2px;
@@ -78,61 +84,63 @@ const Grid = styled.div`
   }
 `;
 
-
-
-export default function AllItemCard({ nft }) {
+export default function Deneme({ nft }) {
   return (
     <NftContainer>
-      <Nft>
-        <img src={nft} alt="nft-example" />
-      </Nft>
-      <Flex margin="20px 0px 0px 0px">
-        <Box>
-          <Text16 color={({ theme }) => theme.cardTitle}>Amazing Digital Art</Text16>
-        </Box>
-        <PriceContainer />
-      </Flex>
-      <Flex>
-        <Grid>
-          <img
-            src="/images/Staticlogos/Miniprofil.svg"
-            style={{ maxWidth: "25px" }}
-            alt="likes"
-          />
-          <img
-            src="/images/Staticlogos/Miniprofile2.svg"
-            style={{ maxWidth: "25px" }}
-            alt="likes"
-          />
-          <img
-            src="/images/Staticlogos/Miniprofile3.svg"
-            style={{ maxWidth: "25px", marginRight: "20px" }}
-            alt="likes"
-          />
-        </Grid>
+      <Nft img={nft} />
+      <div>
+        <Flex>
+          <Box>
+            <Text16 color={({ theme }) => theme.cardTitle}>
+              Amazing Digital Art
+            </Text16>
+          </Box>
+          <PriceContainer />
+        </Flex>
+        <Flex>
+          <Grid>
+            <img
+              src="/images/Staticlogos/Miniprofil.svg"
+              style={{ maxWidth: "25px" }}
+              alt="likes"
+            />
+            <img
+              src="/images/Nft/A3.svg"
+              style={{ maxWidth: "25px" }}
+              alt="likes"
+            />
+            <img
+              src="/images/Staticlogos/Miniprofile3.svg"
+              style={{ maxWidth: "25px", marginRight: "20px" }}
+              alt="likes"
+            />
+          </Grid>
 
-        <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>1 in Stock</Text14>
-      </Flex>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+            1 in Stock
+          </Text14>
+        </Flex>
 
-      <Divider width="90%" ml="12px" />
+        <Divider width="90%" ml="12px" />
 
-      <Container>
-        <Text14 color={({ theme }) => theme.gray} fontWeight="600">
-          <img
-            src="/images/Highestbidlogo.svg"
-            style={{ marginRight: "4px" }}
-            alt="likes"
-          />
-          Highest Bid{" "}
-        </Text14>
-        <Gprice style={{ marginLeft: "6px", marginRight: "6px" }}>
-          0.001 Gulf
-        </Gprice>
-        <Text14 color={({ theme }) => theme.gray} fontWeight="600">
-          New Bid
-          <img src="/images/fire.svg" alt="likes" />
-        </Text14>
-      </Container>
+        <Container>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            <img
+              src="/images/Highestbidlogo.svg"
+              style={{ marginRight: "4px" }}
+              alt="likes"
+            />
+            Highest Bid{" "}
+          </Text14>
+          <Gprice style={{ marginLeft: "6px", marginRight: "6px" }}>
+            0.001 Gulf
+          </Gprice>
+          <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+            New Bid
+            <img src="/images/fire.svg" alt="likes" />
+          </Text14>
+        </Container>
+      </div>
     </NftContainer>
   );
 }

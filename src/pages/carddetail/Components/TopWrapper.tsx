@@ -24,7 +24,7 @@ export default function TopWrapper() {
     <>
       <Flex>
         <Flex width="40%">
-          <img src="/images/Staticlogos/Userlogo.svg" />
+          <img src="/images/Staticlogos/Miniprofil.svg" />
           <Box>
             <Text14 color={({ theme }) => theme.lowerdetail}>Collection</Text14>
             <Text14 color={({ theme }) => theme.lowerdetail}>Not Your Bro</Text14>

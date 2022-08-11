@@ -3,13 +3,6 @@ import styled from "styled-components";
 import { EmailButton } from "./StyledComponents/Button";
 import { Divider } from "./StyledComponents/Divider";
 import ParentChild from "./Mobile/ParentChild";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  useMobileOrientation,
-  isMobile,
-} from "react-device-detect";
 import { FooterTitle, Text12 } from "./StyledComponents/Text";
 
 interface text {

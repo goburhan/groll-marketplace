@@ -1,18 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Dene from "./Shape.svg";
 
-const NavInput = styled.input<prop>`
-  width: 250px;
-  padding: 0.5em;
-  margin: 0.5em;
-  text-color: white;
-  background-image: url(${Dene});
-  background-repeat: no-repeat;
-  justify-content: center;
-  border: 1px solid white;
-  border-radius: 25px;
-`;
+
 
 interface prop {
   onchange?: string;

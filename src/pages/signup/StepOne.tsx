@@ -12,7 +12,7 @@ import {
   userSelect,
 } from "../../actions/wallet/walletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { BlueButton } from "../../components/StyledComponents/Button";
+import { BlueButton, ClearAll } from "../../components/StyledComponents/Button";
 import PersonalDetailWrapper from "../../components/UploadAvatar";
 import CustomizedCheckbox from "../connectwallet/Checkbox";
 import { AnimatePresence, motion } from "framer-motion";
@@ -82,14 +82,6 @@ const AddMore = styled.button`
   width: 30%;
   padding: 10px 2px 10px 2px;
   border-radius: 25px;
-  color: #777e91;
-  margin-bottom: 6%;
-`;
-const Clear = styled.button`
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: 1px solid transparent;
   color: #777e91;
   margin-bottom: 6%;
 `;
@@ -193,10 +185,7 @@ export default function StepOne() {
         </AddMore>
 
         <Botwrapper>
-          <Clear>
-            <img src="/images/Staticlogos/Clearicon.svg" />
-            Clear all
-          </Clear>
+         <ClearAll/>
           <Link href="/signup">
             <BlueButton
               onClick={() => {

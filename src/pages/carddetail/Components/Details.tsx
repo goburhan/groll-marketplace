@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-// import ParentChild from "../../../views/Components/Mobile/ParentChild";
-import BgBox from "./BgBox";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Text14, Text22 } from "../../../components/StyledComponents/Text";
 import { Divider } from "../../../components/StyledComponents/Divider";
@@ -10,7 +7,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Typography,
 } from "@mui/material";
 
 const Flex = styled.div`

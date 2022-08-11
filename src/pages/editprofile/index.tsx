@@ -9,22 +9,19 @@ import {
 import FileUpload from "./FileUpload";
 import { InputField, Register } from "../../components/SearchBar";
 import {
+  BackButton,
   Backhome,
   BlueButton,
+  ClearAll,
 } from "../../components/StyledComponents/Button";
-import {
-  Text16,
-  Text48,
-  
-  Text14,
-} from "../../components/StyledComponents/Text";
+import { Text16, Text48, Text14 } from "../../components/StyledComponents/Text";
 import Dropdown from "./Dropdown";
 import store from "../../app/store";
 import { getDefaultConnector } from "../../app/hooks";
 
 const PageWrapper = styled.div`
   display: grid;
-  gap:80px;
+  gap: 80px;
   margin: 60px 150px 0px 150px;
   grid-template-columns: 2fr 2fr;
 `;
@@ -72,12 +69,7 @@ const InputWrapper = styled.div<prop>`
 interface boxprops {
   justify?: any;
 }
-const Checker = styled.div<boxprops>`
-  display: flex;
-  text-align: left;
-  align-items: center;
-  justify-content: ${({ justify }) => justify};
-`;
+
 const AddMore = styled.button`
   display: flex;
   align-items: center;
@@ -90,14 +82,7 @@ const AddMore = styled.button`
   color: #777e91;
   margin-bottom: 6%;
 `;
-const Clear = styled.button`
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: 1px solid transparent;
-  color: #777e91;
-  margin-bottom: 6%;
-`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -127,10 +112,8 @@ export default function Editprofile() {
   return (
     <PageWrapper>
       <Flex>
-        <Backhome margin="32px 0px 68px 0px">
-          <img src="/images/back.svg" />
-          Back to home
-        </Backhome>
+        <BackButton margin="32px 0px 68px 0px"/>
+         
         <Container>
           <Text48>Edit Your Profile</Text48>
           <Text14 color={({ theme }) => theme.editLower}>
@@ -184,7 +167,13 @@ export default function Editprofile() {
           <InputField placeholder="example@Gulfcoin.com" />
         </InputWrapper>
 
-        <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 20px 0px">Social</Text16>
+        <Text16
+          color={({ theme }) => theme.cardTitle}
+          fontWeight="600"
+          margin="8px 0px 20px 0px"
+        >
+          Social
+        </Text16>
 
         <InputWrapper>
           <Text color="#b1b5c4">Instagram</Text>
@@ -204,10 +193,7 @@ export default function Editprofile() {
         </AddMore>
 
         <Botwrapper>
-          <Clear>
-            <img src="/images/Staticlogos/Clearicon.svg" />
-            Clear all
-          </Clear>
+          <ClearAll />
           <BlueButton
             onClick={() => {
               dispatch(

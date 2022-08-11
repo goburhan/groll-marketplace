@@ -73,6 +73,12 @@ export function fullImageUrl(url:any) {
   return cdnUrl ? cdnUrl + url : url;
 }
 
+
+export function addressWrapper(address: string) {
+  return address.slice(0,5) + "..." + address.slice(-5);
+}
+
+
 export function getDefaultConnector(): Web3ReactHooks {
   const defaultConnector = useSelector(selectConnector);
   switch (defaultConnector) {

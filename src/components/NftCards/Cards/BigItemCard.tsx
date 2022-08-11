@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Text22,
-  Text14,
-  
-} from "../../StyledComponents/Text";
+import { Text22, Text14 } from "../../StyledComponents/Text";
 import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
 import Bg from "./nftexample.svg";
@@ -70,7 +66,6 @@ const Grid = styled.div`
 `;
 
 export const Nft = styled.div`
-  display: flex;
   padding: 20px 20px 0px 20px;
   img {
     border-radius: 20px 20px 20px 20px;
@@ -94,7 +89,10 @@ export default function BigItemCard() {
 
       <Flex>
         <Box>
-          <Text22 color={({ theme }) => theme.cardTitle} fontWeight="500"> STATIC NAME</Text22>
+          <Text22 color={({ theme }) => theme.cardTitle} fontWeight="500">
+            {" "}
+            STATIC NAME
+          </Text22>
         </Box>
         <PriceContainer />
       </Flex>

@@ -1,8 +1,8 @@
 import React from "react";
-import BuySection from "./Components/BuySection";
+import BuySection from "../carddetail/Components/BuySection";
 import styled from "styled-components";
-import InfoSection from "./Components/InfoSection";
-import SelectButton from "./Components/SelectButton";
+import InfoSection from "../carddetail/Components/InfoSection";
+import SelectButton from "../carddetail/Components/SelectButton";
 
 const Flex = styled.div`
   display: flex;

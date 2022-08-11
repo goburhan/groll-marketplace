@@ -36,28 +36,14 @@ const connectors: [
   [walletConnect, walletConnectHooks],
   [coinbaseWallet, coinbaseWalletHooks],
 ];
-const ThemePreferenceContext = React.createContext(0);
-// const [cookies, setCookie] = useCookies()
 
-//  const [cookies, setCookie, removeCookie] = useCookies(["CookieConsent"]);
-export interface ThemeMode {
-  setCurrentTheme: React.Dispatch<React.SetStateAction<Array<any>>>;
-  currentTheme: "dark";
-}
-
-const setCurrentThemeAndSavePref = (theme) => {
-  // setCurrentTheme(theme);
-  //  setCookie("CookieConsent", theme, {
-  //    path: "/",
-  //    expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-  //  });
-};
-// setCurrentTheme("dark");
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "dark" ? dark : light;
 
+
+  
   return (
     <Web3ReactProvider connectors={connectors}>
       <ThemeContext>

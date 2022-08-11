@@ -121,7 +121,7 @@ export default function VisualArt() {
       <PrevArrow>
         <Flex dir="column">
           <Text32>Visual Art</Text32>
-          <Text14 letterSpacing="-0.01em">Some visual art from the gallery</Text14>
+          <Text14 color={({ theme }) => theme.filterText} letterSpacing="-0.01em">Some visual art from the gallery</Text14>
         </Flex>
       </PrevArrow>
 

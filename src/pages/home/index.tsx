@@ -8,7 +8,6 @@ import UpComing from "./Upcoming";
 import TopArtists from "./TopArtist/TopArtists";
 import TopCollectors from "./TopCollectors";
 import TopInfluencer from "./TopInfluencers";
-import styled from "styled-components";
 export default function () {
 
 

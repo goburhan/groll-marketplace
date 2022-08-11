@@ -64,11 +64,7 @@ export default function Header() {
     setAvatar(fullImageUrl(user.avatar));
   }, []);
 
-  const BioWrapper = styled.div<prop>`
-  min-height:40px;
-  height:60px;
-  max-height:160px;
-  `;
+ 
 
   return (
     <HeaderWrapper img="/images/Profilebg.svg">

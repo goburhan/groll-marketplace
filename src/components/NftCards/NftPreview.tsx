@@ -108,7 +108,7 @@ export default function AllItemCard() {
               alt="likes"
             />
             <img
-              src="/images/Staticlogos/Miniprofile2.svg"
+              src="/images/Nft/A3.svg"
               style={{ maxWidth: "25px" }}
               alt="likes"
             />

@@ -6,7 +6,7 @@ import {
   CircleButton,
 } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
-import BuySection from "./BuySection";
+import BuySection from "./Components/BuySection";
 import InfoSection from "./InfoSection";
 
 const Grid = styled.div`
@@ -30,7 +30,7 @@ const Box = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-height: 100%;
-  min-height: 100vh ;
+  min-height: 100vh;
   margin: 0px 100px;
   gap: 120px;
   @media (max-width: ${({ theme }) => theme.mobile}) {

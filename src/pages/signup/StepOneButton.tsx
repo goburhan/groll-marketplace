@@ -34,7 +34,6 @@ export default function StepOneButton() {
       height: ${isOpen[0] === true ? "100%" : "0px"};
     `;
 
-  
     return (
       <Mainbar>
         <ChildBar></ChildBar>
@@ -47,9 +46,9 @@ export default function StepOneButton() {
     overflow: hidden;
   `;
   const SignupWrapper = styled(motion.div)`
- display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:238px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 238px;
     /* opacity: 0; */
   `;
 
@@ -121,7 +120,7 @@ export default function StepOneButton() {
     open: {
       height: "200vh",
       opacity: 1,
-      y:30,
+      y: 30,
       transition: {
         duration: 0.5,
       },
@@ -167,7 +166,7 @@ export default function StepOneButton() {
   console.log(user);
 
   return (
-    <div style={{ display: "flex", width: "100%" , margin:"40px 0px 0px 0px" }}>
+    <div style={{ display: "flex", width: "100%", margin: "40px 0px 0px 0px" }}>
       <ProgressBar one={open} />
       <div style={{ width: "100%" }}>
         <AnimatePresence>
@@ -183,10 +182,12 @@ export default function StepOneButton() {
               <Box direction="row">
                 <Box>
                   <Box gap="15px" mb="15px" direction="row">
-                    <Text40 color="#00ACFF" >Step 1</Text40>
+                    <Text40 color="#00ACFF">Step 1</Text40>
                     <Progress>50% progress</Progress>
                   </Box>
-                  <Text40 color={({ theme }) => theme.titles} >Basic information</Text40>
+                  <Text40 color={({ theme }) => theme.titles}>
+                    Basic information
+                  </Text40>
                 </Box>
 
                 <img
@@ -206,7 +207,9 @@ export default function StepOneButton() {
                 <Link href="/editprofile">
                   <EditButton>
                     <img src="/images/Icons/Editbutton.svg" />
-                    <Text14 color={({ theme }) => theme.gray} fontWeight="600">Edit</Text14>
+                    <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+                      Edit
+                    </Text14>
                   </EditButton>
                 </Link>
               ) : open ? (

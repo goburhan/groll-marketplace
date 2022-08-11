@@ -8,13 +8,14 @@ import Slider1 from "../../components/Slider/Slider1";
 
 const Slidebox = styled.div`
   width: 100vw;
-  text-color: white;
-  justify-content: center;
+  height: 56vh;
+  position: relative;
+  
 `;
 const SliderWrapper = styled.div`
   width: 100%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-  width: 112vw;
+    width: 112vw;
   }
 `;
 
@@ -26,7 +27,6 @@ export default function Slide() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-   
   };
   return (
     <SliderWrapper>
@@ -35,10 +35,10 @@ export default function Slide() {
           <Slider1 />
         </Slidebox>
         <Slidebox>
-          <img src="/images/slide.png" />
+          <Slider1 />
         </Slidebox>
         <Slidebox>
-          <img src="/images/slide.png" />
+          <Slider1 />
         </Slidebox>
       </Slider>
     </SliderWrapper>
