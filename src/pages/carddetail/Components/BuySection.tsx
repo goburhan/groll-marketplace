@@ -62,7 +62,7 @@ export default function BuySection() {
         </Flex>
       </Box>
 
-      <Flex direction="column">
+      <Flex wrap="no-wrap" direction="column">
         <Box>
           <BuyButton color="linear-gradient(85.03deg, #2EB689 -11.59%, #2AE7A8 50.31%);">
             Purchase now

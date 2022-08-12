@@ -54,7 +54,7 @@ export default function CardDetails() {
           <Card img="/images/detailsitem.svg" />
           <BuySection />
         </Grid>
-        <Flex gap="60px">
+        <Flex wrap="no-wrap" gap="20px">
           <InfoSection />
           <Flex gap="16px" direction="column">
             <CircleButton img="/images/Icons/X.svg" />

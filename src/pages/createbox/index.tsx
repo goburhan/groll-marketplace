@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Background } from "../../app/types";
 import {
   BackButton,
   BlueButton,
@@ -10,8 +9,14 @@ import { Flex, Grid } from "../../components/StyledComponents/Flex";
 import Searchbar from "../../components/StyledComponents/Searchbar";
 import { Text14, Text40 } from "../../components/StyledComponents/Text";
 import CustomizedCheckbox from "../connectwallet/Checkbox";
+import ArtistNftButton from "./ArtistNftButton";
 import LeftBoxs from "./LeftBoxs";
+import MyNftButton from "./MyNftButton";
+import MysteryContent from "./MysteryContent";
 import NftBox from "./NftBox";
+import LinearProgress, {
+  linearProgressClasses,
+} from "@mui/material/LinearProgress";
 
 const Wrapper = styled.div`
   margin: 144px 160px;
@@ -24,7 +29,16 @@ const CardWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
-const nft = [
+const MysteryWrapper = styled.div`
+  display: grid;
+  gap: 50px 30px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(200px, 230px));
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+  }
+`;
+
+const Lootbox = [
   { name: "/images/Nft/A1.svg" },
   { name: "/images/Nft/A2.svg" },
   { name: "/images/Nft/A3.svg" },
@@ -36,11 +50,46 @@ const nft = [
   { name: "/images/Nft/A3.svg" },
   { name: "/images/Nft/A4.svg" },
 ];
+const Mysterybox = [
+  { name: "/images/Nft/1.svg" },
+  { name: "/images/Nft/2.svg" },
+  { name: "/images/Nft/3.svg" },
+  { name: "/images/Nft/4.svg" },
+  { name: "/images/Nft/5.svg" },
+  { name: "/images/Nft/6.svg" },
+  { name: "/images/Nft/hot1.svg" },
+  { name: "/images/Nft/hot2.svg" },
+  { name: "/images/Nft/hot3.svg" },
+  { name: "/images/Nft/Up1.svg" },
+];
 
 export default function CreateBox() {
+  const [selected, setSelected] = useState("");
+
+  function changeSelected(e: any) {
+    setSelected(e);
+    console.log(selected);
+  }
+
+  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    padding: 8,
+    width: "20%",
+    height: 5,
+    borderRadius: 50,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+      backgroundColor: "rgba(0, 172, 255,0.2)",
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 5,
+      backgroundColor: "#00ACFF",
+      opacity: "1",
+    },
+  }));
+
   return (
     <Wrapper>
       <BackButton margin="0px 0px 44px 0px" />
+      {/* <BorderLinearProgress variant="determinate" value={30} /> */}
 
       <Flex margin="0px 0px 48px 0px" gap="8px" direction="column">
         <Flex justifyContent="space-between">
@@ -60,24 +109,29 @@ export default function CreateBox() {
 
       <Grid columns="1fr 3fr" gap="58px">
         <Flex gap="44px" direction="column">
-          <LeftBoxs
-            button="Mystery Box"
-            text="A wholesome farm owner in Montana. Upcoming gallery solo show in Germany"
-            img="Createmystery"
-          />
-          <LeftBoxs
-            button="Loot Box"
-            text="A wholesome farm owner in Montana. Upcoming gallery solo show in Germany"
-            img="Createmystery"
-          />
+          <LeftBoxs changeSelected={changeSelected} />
         </Flex>
-        <CardWrapper>
-          {nft.map((nfts) => (
-            <NftBox nft={nfts.name} />
-          ))}
-        </CardWrapper>
+
+        {selected === "lootbox" && (
+          <CardWrapper>
+            {Lootbox.map((nfts) => (
+              <NftBox nft={nfts.name} />
+            ))}
+          </CardWrapper>
+        )}
+        {selected === "mysterybox" && (
+          <Flex direction="column">
+            <MyNftButton />
+            <ArtistNftButton />
+          </Flex>
+        )}
       </Grid>
-      <Flex justifyContent="flex-end" gap="40px" margin="40px 0px">
+      <Flex
+        style={selected === "" ? { display: "none" } : {}}
+        justifyContent="flex-end"
+        gap="40px"
+        margin="40px 0px"
+      >
         <Transparent>Cancel</Transparent>
         <BlueButton>Confirm</BlueButton>
       </Flex>

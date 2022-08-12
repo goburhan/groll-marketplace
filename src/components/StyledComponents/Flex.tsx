@@ -8,6 +8,7 @@ interface Area {
   gap?: string;
   alignItems?: string;
   justifyContent?: string;
+  wrap?: string;
 }
 interface Grid {
   columns?: string;
@@ -16,7 +17,7 @@ interface Grid {
 
 export const Flex = styled.div<Area>`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: ${(props) => props.wrap || "wrap"};
   flex-direction: ${(props) => props.direction};
   width: ${(props) => props.width};
   text-align: ${(props) => props.textAlign};

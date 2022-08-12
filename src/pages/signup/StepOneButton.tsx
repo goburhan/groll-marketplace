@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import StepOne from "../signup/StepOne";
 import styled from "styled-components";
-import SignUpPage from "../signup";
 import BasicCard from "../signup/BasicCard";
 import { Text40, Text14 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";

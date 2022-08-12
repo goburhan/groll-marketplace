@@ -48,7 +48,6 @@ const BpCheckedIcon = styled(BpIcon)({
   },
 });
 
-// Inspired by blueprintjs
 function BpCheckbox(props) {
   return (
     <Checkbox
@@ -67,5 +66,5 @@ function BpCheckbox(props) {
 }
 
 export default function CustomizedCheckbox() {
-  return <BpCheckbox defaultChecked />;
+  return <BpCheckbox  />;
 }
