@@ -16,7 +16,7 @@ const DropDownContainer = styled("div")`
 const DropDownHeader = styled.div`
   display: flex;
   padding: 8px 14px 8px 14px;
-  height: 148%;
+  height: 150%;
   background-color: transparent;
   align-items: center;
   justify-content: space-between;
@@ -33,7 +33,7 @@ const DropDownListContainer = styled.div`
   width: inherit;
   padding: 0px 8px 6px 8px;
   border: 2px solid ${({ theme }) => theme.gray};
-  border-radius: 20px;
+  border-radius:12px;
 `;
 const DropDownList = styled("ul")`
   box-sizing: border-box;

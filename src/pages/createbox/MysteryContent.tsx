@@ -16,11 +16,10 @@ const NftBoxWrapper = styled.div`
   min-height: 240px;
 `;
 
-export default function MysteryContent({ nft, number }) {
-  const [isChecked, setIschecked] = useState(false);
+export default function MysteryContent({ nft, key }) {
+  const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(0);
 
-    console.log(number)
   useEffect(() => {
     // setCount(count + 1);
     // console.log(count);
@@ -32,24 +31,30 @@ export default function MysteryContent({ nft, number }) {
     // console.log(count);
     // }
   }, [isChecked]);
-  const handleChange = (event) => {
-    if (event.target.checked) {
-      console.log("✅ Checkbox is checked");
-      setCount(count + 1);
-      console.log(count);
-    } else {
-      setCount(count - 1);
-      console.log("⛔️ Checkbox is NOT checked");
-    }
-    setIschecked((current) => !current);
+  
+  
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+    console.log(isChecked);
   };
 
   return (
     <NftBoxWrapper>
       <Nft img={nft} />
-      <Flex onChange={handleChange}>
-        <CustomizedCheckbox />
+      <Flex >
+        <>
+        <input
+          type="checkbox"
+          id="topping"
+          name="topping"
+          value="Paneer"
+          checked={isChecked}
+          onChange={handleOnChange}
+        />
+        </>
       </Flex>
     </NftBoxWrapper>
   );
 }
+
+

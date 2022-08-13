@@ -56,6 +56,7 @@ function BpCheckbox(props) {
         padding: 0,
       }}
       disableRipple
+      checked
       color="default"
       checkedIcon={<BpCheckedIcon />}
       icon={<BpIcon />}
@@ -66,5 +67,5 @@ function BpCheckbox(props) {
 }
 
 export default function CustomizedCheckbox() {
-  return <BpCheckbox  />;
+  return <BpCheckbox   />;
 }

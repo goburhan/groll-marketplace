@@ -135,7 +135,7 @@ export default function ArtistNftButton() {
               variants={ChildVariants}
             >
               {Mysterybox.map((nfts, index) => (
-                <MysteryContent nft={nfts.name} number={index} />
+                <MysteryContent nft={nfts.name} key={index} />
               ))}
             </Section>
           )}

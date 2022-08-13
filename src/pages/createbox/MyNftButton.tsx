@@ -117,7 +117,28 @@ export default function MyNftButton() {
     }
     setIschecked((current) => !current);
   };
+  const [checkedState, setCheckedState] = useState(
+    new Array(Mysterybox.length).fill(false)
+);
+const handleOnChange = (position) => {
+  const updatedCheckedState = checkedState.map((item, index) =>
+    index === position ? !item : item
+  );
 
+  setCheckedState(updatedCheckedState);
+  const [total, setTotal] = useState(0);
+  const totalPrice = updatedCheckedState.reduce(
+    (sum, currentState, index) => {
+      if (currentState === true) {
+        return sum + [index];
+      }
+      return sum;
+    },
+    0
+  );
+
+  setTotal(totalPrice);
+};
   return (
     <div style={{ display: "flex", width: "100%" }}>
       <div style={{ width: "100%" }}>
@@ -147,7 +168,7 @@ export default function MyNftButton() {
               variants={ChildVariants}
             >
               {Mysterybox.map((nfts, index) => (
-                <MysteryContent nft={nfts.name} number={index} />
+                <MysteryContent nft={nfts.name} key={index} />
               ))}
             </Section>
           )}
