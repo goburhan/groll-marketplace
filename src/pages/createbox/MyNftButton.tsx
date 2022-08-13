@@ -2,16 +2,12 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
-import { userSelect } from "../../actions/wallet/walletSlice";
+
 import MysteryContent from "./MysteryContent";
-import { Nft } from "../../components/StyledComponents/Nft";
-import { Flex } from "../../components/StyledComponents/Flex";
-import CustomizedCheckbox from "../connectwallet/Checkbox";
 
-export default function MyNftButton() {
+export default function MyNftButton({ setProgress }) {
   const [open, toggleOpen] = useState(true);
-
+  const [value, setValue] = useState(0);
   const Section = styled(motion.section)`
     display: grid;
     gap: 50px 30px;
@@ -45,7 +41,7 @@ export default function MyNftButton() {
     width: 100%;
     justify-content: space-between;
     img {
-        min-height:20px;
+      max-height: 12px;
     }
   `;
 
@@ -78,67 +74,20 @@ export default function MyNftButton() {
   const ButtonParentVariants = {
     closed: {
       opacity: 1,
-      height:"30px",
+      height: "30px",
       transition: {
         duration: 0.5,
       },
     },
     open: {
       opacity: 1,
-      height:"40px",
+      height: "40px",
       transition: {
         duration: 0.5,
       },
     },
   };
-  const Mysterybox = [
-    { name: "/images/Nft/1.svg" },
-    { name: "/images/Nft/2.svg" },
-    { name: "/images/Nft/3.svg" },
-    { name: "/images/Nft/4.svg" },
-    { name: "/images/Nft/5.svg" },
-    { name: "/images/Nft/6.svg" },
-    { name: "/images/Nft/hot1.svg" },
-    { name: "/images/Nft/hot2.svg" },
-    { name: "/images/Nft/hot3.svg" },
-    { name: "/images/Nft/Up1.svg" },
-  ];
 
-  const [isChecked, setIschecked] = useState(false);
-  const [count, setCount] = useState(0);
-
-  const handleChange = (event) => {
-    if (event.target.checked) {
-      console.log("✅ Checkbox is checked");
-      setCount(count + 1);
-      console.log(count);
-    } else {
-      console.log("⛔️ Checkbox is NOT checked");
-    }
-    setIschecked((current) => !current);
-  };
-  const [checkedState, setCheckedState] = useState(
-    new Array(Mysterybox.length).fill(false)
-);
-const handleOnChange = (position) => {
-  const updatedCheckedState = checkedState.map((item, index) =>
-    index === position ? !item : item
-  );
-
-  setCheckedState(updatedCheckedState);
-  const [total, setTotal] = useState(0);
-  const totalPrice = updatedCheckedState.reduce(
-    (sum, currentState, index) => {
-      if (currentState === true) {
-        return sum + [index];
-      }
-      return sum;
-    },
-    0
-  );
-
-  setTotal(totalPrice);
-};
   return (
     <div style={{ display: "flex", width: "100%" }}>
       <div style={{ width: "100%" }}>
@@ -167,9 +116,7 @@ const handleOnChange = (position) => {
               exit="exit"
               variants={ChildVariants}
             >
-              {Mysterybox.map((nfts, index) => (
-                <MysteryContent nft={nfts.name} key={index} />
-              ))}
+              <MysteryContent setProgress={setProgress} />
             </Section>
           )}
         </AnimatePresence>

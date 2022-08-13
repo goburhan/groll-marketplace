@@ -65,7 +65,7 @@ const Mysterybox = [
 
 export default function CreateBox() {
   const [selected, setSelected] = useState("");
-
+  const [progress , setProgress] = useState(0);
   function changeSelected(e: any) {
     setSelected(e);
     console.log(selected);
@@ -86,10 +86,11 @@ export default function CreateBox() {
     },
   }));
 
+  console.log("indexteki progress" + progress)
   return (
     <Wrapper>
       <BackButton margin="0px 0px 44px 0px" />
-      {/* <BorderLinearProgress variant="determinate" value={30} /> */}
+      <BorderLinearProgress variant="determinate" value={progress} />
 
       <Flex margin="0px 0px 48px 0px" gap="8px" direction="column">
         <Flex justifyContent="space-between">
@@ -121,8 +122,8 @@ export default function CreateBox() {
         )}
         {selected === "mysterybox" && (
           <Flex direction="column">
-            <MyNftButton />
-            <ArtistNftButton />
+            <MyNftButton setProgress={setProgress} />
+            <ArtistNftButton setProgress={setProgress} />
           </Flex>
         )}
       </Grid>

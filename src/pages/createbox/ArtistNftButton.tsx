@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import MysteryContent from "./MysteryContent";
 
-export default function ArtistNftButton() {
+export default function ArtistNftButton({setProgress}) {
   const [open, toggleOpen] = useState(false);
   const [disable, setDisable] = useState(false);
 
@@ -134,9 +134,7 @@ export default function ArtistNftButton() {
               exit="exit"
               variants={ChildVariants}
             >
-              {Mysterybox.map((nfts, index) => (
-                <MysteryContent nft={nfts.name} key={index} />
-              ))}
+                <MysteryContent setProgress={setProgress} />
             </Section>
           )}
         </AnimatePresence>
