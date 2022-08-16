@@ -241,7 +241,7 @@ let Address
             variants={ButtonParentVariants}
             animate={open ? "open" : "closed"}
             onClick={() => setIsOpen(!isOpen)}
-            img={avatar}
+            img="/images/Avatar/Avatar3.png"
           ></ProfileButton>
           {isOpen && (
             <Section
