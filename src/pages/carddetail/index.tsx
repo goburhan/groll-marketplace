@@ -14,6 +14,7 @@ const Grid = styled.div`
   grid-template-rows: 52% 23%;
   gap: 20px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-rows: 100vw;
   }
 `;
 const Card = styled.div<Background>`
@@ -21,6 +22,7 @@ const Card = styled.div<Background>`
   background-size: cover;
   aspect-ratio: 16:9; 
   background-repeat: no-repeat;
+  background-position: center;
   border: 1px solid transparent;
   border-radius: 25px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -34,11 +36,17 @@ const Box = styled.div`
   margin: 0px 100px;
   gap: 120px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    min-height: 0vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0px;
+    gap: 32px;
   }
 `;
 const Wrapper = styled.div`
   margin: 160px 160px 100px 160px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 0px;
   }
 `;
 
@@ -56,7 +64,7 @@ export default function CardDetails() {
         </Grid>
         <Flex wrap="no-wrap" gap="20px">
           <InfoSection />
-          <Flex gap="16px" direction="column">
+          <Flex  gap="16px" direction="column" display="none">
             <CircleButton img="/images/Icons/X.svg" />
             <CircleButton img="/images/Icons/Share.svg" />
             <CircleButton img="/images/Icons/Like.svg" />

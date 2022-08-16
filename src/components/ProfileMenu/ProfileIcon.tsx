@@ -40,7 +40,6 @@ export default function ProfileIcon() {
   function Menu() {
     const accounts: string[] = getDefaultConnector().useAccounts();
 
-    let Buttontag = "";
 
     const Container = styled.div`
       display: flex;

@@ -195,7 +195,6 @@ export const getUserInfo = createAsyncThunk(
   GET_USER_INFO,
   async (_: any, thunkAPI) => {
     try {
-      
       let data = {
         address: _.address,
       };

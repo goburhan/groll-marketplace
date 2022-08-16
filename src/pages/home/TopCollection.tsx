@@ -38,12 +38,12 @@ const NftContainer = styled.div`
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
-      margin-top: 3%;
+      margin-top: -20px;
       top: 0;
       bottom: 0;
     }
     .slick-next {
-      margin-top: 3%;
+      margin-top: -20px;
       margin-right: 14%;
       top: 0;
     }
@@ -118,19 +118,17 @@ export default function TopCollection() {
   return (
     <NftContainer>
       <HomeTitleWrapper>
-        <Text40 color={({ theme }) => theme.titles} > Top collection</Text40>
+        <Text40 color={({ theme }) => theme.titles}> Top collection</Text40>
       </HomeTitleWrapper>
 
       <Slider {...settings}>
         {icons.map((icon) => (
-          <Link style={{cursor:"pointer"}} href="/carddetail">
-          <Slidebox>
-            <TCollectionCard icon={icon.name} />
-          </Slidebox>
+          <Link style={{ cursor: "pointer" }} href="/carddetail">
+            <Slidebox>
+              <TCollectionCard icon={icon.name} />
+            </Slidebox>
           </Link>
-
         ))}
-
       </Slider>
       <Flex>
         <Dropdown title="Price" header="Highes Price" />

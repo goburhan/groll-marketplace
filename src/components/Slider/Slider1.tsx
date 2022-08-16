@@ -16,6 +16,7 @@ const Flex = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     line-height: 34px;
     width: 90vw;
+    gap: 28px;
     margin-left: 30px;
   }
 `;
@@ -24,10 +25,9 @@ const Box = styled.div<WrapperProps>`
   background-image: url(${({ bg }) => bg});
   height: inherit;
   place-items: center;
-  background-size: 100% 100%;
   background-size: cover;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    height: 80vh;
+
   }
 `;
 

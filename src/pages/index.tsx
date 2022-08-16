@@ -93,9 +93,7 @@ const IndexPage: NextPage = () => {
     dispatch(getConfig());
   }, []);
 
-  const Wrapper = styled.div`
-    margin: 110px 160px 0 160px;
-  `;
+  
   return (
     <div className={styles.container}>
       <ThemeContext>

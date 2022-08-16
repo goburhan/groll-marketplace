@@ -77,14 +77,14 @@ const Footer = styled.div`
   height: 620px;
   background: ${({ theme }) => theme.footer};
   padding: 20px 0px 20px 0px;
-  margin-top:100px;
+  margin-top: 100px;
 `;
 export default function MobileFooter() {
   return (
     <Footer>
       <Flex>
         <Container>
-          <img src="images/FooterLogo.svg" />
+          <img src="/images/FooterLogo.svg" />
           <FooterTitle>Enjoy the limitless!</FooterTitle>
         </Container>
 

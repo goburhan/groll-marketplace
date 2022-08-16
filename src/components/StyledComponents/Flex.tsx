@@ -9,6 +9,7 @@ interface Area {
   alignItems?: string;
   justifyContent?: string;
   wrap?: string;
+  display?: string;
 }
 interface Grid {
   columns?: string;
@@ -26,6 +27,10 @@ export const Flex = styled.div<Area>`
   gap: ${(props) => props.gap};
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: ${(props) => props.display };
+  }
 `;
 export const Grid = styled.div<Grid>`
   display: grid;

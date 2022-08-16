@@ -18,7 +18,7 @@ export interface TextProps {
 export const HomeTitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
-    height: 20px;
+    margin-top: -42px;
   }
 `;
 
@@ -102,6 +102,8 @@ export const Text32 = styled.text<TextProps>`
   color: ${({ theme }) => theme.cardTitle};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 24px;
+    line-height: 32px;
   }
 `;
 
@@ -114,6 +116,7 @@ export const Text40 = styled.text<TextProps>`
   color: ${(props) => props.color};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size:28px;
   }
 `;
 
