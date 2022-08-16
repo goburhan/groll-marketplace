@@ -26,11 +26,36 @@ const Mysterybox = [
   { name: "/images/Nft/5.svg" },
   { name: "/images/Nft/6.svg" },
   { name: "/images/Nft/hot1.svg" },
+  { name: "/images/Nft/2.svg" },
+  { name: "/images/Nft/3.svg" },
+  { name: "/images/Nft/4.svg" },
+  { name: "/images/Nft/5.svg" },
+  { name: "/images/Nft/6.svg" },
+  { name: "/images/Nft/hot1.svg" },
+  { name: "/images/Nft/hot2.svg" },
+  { name: "/images/Nft/hot3.svg" },
+  { name: "/images/Nft/Up1.svg" },
+  { name: "/images/Nft/hot2.svg" },
+  { name: "/images/Nft/hot3.svg" },
+  { name: "/images/Nft/Up1.svg" },
+  { name: "/images/Nft/4.svg" },
+  { name: "/images/Nft/5.svg" },
+  { name: "/images/Nft/6.svg" },
+  { name: "/images/Nft/hot1.svg" },
+  { name: "/images/Nft/2.svg" },
+  { name: "/images/Nft/3.svg" },
+  { name: "/images/Nft/4.svg" },
+  { name: "/images/Nft/5.svg" },
+  { name: "/images/Nft/6.svg" },
+  { name: "/images/Nft/hot1.svg" },
+  { name: "/images/Nft/hot2.svg" },
+  { name: "/images/Nft/hot3.svg" },
+  { name: "/images/Nft/Up1.svg" },
   { name: "/images/Nft/hot2.svg" },
   { name: "/images/Nft/hot3.svg" },
   { name: "/images/Nft/Up1.svg" },
 ];
-export default function MysteryContent({ setProgress }) {
+export default function MysteryContent({ setGokhan }) {
   const [checkedState, setCheckedState] = useState(
     new Array(Mysterybox.length).fill(false)
   );
@@ -43,12 +68,10 @@ export default function MysteryContent({ setProgress }) {
 
   useEffect(() => {
     Checked = checkedState.filter(CheckTrue);
-    setProgress(Checked.length);
+    setValue(Checked.length);
+    console.log(value);
   }, [checkedState]);
 
-
-
-  
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
@@ -56,28 +79,23 @@ export default function MysteryContent({ setProgress }) {
 
     setCheckedState(updatedCheckedState);
   };
-  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    padding: 8,
-    width: "20%",
-    height: 5,
-    borderRadius: 50,
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor: "rgba(0, 172, 255,0.2)",
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-      borderRadius: 5,
-      backgroundColor: "#00ACFF",
-      opacity: "1",
-    },
-  }));
+
+  const Checkbox = styled.input`
+    height: 20px;
+    width: 20px;
+    &:before {
+    }
+    &:after {
+    }
+  `;
+
   return (
     <>
       {Mysterybox.map((nfts, index) => (
         <NftBoxWrapper>
           <Nft img={nfts.name} />
           <Flex>
-            <input
-              type="checkbox"
+            <CustomizedCheckbox
               id={`custom-checkbox-${index}`}
               checked={checkedState[index]}
               onChange={() => handleOnChange(index)}

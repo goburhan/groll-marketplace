@@ -76,7 +76,7 @@ const AddMore = styled.button`
   justify-content: space-evenly;
   background: transparent;
   border: 1px solid #484d57;
-  width: 30%;
+  width: 32%;
   padding: 10px 2px 10px 2px;
   border-radius: 25px;
   color: #777e91;
@@ -122,7 +122,7 @@ export default function Editprofile() {
           </Text14>
         </Container>
 
-        <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
+        <Text16 margin="0px 0px 28px 0px" color={({ theme }) => theme.cardTitle} fontWeight="600">
           Personal Details
         </Text16>
 
@@ -177,15 +177,15 @@ export default function Editprofile() {
 
         <InputWrapper>
           <Text color="#b1b5c4">Instagram</Text>
-          <InputField placeholder="@goburhan" />
+          <InputField placeholder="@instagram" />
         </InputWrapper>
         <InputWrapper>
           <Text color="#b1b5c4">Twitter</Text>
-          <InputField placeholder="@gobur" />
+          <InputField placeholder="@twitter" />
         </InputWrapper>
         <InputWrapper>
           <Text color="#b1b5c4">Portfolio or website</Text>
-          <InputField placeholder="@gobur" />
+          <InputField placeholder="e.g. www.example.com" />
         </InputWrapper>
         <AddMore>
           <img src="/images/Staticlogos/Addicon.svg" />

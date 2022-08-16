@@ -2,17 +2,17 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-
 import MysteryContent from "./MysteryContent";
 
 export default function MyNftButton({ setProgress }) {
   const [open, toggleOpen] = useState(true);
   const [value, setValue] = useState(0);
+
   const Section = styled(motion.section)`
     display: grid;
     gap: 50px 30px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 230px));
+    grid-template-rows: repeat(auto-fill, minmax(230px, 230px));
   `;
 
   const StyledTitle = styled(motion.button)`
@@ -48,7 +48,7 @@ export default function MyNftButton({ setProgress }) {
   const ChildVariants = {
     closed: {
       opacity: 0,
-      height: "0rem",
+      height: "0px",
 
       transition: {
         duration: 0.5,
@@ -56,7 +56,7 @@ export default function MyNftButton({ setProgress }) {
     },
 
     open: {
-      height: "60vh",
+      height: "100%",
       opacity: 1,
       transition: {
         duration: 0.5,
@@ -64,7 +64,8 @@ export default function MyNftButton({ setProgress }) {
     },
     exit: {
       opacity: 0,
-      height: "0px",
+      height: "0rem",
+      y: [0,-30],
       transition: {
         duration: 0.5,
       },
@@ -74,14 +75,14 @@ export default function MyNftButton({ setProgress }) {
   const ButtonParentVariants = {
     closed: {
       opacity: 1,
-      height: "30px",
+      height: "60px",
       transition: {
         duration: 0.5,
       },
     },
     open: {
       opacity: 1,
-      height: "40px",
+      height: "60px",
       transition: {
         duration: 0.5,
       },
@@ -116,7 +117,7 @@ export default function MyNftButton({ setProgress }) {
               exit="exit"
               variants={ChildVariants}
             >
-              <MysteryContent setProgress={setProgress} />
+              <MysteryContent setGokhan={setValue} />
             </Section>
           )}
         </AnimatePresence>

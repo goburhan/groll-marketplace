@@ -17,6 +17,7 @@ interface Grid {
 
 export const Flex = styled.div<Area>`
   display: flex;
+
   flex-wrap: ${(props) => props.wrap || "wrap"};
   flex-direction: ${(props) => props.direction};
   width: ${(props) => props.width};
@@ -28,6 +29,7 @@ export const Flex = styled.div<Area>`
 `;
 export const Grid = styled.div<Grid>`
   display: grid;
+  
   gap: ${(props) => props.gap};
   grid-template-columns: ${(props) => props.columns};
 `;

@@ -88,7 +88,9 @@ export default function Navbar() {
     gap: 2rem;
     place-items: center;
     justify-content: ${(props) => props.justifyContent};
-
+text{
+  cursor: pointer;
+}
     @media (max-width: ${({ theme }) => theme.mobile}) {
       justify-content: space-around;
       display: none;
@@ -113,7 +115,7 @@ export default function Navbar() {
       <Items>
         <Vdivider ml="2rem" height="70%" />
         {Menu.map((item) => (
-          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
+          <Text14  fontWeight="700" color={({ theme }) => theme.linkItems}>
             {item.name}
           </Text14>
         ))}

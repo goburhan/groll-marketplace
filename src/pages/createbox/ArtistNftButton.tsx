@@ -12,7 +12,7 @@ export default function ArtistNftButton({setProgress}) {
     display: grid;
     gap: 50px 30px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 230px));
+    grid-template-rows: repeat(auto-fill, minmax(230px, 230px));
   `;
 
   const StyledTitle = styled(motion.button)`
@@ -44,7 +44,7 @@ export default function ArtistNftButton({setProgress}) {
     align-items: center;
 
     img {
-      min-height: 20px;
+      max-height: 12px;
     }
     z-index: 100;
   `;
@@ -59,7 +59,7 @@ export default function ArtistNftButton({setProgress}) {
     },
 
     open: {
-      height: "58vh",
+      height: "100%",
       opacity: 1,
       transition: {
         duration: 0.5,
@@ -67,7 +67,8 @@ export default function ArtistNftButton({setProgress}) {
     },
     exit: {
       opacity: 0,
-      height: "1vh",
+      height: "0rem",
+      y: [0,-30],
       transition: {
         duration: 0.5,
       },
@@ -101,6 +102,7 @@ export default function ArtistNftButton({setProgress}) {
     { name: "/images/Nft/hot2.svg" },
     { name: "/images/Nft/hot3.svg" },
     { name: "/images/Nft/Up1.svg" },
+    
   ];
 
   return (
@@ -134,7 +136,7 @@ export default function ArtistNftButton({setProgress}) {
               exit="exit"
               variants={ChildVariants}
             >
-                <MysteryContent setProgress={setProgress} />
+                <MysteryContent setGokhan={setProgress} />
             </Section>
           )}
         </AnimatePresence>

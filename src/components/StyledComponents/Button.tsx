@@ -86,7 +86,7 @@ export const Backhome = styled.button<ButtonInterface>`
   font-size: 14px;
   white-space: nowrap;
   padding: ${(props) => props.padding || "10px 16px"};
-  max-width: 170px;
+  width: max-content;
   max-height: 40px;
   img {
     margin-right: 6px;
@@ -132,6 +132,7 @@ export const Transparent = styled.button<ButtonInterface>`
 export const OpenCloseButton = styled.button`
   background: transparent;
   border: none;
+  margin-bottom:50px;
   cursor: pointer;
 `;
 

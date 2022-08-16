@@ -33,7 +33,7 @@ export default function LeftBoxs({ changeSelected }) {
         onClick={() => {
           setSelected("lootbox");
         }}
-        style={selected === "lootbox" ? { border: "1px solid #00bcd4" } : {}}
+        style={selected === "lootbox" ? { border: "1px solid #00ACFF" } : {}}
       >
         <img src={`/images/Createmystery.svg`} />
         <Text14 color={({ theme }) => theme.gray}>
@@ -41,7 +41,7 @@ export default function LeftBoxs({ changeSelected }) {
           Germany
         </Text14>
         <Transparent
-          style={selected === "lootbox" ? { background: "#00bcd4 " } : {}}
+          style={selected === "lootbox" ? { background: "#00ACFF " } : {}}
           padding="12px 24px"
         >
           Loot Box
@@ -52,7 +52,7 @@ export default function LeftBoxs({ changeSelected }) {
         onClick={() => {
           setSelected("mysterybox");
         }}
-        style={selected === "mysterybox" ? { border: "1px solid #00bcd4" } : {}}
+        style={selected === "mysterybox" ? { border: "1px solid #00ACFF" } : {}}
       >
         <img src={`/images/Createmystery.svg`} />
         <Text14 color={({ theme }) => theme.gray}>
@@ -60,7 +60,7 @@ export default function LeftBoxs({ changeSelected }) {
           Germany
         </Text14>
         <Transparent
-          style={selected === "mysterybox" ? { background: "#00bcd4 " } : {}}
+          style={selected === "mysterybox" ? { background: "#00ACFF " } : {}}
           padding="12px 24px"
         >
           Mystery Box

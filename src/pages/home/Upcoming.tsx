@@ -91,8 +91,8 @@ export default function () {
       },
     ],
   };
-  const PrevArrow = styled.div`
-    margin-bottom: 54px;
+  const TitleWrapper = styled.div`
+    margin-bottom: 72px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: absolute;
       margin-bottom: 23px;
@@ -110,11 +110,11 @@ export default function () {
   ];
   return !isMobilee ? (
     <NftContainer>
-      <PrevArrow>
+      <TitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>
           Upcoming collections
         </Text40>
-      </PrevArrow>
+      </TitleWrapper>
       <Flex>
         {nft.map((nfts) => (
           <UpcomingCard nft={nfts.name} />
@@ -123,11 +123,11 @@ export default function () {
     </NftContainer>
   ) : (
     <NftContainer>
-      <PrevArrow>
+      <TitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>
           Upcoming collections
         </Text40>
-      </PrevArrow>
+      </TitleWrapper>
       <Slider {...settings}>
         {nft.map((nfts) => (
           <UpcomingCard nft={nfts.name} />

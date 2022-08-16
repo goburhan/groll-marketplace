@@ -1,8 +1,7 @@
 import React from "react";
 import BuySection from "../carddetail/Components/BuySection";
 import styled from "styled-components";
-import InfoSection from "../carddetail/Components/InfoSection";
-import SelectButton from "../carddetail/Components/SelectButton";
+import InfoSection from "../carddetail/InfoSection";
 
 const Flex = styled.div`
   display: flex;
@@ -53,7 +52,6 @@ export default function CardDetails() {
     <Box>
       <Flex>
         <Card />
-
         <BuySection />
       </Flex>
       <InfoSection />

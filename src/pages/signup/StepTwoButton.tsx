@@ -142,7 +142,7 @@ export default function StepOneButton() {
     open: {
       height: ["140px", "60px"],
       opacity: 1,
-      y: [20, 60, 0],
+      y: [30, 40, 0],
       transition: {
         duration: 0.4,
       },
@@ -187,9 +187,9 @@ export default function StepOneButton() {
               }}
             >
               {open ? (
-                <img src="/images/Staticlogos/Uparrow.svg" />
+                <img src="/images/Staticlogos/Uparrow.svg" style={{height:20}} />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg" />
+                <img src="/images/Staticlogos/Downarrow.svg" style={{height:20}} />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

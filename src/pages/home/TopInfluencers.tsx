@@ -52,8 +52,8 @@ const Flex = styled.div`
     flex-direction: column;
   }
 `;
-const PrevArrow = styled.div`
-margin-bottom:23px;
+const TitleWrapper = styled.div`
+margin-bottom:40px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     height: 20px;
@@ -108,9 +108,9 @@ export default function () {
   ];
   return !isMobilee ? (
     <NftContainer>
-      <PrevArrow>
+      <TitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>Top influencers</Text40>
-      </PrevArrow>
+      </TitleWrapper>
       <Flex>
         {icons.map((icon) => (
           <TopArtistCard nft={icon.name} />
@@ -119,9 +119,9 @@ export default function () {
     </NftContainer>
   ) : (
     <NftContainer>
-      <PrevArrow>
+      <TitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>Top influencers</Text40>
-      </PrevArrow>
+      </TitleWrapper>
       <Slider {...settings}>
         {icons.map((icon) => (
           <TopArtistCard nft={icon.name} />

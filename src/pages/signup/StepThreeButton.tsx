@@ -100,6 +100,7 @@ export default function StepOneButton() {
   const ButtonWrapper = styled(motion.div)`
     display: flex;
     width: 100%;
+    
     justify-content: space-between;
   `;
 
@@ -143,19 +144,13 @@ export default function StepOneButton() {
     open: {
       height: ["140px", "60px"],
       opacity: 1,
-      y: [20, 60, 0],
+      y: [20, 44, 0],
       transition: {
         duration: 0.4,
       },
     },
   };
-  const Flex = styled.div`
-    display: flex;
-    width: 100%;
-  `;
-  const Flex2 = styled.div`
-    width: 100%;
-  `;
+
   return (
     <div style={{ display: "flex", width: "100%" }}>
       <ProgressBar one={open}></ProgressBar>
@@ -196,9 +191,9 @@ export default function StepOneButton() {
               }}
             >
               {open ? (
-                <img src="/images/Staticlogos/Uparrow.svg" />
+                <img src="/images/Staticlogos/Uparrow.svg"style={{height:20}} />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg" />
+                <img src="/images/Staticlogos/Downarrow.svg"style={{height:20}} />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

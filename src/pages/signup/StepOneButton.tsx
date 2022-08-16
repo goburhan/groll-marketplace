@@ -86,7 +86,6 @@ export default function StepOneButton() {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-right: 22px;
     justify-conent: center;
   `;
   interface prop {
@@ -212,9 +211,9 @@ export default function StepOneButton() {
                   </EditButton>
                 </Link>
               ) : open ? (
-                <img src="/images/Staticlogos/Uparrow.svg" />
+                <img src="/images/Staticlogos/Uparrow.svg"style={{height:20}} />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg" />
+                <img src="/images/Staticlogos/Downarrow.svg"style={{height:20}} />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

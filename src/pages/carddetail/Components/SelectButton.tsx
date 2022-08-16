@@ -43,25 +43,19 @@ const AppBar1 = styled(AppBar)`
   box-shadow: 0px;
   span {
     z-index: -1 !important;
-    height: 80%;
+    height: 0%;
     border-radius: 50px;
     margin-bottom: 5px;
   }
 `;
-const Tabs1 = styled(Tabs)(
-  ({ theme }) =>
-    `
-     margin-left:4px;
-    button{
-      color:#fff;
-    }  
-
-    @media (max-width:  ${theme.mobile}) {
+const Tabs1 = styled(Tabs)`
+  margin-left: 4px;
+  button {
+    font-weight: 700;
+    font-family: "Poppins", normal;
+    color: #777e91;
   }
-  
-`
-);
-
+`;
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
@@ -99,33 +93,55 @@ export default function SelectButton() {
       <AppBar1
         position="static"
         style={{ width: "100%", backgroundColor: "transparent" }}
+        sx={{
+          border: "1px solid #484D57",
+        }}
       >
         <Tabs1
           sx={{
-            ".Mui-selected": { color: "#fff !important" },
+            ".Mui-selected": {
+              color: "#fff !important",
+              backgroundColor: "#00ACFF",
+              margin: "6px 0px",
+              minHeight: "10px",
+              maxHeight: "40px",
+              borderRadius: "24px",
+            },
           }}
           value={value}
           onChange={handleChange}
         >
           <Tab
-            style={{ border: "1px solid transparent", fontSize: 18 }}
+            sx={{
+              textTransform: "capitalize",
+            }}
+            style={{ border: "1px solid transparent", fontSize: 16 }}
             label="Info"
             {...a11yProps(0)}
           />
           <Tab
-            style={{ border: "1px solid transparent", fontSize: 18 }}
+            sx={{
+              textTransform: "capitalize",
+            }}
+            style={{ border: "1px solid transparent", fontSize: 16 }}
             label="Owners"
             {...a11yProps(1)}
           />
           <Tab
+            sx={{
+              textTransform: "capitalize",
+            }}
             label="History"
             {...a11yProps(2)}
-            style={{ border: "1px solid transparent", fontSize: 18 }}
+            style={{ border: "1px solid transparent", fontSize: 16 }}
           />
           <Tab
+            sx={{
+              textTransform: "capitalize",
+            }}
             label="Bids"
             {...a11yProps(2)}
-            style={{ border: "1px solid transparent", fontSize: 18 }}
+            style={{ border: "1px solid transparent", fontSize: 16 }}
           />
         </Tabs1>
       </AppBar1>
@@ -136,10 +152,14 @@ export default function SelectButton() {
         <Details />
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        <Items />
+      <TopWrapper />
+        <Backgrounds />
+        <Details />
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        <Items />
+      <TopWrapper />
+        <Backgrounds />
+        <Details /> 
       </TabPanel>
       <TabPanel value={value} index={3} dir={theme.direction}>
         <BidsOffer />

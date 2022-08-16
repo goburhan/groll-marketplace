@@ -16,9 +16,8 @@ const NftContainer = styled.div`
 const Flex = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 376px);
-
   justify-content: center;
-  align-items: center;
+  grid-
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }
@@ -27,7 +26,6 @@ const nft = [
   { name: "/images/Nft/Hot1.svg" },
   { name: "/images/Nft/Hot2.svg" },
   { name: "/images/Nft/Hot3.svg" },
-
 ];
 
 export default function HotCollections() {
@@ -38,8 +36,8 @@ export default function HotCollections() {
       </HomeTitleWrapper>
 
       <Flex>
-      {nft.map((nfts) => (
-            <HotCollectionCard nft={nfts.name} />
+        {nft.map((nfts) => (
+          <HotCollectionCard nft={nfts.name} />
         ))}
       </Flex>
     </NftContainer>

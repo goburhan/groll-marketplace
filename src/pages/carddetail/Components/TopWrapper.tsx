@@ -12,11 +12,11 @@ const Flex = styled.div<FlexProp>`
   display: flex;
   width: ${(props) => props.width};
   flex-direction: ${(props) => props.direction};
+  align-items: center;
+  gap:10px;
   img {
-    border: 1px solid transparent;
     border-radius: 50%;
     width: 53px !important;
-    margin-right: 6px;
   }
 `;
 export default function TopWrapper() {
@@ -27,14 +27,20 @@ export default function TopWrapper() {
           <img src="/images/Staticlogos/Miniprofil.svg" />
           <Box>
             <Text14 color={({ theme }) => theme.lowerdetail}>Collection</Text14>
-            <Text14 color={({ theme }) => theme.lowerdetail}>Not Your Bro</Text14>
+            <Text14 color={({ theme }) => theme.lowerdetail}>
+              Not Your Bro
+            </Text14>
           </Box>
         </Flex>
-        <Flex >
+        <Flex>
           <img src="/images/Avatar/Avatar3.png" />
           <Box>
-            <Text14 color={({ theme }) => theme.lowerdetail}>Creator 7.5% royalities</Text14>
-            <Text14 color={({ theme }) => theme.lowerdetail}>0x3cfbd...4323</Text14>
+            <Text14 color={({ theme }) => theme.lowerdetail}>
+              Creator 7.5% royalities
+            </Text14>
+            <Text14 color={({ theme }) => theme.lowerdetail}>
+              0x3cfbd...4323
+            </Text14>
           </Box>
         </Flex>
       </Flex>

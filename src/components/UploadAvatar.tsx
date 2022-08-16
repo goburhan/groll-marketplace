@@ -3,18 +3,9 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectConnector } from "../actions/wallet/walletSlice";
 import SingleUpload from "./Auth/FileUploader/SingleUpload";
-import {  Text16 } from "./StyledComponents/Text";
-import {
-  hooks as coinbaseWalletHooks,
-  coinbaseWallet,
-} from "../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../connectors/metamask";
-import {
-  hooks as walletConnectHooks,
-  walletConnect,
-} from "../connectors/walletconnect";
-import { Web3ReactHooks } from "@web3-react/core";
+import { Text16 } from "./StyledComponents/Text";
 import { getDefaultConnector } from "../app/hooks";
+import { Transparent } from "./StyledComponents/Button";
 interface prop {
   width?: string;
   direction?: string;
@@ -22,6 +13,7 @@ interface prop {
   mr?: string;
   innerRef?: any;
   padding?: string;
+  marginBottom?: string;
 }
 
 const PersonalDetail = styled.div`
@@ -30,7 +22,7 @@ const PersonalDetail = styled.div`
   flex-direction: column;
   margin-bottom: 1rem;
   align-items: flex-start;
-  margin-top: 48px;
+  margin-top: 60px;
 `;
 
 const Flex = styled.div<prop>`
@@ -46,12 +38,15 @@ const Flex = styled.div<prop>`
     margin-bottom: 24px;
     border-radius: 50%;
   }
+  button {
+    width: max-content;
+  }
 `;
 
 const Text = styled.text<prop>`
   color: ${(props) => props.color};
   font-size: ${(props) => props.size || "14px"};
-  margin-bottom: 24px;
+  margin-bottom:  ${(props) => props.marginBottom || "16px"};
   line-height: 20px;
 `;
 
@@ -63,8 +58,6 @@ export default function PersonalDetailWrapper({
   tag,
 }) {
   const defaultConnector = useSelector(selectConnector);
-
-
 
   const accounts: string[] = getDefaultConnector().useAccounts();
 
@@ -83,17 +76,20 @@ export default function PersonalDetailWrapper({
 
   return (
     <PersonalDetail>
-      <Text16 fontWeight="600" color="#fff">{tag === "" ? "" : "Personal Details"}</Text16>
-      <Text color="#777E90">{tag === "" ? "" : Buttontag}</Text>
+      <Text16  fontWeight="600" color="#fff">
+        {tag === "" ? "" : "Personal Details"}
+      </Text16>
+      <Text   color="#777E90">{tag === "" ? "" : Buttontag}</Text>
       <Flex>
         <img src={image} alt="basic" />
-        <Flex padding="10px 1rem 0rem 1rem" direction="column">
-          <Text16 fontWeight="600" color="#fff">{title}</Text16>
-          <div>
-            <Text color="#777E90">{description}</Text>
-          </div>
+        <Flex padding="10px 10px 0px 10px" direction="column">
+          <Text16 margin="0px 0px 8px 0px" fontWeight="600" color="#fff">
+            {title}
+          </Text16>
+          <Text color="#777E90">{description}</Text>
 
-          <SingleUpload></SingleUpload>
+          <Transparent padding="8px 20px">{buttons}</Transparent>
+          {/* <SingleUpload></SingleUpload> */}
         </Flex>
       </Flex>
     </PersonalDetail>

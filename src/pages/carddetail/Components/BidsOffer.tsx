@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Text14 } from "../../../components/StyledComponents/Text";
 const Flex = styled.div`
   display: flex;
+  align-items: center;
+  gap:10px;
   img{
     border:1px solid transparent;
     border-radius:50%;

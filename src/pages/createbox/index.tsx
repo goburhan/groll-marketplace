@@ -12,7 +12,6 @@ import CustomizedCheckbox from "../connectwallet/Checkbox";
 import ArtistNftButton from "./ArtistNftButton";
 import LeftBoxs from "./LeftBoxs";
 import MyNftButton from "./MyNftButton";
-import MysteryContent from "./MysteryContent";
 import NftBox from "./NftBox";
 import LinearProgress, {
   linearProgressClasses,
@@ -29,14 +28,6 @@ const CardWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
-const MysteryWrapper = styled.div`
-  display: grid;
-  gap: 50px 30px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(200px, 230px));
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-  }
-`;
 
 const Lootbox = [
   { name: "/images/Nft/A1.svg" },
@@ -50,49 +41,47 @@ const Lootbox = [
   { name: "/images/Nft/A3.svg" },
   { name: "/images/Nft/A4.svg" },
 ];
-const Mysterybox = [
-  { name: "/images/Nft/1.svg" },
-  { name: "/images/Nft/2.svg" },
-  { name: "/images/Nft/3.svg" },
-  { name: "/images/Nft/4.svg" },
-  { name: "/images/Nft/5.svg" },
-  { name: "/images/Nft/6.svg" },
-  { name: "/images/Nft/hot1.svg" },
-  { name: "/images/Nft/hot2.svg" },
-  { name: "/images/Nft/hot3.svg" },
-  { name: "/images/Nft/Up1.svg" },
-];
 
+const BorderLinearProgresss = styled(LinearProgress)`
+  padding: 8px;
+  width: 100%;
+  border-radius: 50px;
+  margin-top: 10px;
+  &.${linearProgressClasses.colorPrimary} {
+    background-color: rgba(0, 172, 255, 0.2);
+  }
+  & .${linearProgressClasses.bar} {
+    border-radius: 5px;
+    background-color: #00acff;
+    opacity: 1;
+  }
+`;
 export default function CreateBox() {
   const [selected, setSelected] = useState("");
-  const [progress , setProgress] = useState(0);
+  const [progress, setProgress] = useState(50);
   function changeSelected(e: any) {
     setSelected(e);
     console.log(selected);
   }
 
-  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    padding: 8,
-    width: "20%",
-    height: 5,
-    borderRadius: 50,
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor: "rgba(0, 172, 255,0.2)",
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-      borderRadius: 5,
-      backgroundColor: "#00ACFF",
-      opacity: "1",
-    },
-  }));
+  const Flexi = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 
-  console.log("indexteki progress" + progress)
+    flex-wrap: no-wrap;
+    height: 1000px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  `;
+
   return (
     <Wrapper>
       <BackButton margin="0px 0px 44px 0px" />
-      <BorderLinearProgress variant="determinate" value={progress} />
 
-      <Flex margin="0px 0px 48px 0px" gap="8px" direction="column">
+      <Flex margin="0px 0px 44px 0px" gap="8px" direction="column">
         <Flex justifyContent="space-between">
           <Text40 color={({ theme }) => theme.titles}>
             Create Your Mystery Box
@@ -109,7 +98,10 @@ export default function CreateBox() {
       </Flex>
 
       <Grid columns="1fr 3fr" gap="58px">
-        <Flex gap="44px" direction="column">
+        <Flex gap="34px" direction="column">
+          {selected === "mysterybox" && (
+            <BorderLinearProgresss variant="determinate" value={progress} />
+          )}
           <LeftBoxs changeSelected={changeSelected} />
         </Flex>
 
@@ -121,10 +113,10 @@ export default function CreateBox() {
           </CardWrapper>
         )}
         {selected === "mysterybox" && (
-          <Flex direction="column">
+          <Flexi>
             <MyNftButton setProgress={setProgress} />
             <ArtistNftButton setProgress={setProgress} />
-          </Flex>
+          </Flexi>
         )}
       </Grid>
       <Flex

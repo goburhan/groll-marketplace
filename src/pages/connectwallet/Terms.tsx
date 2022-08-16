@@ -72,13 +72,13 @@ export default function Terms() {
       <img src="/images/Termsimg.svg" alt="terms" />
 
       <div>
-        <Box style={{ marginTop: "38px" }}>
+        <Box gap="10px" style={{ marginTop: "38px" }}>
           <CustomizedCheckbox />
           <Text14 color={({ theme }) => theme.lowerdetail}>
             I am at least 13 year old
           </Text14>
         </Box>
-        <Box style={{ marginBottom: "38px" }}>
+        <Box  gap="0px 10px" style={{ marginBottom: "38px" }}>
           <CustomizedCheckbox />
           <Text14 color={({ theme }) => theme.lowerdetail}>
             I agree Stack terms of service
