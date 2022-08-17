@@ -85,7 +85,8 @@ export default function SelectButton() {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "% ",
+        maxWidth: "102%",
         minHeight: 200,
         color: "#fff",
       }}

@@ -80,7 +80,7 @@ export const Backhome = styled.button<ButtonInterface>`
   border: 1px solid #484d57;
   color: ${({ theme }) => theme.cardTitle};
   cursor: pointer;
-  margin: ${(props) => props.margin};2
+  margin: ${(props) => props.margin};
   justify-content: center;
   border-radius: 24px;
   font-size: 14px;
@@ -94,6 +94,9 @@ export const Backhome = styled.button<ButtonInterface>`
   }
   :hover {
     opacity: 0.8;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 40px 0px;
   }
 `;
 

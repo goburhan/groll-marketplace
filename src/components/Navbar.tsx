@@ -61,11 +61,17 @@ export default function Navbar() {
     padding: 24px 160px 24px 160px;
     background-color: ${({ theme }) => theme.header};
     img {
+      max-width: 53px;
     }
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      padding: 14px 20px 14px 14px;
+      padding: 0px;
+      height: 80px;
       width: 100%;
+      img {
+        margin-left: 32px;
+        max-width: 40px;
+      }
     }
   `;
 
@@ -88,9 +94,9 @@ export default function Navbar() {
     gap: 2rem;
     place-items: center;
     justify-content: ${(props) => props.justifyContent};
-text{
-  cursor: pointer;
-}
+    text {
+      cursor: pointer;
+    }
     @media (max-width: ${({ theme }) => theme.mobile}) {
       justify-content: space-around;
       display: none;
@@ -107,15 +113,12 @@ text{
   return (
     <Navibar>
       <Link href="/">
-        <img
-          src="/images/Logo.svg"
-          style={{ maxWidth: "53px", cursor: "pointer" }}
-        />
+        <img src="/images/Logo.svg" style={{ cursor: "pointer" }} />
       </Link>
       <Items>
         <Vdivider ml="2rem" height="70%" />
         {Menu.map((item) => (
-          <Text14  fontWeight="700" color={({ theme }) => theme.linkItems}>
+          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
             {item.name}
           </Text14>
         ))}

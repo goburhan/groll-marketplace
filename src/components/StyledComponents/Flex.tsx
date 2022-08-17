@@ -29,12 +29,12 @@ export const Flex = styled.div<Area>`
   justify-content: ${(props) => props.justifyContent};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    display: ${(props) => props.display };
+    display: ${(props) => props.display};
   }
 `;
 export const Grid = styled.div<Grid>`
   display: grid;
-  
+
   gap: ${(props) => props.gap};
   grid-template-columns: ${(props) => props.columns};
 `;

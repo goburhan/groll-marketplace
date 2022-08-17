@@ -11,12 +11,12 @@ import { Text22 } from "../../../components/StyledComponents/Text";
 
 const Flex = styled.div`
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   gap: 14px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    justify-content: center;
-    gap: 14px;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 

@@ -8,6 +8,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
   }
 `;
 
@@ -18,6 +19,9 @@ const PriceBox = styled.div`
   padding: 4px 16px;
   font-weight: 700;
   margin-right: 1rem;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 4px 12px;
+  }
 `;
 
 export default function InfoSection() {
@@ -32,7 +36,7 @@ export default function InfoSection() {
           style={{ minWidth: 34, marginLeft: 10 }}
         />
       </Flex>
-      <Flex alignItems="center" margin="0px 0px 14px 0px">
+      <Flex alignItems="center" margin="0px 0px 14px 0px" wrap="no-wrap">
         <PriceBox color="#2eb689">
           <img src="/images/Icons/Logo.svg" />
           <Text14 fontWeight="700" color="#2EB689">

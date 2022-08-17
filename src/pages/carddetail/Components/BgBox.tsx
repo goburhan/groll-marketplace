@@ -25,9 +25,12 @@ export default function BgBox({ title, color, text, border }: text) {
     border-radius: 4px;
     white-space: nowrap;
     padding: 14px;
-    gap:4px;
-    width:100%;
+    gap: 4px;
+    max-width: 100%;
     border: 2px solid ${(props) => props.border};
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+ 
+    }
   `;
 
   return (
