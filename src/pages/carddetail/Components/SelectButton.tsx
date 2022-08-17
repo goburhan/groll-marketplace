@@ -95,9 +95,9 @@ export default function SelectButton() {
 }
   `
   return (
-    <Abox
+    <Box
       sx={{
-        maxWidth: "100vw",
+        maxWidth: "100%",
         minHeight: 200,
         color: "#fff",
       }}
@@ -107,7 +107,7 @@ export default function SelectButton() {
         style={{ width: "max-content", backgroundColor: "transparent" }}
         sx={{
           border: "1px solid #484D57",
-          maxWidth: "100vw",
+          maxWidth: "100%",
         }}
       >
         <Tabs1
@@ -178,6 +178,6 @@ export default function SelectButton() {
       <TabPanel value={value} index={3} dir={theme.direction}>
         <BidsOffer />
       </TabPanel>
-    </Abox>
+    </Box>
   );
 }

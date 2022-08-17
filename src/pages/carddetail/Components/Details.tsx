@@ -3,16 +3,13 @@ import styled from "styled-components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Text14, Text22 } from "../../../components/StyledComponents/Text";
 import { Divider } from "../../../components/StyledComponents/Divider";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-} from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
 const Flex = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    width:100%;
   }
 `;
 const Box = styled.div`
@@ -22,19 +19,15 @@ const Box = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
-
 const Text = styled(Text14)`
   color: ${({ theme }) => theme.lowerdetail};
 `;
-const Accord = styled(Accordion)`
-  margin-right:32px;
 
-`
 export default function Details() {
   return (
     <>
-      <Divider width="90vw" mb="2rem" mt="2rem" />
-      <Accord
+      <Divider width="100%" mb="2rem" mt="2rem" />
+      <Accordion
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
         <AccordionSummary
@@ -69,14 +62,14 @@ export default function Details() {
             </Box>
             <Box>
               <Text>Date of Mint</Text>
-              <Text14 color={({ theme }) => theme.lowerdetail}>
+              <Text color={({ theme }) => theme.lowerdetail}>
                 {" "}
                 05/03/2021 - 23h:13 GMT+3
-              </Text14>
+              </Text>
             </Box>
           </Flex>
         </AccordionDetails>
-      </Accord>
+      </Accordion>
     </>
   );
 }

@@ -2,39 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import BgBox from "./BgBox";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-} from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { Text22 } from "../../../components/StyledComponents/Text";
 
 const Flex = styled.div`
   display: grid;
-  position: relative;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  gap: 14px;
+  grid-gap: 12px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    grid-template-columns: 1fr 1fr;
+    display:flex;
+    flex-wrap:wrap;
+
   }
 `;
 const Accord = styled(Accordion)`
-  margin-right:32px;
-
 `
-
 export default function Backgrounds() {
   return (
     <>
-      <Accord
+      <Accordion
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
         <AccordionSummary
           sx={{ svg: { color: "white" } }}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Text22 lineHeight="48px" color={({ theme }) => theme.cardTitle}>Properties</Text22>
+          <Text22 lineHeight="48px" color={({ theme }) => theme.cardTitle}>
+            Properties
+          </Text22>
         </AccordionSummary>
         <AccordionDetails>
           <Flex>
@@ -76,7 +72,7 @@ export default function Backgrounds() {
             />
           </Flex>
         </AccordionDetails>
-      </Accord>
+      </Accordion>
     </>
   );
 }

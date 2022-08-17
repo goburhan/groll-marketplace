@@ -18,7 +18,6 @@ interface Grid {
 
 export const Flex = styled.div<Area>`
   display: flex;
-
   flex-wrap: ${(props) => props.wrap || "wrap"};
   flex-direction: ${(props) => props.direction};
   width: ${(props) => props.width};

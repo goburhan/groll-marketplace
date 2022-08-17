@@ -8,6 +8,7 @@ import {
 import { Flex } from "../../components/StyledComponents/Flex";
 import BuySection from "./Components/BuySection";
 import InfoSection from "./InfoSection";
+import { WindowSize } from "../../hooks/useWindowsize";
 
 const Grid = styled.div`
   display: grid;
@@ -15,6 +16,7 @@ const Grid = styled.div`
   gap: 20px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     grid-template-rows: 100vw;
+    grid-template-columns: 83vw;
   }
 `;
 const Card = styled.div<Background>`
@@ -24,21 +26,18 @@ const Card = styled.div<Background>`
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 25px;
-  
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    max-width: 100vw;
-    margin:0px 0px;
   }
 `;
 const Box = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   min-height: 100vh;
   margin: 0px 100px;
   gap: 120px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     display: inline-grid;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     margin: 0px;
     gap: 32px;
   }
@@ -46,14 +45,17 @@ const Box = styled.div`
 const Wrapper = styled.div`
   margin: 160px 160px 100px 160px;
 
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 114px 32px;
-    max-width:100vw;  
+  overflow: hidden;
 
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 114px 28px;
+    max-width: 100vw;
   }
 `;
 
 export default function CardDetails() {
+  const isMobilee = WindowSize();
+
   return (
     <Wrapper>
       <Backhome padding="10px 12px 10px 12px" margin="0px 0px 80px 0px">

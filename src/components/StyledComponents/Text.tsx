@@ -116,7 +116,7 @@ export const Text40 = styled.text<TextProps>`
   color: ${(props) => props.color};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 28px;
+    font-size: 26px;
   }
 `;
 
