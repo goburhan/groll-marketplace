@@ -12,14 +12,19 @@ const Flex = styled.div`
   grid-gap: 16px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     display: flex;
+
     flex-wrap: wrap;
   }
 `;
-const Accord = styled(Accordion)``;
+const Accord = styled(Accordion)`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 88vw;
+  }
+`;
 export default function Backgrounds() {
   return (
     <>
-      <Accordion
+      <Accord
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
         <AccordionSummary
@@ -70,7 +75,7 @@ export default function Backgrounds() {
             />
           </Flex>
         </AccordionDetails>
-      </Accordion>
+      </Accord>
     </>
   );
 }

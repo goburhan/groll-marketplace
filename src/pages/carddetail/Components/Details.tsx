@@ -22,12 +22,16 @@ const Box = styled.div`
 const Text = styled(Text14)`
   color: ${({ theme }) => theme.lowerdetail};
 `;
-
+const Accord = styled(Accordion)`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 87vw;
+  }
+`;
 export default function Details() {
   return (
     <>
       <Divider width="100%" mb="2rem" mt="2rem" />
-      <Accordion
+      <Accord
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
         <AccordionSummary
@@ -69,7 +73,7 @@ export default function Details() {
             </Box>
           </Flex>
         </AccordionDetails>
-      </Accordion>
+      </Accord>
     </>
   );
 }
