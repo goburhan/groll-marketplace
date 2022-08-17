@@ -9,7 +9,7 @@ const Flex = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  grid-gap: 12px;
+  grid-gap: 16px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     display: flex;
     flex-wrap: wrap;
