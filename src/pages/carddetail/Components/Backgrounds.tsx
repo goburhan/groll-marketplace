@@ -11,13 +11,11 @@ const Flex = styled.div`
   width: 100%;
   grid-gap: 12px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    display:flex;
-    flex-wrap:wrap;
-
+    display: flex;
+    flex-wrap: wrap;
   }
 `;
-const Accord = styled(Accordion)`
-`
+const Accord = styled(Accordion)``;
 export default function Backgrounds() {
   return (
     <>
@@ -32,7 +30,7 @@ export default function Backgrounds() {
             Properties
           </Text22>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ width: "100%" }}>
           <Flex>
             <BgBox
               title="BACKGROUND"
