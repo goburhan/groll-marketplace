@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   overflow: hidden;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 114px 28px;
+    margin: 114px 32px;
     max-width: 100vw;
   }
 `;
