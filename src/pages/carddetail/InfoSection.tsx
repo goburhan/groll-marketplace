@@ -31,16 +31,16 @@ const PriceBox = styled.div`
 export default function InfoSection() {
   return (
     <Box>
-      <Flex alignItems="center" margin="0px 0px 18px 0px">
+      <Flex  alignItems="center" margin="0px 0px 18px 0px">
         <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">
           Not Your Bro # 6548
         </Text40>
         <img
-          src="/images/verified.svg"
-          style={{ minWidth: 34, marginLeft: 10 }}
+          src="/images/Verified.svg"
+          style={{ minWidth: 34, marginLeft: 14 }}
         />
       </Flex>
-      <Flex  alignItems="center" margin="0px 0px 14px 0px" wrap="no-wrap">
+      <Flex gap="8px" alignItems="center" margin="0px 0px 14px 0px" wrap="no-wrap">
         <PriceBox color="#2eb689">
           <img src="/images/Icons/Logo.svg" />
           <Text14 fontWeight="700" color="#2EB689">

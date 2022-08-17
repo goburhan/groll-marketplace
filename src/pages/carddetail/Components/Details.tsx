@@ -33,6 +33,7 @@ export default function Details() {
       <Divider width="100%" mb="2rem" mt="2rem" />
       <Accord
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
+        sx={{boxShadow: "none",  "&.MuiAccordion-root:before": { backgroundColor: "transparent"  } }}
       >
         <AccordionSummary
           sx={{ svg: { color: "white" } }}

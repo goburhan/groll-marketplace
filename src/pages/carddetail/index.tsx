@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   overflow: hidden;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 114px 32px;
+    margin: 0px 32px;
     max-width: 100vw;
   }
 `;
@@ -58,7 +58,7 @@ export default function CardDetails() {
 
   return (
     <Wrapper>
-      <Backhome padding="10px 12px 10px 12px" margin="0px 0px 80px 0px">
+      <Backhome padding="10px 12px 10px 12px" margin="0px 0px 0px 0px">
         <img src="/images/back.svg" />
         Back to collection
       </Backhome>
