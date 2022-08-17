@@ -6,9 +6,10 @@ import {
   CircleButton,
 } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
-import BuySection from "./Components/BuySection";
-import InfoSection from "./InfoSection";
 import { WindowSize } from "../../hooks/useWindowsize";
+import BuySection from "./Components/BuySection";
+import NftButtons from "./Components/NftButtons";
+import InfoSection from "./InfoSection";
 
 const Grid = styled.div`
   display: grid;
@@ -26,6 +27,9 @@ const Card = styled.div<Background>`
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 25px;
+  display:flex;
+  place-content:center;
+  align-items:flex-end;
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
@@ -45,26 +49,28 @@ const Box = styled.div`
 const Wrapper = styled.div`
   margin: 160px 160px 100px 160px;
 
-  overflow: hidden;
-
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 0px 32px;
+    margin: 120px 32px;
     max-width: 100vw;
   }
 `;
 
 export default function CardDetails() {
-  const isMobilee = WindowSize();
+const isMobile = WindowSize();
 
   return (
     <Wrapper>
-      <Backhome padding="10px 12px 10px 12px" margin="0px 0px 0px 0px">
+      <Backhome padding="10px 12px 10px 12px" margin="0px 0px 80px 0px">
         <img src="/images/back.svg" />
         Back to collection
       </Backhome>
       <Box>
         <Grid>
-          <Card img="/images/detailsitem.svg" />
+          <Card img="/images/detailsitem.svg">
+          {isMobile &&   <NftButtons />}  
+           
+          
+          </Card>
           <BuySection />
         </Grid>
         <Flex wrap="no-wrap" gap="20px">

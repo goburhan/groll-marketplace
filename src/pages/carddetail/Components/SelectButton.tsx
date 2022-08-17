@@ -87,13 +87,6 @@ export default function SelectButton() {
   };
 
 
-  const Abox = styled(Box)`
-
-@media (max-width: ${({ theme }) => theme.mobile}) {
- max-width: 100vw !important;
-
-}
-  `
   return (
     <Box
       sx={{

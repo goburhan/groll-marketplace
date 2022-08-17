@@ -44,7 +44,7 @@ const NftContainer = styled.div`
   }
 `;
 
-export const Flex = styled.div`
+ const Flex = styled.div`
   display: flex;
   flex-direction: ${(props) => props.dir};
   margin-top: 50px;

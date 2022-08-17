@@ -40,7 +40,7 @@ export default function TopWrapper() {
           </Box>
         </Flex>
 
-        {isMobile && <Divider width="100%" />}
+        {isMobile && <Divider width="100%" mb="20px" mt="20px" />}
 
         <Flex>
           <img src="/images/Avatar/Avatar3.png" />
