@@ -29,7 +29,8 @@ export default function BgBox({ title, color, text, border }: text) {
     max-width: 100%;
     border: 1px solid ${(props) => props.border};
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      width: 136px;
+    width: 136px;
+    max-width: 146px;
     }
   `;
 

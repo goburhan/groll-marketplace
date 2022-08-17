@@ -12,8 +12,8 @@ const Flex = styled.div`
   grid-gap: 16px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     display: flex;
-
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 `;
 const Accord = styled(Accordion)`
