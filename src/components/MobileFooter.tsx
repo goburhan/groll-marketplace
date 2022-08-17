@@ -73,11 +73,10 @@ const Box = styled.div`
   text-align: center;
 `;
 const Footer = styled.div`
-  max-width: 100vw;
+  min-width: 100vw;
   height: 620px;
   background: ${({ theme }) => theme.footer};
   padding: 20px 0px 20px 0px;
-  margin-top: 100px;
 `;
 export default function MobileFooter() {
   return (

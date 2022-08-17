@@ -8,7 +8,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
+    margin:0px 0px;
   }
 `;
 
@@ -19,8 +19,10 @@ const PriceBox = styled.div`
   padding: 4px 16px;
   font-weight: 700;
   margin-right: 1rem;
+  justify-content: center;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 4px 12px;
+    width: 33%;
   }
 `;
 

@@ -24,8 +24,10 @@ const Card = styled.div<Background>`
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 25px;
+  
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    
+    max-width: 100vw;
+    margin:0px 0px;
   }
 `;
 const Box = styled.div`
@@ -35,17 +37,19 @@ const Box = styled.div`
   margin: 0px 100px;
   gap: 120px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    grid-template-columns: 1fr;
-    min-height: 0vh;
+    display: inline-grid;
+    grid-template-columns: 1fr ;
     margin: 0px;
     gap: 32px;
   }
 `;
 const Wrapper = styled.div`
   margin: 160px 160px 100px 160px;
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 114px 0px;
-    padding: 0px 32px;
+    margin: 114px 32px;
+    max-width:100vw;  
+
   }
 `;
 

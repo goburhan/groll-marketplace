@@ -45,15 +45,19 @@ const AppBar1 = styled(AppBar)`
     z-index: -1 !important;
     height: 0%;
     border-radius: 50px;
-    margin-bottom: 5px;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
   }
 `;
 const Tabs1 = styled(Tabs)`
-  margin-left: 4px;
+  margin:0px 4px;
   button {
     font-weight: 700;
     font-family: "Poppins", normal;
     color: #777e91;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+
   }
 `;
 TabPanel.propTypes = {
@@ -82,20 +86,28 @@ export default function SelectButton() {
     exit: theme.transitions.duration.leavingScreen,
   };
 
+
+  const Abox = styled(Box)`
+
+@media (max-width: ${({ theme }) => theme.mobile}) {
+ max-width: 100vw !important;
+
+}
+  `
   return (
-    <Box
+    <Abox
       sx={{
-        width: "% ",
-        maxWidth: "102%",
+        maxWidth: "100vw",
         minHeight: 200,
         color: "#fff",
       }}
     >
       <AppBar1
         position="static"
-        style={{ width: "100%", backgroundColor: "transparent" }}
+        style={{ width: "max-content", backgroundColor: "transparent" }}
         sx={{
           border: "1px solid #484D57",
+          maxWidth: "100vw",
         }}
       >
         <Tabs1
@@ -115,6 +127,7 @@ export default function SelectButton() {
           <Tab
             sx={{
               textTransform: "capitalize",
+              width: "25%",
             }}
             style={{ border: "1px solid transparent", fontSize: 16 }}
             label="Info"
@@ -153,18 +166,18 @@ export default function SelectButton() {
         <Details />
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-      <TopWrapper />
+        <TopWrapper />
         <Backgrounds />
         <Details />
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-      <TopWrapper />
+        <TopWrapper />
         <Backgrounds />
-        <Details /> 
+        <Details />
       </TabPanel>
       <TabPanel value={value} index={3} dir={theme.direction}>
         <BidsOffer />
       </TabPanel>
-    </Box>
+    </Abox>
   );
 }

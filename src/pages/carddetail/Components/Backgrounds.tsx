@@ -19,11 +19,15 @@ const Flex = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 `;
+const Accord = styled(Accordion)`
+  margin-right:32px;
+
+`
 
 export default function Backgrounds() {
   return (
     <>
-      <Accordion
+      <Accord
         style={{ background: "transparent", color: "white", fontSize: "32px" }}
       >
         <AccordionSummary
@@ -72,7 +76,7 @@ export default function Backgrounds() {
             />
           </Flex>
         </AccordionDetails>
-      </Accordion>
+      </Accord>
     </>
   );
 }
