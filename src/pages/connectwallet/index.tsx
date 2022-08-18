@@ -370,10 +370,10 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
 
             {/* {selected !== "" && ( */}
               <Side
-                key="child"
-                initial="closed"
-                variants={ChildVariants}
-                animate={open ? "open" : "closed"}
+                // key="child"
+                // initial="closed"
+                // variants={ChildVariants}
+                // animate={open ? "open" : "closed"}
               >
                 <Terms />
               </Side>
