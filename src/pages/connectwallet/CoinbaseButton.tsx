@@ -5,6 +5,7 @@ import { WindowSize } from "../../hooks/useWindowsize";
 
 export default function CoinbaseButton({ selected, setSelected }) {
   const isMobilee = WindowSize();
+
   return (
     <WalletWrapper
       key="parent"
@@ -19,12 +20,12 @@ export default function CoinbaseButton({ selected, setSelected }) {
       animate={
         selected === "coinbase"
           ? {
-              border: "1px solid #484D57 ",
+              border: "1px solid #484D57",
               opacity: 1,
             }
           : { border: "none " }
       }
-      transition={selected === "coinbase" ? { duration: 0.2 } : {}}
+      transition={selected === "coinbase" ? { duration: 10 } : {}}
       style={
         selected === "coinbase"
           ? !isMobilee
