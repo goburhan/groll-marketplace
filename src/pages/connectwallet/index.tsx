@@ -19,9 +19,6 @@ import Terms from "./Terms";
 import { animate, AnimatePresence, motion } from "framer-motion";
 import { BackButton } from "../../components/StyledComponents/Button";
 import { getDefaultConnector } from "../../app/hooks";
-import MetamaskButton from "./MetamaskButton";
-import CoinbaseButton from "./CoinbaseButton";
-import WalletConnectButton from "./WalletConnectButton";
 import { WindowSize } from "../../hooks/useWindowsize";
 
 const Flex = styled.div`
@@ -360,7 +357,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
         </Flex>
         <AnimatePresence>
           <div>
-            {selected === "" && (
+            {/* {selected === "" && (
               <Side
                 key="parent"
                 initial="closed"
@@ -369,9 +366,9 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               >
                 <motion.img src="/images/coinwallet.png" />
               </Side>
-            )}
+            )} */}
 
-            {selected !== "" && (
+            {/* {selected !== "" && ( */}
               <Side
                 key="child"
                 initial="closed"
@@ -380,7 +377,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               >
                 <Terms />
               </Side>
-            )}
+            {/* )} */}
           </div>
         </AnimatePresence>
         {/* <img src="/images/coinwallet.png" alt="coinwallet" /> */}
