@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Background } from "../../app/types";
 import {
+  BackButton,
   Backhome,
   CircleButton,
 } from "../../components/StyledComponents/Button";
@@ -60,16 +61,12 @@ const isMobile = WindowSize();
 
   return (
     <Wrapper>
-      <Backhome padding="10px 12px 10px 12px" margin="0px 0px 80px 0px">
-        <img src="/images/back.svg" />
-        Back to collection
-      </Backhome>
+      <BackButton padding="10px 12px 10px 12px" margin="0px 0px 80px 0px" mMargin="40px 0px 48px 0px" />
+        
       <Box>
         <Grid>
           <Card img="/images/detailsitem.svg">
           {isMobile &&   <NftButtons />}  
-           
-          
           </Card>
           <BuySection />
         </Grid>

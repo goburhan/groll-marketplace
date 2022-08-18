@@ -31,6 +31,9 @@ export default function Terms() {
       border: 1px solid transparent;
       border-radius: 25px;
     }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      width: 100%;
+    }
   `;
 
   interface boxprops {
@@ -55,7 +58,7 @@ export default function Terms() {
     color: ${({ theme }) => theme.gray};
 
     span {
-      color: ${({ theme }) => theme.linkItems};
+      color: ${({ theme }) => theme.blue};
     }
   `;
 
@@ -65,7 +68,7 @@ export default function Terms() {
         Terms of service
       </Text40>
       <Text12 style={{ marginTop: "8px", marginBottom: "38px" }}>
-        Please take a few minutes to read and understand <br />
+        Please take a few minutes to read and understand  &nbsp;
         <span>Stacks Terms of Service.</span> To continue, you’ll need to accept
         the terms of services by checking the boxes.
       </Text12>
@@ -78,7 +81,7 @@ export default function Terms() {
             I am at least 13 year old
           </Text14>
         </Box>
-        <Box  gap="0px 10px" style={{ marginBottom: "38px" }}>
+        <Box gap="0px 10px" style={{ marginBottom: "38px" }}>
           <CustomizedCheckbox />
           <Text14 color={({ theme }) => theme.lowerdetail}>
             I agree Stack terms of service

@@ -19,6 +19,10 @@ import Terms from "./Terms";
 import { animate, AnimatePresence, motion } from "framer-motion";
 import { BackButton } from "../../components/StyledComponents/Button";
 import { getDefaultConnector } from "../../app/hooks";
+import MetamaskButton from "./MetamaskButton";
+import CoinbaseButton from "./CoinbaseButton";
+import WalletConnectButton from "./WalletConnectButton";
+import { WindowSize } from "../../hooks/useWindowsize";
 
 const Flex = styled.div`
   display: flex;
@@ -28,11 +32,11 @@ const Flex = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 `;
-const WalletWrapper = styled(motion.button)`
+export const WalletWrapper = styled(motion.button)`
   background: transparent;
   cursor: pointer;
   display: flex;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   align-items: center;
   width: 100%;
   div {
@@ -50,12 +54,18 @@ const WalletWrapper = styled(motion.button)`
       color: #ebebed;
     }
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 20px 4px;
+  }
 `;
 const ConnectWalletContainer = styled.div`
   padding: 0px 160px 10% 160px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 0px 32px 32px 32px;
+  }
 `;
 const Box = styled(motion.div)`
   display: flex;
@@ -68,10 +78,22 @@ const Box = styled(motion.div)`
   }
 `;
 
-const Side = styled(motion.div)``;
+const Side = styled(motion.div)`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    img {
+      width: 320px;
+    }
+  }
+`;
+const Title = styled(Text40)`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 36px;
+  }
+`;
+
 export default function ConnectWallet({ isOpen, closeModal }: any) {
   const [selected, setSelected] = useState("");
-
+  const isMobilee = WindowSize();
   const isActive = getDefaultConnector().useIsActive();
   console.log(isActive);
   const accounts = getDefaultConnector().useAccounts();
@@ -100,6 +122,15 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
     },
   };
 
+  // little trick to arrange terms mobile version
+  let mobileWith = "32vw";
+  let xvalue = "3vw";
+
+  if (isMobilee) {
+    xvalue = "0vw";
+    mobileWith = "100%";
+  }
+
   const ChildVariants = {
     closed: {
       opacity: 0,
@@ -110,12 +141,13 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
 
     open: {
       opacity: 1,
-      width: "32vw",
-      x: "4vw",
+      width: mobileWith,
+      x: xvalue,
       transition: {
         duration: 0.3,
       },
     },
+
     exit: {
       opacity: 0,
       transition: {
@@ -125,184 +157,19 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
   };
   return (
     <ConnectWalletContainer>
-      <BackButton margin="32px 0px 64px 0px" />
-      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">
+      <BackButton margin="32px 0px 64px 0px" mMargin="40px 0px 28px 0px" />
+      <Title color={({ theme }) => theme.titles} letterSpacing="-0.03em">
         Connect your wallet
-      </Text40>
-      <Divider mt="50px" width="50%" />
+      </Title>
+      <Divider mt="50px" width="50%" Mwidth="100%" />
       <Box>
         <Flex>
-          <WalletWrapper
-            key="parent"
-            initial={
-              selected === "coinbase"
-                ? {
-                    border: "1px solid transparent ",
-                    opacity: 0,
-                  }
-                : {}
-            }
-            animate={
-              selected === "coinbase"
-                ? {
-                    border: "1px solid #484D57 ",
-                    opacity: 1,
-                  }
-                : { border: "1px solid rgba(0,0,0,0) " }
-            }
-            transition={selected === "coinbase" ? { duration: 0.2 } : {}}
-            style={
-              selected === "coinbase"
-                ? {
-                    border: "1px solid #484d57",
-                    width: "45vw",
-                    padding: "20px 20px 20px 20px",
-                    justifyContent: "space-between",
-                    borderRadius: "16px",
-                  }
-                : {}
-            }
-            onClick={() =>
-              // coinbaseWallet
-              //   .activate(97)
-              //   .then((res) => {
-              //     console.log(res);
-              //     store.dispatch(DEFAULT_CONNECTOR("coinbase"));
-              //   })
-              //   .catch((err) => {
-              //     console.log(err);
-              //   })&&
-              setSelected("coinbase")
-            }
-          >
-            <div>
-              {selected === "coinbase" ? (
-                <img src="/images/Walletconnected.svg" />
-              ) : (
-                <img src="/images/Coinbase.svg" />
-              )}
-              <Text24>Coinbase Wallet</Text24>
-            </div>
-            {selected === "coinbase" && (
-              <img src="/images/Staticlogos/Arrow.svg" />
-            )}
-          </WalletWrapper>
-
-          <WalletWrapper
-            key="parent"
-            initial={
-              selected === "metamask"
-                ? {
-                    border: "1px solid transparent ",
-                    opacity: 0,
-                  }
-                : {}
-            }
-            animate={
-              selected === "metamask"
-                ? {
-                    border: "1px solid #484D57 ",
-                    opacity: 1,
-                  }
-                : { border: "1px solid rgba(0,0,0,0) " }
-            }
-            transition={selected === "metamask" ? { duration: 0.2 } : {}}
-            style={
-              selected === "metamask"
-                ? {
-                    border: "1px solid #484d57",
-                    width: "45vw",
-                    padding: "20px",
-
-                    justifyContent: "space-between",
-                    borderRadius: "16px",
-                  }
-                : {}
-            }
-            onClick={() =>
-              metaMask
-                .activate(97)
-                .then((res) => {
-                  console.log(res);
-                  store.dispatch(DEFAULT_CONNECTOR("metamask"));
-                })
-                .catch((err) => {
-                  console.log(err);
-                }) && setSelected("metamask")
-            }
-          >
-            <div>
-              {selected === "metamask" ? (
-                <img src="/images/Walletconnected.svg" />
-              ) : (
-                <img src="/images/Metamask.svg" />
-              )}
-              <Text24 type="submit">Metamask Wallet</Text24>
-            </div>
-
-            {selected === "metamask" && (
-              <img src="/images/Staticlogos/Arrow.svg" />
-            )}
-          </WalletWrapper>
-
-          <WalletWrapper
-            key="parent"
-            initial={
-              selected === "walletconnect"
-                ? {
-                    border: "1px solid transparent ",
-                    opacity: 0,
-                  }
-                : {}
-            }
-            animate={
-              selected === "walletconnect"
-                ? {
-                    border: "1px solid #484D57 ",
-                    opacity: 1,
-                  }
-                : { border: "1px solid rgba(0,0,0,0) " }
-            }
-            transition={selected === "walletconnect" ? { duration: 0.2 } : {}}
-            style={
-              selected === "walletconnect"
-                ? {
-                    border: "1px solid #484d57",
-                    width: "45vw",
-                    padding: "20px",
-
-                    justifyContent: "space-between",
-                    borderRadius: "16px",
-                  }
-                : {}
-            }
-            onClick={() =>
-              walletConnect
-                .activate(97)
-                .then((res) => {
-                  console.log(res);
-                  store.dispatch(DEFAULT_CONNECTOR("walletconnect"));
-                })
-                .catch((err) => {
-                  console.log(err);
-                }) && setSelected("walletconnect")
-            }
-          >
-            <div>
-              {selected === "walletconnect" ? (
-                <img src="/images/Walletconnected.svg" />
-              ) : (
-                <img src="/images/Walletconnect.svg" />
-              )}
-              <Text24>Wallet Connect</Text24>
-            </div>
-            {selected === "walletconnect" && (
-              <img src="/images/Staticlogos/Arrow.svg" />
-            )}
-          </WalletWrapper>
+          <CoinbaseButton selected={selected} setSelected={setSelected} />
+          <MetamaskButton selected={selected} setSelected={setSelected} />
+          <WalletConnectButton selected={selected} setSelected={setSelected} />
         </Flex>
         <AnimatePresence>
-          <div style={{ width: "" }}>
+          <div>
             {selected === "" && (
               <Side
                 key="parent"

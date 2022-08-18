@@ -7,6 +7,7 @@ interface ButtonInterface {
   img?: any;
   margin?: string;
   color?: any;
+  mMargin?: string;
 }
 
 export const StyledButton = styled.button`
@@ -73,32 +74,7 @@ export const SliderButton = styled.button`
   }
 `;
 
-export const Backhome = styled.button<ButtonInterface>`
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: 1px solid #484d57;
-  color: ${({ theme }) => theme.cardTitle};
-  cursor: pointer;
-  margin: ${(props) => props.margin};
-  justify-content: center;
-  border-radius: 24px;
-  font-size: 14px;
-  white-space: nowrap;
-  padding: ${(props) => props.padding || "10px 16px"};
-  width: max-content;
-  max-height: 40px;
-  img {
-    margin-right: 6px;
-    min-height: 8px;
-  }
-  :hover {
-    opacity: 0.8;
-  }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 40px 0px;
-  }
-`;
+
 
 export const NavButton = styled.button`
   border: 1px solid #484d57;
@@ -150,12 +126,16 @@ export const BlueButton = styled.button<ButtonInterface>`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
+  width:max-content;
   background-color: #00acff;
   :hover {
     opacity: 0.9;
   }
   img {
     width: 20px;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding:14px 24px;
   }
 `;
 
@@ -216,9 +196,36 @@ export function ClearAll() {
     </Clear>
   );
 }
-export function BackButton({ margin }) {
+
+export const Backhome = styled.button<ButtonInterface>`
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #484d57;
+  color: ${({ theme }) => theme.cardTitle};
+  cursor: pointer;
+  margin: ${(props) => props.margin};
+  justify-content: center;
+  border-radius: 24px;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: ${(props) => props.padding || "10px 16px"};
+  width: max-content;
+  max-height: 40px;
+  img {
+    margin-right: 6px;
+    min-height: 8px;
+  }
+  :hover {
+    opacity: 0.8;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin:${(props) => props.mMargin};
+  }
+`;
+export function BackButton({  ...props }) {
   return (
-    <Backhome margin={margin}>
+    <Backhome margin={props.margin} mMargin={props.mMargin} padding={props.padding}>
       <img src="/images/back.svg" />
       Back to home
     </Backhome>

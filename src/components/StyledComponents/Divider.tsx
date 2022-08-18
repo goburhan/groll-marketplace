@@ -6,6 +6,7 @@ interface Divid {
   mb?: string;
   mt?: string;
   mr?: string;
+  Mwidth?: string;
 }
 
 export const Divider = styled.div<Divid>`
@@ -16,6 +17,9 @@ export const Divider = styled.div<Divid>`
   margin-bottom: ${(props) => props.mb};
   margin-top: ${(props) => props.mt};
   height: 1px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: ${(props) => props.Mwidth };
+  }
 `;
 
 interface prop {
