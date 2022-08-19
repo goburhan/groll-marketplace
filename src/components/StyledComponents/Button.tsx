@@ -8,6 +8,7 @@ interface ButtonInterface {
   margin?: string;
   color?: any;
   mMargin?: string;
+  mPadding?: string;
 }
 
 export const StyledButton = styled.button`
@@ -135,7 +136,7 @@ export const BlueButton = styled.button<ButtonInterface>`
     width: 20px;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    padding:14px 24px;
+    padding: ${(props) => props.mPadding || "14px 24px"};
   }
 `;
 

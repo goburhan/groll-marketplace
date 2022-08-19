@@ -1,10 +1,11 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { motion , AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Flex } from "../StyledComponents/Flex";
 
 declare module "framer-motion" {
   export interface AnimatePresenceProps {
-    children?: React.ReactNode
+    children?: React.ReactNode;
   }
 }
 
@@ -25,44 +26,37 @@ const ChildDiv = styled(motion.div)`
   /* opacity: 0; */
 `;
 
-const StyledButton = styled.button `
+const StyledButton = styled.button`
   height: 1.7rem;
   width: 100%;
-  text-align:left;
+  text-align: left;
   margin: 1%;
-  border:1px solid transparent;
+  border: 1px solid transparent;
   background: transparent;
   color: ${({ theme }) => theme.blackHover};
   font-size: 16px;
-`
-;
+`;
 const StyledTitle = styled.button`
-  height: 1.7rem;
-  width: 100%;
-  text-align:left;
-  margin: 1%;
-  border:1px solid transparent;
+  text-align: left;
+  border: 1px solid transparent;
   background: transparent;
   color: ${({ theme }) => theme.cardTitle};
   font-size: 18px;
-`
-;
-
+`;
 const ButtonParentVariants = {
   closed: {
     height: "4rem",
     transition: {
       duration: "0.4",
-      when: "afterChildren", 
+      when: "afterChildren",
       staggerChildren: 0.3,
     },
   },
   open: {
     height: "8rem",
     transition: {
-      when: "beforeChildren", 
-      duration: "0.1", 
-    
+      when: "beforeChildren",
+      duration: "0.1",
     },
   },
 };
@@ -89,43 +83,63 @@ const ChildVariants = {
   },
 };
 
+const Flexx = styled.div`
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  width: 88vw ;
+`;
+
 const ParentChild = ({ first, second, third, title }) => {
   const [open, toggleOpen] = useState(false);
 
   return (
-      <AnimatePresence>
-        <ButtonParent
-          key="parent"
-          variants={ButtonParentVariants}
-          initial="closed"
-          animate={open ? "open" : "closed"}
+    <AnimatePresence>
+      <ButtonParent
+        key="parent"
+        variants={ButtonParentVariants}
+        initial="closed"
+        animate={open ? "open" : "closed"}
+      >
+        <StyledTitle
+          onClick={() => {
+            toggleOpen(!open);
+          }}
         >
-          <StyledTitle
-            onClick={() => {
-              toggleOpen(!open);
-            }}
-          >
+          <Flexx>
             {title}
-          </StyledTitle>
+            {open ? (
+              <img
+                src="/images/Staticlogos/Uparrow.svg"
+                style={{ height: 12 }}
+              />
+            ) : (
+              <img
+                src="/images/Staticlogos/Downarrow.svg"
+                style={{ height: 12 }}
+              />
+            )}
+          </Flexx>
+        </StyledTitle>
 
-          {open && (
-            <>
-              <ChildDiv
-                key="child"
-                variants={ChildVariants}
-                initial="closed"
-                animate={open ? "open" : "closed"}
-                exit="exit"
-              >
-                {" "}
-                <StyledButton>{first}</StyledButton>
-                <StyledButton>{second}</StyledButton>
-                <StyledButton>{third}</StyledButton>
-              </ChildDiv>
-            </>
-          )}
-        </ButtonParent>
-      </AnimatePresence>
+        {open && (
+          <>
+            <ChildDiv
+              key="child"
+              variants={ChildVariants}
+              initial="closed"
+              animate={open ? "open" : "closed"}
+              exit="exit"
+            >
+              {" "}
+              <StyledButton>{first}</StyledButton>
+              <StyledButton>{second}</StyledButton>
+              <StyledButton>{third}</StyledButton>
+            </ChildDiv>
+          </>
+        )}
+      </ButtonParent>
+    </AnimatePresence>
   );
 };
 

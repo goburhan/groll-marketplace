@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { SliderButton } from "../StyledComponents/Button";
+import { BlueButton, SliderButton } from "../StyledComponents/Button";
 import { Sliderfont, Text32 } from "../StyledComponents/Text";
 
 interface WrapperProps {
@@ -27,7 +27,6 @@ const Box = styled.div<WrapperProps>`
   place-items: center;
   background-size: cover;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-
   }
 `;
 
@@ -39,7 +38,7 @@ export default function Slider1() {
         <Text32 fontWeight="400">
           Choose the ort of your interest and enjoy the reflection onf the mind
         </Text32>
-        <SliderButton>Discover</SliderButton>
+        <BlueButton padding="12px 36px" mPadding="8px 66px">Discover</BlueButton>
       </Flex>
     </Box>
   );
