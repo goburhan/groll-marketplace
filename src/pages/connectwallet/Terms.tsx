@@ -91,7 +91,7 @@ export default function Terms() {
 
       <Box gap="10px">
         <Transparent padding="16px 32px">Cancel</Transparent>
-        <AcceptSignModal />
+        {/* <AcceptSignModal /> */}
       </Box>
     </Flex>
   );
