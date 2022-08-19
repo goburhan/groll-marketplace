@@ -75,6 +75,7 @@ const Box = styled.div`
 const Footer = styled.div`
   min-width: 100%;
   height: 620px;
+  margin-top: 42px;
   background: ${({ theme }) => theme.footer};
   padding: 20px 0px 20px 0px;
 `;

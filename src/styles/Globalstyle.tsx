@@ -20,7 +20,7 @@ font-family: "Poppins", normal;
 
     margin-top: 110px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      margin-top: 90px;
+      margin-top: 80px;
    
     }
 

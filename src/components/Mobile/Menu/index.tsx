@@ -21,11 +21,11 @@ const HamburgerMenuContainer = styled.div<Hamb>`
   }
 `;
 const MenuContainer = styled(motion.div)`
-  width: 140%;
   height: 100%;
   background: ${({ theme }) => theme.mobileMenu};
   box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
   position: fixed;
+  left:30px;
   z-index: -1;
   top: 4px;
   right: -232px;

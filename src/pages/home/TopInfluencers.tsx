@@ -88,9 +88,37 @@ export default function () {
         },
       },
       {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1.3,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.02,
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 460,
+        settings: {
+          slidesToShow: 1.15,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 440,
+        settings: {
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1.03,
           slidesToScroll: 1,
         },
       },
