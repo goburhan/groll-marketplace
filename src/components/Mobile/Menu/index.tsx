@@ -7,55 +7,57 @@ import { NavMenu } from "./navMenu";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 interface Hamb {
-  variants :any
+  variants: any;
 }
 
 const HamburgerMenuContainer = styled.div<Hamb>`
-  @media (max-width:  ${({ theme }) => theme.mobile}) {
+  display: none;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
     display: block;
-    position:absolute;
+    position: absolute;
     right: 32px;
-    top:30px;
+    top: 30px;
     z-index: 1;
   }
-`
-;
-const MenuContainer = styled(motion.div) `
-  width:100%;
+`;
+const MenuContainer = styled(motion.div)`
+  width: 140%;
   height: 100%;
   background: ${({ theme }) => theme.mobileMenu};
   box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
-  z-index: -1;
   position: fixed;
+  z-index: -1;
   top: 4px;
-  right: -234px;
+  right: -232px;
   transform: translateX(-4em);
   user-select: none;
   padding: 1em 2.5em;
-`
-;
-
-
-
+`;
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1em;
 `;
 
+const Box = styled.div`
+  display: flex;
+  grid-template-columns: 1fr;
+  width: 100%;
+  background: black;
+`;
+
 const menuVariants = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 }px at 40px 40px)`,
+    clipPath: `circle(${height * 2}px at 40px 40px)`,
     transition: {
       type: "spring",
       stiffness: 20,
       restDelta: 2,
-      
     },
   }),
-  animate:{  x: 300  },
+  animate: { x: 300 },
   closed: {
-    clipPath: "circle(30px at 200px 40px)",
+    clipPath: "circle(30px at 100% 40px)",
     transition: {
       delay: 0.5,
       type: "spring",
