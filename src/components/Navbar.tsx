@@ -126,10 +126,7 @@ export default function Navbar() {
       <HamburgerMenu />
 
       <Items justifyContent="right">
-        {/* <SearchWrapper>
-          <img src="/images/Shape.svg" />
-          <Search placeholder="Search Everything" />
-        </SearchWrapper> */}
+       
         <Searchbar />
 
         {user.nickname !== "" && (

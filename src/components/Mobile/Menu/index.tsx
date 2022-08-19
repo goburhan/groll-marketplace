@@ -11,33 +11,31 @@ interface Hamb {
 }
 
 const HamburgerMenuContainer = styled.div<Hamb>`
-  display: none;
-  @media (max-width:  ${({ theme }) => theme.mobil}) {
+  @media (max-width:  ${({ theme }) => theme.mobile}) {
     display: block;
-    margin-top:20px;
-    width:120px;
+    position:absolute;
+    right: 32px;
+    top:30px;
+    z-index: 1;
   }
 `
 ;
 const MenuContainer = styled(motion.div) `
-  max-width: 44%;
   width:100%;
   height: 100%;
   background: ${({ theme }) => theme.mobileMenu};
   box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
-  z-index: 90;
-  position: fixed;top: 0;
-  right: 0;
-  transform: translateX(4em);
+  z-index: -1;
+  position: fixed;
+  top: 4px;
+  right: -234px;
+  transform: translateX(-4em);
   user-select: none;
   padding: 1em 2.5em;
 `
 ;
 
-const TopContainer = styled.div`
-  display: flex;
-  width: 100%;
-`;
+
 
 const ContentContainer = styled.div`
   display: flex;
@@ -57,7 +55,7 @@ const menuVariants = {
   }),
   animate:{  x: 300  },
   closed: {
-    clipPath: "circle(30px at 40px 40px)",
+    clipPath: "circle(30px at 200px 40px)",
     transition: {
       delay: 0.5,
       type: "spring",
