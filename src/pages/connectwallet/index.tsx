@@ -20,6 +20,10 @@ import { animate, AnimatePresence, motion } from "framer-motion";
 import { BackButton } from "../../components/StyledComponents/Button";
 import { getDefaultConnector } from "../../app/hooks";
 import { WindowSize } from "../../hooks/useWindowsize";
+import CoinbaseButton from "./CoinbaseButton";
+import MetamaskButton from "./MetamaskButton";
+import { CoinbaseWallet } from "@web3-react/coinbase-wallet";
+import WalletConnectButton from "./WalletConnectButton";
 
 const Flex = styled.div`
   display: flex;
@@ -161,203 +165,13 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
       <Divider mt="50px" width="50%" Mwidth="100%" />
       <Box>
         <Flex>
-        <WalletWrapper
-      key="parent"
-      initial={
-        selected === "coinbase"
-          ? {
-              border: "none",
-              opacity: 0,
-            }
-          : {}
-      }
-      animate={
-        selected === "coinbase"
-          ? {
-              border: "1px solid #484D57",
-              opacity: 1,
-            }
-          : { border: "none " }
-      }
-      transition={selected === "coinbase" ? { duration: 10 } : {}}
-      style={
-        selected === "coinbase"
-          ? !isMobilee
-            ? {
-                //selected coinbase on desktop styling
-                border: "1px solid #484d57",
-                width: "45vw",
-                padding: "20px",
-                justifyContent: "space-between",
-                borderRadius: "16px",
-              }
-            : {
-                //selected coinbase on mobile styling
-                border: "1px solid #484d57",
-                width: "100%",
-                padding: "20px 4px",
-                borderRadius: "16px",
-              }
-          : {}
-      }
-      onClick={() =>
-        // coinbaseWallet
-        //   .activate(97)
-        //   .then((res) => {
-        //     console.log(res);
-        //     store.dispatch(DEFAULT_CONNECTOR("coinbase"));
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   })&&
-        setSelected("coinbase")
-      }
-    >
-      <div>
-        {selected === "coinbase" ? (
-          <img src="/images/Walletconnected.svg" />
-        ) : (
-          <img src="/images/Coinbase.svg" />
-        )}
-        <Text24>Coinbase Wallet</Text24>
-      </div>
-
-      {selected === "coinbase" && !isMobilee ? (
-        <img src="/images/Staticlogos/Arrow.svg" />
-      ) : null}
-    </WalletWrapper>
-    <WalletWrapper
-    key="parent"
-    initial={
-      selected === "metamask"
-        ? {
-            border: "none ",
-            opacity: 0,
-          }
-        : {}
-    }
-    animate={
-      selected === "metamask"
-        ? {
-            border: "1px solid #484D57 ",
-            opacity: 1,
-          }
-        : { border: "none " }
-    }
-    transition={selected === "metamask" ? { duration: 0.2 } : {}}
-    style={
-      selected === "metamask"
-      ? !isMobilee
-      ? {
-          //selected metamask on desktop styling
-          border: "1px solid #484d57",
-          width: "45vw",
-          padding: "20px",
-          justifyContent: "space-between",
-          borderRadius: "16px",
-        }
-      : {
-          //selected metamask on mobile styling
-          border: "1px solid #484d57",
-          width: "100%",
-          padding: "20px 4px",
-          borderRadius: "16px",
-        }
-    : {}
-}
-    onClick={() =>
-      metaMask
-        .activate(97)
-        .then((res) => {
-          console.log(res);
-          store.dispatch(DEFAULT_CONNECTOR("metamask"));
-        })
-        .catch((err) => {
-          console.log(err);
-        }) && setSelected("metamask")
-    }
-  >
-    <div>
-      {selected === "metamask" ? (
-        <img src="/images/Walletconnected.svg" />
-      ) : (
-        <img src="/images/Metamask.svg" />
-      )}
-      <Text24 type="submit">Metamask Wallet</Text24>
-    </div>
-
-    {selected === "metamask" && !isMobilee ? (
-      <img src="/images/Staticlogos/Arrow.svg" />
-    ) : null}
-  </WalletWrapper>
-  <WalletWrapper
-      key="parent"
-      initial={
-        selected === "walletconnect"
-          ? {
-              border: "none ",
-              opacity: 0,
-            }
-          : {}
-      }
-      animate={
-        selected === "walletconnect"
-          ? {
-              border: "1px solid #484D57 ",
-              opacity: 1,
-            }
-          : { border: "none " }
-      }
-      transition={selected === "walletconnect" ? { duration: 0.2 } : {}}
-      style={
-        selected === "walletconnect"
-          ? !isMobilee
-            ? {
-                //selected metamask && desktop styling
-                border: "1px solid #484d57",
-                width: "45vw",
-                padding: "20px",
-                justifyContent: "space-between",
-                borderRadius: "16px",
-              }
-            : {
-                //selected metamask && mobile styling
-                border: "1px solid #484d57",
-                width: "100%",
-                padding: "20px 4px",
-                borderRadius: "16px",
-              }
-          : {}
-      }
-      onClick={
-        () => setSelected("walletconnect")
-        // walletConnect
-        //   .activate(97)
-        //   .then((res) => {
-        //     console.log(res);
-        //     store.dispatch(DEFAULT_CONNECTOR("walletconnect"));
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   }) && setSelected("walletconnect")
-      }
-    >
-      <div>
-        {selected === "walletconnect" ? (
-          <img src="/images/Walletconnected.svg" />
-        ) : (
-          <img src="/images/Walletconnect.svg" />
-        )}
-        <Text24>Wallet Connect</Text24>
-      </div>
-      {selected === "walletconnect" && !isMobilee ? (
-        <img src="/images/Staticlogos/Arrow.svg" />
-      ) : null}
-    </WalletWrapper>
+          <CoinbaseButton selected={selected} setSelected={setSelected} />
+          <MetamaskButton selected={selected} setSelected={setSelected} />
+          <WalletConnectButton selected={selected} setSelected={setSelected} />
         </Flex>
         <AnimatePresence>
           <div>
-            {/* {selected === "" && (
+            {selected === "" && (
               <Side
                 key="parent"
                 initial="closed"
@@ -366,9 +180,9 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               >
                 <motion.img src="/images/coinwallet.png" />
               </Side>
-            )} */}
+            )}
 
-            {/* {selected !== "" && ( */}
+            {selected !== "" && (
               <Side
                 key="child"
                 initial="closed"
@@ -377,7 +191,7 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
               >
                 <Terms />
               </Side>
-            {/* )} */}
+            )}
           </div>
         </AnimatePresence>
         {/* <img src="/images/coinwallet.png" alt="coinwallet" /> */}

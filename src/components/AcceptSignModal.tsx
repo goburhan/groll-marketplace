@@ -6,23 +6,15 @@ import Fade from "@mui/material/Fade";
 import { BlueButton, Transparent } from "./StyledComponents/Button";
 import styled from "styled-components";
 import signLogin, {
-  DEFAULT_CONNECTOR,
   selectConnector,
   userLogin,
 } from "../actions/wallet/walletSlice";
 import { connect, useDispatch, useSelector } from "react-redux";
 import store from "../app/store";
-import { useWeb3React, Web3ReactHooks } from "@web3-react/core";
-import {
-  hooks as coinbaseWalletHooks,
-  coinbaseWallet,
-} from "../connectors/coinbasewallet";
-import { hooks as metaMaskHooks, metaMask } from "../connectors/metamask";
-import {
-  hooks as walletConnectHooks,
-  walletConnect,
-} from "../connectors/walletconnect";
+import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
+import { getDefaultConnector } from "../app/hooks";
+import { useState } from "react";
 
 const style = {
   position: "absolute",
@@ -56,31 +48,14 @@ const Flex = styled(Box)`
   }
 `;
 function AcceptSignModal(props: any) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const context = useWeb3React();
   const accounts = getDefaultConnector().useAccounts();
-  console.log(accounts);
   const dispatch = useDispatch();
   const defaultConnector = useSelector(selectConnector);
 
-  function getDefaultConnector(): Web3ReactHooks {
-    switch (defaultConnector) {
-      case "metamask":
-        return metaMaskHooks;
-        break;
-      case "coinbase":
-        return coinbaseWalletHooks;
-        break;
-      case "walletconnect":
-        return walletConnectHooks;
-        break;
-
-      default:
-        return metaMaskHooks;
-    }
-  }
 
   let provider = new ethers.providers.Web3Provider(
     context.provider ? context.provider.provider : window.ethereum
