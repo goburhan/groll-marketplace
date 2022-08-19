@@ -14,7 +14,7 @@ import { PrevNextButton } from "../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
   text-align: center;
-  margin: 66px 150px 60px 150px;
+  margin: 60px 140px 62px 140px;
 
   .slick-prev:before {
     display: none;
@@ -30,18 +30,19 @@ const NftContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 100px 0rem 0px 3rem;
+    margin: 100px 0px;
+    padding:0px 32px;
     width: 100%;
 
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
-      margin-top: -20px;
+      margin-top: -4px;
       top: 0;
       bottom: 0;
     }
     .slick-next {
-      margin-top:-20px;
+      margin-top: -4px;
       margin-right: 14%;
       top: 0;
     }
@@ -51,6 +52,7 @@ const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  gap:0px 20px;
 `;
 
 export default function AllItems() {
@@ -85,7 +87,7 @@ export default function AllItems() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1.04,
           slidesToScroll: 1,
         },
       },

@@ -8,12 +8,17 @@ import UpComing from "./Upcoming";
 import TopArtists from "./TopArtist/TopArtists";
 import TopCollectors from "./TopCollectors";
 import TopInfluencer from "./TopInfluencers";
+import styled from "styled-components";
 export default function () {
+
+const HomeWrapper  = styled.div `
+ 
+`
 
 
 
   return (
-    <div>
+    <>
       <Slider />
       <TopCollection />
       <AllItems />
@@ -21,7 +26,7 @@ export default function () {
       <UpComing />
       <TopInfluencer />
       <TopArtists />
-      <TopCollectors />
-    </div>
+      {/* <TopCollectors /> */}
+    </>
   );
 }

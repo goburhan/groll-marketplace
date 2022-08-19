@@ -26,18 +26,19 @@ const NftContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 12px 0rem 0px 3rem;
+    margin: 12px 0px;
+    padding:0px 32px;
     width: 100%;
 
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
-      margin-top: 10%;
+      margin-top: 16px;
       top: 0;
       bottom: 0;
     }
     .slick-next {
-      margin-top: 10%;
+      margin-top: 16px;
       margin-right: 14%;
       top: 0;
     }
@@ -52,7 +53,7 @@ const NftContainer = styled.div`
 const TitleWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
-    margin-top: -36px;
+    margin-top: -52px;
   }
 `;
 export default function VisualArt() {
@@ -86,7 +87,7 @@ export default function VisualArt() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1.02,
           slidesToScroll: 1,
           initialSlide: 0,
         },

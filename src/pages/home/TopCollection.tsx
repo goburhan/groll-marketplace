@@ -14,6 +14,7 @@ import PriceSelector from "../../components/Selectors/PriceSelector";
 import Dropdown from "../../components/Dropdown";
 import Link from "next/link";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
+
 const NftContainer = styled.div`
   text-align: center;
   margin: 60px 140px 62px 140px;
@@ -32,18 +33,19 @@ const NftContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 100px 0rem 0px 3rem;
+    margin: 100px 0px;
+    padding:0px 32px;
     width: 100%;
 
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
-      margin-top: -20px;
+      margin-top: -4px;
       top: 0;
       bottom: 0;
     }
     .slick-next {
-      margin-top: -20px;
+      margin-top: -4px;
       margin-right: 14%;
       top: 0;
     }
@@ -108,7 +110,7 @@ export default function TopCollection() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1.06,
           slidesToScroll: 1,
         },
       },

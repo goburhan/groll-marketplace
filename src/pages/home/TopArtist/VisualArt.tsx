@@ -30,7 +30,8 @@ const NftContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 60px 0rem 0px 3rem;
+    margin: 60px 0px;
+    padding:0px 32px;
     width: 100%;
 
     .slick-prev {
@@ -47,13 +48,7 @@ const NftContainer = styled.div`
     }
   }
 `;
-const Slidebox = styled.div`
-  text-color: white;
-  margin-top: 36px;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-top: 0px;
-  }
-`;
+
 
  const Flex = styled.div`
   display: flex;
@@ -95,7 +90,7 @@ export default function VisualArt() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1.02,
           slidesToScroll: 1,
           initialSlide: 0,
         },
@@ -105,7 +100,7 @@ export default function VisualArt() {
   const PrevArrow = styled.div`
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: absolute;
-      height: 20px;
+      top:60px;
     }
   `;
 

@@ -7,10 +7,9 @@ import Bg from "./nftexample.svg";
 
 const NftContainer = styled.div`
   background: ${({ theme }) => theme.card};
-  max-width: 620px;
+  max-width: 608px;
   border-radius: 18px;
   margin-top: 6vh;
-  margin-right: 20px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     img {
     }

@@ -17,7 +17,7 @@ const TopArtistContainer = styled.div`
 const PrevArrow = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
-    margin-left:3rem;
+    margin-left:32px;
   } 
 `;
 export default function TopArtists() {

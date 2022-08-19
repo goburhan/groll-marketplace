@@ -5,7 +5,6 @@ import { Text22, Text14 } from "../../StyledComponents/Text";
 const NftContainer = styled.div`
   max-width: 376px;
   position: relative;
-  border: 1px solid transparent;
   border-radius: 25px;
   margin: 72px 16px 0px 16px;
   background: ${({ theme }) => theme.card};
@@ -24,11 +23,11 @@ const Box = styled.div<Nft>`
   background-image: url(${({ img }) => img});
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   padding: 54px;
   position: absolute;
   border: 1px solid white;
   border-radius: 50%;
-  width: auto;
   left: 50%;
   margin-left: -54px;
   top: 50%;

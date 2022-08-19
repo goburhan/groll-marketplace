@@ -10,22 +10,20 @@ const NftContainer = styled.div`
   text-align: center;
   margin-top: 72px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-left: 3rem;
+    padding:0px 32px;
   }
 `;
 const Flex = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 376px);
   justify-content: center;
-  grid-
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    flex-direction: column;
   }
 `;
 const nft = [
-  { name: "/images/Nft/Hot1.svg" },
-  { name: "/images/Nft/Hot2.svg" },
-  { name: "/images/Nft/Hot3.svg" },
+  { name: "/images/Nft/hot1.svg" },
+  { name: "/images/Nft/hot2.svg" },
+  { name: "/images/Nft/hot3.svg" },
 ];
 
 export default function HotCollections() {

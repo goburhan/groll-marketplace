@@ -17,7 +17,7 @@ const Slidebox = styled.div`
 const SliderWrapper = styled.div`
   width: 100%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 112vw;
+    width: 100vw;
   }
 `;
 

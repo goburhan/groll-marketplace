@@ -73,7 +73,7 @@ const Box = styled.div`
   text-align: center;
 `;
 const Footer = styled.div`
-  min-width: 100vw;
+  min-width: 100%;
   height: 620px;
   background: ${({ theme }) => theme.footer};
   padding: 20px 0px 20px 0px;

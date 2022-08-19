@@ -18,7 +18,7 @@ const NftContainer = styled.div`
   border-radius: 25px;
   background: ${({ theme }) => theme.card};
   @media (max-width: ${({ theme }) => theme.mobile}) {
-   margin-top:82px;
+   margin-top:70px;  //its start top of the text 28px text + 42px wanted gap
    max-width: 300px;
 `;
 interface Nft {
