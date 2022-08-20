@@ -45,12 +45,14 @@ const Flex = styled.div`
 
   margin: 0 10% 0 5%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 0px;
   }
 `;
 const AppBar1 = styled(AppBar)`
   margin: 48px 10% 0 9%;
   border: 1px solid transparent;
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 44px 0 0 0;
   }
 `;
 const Tabs1 = styled(Tabs)`
@@ -60,6 +62,7 @@ const Tabs1 = styled(Tabs)`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    width:100vw;
   }
 `;
 
@@ -98,10 +101,12 @@ export default function SectionSelectButtons() {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
+          variant="scrollable"
+          
           // style={{textColor:"white"}}
         >
           <Tab
-            style={{ border: "1px solid transparent", fontSize: 18 }}
+            style={{ border: "1px solid transparent", fontSize: 18 ,}}
             label="CREATED"
             {...a11yProps(0)}
           />
@@ -136,7 +141,6 @@ export default function SectionSelectButtons() {
  
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        gokhan
       </TabPanel>
     </Box>
   );

@@ -10,8 +10,8 @@ export default function Profile() {
   `;
   return (
     <Flex>
-      <Header></Header>
-      {/* <SectionSelectButtons /> */}
+      <Header />
+      <SectionSelectButtons /> 
     </Flex>
   );
 }

@@ -30,7 +30,7 @@ export default function PriceSelector() {
     width: 20%;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       margin-top: 2%;
-      margin-right: 3rem;
+      margin-right: 0px;
       width: 88vw;
       z-index: -1;
     }

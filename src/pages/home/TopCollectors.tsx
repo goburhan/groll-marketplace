@@ -105,7 +105,7 @@ export default function TopCollectors() {
 
       <Slider {...settings}>
       {icons.map((icon) => (
-          <TopArtistCard nft={icon.name} />
+          <TopArtistCard nft={icon.name}  />
         ))}
       </Slider>
     </NftContainer>

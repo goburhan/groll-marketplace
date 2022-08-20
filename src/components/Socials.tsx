@@ -15,10 +15,12 @@ const Flex = styled.div`
   border: 1px solid #484d57;
   padding: 8px 16px 8px 16px;
   width: max-content;
-  margin-top:8px;
   gap: 16px;
   img {
     max-width: 24px;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+
   }
 `;
 

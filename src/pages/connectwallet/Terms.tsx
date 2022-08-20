@@ -6,6 +6,7 @@ import { Transparent } from "../../components/StyledComponents/Button";
 import AcceptSignModal from "../../components/AcceptSignModal";
 import CustomizedCheckbox from "./Checkbox";
 import { motion } from "framer-motion";
+import { Title } from ".";
 
 export default function Terms() {
   const [checked, setChecked] = React.useState(true);
@@ -23,6 +24,7 @@ export default function Terms() {
   const Flex = styled(motion.div)`
     width: 80%;
     display: flex;
+    position: absolute;
     flex-direction: column;
     text-align: left;
     div {
@@ -33,6 +35,7 @@ export default function Terms() {
     }
     @media (max-width: ${({ theme }) => theme.mobile}) {
       width: 100%;
+      position: initial;
     }
   `;
 
@@ -64,9 +67,9 @@ export default function Terms() {
 
   return (
     <Flex>
-      <Text40 color={({ theme }) => theme.titles} letterSpacing="-0.03em">
+      <Title color={({ theme }) => theme.titles} letterSpacing="-0.03em">
         Terms of service
-      </Text40>
+      </Title>
       <Text12 style={{ marginTop: "8px", marginBottom: "38px" }}>
         Please take a few minutes to read and understand  &nbsp;
         <span>Stacks Terms of Service.</span> To continue, you’ll need to accept

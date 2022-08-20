@@ -23,3 +23,6 @@ export interface Mo  {
     fontWeight?: string;
     margin?: string;
 }
+export interface Card  {
+    volume? : string;
+}

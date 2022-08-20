@@ -3,11 +3,8 @@ import styled from "styled-components";
 import PriceContainer from "../PriceContainer";
 import Profile from "../Profile";
 import { Vdivider } from "../../StyledComponents/Divider";
-import {
-
-  Text18,
-  Text14,
-} from "../../StyledComponents/Text";
+import { Text18, Text14 } from "../../StyledComponents/Text";
+import { Card } from "../../../app/types";
 
 const NftContainer = styled.div`
   min-width: 300px;
@@ -75,7 +72,7 @@ const Container = styled.div`
     max-width: 18px;
   }
 `;
-export default function TopArtistCard({ nft }) {
+export default function TopArtistCard({ nft } , { volume }:Card ) {
   return (
     <NftContainer>
       <NftWrapper img={nft} />
@@ -120,6 +117,22 @@ export default function TopArtistCard({ nft }) {
             Items
           </Text14>
         </Container>
+        {volume !== null ? (
+          <>
+            <Vdivider height="30px" />
+            <Container>
+              <Text14
+                color={({ theme }) => theme.cardTitle}
+                letterSpacing="-0.01em"
+              >
+                25
+              </Text14>
+              <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+                Items
+              </Text14>
+            </Container>
+          </>
+        ) : null}
       </Flex>
     </NftContainer>
   );

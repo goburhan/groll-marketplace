@@ -31,18 +31,18 @@ const NftContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: 100px 0rem 0px 3rem;
+    margin: 92px 0px 0px 0px;
     width: 100%;
 
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
-      margin-top: 3%;
+      margin-top: -20px;
       top: 0;
       bottom: 0;
     }
     .slick-next {
-      margin-top: 3%;
+      margin-top: -20px;
       margin-right: 14%;
       top: 0;
     }
@@ -57,6 +57,12 @@ const Slidebox = styled.div`
   text-color: white;
 `;
 
+const TitleWrapper = styled(HomeTitleWrapper)`
+@media (max-width: ${({ theme }) => theme.mobile}) {
+  position: absolute;
+  margin-top: -48px;
+}
+`
 export default function AllItems() {
   const isMobilee = WindowSize();
 
@@ -71,26 +77,43 @@ export default function AllItems() {
     arrows: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1490,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1224,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1.1,
+          slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.2,
+          slidesToShow: 1.02,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
     ],
@@ -121,9 +144,12 @@ export default function AllItems() {
     </NftContainer>
   ) : (
     <NftContainer>
-      <HomeTitleWrapper>
-        <Text40 color={({ theme }) => theme.titles}> All items</Text40>
-      </HomeTitleWrapper>
+      <TitleWrapper>
+        <Text40 color={({ theme }) => theme.titles}>
+          {" "}
+          Space <br /> Collections
+        </Text40>
+      </TitleWrapper>
 
       <Slider {...settings}>
         {nft.map((nfts) => (

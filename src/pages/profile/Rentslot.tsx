@@ -4,6 +4,8 @@ import {
   BlueButton,
   SliderButton,
 } from "../../components/StyledComponents/Button";
+import Slider from "react-slick";
+import { WindowSize } from "../../hooks/useWindowsize";
 
 export default function Rentslot() {
   interface Bg {
@@ -17,6 +19,7 @@ export default function Rentslot() {
     padding: 28px;
     gap: 4px;
     flex-direction: column;
+    max-width: 124px;
     color: white;
     place-content: center;
     place-items: center;
@@ -31,8 +34,9 @@ export default function Rentslot() {
     background-image: url(${({ img }) => img});
     border: 1px solid #f39a14;
     border-radius: 25px;
+    background-repeat: no-repeat;
     min-height: 120px;
-    width: 124px;
+    min-width: 124px;
     flex-direction: column;
     color: white;
     place-content: center;
@@ -40,6 +44,11 @@ export default function Rentslot() {
     img {
       max-width: 40px;
     }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      max-width: 124px;
+    }
+
+    
   `;
   const BoxWrapper = styled.div`
     display: flex;
@@ -48,9 +57,59 @@ export default function Rentslot() {
     bottom: 20px;
     right: 160px;
     align-items: flex-end;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      position: initial;
+      width: 100%;
+    }
   `;
-  
-  return (
+
+  const StyledSlider= styled(Slider)`
+    display: flex;
+    align-items: flex-end;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      position: initial;
+      width: 100vw;
+    }
+  `;
+  const settings = {
+    infinite: false,
+    speed: 250,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1490,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow:2.4,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+    ],
+  };
+
+ 
+const isMobilee = WindowSize()
+  return !isMobilee ? (
     <BoxWrapper>
       <Rented img="/images/Staticlogos/Rentbg.svg" />
       <Rented img="/images/Staticlogos/Rentbg2.svg"></Rented>
@@ -64,5 +123,24 @@ export default function Rentslot() {
       </Rentslot>
       <SliderButton style={{border:"1px solid #fff"}} color="#fff">3D Gallery</SliderButton>
     </BoxWrapper>
+  ) : (
+    <BoxWrapper>
+    <StyledSlider {...settings}>
+      <Rented img="/images/Staticlogos/Rentbg.svg" />
+      <Rented img="/images/Staticlogos/Rentbg2.svg"/>
+      <Rentslot>
+        <img src="/images/Icons/Addrent.svg" alt="rent" />
+        Rentslot
+      </Rentslot>
+      <Rentslot>
+        <img src="/images/Icons/Addrent.svg" alt="rent" />
+        Rentslot
+      </Rentslot>
+      <SliderButton style={{ border: "1px solid #fff" }} color="#fff">
+        3D Gallery
+      </SliderButton>
+      
+    </StyledSlider>
+  </BoxWrapper>
   );
 }

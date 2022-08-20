@@ -24,7 +24,7 @@ const NavLink = styled(motion.li)`
 
   a {
     text-decoration: none;
-    color: #444;
+    color: #fff;
     font-size: 20px;
     transition: all 200ms ease-in-out;
   }
@@ -69,7 +69,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">Home</a>
+          <a href="/profile">Profile</a>
         </NavLink>
         <NavLink
           initial={false}
@@ -117,7 +117,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">About</a>
+          <a href="/profile">Profile</a>
         </NavLink>
         <NavLink
           initial={false}

@@ -65,7 +65,9 @@ const ConnectWalletContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    padding: 0px 32px 32px 32px;
+    padding: 0px 62px 32px 32px;
+    place-content: center;
+
   }
 `;
 const Box = styled(motion.div)`
@@ -79,17 +81,19 @@ const Box = styled(motion.div)`
   }
 `;
 
-const Side = styled(motion.div)`
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    img {
-      width: 320px;
-    }
-  }
-`;
-const Title = styled(Text40)`
+
+export const Title = styled(Text40)`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     font-size: 36px;
   }
+`;
+const Side = styled(motion.div)`
+@media (max-width: ${({ theme }) => theme.mobile}) {
+  img {
+    width:300px;
+  }
+  margin-left:-28px;
+}
 `;
 
 export default function ConnectWallet({ isOpen, closeModal }: any) {
@@ -110,7 +114,6 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
     closed: {
       opacity: 1,
       transition: {
-        when: "afterChildren",
         duration: 0.5,
       },
     },
@@ -128,15 +131,17 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
   let xvalue = "3vw";
 
   if (isMobilee) {
-    xvalue = "0vw";
+    xvalue = "11vw";
     mobileWith = "100%";
   }
 
   const ChildVariants = {
     closed: {
       opacity: 0,
+      width: mobileWith,
+      x:"-700px",
       transition: {
-        duration: 0.4,
+        duration: 1,
       },
     },
 
@@ -144,8 +149,9 @@ export default function ConnectWallet({ isOpen, closeModal }: any) {
       opacity: 1,
       width: mobileWith,
       x: xvalue,
+      y: "0",
       transition: {
-        duration: 0.3,
+        duration: 0.4,
       },
     },
 

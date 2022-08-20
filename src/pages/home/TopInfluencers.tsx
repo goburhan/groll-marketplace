@@ -3,7 +3,10 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HomeTitleWrapper, Text40 } from "../../components/StyledComponents/Text";
+import {
+  HomeTitleWrapper,
+  Text40,
+} from "../../components/StyledComponents/Text";
 import { WindowSize } from "../../hooks/useWindowsize";
 import TopArtistCard from "../../components/NftCards/Cards/TopArtistCard";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
@@ -27,7 +30,7 @@ const NftContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0px;
-    padding:0px 32px;
+    padding: 0px 32px;
     width: 100%;
     ${HomeTitleWrapper} {
       margin-top: 0px;
@@ -50,12 +53,11 @@ const Flex = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   flex-wrap: wrap;
-  gap:16px;
+  gap: 16px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }
 `;
-
 
 export default function () {
   const settings = {

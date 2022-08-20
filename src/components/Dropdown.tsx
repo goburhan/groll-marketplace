@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Text12 } from "./StyledComponents/Text";
 
-const DropDownContainer = styled("div")`
+interface Props {
+  mr?: string;
+}
+const DropDownContainer = styled("div")<Props>`
   width: 19.5em;
   margin: 0 auto;
   text-align: left;
   line-height: 30px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-right: 3rem;
+    margin-right: 0rem;
     width: 88vw;
   }
 `;
