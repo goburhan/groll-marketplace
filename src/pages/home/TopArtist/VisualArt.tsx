@@ -4,18 +4,12 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TopArtistCard from "../../../components/NftCards/Cards/TopArtistCard";
-import {
-
-  Text32,
-  Text14,
-} from "../../../components/StyledComponents/Text";
+import { Text32, Text14 } from "../../../components/StyledComponents/Text";
 import { PrevNextButton } from "../../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
-  display: block;
   text-align: left;
   align-items: flex-start;
-
   .slick-prev:before {
     display: none;
     position: absolute;
@@ -31,7 +25,7 @@ const NftContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 60px 0px;
-    padding:0px 32px;
+    padding: 0px 32px;
     width: 100%;
 
     .slick-prev {
@@ -49,8 +43,11 @@ const NftContainer = styled.div`
   }
 `;
 
+const CardWrapper = styled.div`
+  display: flex;
+`;
 
- const Flex = styled.div`
+const Flex = styled.div`
   display: flex;
   margin-top: 50px;
   flex-direction: ${(props) => props.dir};
@@ -98,10 +95,10 @@ export default function VisualArt() {
     ],
   };
   const TitleWrapper = styled.div`
-  margin-bottom:32px;
+    margin-bottom: 32px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: absolute;
-      top:60px;
+      top: 60px;
     }
   `;
 
@@ -111,19 +108,29 @@ export default function VisualArt() {
     { name: "/images/Nft/3.svg" },
     { name: "/images/Nft/4.svg" },
     { name: "/images/Nft/5.svg" },
+    { name: "/images/Nft/3.svg" },
+    { name: "/images/Nft/4.svg" },
+    { name: "/images/Nft/5.svg" },
   ];
   return (
     <NftContainer>
       <TitleWrapper>
         <Flex dir="column">
           <Text32>Visual Art</Text32>
-          <Text14 color={({ theme }) => theme.filterText} letterSpacing="-0.01em">Some visual art from the gallery</Text14>
+          <Text14
+            color={({ theme }) => theme.filterText}
+            letterSpacing="-0.01em"
+          >
+            Some visual art from the gallery
+          </Text14>
         </Flex>
       </TitleWrapper>
 
       <Slider {...settings}>
-      {icons.map((icon) => (
+        {icons.map((icon) => (
+          <CardWrapper>
             <TopArtistCard nft={icon.name} />
+          </CardWrapper>
         ))}
       </Slider>
     </NftContainer>

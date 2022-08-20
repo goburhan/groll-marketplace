@@ -10,7 +10,8 @@ import {
 } from "../../StyledComponents/Text";
 
 const NftContainer = styled.div`
-  max-width: 284px;
+  min-width: 300px;
+  max-width: 301px;
   height: 400px;
   position: relative;
   border: 1px solid transparent;

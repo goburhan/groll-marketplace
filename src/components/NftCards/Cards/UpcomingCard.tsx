@@ -6,7 +6,7 @@ import { Text22 } from "../../StyledComponents/Text";
 import bg from "./1.png";
 
 const NftContainer = styled.div`
-  max-width: 280px;
+  min-width: 300px;
   height: 457px;
   position: relative;
   border: 1px solid transparent;

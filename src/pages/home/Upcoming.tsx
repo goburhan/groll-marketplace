@@ -13,8 +13,7 @@ import { PrevNextButton } from "../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
   text-align: center;
-  margin: 60px 140px 62px 140px;
-
+  margin: 62px 162px;
   .slick-prev:before {
     display: none;
     position: absolute;
@@ -48,10 +47,13 @@ const NftContainer = styled.div`
   }
 `;
 const Flex = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  justify-content: center;
-  align-items: center;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, 300px);
+  // justify-content: center;
+  // align-items: center;
+  display:flex;
+
+  gap: 22px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }

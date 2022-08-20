@@ -14,7 +14,7 @@ import { PrevNextButton } from "../../components/StyledComponents/Button";
 
 const NftContainer = styled.div`
   text-align: center;
-  margin: 60px 140px 62px 140px;
+  margin: 62px 160px;
 
   .slick-prev:before {
     display: none;
