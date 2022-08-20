@@ -29,7 +29,9 @@ const NftContainer = styled.div`
     margin: 100px 0px;
     padding:0px 32px;
     width: 100%;
-
+    ${HomeTitleWrapper} {
+      margin-top: 0px;
+    }
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
@@ -45,12 +47,10 @@ const NftContainer = styled.div`
   }
 `;
 const Flex = styled.div`
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, 300px);
-    display:flex;
-  justify-content: center;
-  align-items: center;
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  flex-wrap: wrap;
+  gap:16px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }

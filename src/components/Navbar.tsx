@@ -97,7 +97,7 @@ export default function Navbar() {
     text {
       cursor: pointer;
     }
-    @media (max-width: ${({ theme }) => theme.mobile}) {
+    @media (max-width: ${({ theme }) => theme.tablet}) {
       justify-content: space-around;
       display: none;
     }

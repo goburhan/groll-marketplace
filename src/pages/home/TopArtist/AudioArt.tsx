@@ -69,12 +69,27 @@ export default function VisualArt() {
     arrows: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1490,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true,
+        },
+      },
+      {
+        breakpoint: 1224,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
         },
       },
       {

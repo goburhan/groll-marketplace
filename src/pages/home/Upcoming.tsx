@@ -52,8 +52,8 @@ const Flex = styled.div`
   // justify-content: center;
   // align-items: center;
   display:flex;
-
-  gap: 22px;
+  flex-wrap: wrap;
+  gap: 16px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
   }

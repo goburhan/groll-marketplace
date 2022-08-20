@@ -33,16 +33,18 @@ const NftContainer = styled.div`
     margin: 100px 0px;
     padding: 0px 32px;
     width: 100%;
-
+    ${HomeTitleWrapper} {
+      margin-top: -70px;
+    }
     .slick-prev {
       margin-left: 82%;
       z-index: 1;
-      margin-top: -4px;
+      margin-top: -52px;
       top: 0;
       bottom: 0;
     }
     .slick-next {
-      margin-top: -4px;
+      margin-top: -52px;
       margin-right: 14%;
       top: 0;
     }

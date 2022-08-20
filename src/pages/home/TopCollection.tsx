@@ -91,26 +91,43 @@ export default function TopCollection() {
     nextArrow: <PrevNextButton img="/images/Staticlogos/Arrow.svg" />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1490,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true,
+        },
+      },
+      {
+        breakpoint: 1224,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1.1,
+          slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.06,
+          slidesToShow: 1.02,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
     ],

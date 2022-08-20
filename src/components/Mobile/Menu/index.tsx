@@ -12,7 +12,7 @@ interface Hamb {
 
 const HamburgerMenuContainer = styled.div<Hamb>`
   display: none;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
+  @media (max-width: ${({ theme }) => theme.tablet}) {
     display: block;
     position: absolute;
     right: 32px;
@@ -39,12 +39,7 @@ const ContentContainer = styled.div`
   margin-top: 1em;
 `;
 
-const Box = styled.div`
-  display: flex;
-  grid-template-columns: 1fr;
-  width: 100%;
-  background: black;
-`;
+
 
 const menuVariants = {
   open: (height = 1000) => ({
