@@ -12,7 +12,6 @@ import {
 const NftContainer = styled.div`
   max-width: 284px;
   height: 400px;
-  margin-top:32px;
   position: relative;
   border: 1px solid transparent;
   border-radius: 25px;

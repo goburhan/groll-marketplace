@@ -10,6 +10,7 @@ interface Area {
   justifyContent?: string;
   wrap?: string;
   display?: string;
+  mMargin?: string;
 }
 interface Grid {
   columns?: string;
@@ -29,6 +30,7 @@ export const Flex = styled.div<Area>`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     display: ${(props) => props.display};
+    margin: ${(props) => props.mMargin};
   }
 `;
 export const Grid = styled.div<Grid>`

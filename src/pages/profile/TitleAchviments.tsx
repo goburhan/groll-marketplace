@@ -3,14 +3,8 @@ import { Flex } from "../../components/StyledComponents/Flex";
 import styled from "styled-components";
 
 export default function TitleAchviments() {
-  const Text = styled.text`
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 31px;
-    color: ${({ theme }) => theme.blue};
-    letter-spacing: -0.01em;
-   
-  `;
+  
+ 
 
   const icons = [
     {
@@ -32,15 +26,26 @@ export default function TitleAchviments() {
   const Badges = styled.div`
     display: flex;
     gap: 8px;
-    margin-left:12px;
+    margin-left: 12px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+    }
   `;
+  const Text = styled.text`
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 31px;
+  color: ${({ theme }) => theme.blue};
+  letter-spacing: -0.01em;
+ 
+`;
+
   return (
-    <Flex>
+    <Flex mMargin="0 auto">
       <Text>Artist</Text>
       <Badges>
         {icons.map((icon) => (
           <img
-          style={{maxWidth:28}}
+            style={{ maxWidth: 28 }}
             src={`/images/Icons/Achievements/${icon.name}.svg`}
             alt="achievements"
           />

@@ -97,7 +97,8 @@ export default function VisualArt() {
       },
     ],
   };
-  const PrevArrow = styled.div`
+  const TitleWrapper = styled.div`
+  margin-bottom:32px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: absolute;
       top:60px;
@@ -113,12 +114,12 @@ export default function VisualArt() {
   ];
   return (
     <NftContainer>
-      <PrevArrow>
+      <TitleWrapper>
         <Flex dir="column">
           <Text32>Visual Art</Text32>
           <Text14 color={({ theme }) => theme.filterText} letterSpacing="-0.01em">Some visual art from the gallery</Text14>
         </Flex>
-      </PrevArrow>
+      </TitleWrapper>
 
       <Slider {...settings}>
       {icons.map((icon) => (

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Text40 } from "../../components/StyledComponents/Text";
+import { HomeTitleWrapper, Text40 } from "../../components/StyledComponents/Text";
 import { WindowSize } from "../../hooks/useWindowsize";
 import TopArtistCard from "../../components/NftCards/Cards/TopArtistCard";
 import { PrevNextButton } from "../../components/StyledComponents/Button";
@@ -53,13 +53,7 @@ const Flex = styled.div`
     flex-direction: column;
   }
 `;
-const TitleWrapper = styled.div`
-margin-bottom:40px;
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    position: absolute;
-    margin-bottom:20px;
-  }
-`;
+
 
 export default function () {
   const settings = {
@@ -136,9 +130,9 @@ export default function () {
   ];
   return !isMobilee ? (
     <NftContainer>
-      <TitleWrapper>
+      <HomeTitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>Top influencers</Text40>
-      </TitleWrapper>
+      </HomeTitleWrapper>
       <Flex>
         {icons.map((icon) => (
           <TopArtistCard nft={icon.name} />
@@ -147,9 +141,9 @@ export default function () {
     </NftContainer>
   ) : (
     <NftContainer>
-      <TitleWrapper>
+      <HomeTitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>Top influencers</Text40>
-      </TitleWrapper>
+      </HomeTitleWrapper>
       <Slider {...settings}>
         {icons.map((icon) => (
           <TopArtistCard nft={icon.name} />

@@ -30,7 +30,7 @@ const NftContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0px;
-    padding:0px 32px;
+    padding: 0px 32px;
     width: 100%;
 
     .slick-prev {
@@ -93,7 +93,7 @@ export default function () {
     ],
   };
   const TitleWrapper = styled.div`
-    margin-bottom: 72px;
+    margin-bottom: 62px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: absolute;
       margin-bottom: 23px;
@@ -111,9 +111,11 @@ export default function () {
   ];
   return !isMobilee ? (
     <NftContainer>
+      <TitleWrapper>
         <Text40 color={({ theme }) => theme.titles}>
           Upcoming collections
         </Text40>
+      </TitleWrapper>
       <Flex>
         {nft.map((nfts) => (
           <UpcomingCard nft={nfts.name} />

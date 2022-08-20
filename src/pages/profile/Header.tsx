@@ -9,11 +9,6 @@ import TitleAchviments from "./TitleAchviments";
 import Rentslot from "./Rentslot";
 import { fullImageUrl } from "../../app/hooks";
 
-const Bottom = styled.div`
-  position: absolute;
-  bottom: 20px;
-`;
-
 const ProfilPic = styled.div<prop>`
   background-image: url(${({ img }) => img});
   background-size: 100% 100%;
@@ -21,6 +16,9 @@ const ProfilPic = styled.div<prop>`
   border-radius: 50px;
   height: 100px;
   width: 100px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 0 auto;
+  }
 `;
 
 interface prop {
@@ -37,6 +35,12 @@ const Flex = styled.div<prop>`
   place-content: ${(props) => props.content};
   margin-block: ${(props) => props.mb};
   gap: ${(props) => props.gap};
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 
 const HeaderWrapper = styled.div<prop>`
@@ -49,6 +53,10 @@ const HeaderWrapper = styled.div<prop>`
   background-repeat: no-repeat;
   max-height: 580px;
   min-height: 580px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 0px;
+    background-size: cover;
+  }
 `;
 
 export default function Header() {
@@ -73,9 +81,7 @@ export default function Header() {
         <Text16 color={({ theme }) => theme.white} fontWeight="400">
           Dada loving documentarist and multidisciplinary artist living in Dada
           loving documentarist and multidisciplinary artist living in Dada
-          loving documentarist and multidisciplinary artist living in Dada
-          loving documentarist and multidisciplinary artist living in Dada
-          loving documentarist and multidisciplinary artist living in
+          
         </Text16>
 
         <Text18 color={({ theme }) => theme.gray}>
@@ -91,7 +97,7 @@ export default function Header() {
         </Flex>
         <Statistics />
       </Flex>
-      <Rentslot />
+      {/* <Rentslot /> */}
     </HeaderWrapper>
   );
 }

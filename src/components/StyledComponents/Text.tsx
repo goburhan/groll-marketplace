@@ -16,6 +16,7 @@ export interface TextProps {
   mobileSize?: string;
 }
 export const HomeTitleWrapper = styled.div`
+  margin-bottom: 62px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     margin-top: -20px;
@@ -92,6 +93,9 @@ export const Text28 = styled.text`
   letter-spacing: -0.01em;
 
   color: ${({ theme }) => theme.white};
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 20px;
+  }
 `;
 export const Text32 = styled.text<TextProps>`
   font-weight: ${(props) => props.fontWeight || "700"};

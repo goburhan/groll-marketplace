@@ -54,7 +54,6 @@ const NftContainer = styled.div`
 
 const Slidebox = styled.div`
   text-color: white;
-  margin-top: 60px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-top: 3rem;
   }

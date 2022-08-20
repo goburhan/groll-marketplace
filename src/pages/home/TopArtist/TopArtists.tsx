@@ -9,7 +9,7 @@ const TopArtistContainer = styled.div`
   position: relative;
   text-align: center;
   flex-direction: column;
-  margin: 8vh 10vw 6vh 10vw;
+  margin: 100px 162px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 38px 0px 0px 0px;
   }

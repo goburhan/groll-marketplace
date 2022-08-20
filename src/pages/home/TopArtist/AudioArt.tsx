@@ -51,6 +51,7 @@ const NftContainer = styled.div`
   margin-top: 50px;
 `;
 const TitleWrapper = styled.div`
+margin-bottom:32px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: absolute;
     margin-top: -52px;

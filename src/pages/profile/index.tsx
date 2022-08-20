@@ -11,7 +11,7 @@ export default function Profile() {
   return (
     <Flex>
       <Header></Header>
-      <SectionSelectButtons />
+      {/* <SectionSelectButtons /> */}
     </Flex>
   );
 }

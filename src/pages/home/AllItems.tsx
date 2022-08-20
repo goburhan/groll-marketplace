@@ -31,7 +31,7 @@ const NftContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0px;
-    padding:0px 32px;
+    padding: 0px 32px;
     width: 100%;
 
     .slick-prev {
@@ -52,7 +52,7 @@ const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap:0px 20px;
+  gap: 60px 20px;
 `;
 
 export default function AllItems() {
@@ -106,11 +106,11 @@ export default function AllItems() {
 
   return !isMobilee ? (
     <NftContainer>
-      <Text40 color={({ theme }) => theme.titles} margin="0px 10px 0px 0px">
-        {" "}
-        All items
-      </Text40>
-
+      <HomeTitleWrapper>
+        <Text40 color={({ theme }) => theme.titles} margin="0px 10px 0px 0px">
+          All items
+        </Text40>
+      </HomeTitleWrapper>
       <Flex>
         <BigItemCard />
         {nft.map((nfts) => (
