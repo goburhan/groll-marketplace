@@ -20,7 +20,6 @@ export default function Rentslot() {
     gap: 4px;
     flex-direction: column;
     max-width: 124px;
-    color: white;
     place-content: center;
     place-items: center;
 
@@ -59,7 +58,7 @@ export default function Rentslot() {
     right: 160px;
     align-items: flex-end;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      position: initial;
+      position: static;
       width: 100%;
       margin-top: 20px;
     }
@@ -67,15 +66,10 @@ export default function Rentslot() {
 
   const StyledSlider = styled(Slider)`
     display: flex;
-    .slick-slide {
-      margin-right: 15px;
-      margin-left: 15px;
-      place-items: center;
-    }
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: initial;
-      width: 100vw;
+      width: 90vw;
 
       .slick-slide {
         margin-right: 0px;
@@ -85,9 +79,9 @@ export default function Rentslot() {
   `;
 
   const StyledButton = styled(SliderButton)`
-
-  @media (max-width: ${({ theme }) => theme.mobile}) {
- 
+    display: flex;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      display: none;
     }
   `;
   const settings = {

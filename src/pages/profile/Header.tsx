@@ -48,7 +48,6 @@ const Flex = styled.div<prop>`
     justify-content: center;
     flex-wrap: wrap;
   }
-
 `;
 const Grid = styled.div<prop>`
   display: grid;
@@ -78,9 +77,22 @@ const HeaderWrapper = styled.div<prop>`
   max-height: 580px;
   min-height: 580px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    padding: 0px;
+    padding: 0px 27px;
     background-size: cover;
     max-height: 1000px;
+  }
+`;
+const EditWrapper = styled.div<prop>`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0px;
+    img{
+      width: 26px;
+    }
   }
 `;
 
@@ -95,6 +107,14 @@ export default function Header() {
     <HeaderWrapper img="/images/Profilebg.svg">
       <Flex mMt="100px">
         <ProfilPic img={avatar} />
+        <EditWrapper>
+          <button>
+            <img src="/images/Icons/EditAvatar.svg" alt="editavatar" />
+          </button>
+          <button>
+            <img src="/images/Icons/EditProfile.svg" alt="editprofile" />
+          </button>
+        </EditWrapper>
         <Flex mb="6px" direction="row">
           <Text40 color={({ theme }) => theme.white}>{user.nickname}</Text40>
           <img
@@ -117,7 +137,7 @@ export default function Header() {
             Follow
           </Transparent>
 
-          <Transparent  display="none" mDisplay="flex" padding="12px 24px">
+          <Transparent display="none" mDisplay="flex" padding="12px 24px">
             3d Gallery
           </Transparent>
           <Socials />
@@ -128,8 +148,6 @@ export default function Header() {
           <Transparent mDisplay="none" padding="12px 24px">
             3d Gallery
           </Transparent>
-
-
         </Flex>
         <Statistics />
         <Rentslot />
