@@ -50,14 +50,13 @@ const AppBar1 = styled(AppBar)`
   }
 `;
 const Tabs1 = styled(Tabs)`
-  margin:0px 4px;
+  margin: 0px 4px;
   button {
     font-weight: 700;
     font-family: "Poppins", normal;
     color: #777e91;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-
   }
 `;
 TabPanel.propTypes = {
@@ -85,7 +84,6 @@ export default function SelectButton() {
     enter: theme.transitions.duration.enteringScreen,
     exit: theme.transitions.duration.leavingScreen,
   };
-
 
   return (
     <Box

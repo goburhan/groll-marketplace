@@ -66,7 +66,9 @@ export default function Rentslot() {
 
   const StyledSlider = styled(Slider)`
     display: flex;
-
+    .slick-slide {
+      margin:0px 26px 0px 0px;
+    }
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: initial;
       width: 90vw;
@@ -80,15 +82,17 @@ export default function Rentslot() {
 
   const StyledButton = styled(SliderButton)`
     display: flex;
+    padding:12px 22px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      display: none;
+      opacity: 0;
     }
   `;
   const settings = {
     speed: 250,
-    slidesToShow: 5,
+    slidesToShow:5,
     infinite: false,
     slidesToScroll: 1,
+    
     variableWidth: true,
     arrows: false,
     responsive: [
@@ -136,7 +140,7 @@ export default function Rentslot() {
           <img src="/images/Icons/Addrent.svg" alt="rent" />
           Rentslot
         </Rentslot>
-        <StyledButton style={{ border: "1px solid #fff" }} color="#fff">
+        <StyledButton  style={{ border: "1px solid #fff" }} color="#fff">
           3D Gallery
         </StyledButton>
       </StyledSlider>

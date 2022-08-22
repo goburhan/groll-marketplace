@@ -43,6 +43,7 @@ export default function PriceSelector() {
           defaultValue={50}
           aria-label="Default"
           valueLabelDisplay="auto"
+          style={{ color: "#00ACFF  " }}
         />
         <Flex>
           <Text14 color={({ theme }) => theme.gray} fontWeight="600">0.01 GULF</Text14>

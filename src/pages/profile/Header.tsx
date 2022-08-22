@@ -141,7 +141,7 @@ export default function Header() {
             3d Gallery
           </Transparent>
           <Socials />
-          <Transparent mDisplay="none" padding="12px 24px">
+          <Transparent mDisplay="none"  padding="12px 24px">
             Follow
           </Transparent>
 
