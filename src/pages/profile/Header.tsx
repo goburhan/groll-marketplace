@@ -28,6 +28,7 @@ interface prop {
   gap?: any;
   content?: any;
   mt?: any;
+  mMt?:any;
 }
 const Flex = styled.div<prop>`
   display: flex;
@@ -40,6 +41,7 @@ const Flex = styled.div<prop>`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
     text-align: center;
+    margin-top: ${(props) => props.mMt};
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -58,6 +60,7 @@ const HeaderWrapper = styled.div<prop>`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 0px;
     background-size: cover;
+    max-height: 1000px;
   }
 `;
 
@@ -70,7 +73,7 @@ export default function Header() {
 
   return (
     <HeaderWrapper img="/images/Profilebg.svg">
-      <Flex>
+      <Flex mMt="100px">
         <ProfilPic img={avatar} />
         <Flex mb="6px" direction="row">
           <Text40 color={({ theme }) => theme.white}>{user.nickname}</Text40>

@@ -85,7 +85,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">Products</a>
+          <a href="/connectwallet">Connect Wallet</a>
         </NavLink>
         <NavLink
           initial={false}

@@ -68,7 +68,7 @@ export default function MetamaskButton({selected , setSelected}) {
       ) : (
         <img src="/images/Metamask.svg" />
       )}
-      <Text24 type="submit">Metamask Wallet</Text24>
+      <Text24>Metamask Wallet</Text24>
     </div>
 
     {selected === "metamask" && !isMobilee ? (

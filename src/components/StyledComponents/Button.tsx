@@ -63,7 +63,7 @@ export const SliderButton = styled.button`
   border: 1px solid ${({ theme }) => theme.blue};
   border-radius: 90px;
   width: 140px;
-  padding: 16px 0px;
+  padding: 16px 12px;
   text-align: center;
   background: transparent;
   font-size: 16px;
