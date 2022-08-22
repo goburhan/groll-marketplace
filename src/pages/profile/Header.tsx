@@ -16,11 +16,14 @@ const ProfilPic = styled.div<prop>`
   background-image: url(${({ img }) => img});
   background-size: 100% 100%;
   border: 1px solid white;
-  border-radius: 50px;
+  background-position: center;
+  border-radius: 50%;
   height: 100px;
   width: 100px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 0 auto;
+    height: 144px;
+    width: 144px;
   }
 `;
 
@@ -49,37 +52,43 @@ const Flex = styled.div<prop>`
     flex-wrap: wrap;
   }
 `;
-const Grid = styled.div<prop>`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  place-content: ${(props) => props.content};
-  margin-bottom: ${(props) => props.mb};
-  gap: ${(props) => props.gap};
-  margin-top: ${(props) => props.mt};
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
-    text-align: center;
-    margin-top: ${(props) => props.mMt};
-    justify-content: center;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-`;
 
 const HeaderWrapper = styled.div<prop>`
   display: flex;
   position: relative;
   padding: 140px 10% 20px 168px;
   align-items: end;
-  background-image: url(${({ img }) => img});
-  background-size: 100%;
   background-repeat: no-repeat;
   max-height: 580px;
   min-height: 580px;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    background-image: url(${({ img }) => img});
+    background-repeat: no-repeat;
+
+    background-size: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 0px 27px;
-    background-size: cover;
+    background-size: 100%;
     max-height: 1000px;
+
+    &::after {
+      content: "";
+    
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      -moz-box-shadow: inset 0px 850px 500px -500px rgba(31, 34, 47, 0.8);
+      -webkit-box-shadow: inset 0px 850px 500px -500px rgba(31, 34, 47, 0.8);
+      -o-box-shadow: inset 0px 850px 500px -500pxrgba(31, 34, 47, 0.8);
+      box-shadow: inset 0px 1000px 500px -300px rgba(31, 34, 47, 0.6);
+    }
   }
 `;
 const EditWrapper = styled.div<prop>`
@@ -90,7 +99,7 @@ const EditWrapper = styled.div<prop>`
     justify-content: center;
     gap: 12px;
     margin: 10px 0px;
-    img{
+    img {
       width: 26px;
     }
   }
@@ -141,7 +150,7 @@ export default function Header() {
             3d Gallery
           </Transparent>
           <Socials />
-          <Transparent mDisplay="none"  padding="12px 24px">
+          <Transparent mDisplay="none" padding="12px 24px">
             Follow
           </Transparent>
 
