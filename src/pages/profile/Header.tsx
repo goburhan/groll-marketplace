@@ -115,7 +115,7 @@ export default function Header() {
   return (
     <HeaderWrapper img="/images/Profilebg.svg">
       <Flex mMt="100px">
-        <ProfilPic img={avatar} />
+        <ProfilPic img={"/images/Avatar/Avatar3.png"} />
         <EditWrapper>
           <button>
             <img src="/images/Icons/EditAvatar.svg" alt="editavatar" />
