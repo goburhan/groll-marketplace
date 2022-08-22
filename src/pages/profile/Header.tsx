@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Text16, Text18, Text40 } from "../../components/StyledComponents/Text";
 import Socials from "../../components/Socials";
-import { Transparent } from "../../components/StyledComponents/Button";
+import {
+  SliderButton,
+  Transparent,
+} from "../../components/StyledComponents/Button";
 import Statistics from "../../components/Statistics";
 import store from "../../app/store";
 import TitleAchviments from "./TitleAchviments";
@@ -28,7 +31,7 @@ interface prop {
   gap?: any;
   content?: any;
   mt?: any;
-  mMt?:any;
+  mMt?: any;
 }
 const Flex = styled.div<prop>`
   display: flex;
@@ -44,6 +47,23 @@ const Flex = styled.div<prop>`
     margin-top: ${(props) => props.mMt};
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+`;
+const Grid = styled.div<prop>`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-content: ${(props) => props.content};
+  margin-bottom: ${(props) => props.mb};
+  gap: ${(props) => props.gap};
+  margin-top: ${(props) => props.mt};
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+    text-align: center;
+    margin-top: ${(props) => props.mMt};
+    justify-content: center;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 `;
 
@@ -93,13 +113,23 @@ export default function Header() {
         </Text18>
 
         <Flex mt="8px" gap="8px" direction="row">
-          <Socials />
-          <Transparent padding="0px 24px">Follow</Transparent>
-
-          <Transparent padding="0px 24px">
-            <img src="/images/Icons/Contact.svg" />
-            Contact
+          <Transparent display="none" mDisplay="flex" padding="12px 24px">
+            Follow
           </Transparent>
+
+          <Transparent  display="none" mDisplay="flex" padding="12px 24px">
+            3d Gallery
+          </Transparent>
+          <Socials />
+          <Transparent mDisplay="none" padding="12px 24px">
+            Follow
+          </Transparent>
+
+          <Transparent mDisplay="none" padding="12px 24px">
+            3d Gallery
+          </Transparent>
+
+
         </Flex>
         <Statistics />
         <Rentslot />

@@ -7,7 +7,7 @@ const social = [
   { name: "globe", url: "" },
 ];
 
-const Flex = styled.div`
+const Flex = styled.div<Social>`
   display: flex;
   background: #22242f;
   align-items: center;
@@ -20,9 +20,14 @@ const Flex = styled.div`
     max-width: 24px;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-
+    grid-column-start:1;
+    grid-column:span 1;
   }
 `;
+  interface Social {
+    display?:string;
+    mDisplay?:string;
+  }
 
 export default function Socials() {
   return (

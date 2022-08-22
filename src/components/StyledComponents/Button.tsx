@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React from "react";
 import MobileBg from "./MobileButton.svg";
 interface ButtonInterface {
+  display?: string;
+  mDisplay?: string;
   padding?: string;
   bg?: string;
   img?: any;
@@ -9,6 +11,8 @@ interface ButtonInterface {
   color?: any;
   mMargin?: string;
   mPadding?: string;
+  gridColumnStart?: string;
+  gridRowStart?: string;
 }
 
 export const StyledButton = styled.button`
@@ -75,8 +79,6 @@ export const SliderButton = styled.button`
   }
 `;
 
-
-
 export const NavButton = styled.button`
   border: 1px solid #484d57;
   background: ${({ theme }) => theme.card};
@@ -92,7 +94,7 @@ export const NavButton = styled.button`
 `;
 
 export const Transparent = styled.button<ButtonInterface>`
-  display: flex;
+  display: ${(props) => props.display || "flex"};
   border: 1px solid #353945;
   place-items: center;
   gap: 6px;
@@ -108,11 +110,14 @@ export const Transparent = styled.button<ButtonInterface>`
     opacity: 0.9;
     background: rgba(0, 0, 0, 0.1);
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: ${(props) => props.mDisplay};
+  }
 `;
 export const OpenCloseButton = styled.button`
   background: transparent;
   border: none;
-  margin-bottom:50px;
+  margin-bottom: 50px;
   cursor: pointer;
 `;
 
@@ -127,7 +132,7 @@ export const BlueButton = styled.button<ButtonInterface>`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  width:max-content;
+  width: max-content;
   background-color: #00acff;
   :hover {
     opacity: 0.9;
@@ -221,12 +226,16 @@ export const Backhome = styled.button<ButtonInterface>`
     opacity: 0.8;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin:${(props) => props.mMargin};
+    margin: ${(props) => props.mMargin};
   }
 `;
-export function BackButton({  ...props }) {
+export function BackButton({ ...props }) {
   return (
-    <Backhome margin={props.margin} mMargin={props.mMargin} padding={props.padding}>
+    <Backhome
+      margin={props.margin}
+      mMargin={props.mMargin}
+      padding={props.padding}
+    >
       <img src="/images/back.svg" />
       Back to home
     </Backhome>

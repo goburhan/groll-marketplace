@@ -28,9 +28,9 @@ export default function Rentslot() {
     font-weight: 700;
     font-size: 16px;
     line-height: 31px;
-    img{
+    img {
       margin: 0 auto;
-      }
+    }
   `;
   const Rented = styled.div<Bg>`
     display: flex;
@@ -68,25 +68,32 @@ export default function Rentslot() {
   const StyledSlider = styled(Slider)`
     display: flex;
     .slick-slide {
-      margin-right:15px;
-      margin-left:15px;
+      margin-right: 15px;
+      margin-left: 15px;
       place-items: center;
-  }
- 
+    }
+
     @media (max-width: ${({ theme }) => theme.mobile}) {
       position: initial;
       width: 100vw;
 
       .slick-slide {
-        margin-right:0px;
-        margin-left:0px;
+        margin-right: 0px;
+        margin-left: 0px;
+      }
     }
+  `;
+
+  const StyledButton = styled(SliderButton)`
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+ 
     }
   `;
   const settings = {
     speed: 250,
     slidesToShow: 5,
-    infinite:false,
+    infinite: false,
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
@@ -135,9 +142,9 @@ export default function Rentslot() {
           <img src="/images/Icons/Addrent.svg" alt="rent" />
           Rentslot
         </Rentslot>
-        <SliderButton style={{ border: "1px solid #fff" }} color="#fff">
+        <StyledButton style={{ border: "1px solid #fff" }} color="#fff">
           3D Gallery
-        </SliderButton>
+        </StyledButton>
       </StyledSlider>
     </BoxWrapper>
   );
