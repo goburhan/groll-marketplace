@@ -67,7 +67,6 @@ const HeaderWrapper = styled.div<prop>`
     content: "";
     background-image: url(${({ img }) => img});
     background-repeat: no-repeat;
-
     background-size: 100%;
     position: absolute;
     inset: 0;
@@ -75,18 +74,13 @@ const HeaderWrapper = styled.div<prop>`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: 0px 27px;
-    background-size: 100%;
     max-height: 1000px;
-
     &::after {
-      content: "";
-    
-      position: absolute;
-      inset: 0;
-      z-index: -1;
+      background-size: cover;
+
       -moz-box-shadow: inset 0px 850px 500px -500px rgba(31, 34, 47, 0.8);
       -webkit-box-shadow: inset 0px 850px 500px -500px rgba(31, 34, 47, 0.8);
-      -o-box-shadow: inset 0px 850px 500px -500pxrgba(31, 34, 47, 0.8);
+      -o-box-shadow: inset 0px 850px 500px -500pxrgba (31, 34, 47, 0.8);
       box-shadow: inset 0px 1000px 500px -300px rgba(31, 34, 47, 0.6);
     }
   }
@@ -104,6 +98,13 @@ const EditWrapper = styled.div<prop>`
     }
   }
 `;
+const Er = styled.div<prop>`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: flex;
+    flex-direction: column-reverse;
+    gap:10px 0px;
+  }
+`;
 
 export default function Header() {
   const user = store.getState().user;
@@ -114,7 +115,7 @@ export default function Header() {
 
   return (
     <HeaderWrapper img="/images/Profilebg.svg">
-      <Flex mMt="100px">
+      <Flex mMt="140px">
         <ProfilPic img={"/images/Avatar/Avatar3.png"} />
         <EditWrapper>
           <button>
@@ -136,29 +137,31 @@ export default function Header() {
           Dada loving documentarist and multidisciplinary artist living in Dada
           loving documentarist and multidisciplinary artist living in Dada
         </Text16>
+        <Er>
+          <Text18 color={({ theme }) => theme.gray}>
+            Joined: 5th December 2021
+          </Text18>
 
-        <Text18 color={({ theme }) => theme.gray}>
-          Joined: 5th December 2021
-        </Text18>
+          <Flex mt="8px" gap="20px 8px" direction="row">
+            <Transparent display="none" mDisplay="flex" padding="12px 24px">
+              Follow
+            </Transparent>
+                   {/* BAD CODING ALERT CHANGE THIS LATER  */}
+            <Transparent display="none" mDisplay="flex" padding="12px 24px">
+              3d Gallery
+            </Transparent>
+            <Socials />
+            <Transparent mDisplay="none" padding="12px 24px">
+              Follow
+            </Transparent>
 
-        <Flex mt="8px" gap="8px" direction="row">
-          <Transparent display="none" mDisplay="flex" padding="12px 24px">
-            Follow
-          </Transparent>
+            <Transparent mDisplay="none" padding="12px 24px">
+              3d Gallery
+            </Transparent>
+          </Flex>
+          <Statistics />
+        </Er>
 
-          <Transparent display="none" mDisplay="flex" padding="12px 24px">
-            3d Gallery
-          </Transparent>
-          <Socials />
-          <Transparent mDisplay="none" padding="12px 24px">
-            Follow
-          </Transparent>
-
-          <Transparent mDisplay="none" padding="12px 24px">
-            3d Gallery
-          </Transparent>
-        </Flex>
-        <Statistics />
         <Rentslot />
       </Flex>
     </HeaderWrapper>

@@ -40,7 +40,7 @@ export default function TitleAchviments() {
 `;
 
   return (
-    <Flex mMargin="0 auto">
+    <Flex mMargin="8px auto">
       <Text>Artist</Text>
       <Badges>
         {icons.map((icon) => (

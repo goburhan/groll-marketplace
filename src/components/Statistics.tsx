@@ -12,6 +12,7 @@ const Flex = styled.div<props>`
   gap: ${(props) => props.gap || "20px"};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    gap: 8px;
   }
 `;
 const Container = styled.div`
@@ -31,14 +32,14 @@ export default function Statistics() {
         </Flex>
 
         <Text14 color={({ theme }) => theme.editLower} letterSpacing="-0.01em">
-          Items
+        Follower
         </Text14>
       </Container>
       <Vdivider height="50px" />
       <Container>
         <Text28>221.7K</Text28>
         <Text14 color={({ theme }) => theme.editLower} letterSpacing="-0.01em">
-          Items
+          Boost
         </Text14>
       </Container>
       <Vdivider height="50px" />
@@ -52,7 +53,7 @@ export default function Statistics() {
       <Container>
         <Text28>21.7K</Text28>
         <Text14 color={({ theme }) => theme.editLower} letterSpacing="-0.01em">
-          Items
+          Total Gain
         </Text14>
       </Container>
     </Flex>
