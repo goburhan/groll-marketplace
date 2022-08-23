@@ -2,23 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import {
+  selectConnector,
   updateProfile,
 } from "../../actions/wallet/walletSlice";
 import FileUpload from "./FileUpload";
-import { InputField, Register} from "../../components/SearchBar";
+import { InputField, Register } from "../../components/SearchBar";
 import {
   BackButton,
   Backhome,
   BlueButton,
   ClearAll,
 } from "../../components/StyledComponents/Button";
-import {
-  Text16,
-  Text48,
-  Text14,
-} from "../../components/StyledComponents/Text";
+import { Text16, Text48, Text14 } from "../../components/StyledComponents/Text";
 import Dropdown from "./Dropdown";
 import { getDefaultConnector } from "../../app/hooks";
+import store from "../../app/store";
+import Header from "./Header";
 
 interface prop {
   width?: string;
@@ -42,12 +41,16 @@ const Flex = styled.div<prop>`
   button {
     place-self: right;
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-row-start: 3;
+  }
 `;
 const Botwrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  width: 90%;
+  
+  
 `;
 
 const Text = styled.text<prop>`
@@ -60,17 +63,8 @@ const Text = styled.text<prop>`
 const InputWrapper = styled.div<prop>`
   display: flex;
   flex-direction: column;
-  margin-right: ${(props) => props.mr};
 `;
-interface boxprops {
-  justify?: any;
-}
-const Checker = styled.div<boxprops>`
-  display: flex;
-  text-align: left;
-  align-items: center;
-  justify-content: ${({ justify }) => justify};
-`;
+
 const AddMore = styled.button`
   display: flex;
   align-items: center;
@@ -82,41 +76,40 @@ const AddMore = styled.button`
   border-radius: 25px;
   color: #777e91;
   margin-bottom: 6%;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+  }
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 72px;
-`;
 export default function EditSection() {
   const [userName, setUserName] = useState("");
   const [bio, setBio] = useState("");
+  const user = store.getState().user;
+  const defaultConnector = useSelector(selectConnector);
   const accounts = getDefaultConnector().useAccounts();
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
-
-  useEffect(() => {}, []);
-
   function handleChange(e) {
     setUserName(e.target.value);
   }
   function bioChange(e) {
     setBio(e.target.value);
   }
+  useEffect(() => {}, []);
+  let id;
+  let avatar;
+  useEffect(() => {
+    id = user.id;
+    avatar = user.avatar;
+  });
 
   return (
     <Flex>
-      <BackButton margin="0px" />
-   
-      <Container>
-        <Text48>Edit Your Profile</Text48>
-        <Text14 color={({ theme }) => theme.editLower}>
-          You can set preferred display name, create{" "}
-          <span> your profile URL </span> and manage other personal settings.
-        </Text14>
-      </Container>
-
-      <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="0px 0px 30px 0px" >
+      <Text16
+        margin="0px 0px 28px 0px"
+        color={({ theme }) => theme.cardTitle}
+        fontWeight="600"
+      >
         Personal Details
       </Text16>
 
@@ -154,7 +147,6 @@ export default function EditSection() {
           value={bio}
           placeholder="e.g  SpaceShips NFT... "
         />
-        
       </InputWrapper>
 
       <InputWrapper>
@@ -162,19 +154,25 @@ export default function EditSection() {
         <InputField placeholder="example@Gulfcoin.com" />
       </InputWrapper>
 
-      <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600" margin="8px 0px 20px 0px">Social</Text16>
+      <Text16
+        color={({ theme }) => theme.cardTitle}
+        fontWeight="600"
+        margin="8px 0px 20px 0px"
+      >
+        Social
+      </Text16>
 
       <InputWrapper>
         <Text color="#b1b5c4">Instagram</Text>
-        <Register placeholder="@goburhan" />
+        <InputField placeholder="@instagram" />
       </InputWrapper>
       <InputWrapper>
         <Text color="#b1b5c4">Twitter</Text>
-        <Register placeholder="@gobur" />
+        <InputField placeholder="@twitter" />
       </InputWrapper>
       <InputWrapper>
         <Text color="#b1b5c4">Portfolio or website</Text>
-        <Register placeholder="@gobur" />
+        <InputField placeholder="e.g. www.example.com" />
       </InputWrapper>
       <AddMore>
         <img src="/images/Staticlogos/Addicon.svg" />
@@ -182,7 +180,7 @@ export default function EditSection() {
       </AddMore>
 
       <Botwrapper>
-       <ClearAll/>
+        <ClearAll />
         <BlueButton
           onClick={() => {
             dispatch(
@@ -190,10 +188,15 @@ export default function EditSection() {
                 nickname: userName,
                 brief: bio,
                 coinbase: accounts[0],
+                id: id,
+                avatar: avatar,
               })
             );
           }}
-         
+          style={{
+            height: "48px",
+          }}
+          padding="0px 32px"
         >
           Confirm
         </BlueButton>

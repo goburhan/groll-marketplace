@@ -2,220 +2,40 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import AvatarSettings from "./AvatarSettings";
-import {
-  selectConnector,
-  updateProfile,
-} from "../../actions/wallet/walletSlice";
-import FileUpload from "./FileUpload";
-import { InputField, Register } from "../../components/SearchBar";
-import {
-  BackButton,
-  Backhome,
-  BlueButton,
-  ClearAll,
-} from "../../components/StyledComponents/Button";
-import { Text16, Text48, Text14 } from "../../components/StyledComponents/Text";
-import Dropdown from "./Dropdown";
+import { selectConnector } from "../../actions/wallet/walletSlice";
 import store from "../../app/store";
 import { getDefaultConnector } from "../../app/hooks";
+import EditSection from "./EditSection";
+import Header from "./Header";
 
 const PageWrapper = styled.div`
   display: grid;
   gap: 80px;
   margin: 60px 150px 0px 150px;
   grid-template-columns: 2fr 2fr;
-`;
-interface prop {
-  width?: string;
-  direction?: string;
-  size?: string;
-  mr?: string;
-  innerRef?: any;
-}
 
-const Flex = styled.div<prop>`
-  display: flex;
-  width: 100%;
-  flex-direction: ${(props) => props.direction || "column"};
-  text-align: left;
-  justify-content: space-between;
-  img {
-    max-width: 100px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-  }
-  button {
-    place-self: right;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-columns: 1fr;
+    margin: 0px;
   }
 `;
-const Botwrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
+const Wrapper = styled.div`
+
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin: 0px 32px;
+  }
 `;
 
-const Text = styled.text<prop>`
-  font-weight: 700;
-  line-height: 12px;
-  color: ${(props) => props.color};
-  font-size: ${(props) => props.size || "12px"};
-`;
-
-const InputWrapper = styled.div<prop>`
-  display: flex;
-  flex-direction: column;
-  margin-right: ${(props) => props.mr};
-`;
-interface boxprops {
-  justify?: any;
-}
-
-const AddMore = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: transparent;
-  border: 1px solid #484d57;
-  width: 32%;
-  padding: 10px 2px 10px 2px;
-  border-radius: 25px;
-  color: #777e91;
-  margin-bottom: 6%;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 72px;
-`;
 export default function Editprofile() {
-  const [userName, setUserName] = useState("");
-  const [bio, setBio] = useState("");
-  const user = store.getState().user;
-  const defaultConnector = useSelector(selectConnector);
-  const accounts = getDefaultConnector().useAccounts();
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const dispatch = useDispatch();
-  function handleChange(e) {
-    setUserName(e.target.value);
-  }
-  function bioChange(e) {
-    setBio(e.target.value);
-  }
-  let id;
-  let avatar;
-  useEffect(() => {
-    id = user.id;
-    avatar = user.avatar;
-  });
-
   return (
-    <PageWrapper>
-      <Flex>
-        <BackButton margin="32px 0px 68px 0px"/>
-         
-        <Container>
-          <Text48>Edit Your Profile</Text48>
-          <Text14 color={({ theme }) => theme.editLower}>
-            You can set preferred display name, create{" "}
-            <span> your profile URL </span> and manage other personal settings.
-          </Text14>
-        </Container>
+    <Wrapper>
+      <Header />
 
-        <Text16 margin="0px 0px 28px 0px" color={({ theme }) => theme.cardTitle} fontWeight="600">
-          Personal Details
-        </Text16>
-
-        <InputWrapper>
-          <Text color="#b1b5c4">Nickname</Text>
-          <InputField
-            placeholder="e.g Mehdi Mairez"
-            id="userName"
-            name="userName"
-            onChange={(w) => handleChange(w)}
-            value={userName}
-          />
-        </InputWrapper>
-
-        <InputWrapper>
-          <Text color="#b1b5c4">TYPE OF PROFILE</Text>
-          <Dropdown header="Collector" />
-        </InputWrapper>
-
-        <InputWrapper>
-          <Text size="16px" color="#fff">
-            Cover
-          </Text>
-
-          <FileUpload></FileUpload>
-        </InputWrapper>
-
-        <InputWrapper>
-          <Text color="#b1b5c4">BIO / ABOUT ME </Text>
-          <Register
-            id="bio"
-            height="240px"
-            name="bio"
-            onChange={(e) => bioChange(e)}
-            value={bio}
-            placeholder="e.g  SpaceShips NFT... "
-          />
-        </InputWrapper>
-
-        <InputWrapper>
-          <Text color="#b1b5c4">Email</Text>
-          <InputField placeholder="example@Gulfcoin.com" />
-        </InputWrapper>
-
-        <Text16
-          color={({ theme }) => theme.cardTitle}
-          fontWeight="600"
-          margin="8px 0px 20px 0px"
-        >
-          Social
-        </Text16>
-
-        <InputWrapper>
-          <Text color="#b1b5c4">Instagram</Text>
-          <InputField placeholder="@instagram" />
-        </InputWrapper>
-        <InputWrapper>
-          <Text color="#b1b5c4">Twitter</Text>
-          <InputField placeholder="@twitter" />
-        </InputWrapper>
-        <InputWrapper>
-          <Text color="#b1b5c4">Portfolio or website</Text>
-          <InputField placeholder="e.g. www.example.com" />
-        </InputWrapper>
-        <AddMore>
-          <img src="/images/Staticlogos/Addicon.svg" />
-          Add more social account
-        </AddMore>
-
-        <Botwrapper>
-          <ClearAll />
-          <BlueButton
-            onClick={() => {
-              dispatch(
-                updateProfile({
-                  nickname: userName,
-                  brief: bio,
-                  coinbase: accounts[0],
-                  id: id,
-                  avatar: avatar,
-                })
-              );
-            }}
-            style={{
-              height: "48px",
-            }}
-            padding="0px 32px"
-          >
-            Confirm
-          </BlueButton>
-        </Botwrapper>
-      </Flex>
-      <AvatarSettings />
-    </PageWrapper>
+      <PageWrapper>
+        <EditSection />
+        <AvatarSettings />
+      </PageWrapper>
+    </Wrapper>
   );
 }

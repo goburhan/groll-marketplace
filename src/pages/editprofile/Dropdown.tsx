@@ -9,7 +9,6 @@ const DropDownContainer = styled("div")`
   position: relative;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-right: 3rem;
-    width: 88vw;
   }
 `;
 
@@ -33,7 +32,7 @@ const DropDownListContainer = styled.div`
   width: inherit;
   padding: 0px 8px 6px 8px;
   border: 2px solid ${({ theme }) => theme.gray};
-  border-radius:12px;
+  border-radius: 12px;
 `;
 const DropDownList = styled("ul")`
   box-sizing: border-box;

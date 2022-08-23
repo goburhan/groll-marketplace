@@ -23,6 +23,10 @@ const PersonalDetail = styled.div`
   margin-bottom: 1rem;
   align-items: flex-start;
   margin-top: 60px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin-top: 0px;
+    margin-bottom:0rem;
+  }
 `;
 
 const Flex = styled.div<prop>`

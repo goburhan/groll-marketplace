@@ -134,6 +134,7 @@ export const Text48 = styled.text`
   color: ${({ theme }) => theme.cardTitle};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 36px;
   }
 `;
 export const Sliderfont = styled.text`

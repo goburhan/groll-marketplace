@@ -4,10 +4,14 @@ import { Divider } from "../../components/StyledComponents/Divider";
 import { Text16 } from "../../components/StyledComponents/Text";
 import Toggle from "../../components/Toggle";
 import UploadAvatar from "../../components/UploadAvatar";
+import { WindowSize } from "../../hooks/useWindowsize";
+import Slider from "react-slick";
 const Wrapper = styled.div`
   display: grid;
-  margin-top: 28%;
   grid-template-rows: 260px 200px 40px 80px 40px 80px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-rows: 440px 300px 28px 126px 40px 0px;
+  }
 `;
 
 interface prop {
@@ -15,6 +19,7 @@ interface prop {
   justify?: string;
   margin?: string;
   alignItems?: string;
+  mDirection?: string;
 }
 const Flex = styled.div<prop>`
   display: flex;
@@ -22,6 +27,12 @@ const Flex = styled.div<prop>`
   justify-content: ${(props) => props.justify || "space-between"};
   flex-direction: ${(props) => props.direction};
   align-items: ${(props) => props.alignItems};
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-wrap: wrap;
+    place-content: flex-start;
+    flex-direction: ${(props) => props.mDirection};
+  }
 `;
 const Text = styled.text<prop>`
   color: ${(props) => props.color};
@@ -42,11 +53,18 @@ const AddMore = styled.button`
   img {
     margin-right: 10px;
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+  }
 `;
 const InputWrapper = styled.div<prop>`
   display: flex;
   gap: 20px;
   width: 74%;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    gap: 0px;
+    width: 100%;
+  }
 `;
 const Circle = styled.div<prop>`
   border-radius: 50%;
@@ -65,6 +83,26 @@ const colors = [
 ];
 
 export default function AvatarSettings() {
+  const isMobilee = WindowSize();
+  const settings = {
+    infinite: false,
+    speed: 250,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: false,
+    variableWidth: false,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          initialSlide: 0,
+          variableWidth: true,
+        },
+      },
+    ],
+  };
   return (
     <Wrapper>
       <Flex>
@@ -85,7 +123,7 @@ export default function AvatarSettings() {
         />
       </Flex>
 
-      <Flex justify="." direction="column">
+      <Flex justify="." direction="column" mDirection="row">
         <Divider width="100%" mb="40px" />
         <Flex alignItems="center" margin="0px 0px 32px 0px">
           <Flex direction="column">
@@ -100,7 +138,7 @@ export default function AvatarSettings() {
         </Flex>
 
         <Flex alignItems="center">
-          <Flex  justify="ss" direction="column">
+          <Flex justify="ss" direction="column">
             <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
               2D Photo Avatar
             </Text16>
@@ -127,24 +165,23 @@ export default function AvatarSettings() {
       </Flex>
 
       <Divider width="100%" mb="28px" />
+   
 
-      <Flex>
-        <Flex justify="s" direction="column">
-          <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
-            2D Photo Avatar
-          </Text16>
-          <Text color="#777E90">
-            You can shoose and Customize your 2D Photo avatar
-          </Text>
-        </Flex>
-        <Toggle />
-      </Flex>
-
-      <InputWrapper>
-        {colors.map((color) => (
-          <Circle key={color.name} color={color.name} />
-        ))}
-      </InputWrapper>
+      {isMobilee ? (
+        <Slider {...settings}>
+          <InputWrapper>
+            {colors.map((color) => (
+              <Circle key={color.name} color={color.name} />
+            ))}
+          </InputWrapper>
+        </Slider>
+      ) : (
+        <InputWrapper>
+          {colors.map((color) => (
+            <Circle key={color.name} color={color.name} />
+          ))}
+        </InputWrapper>
+      )}
     </Wrapper>
   );
 }
