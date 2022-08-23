@@ -101,7 +101,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">Key Benefits</a>
+          <a href="/editprofile">Edit Profile</a>
         </NavLink>
         <NavLink
           initial={false}
