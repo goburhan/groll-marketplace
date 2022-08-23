@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 export default function Header() {
   return (
     <Wrapper>
-      <BackButton margin="32px 0px 68px 0px" />
+      <BackButton margin="32px 0px 68px 0px" mMargin="32px 0px 44px 0px" />
 
       <Flex direction="column">
         <Text48>Edit Your Profile</Text48>

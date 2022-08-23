@@ -6,6 +6,5 @@ import { WindowSize } from "../hooks/useWindowsize";
 export default function Footer() {
   const isMobilee = WindowSize();
 
-  // return isMobilee ? <MobileFooter /> : <DesktopFooter />;
-  return <MobileFooter />;
+   return isMobilee ? <MobileFooter /> : <DesktopFooter />;
 }

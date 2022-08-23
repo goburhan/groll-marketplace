@@ -5,12 +5,12 @@ import { Text16 } from "../../components/StyledComponents/Text";
 import Toggle from "../../components/Toggle";
 import UploadAvatar from "../../components/UploadAvatar";
 import { WindowSize } from "../../hooks/useWindowsize";
-import Slider from "react-slick";
+import Backgrounds from "./Backgrounds";
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 260px 200px 40px 80px 40px 80px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    grid-template-rows: 440px 300px 28px 126px 40px 0px;
+    grid-template-rows: 440px 300px 28px 126px 80px;
   }
 `;
 
@@ -19,6 +19,7 @@ interface prop {
   justify?: string;
   margin?: string;
   alignItems?: string;
+  gap?: string;
   mDirection?: string;
 }
 const Flex = styled.div<prop>`
@@ -30,6 +31,7 @@ const Flex = styled.div<prop>`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-wrap: wrap;
+    gap : ${(props) => props.gap};
     place-content: flex-start;
     flex-direction: ${(props) => props.mDirection};
   }
@@ -85,24 +87,43 @@ const colors = [
 export default function AvatarSettings() {
   const isMobilee = WindowSize();
   const settings = {
-    infinite: false,
     speed: 250,
-    slidesToShow: 4,
+    slidesToShow: 5,
+    infinite: false,
     slidesToScroll: 1,
+
+    variableWidth: true,
     arrows: false,
-    variableWidth: false,
     responsive: [
+      {
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1490,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 2.4,
           slidesToScroll: 1,
           initialSlide: 0,
-          variableWidth: true,
+          variableWidth: false,
         },
       },
     ],
   };
+
   return (
     <Wrapper>
       <Flex>
@@ -125,8 +146,8 @@ export default function AvatarSettings() {
 
       <Flex justify="." direction="column" mDirection="row">
         <Divider width="100%" mb="40px" />
-        <Flex alignItems="center" margin="0px 0px 32px 0px">
-          <Flex direction="column">
+        <Flex gap="10px" alignItems="center" margin="0px 0px 32px 0px">
+          <Flex direction="column" >
             <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
               3D Photo Avatar
             </Text16>
@@ -137,8 +158,8 @@ export default function AvatarSettings() {
           <Toggle />
         </Flex>
 
-        <Flex alignItems="center">
-          <Flex justify="ss" direction="column">
+        <Flex gap="10px" alignItems="center">
+          <Flex  justify="ss" direction="column">
             <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
               2D Photo Avatar
             </Text16>
@@ -165,23 +186,8 @@ export default function AvatarSettings() {
       </Flex>
 
       <Divider width="100%" mb="28px" />
-   
 
-      {isMobilee ? (
-        <Slider {...settings}>
-          <InputWrapper>
-            {colors.map((color) => (
-              <Circle key={color.name} color={color.name} />
-            ))}
-          </InputWrapper>
-        </Slider>
-      ) : (
-        <InputWrapper>
-          {colors.map((color) => (
-            <Circle key={color.name} color={color.name} />
-          ))}
-        </InputWrapper>
-      )}
+      <Backgrounds />
     </Wrapper>
   );
 }

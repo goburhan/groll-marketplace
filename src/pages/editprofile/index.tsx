@@ -20,8 +20,6 @@ const PageWrapper = styled.div`
   }
 `;
 const Wrapper = styled.div`
-
-
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 0px 32px;
   }
