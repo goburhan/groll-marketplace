@@ -60,11 +60,9 @@ export default function StepOneButton() {
   `;
 
   const StyledTitle = styled(motion.button)`
-    height: 3rem;
+    height: max-content;
     width: 100%;
     text-align: left;
-    border: 1px solid transparent;
-    background: transparent;
     color: ${({ theme }) => theme.cardTitle};
     opacity: ${(props) => (user.nickname !== "" ? "0.1" : "1")};
     font-size: 18px;
@@ -177,7 +175,7 @@ export default function StepOneButton() {
   const ButtonParentVariants = {
     closed: {
       opacity: 1,
-      height: "600px",
+      height: "190px",
       y: 0,
       transition: {
         when: "afterChildren",
