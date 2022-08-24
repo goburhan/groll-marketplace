@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {
-  Backhome,
-} from "../../components/StyledComponents/Button";
+import { Backhome } from "../../components/StyledComponents/Button";
 import { Flex } from "../../components/StyledComponents/Flex";
 
 const Text = styled.text`
@@ -19,6 +17,10 @@ const Side = styled.div`
   display: flex;
   gap: 32px;
   margin: 0 28px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    justify-content: space-between;
+    margin: 0px;
+  }
 `;
 export default function Reminder() {
   const [display, setDisplay] = useState(true);
@@ -30,9 +32,18 @@ export default function Reminder() {
     margin-left: 120px;
 
     img {
-      position: absolute; 
+      position: absolute;
       left: 20px;
       top: -20px;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-left: 0px;
+      padding: 0px;
+      img {
+        left: 0px;
+        top: -20px;
+        max-width: 76px;
+      }
     }
   `;
   const Wrappers = styled.div`
@@ -43,6 +54,13 @@ export default function Reminder() {
     justify-content: space-between;
     align-items: center;
     background: ${({ theme }) => theme.card};
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 25px 20px;
+      gap: 6px;
+      margin-top: 60px;
+    }
   `;
   const Button = styled.button``;
   return (

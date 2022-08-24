@@ -41,6 +41,7 @@ export default function SignUpPage() {
       <BackButton margin="0px 0px 20px 0px" mMargin="0px" />
 
       {user.nickname === "" ? <Reminder /> : null}
+      <Reminder />
       <StepOneButton />
       <StepTwoButton />
       <StepThreeButton />
