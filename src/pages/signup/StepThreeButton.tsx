@@ -60,7 +60,7 @@ export default function StepOneButton() {
   `;
 
   const StyledTitle = styled(motion.button)`
-    height: 3rem;
+    height: max-content;
     width: 100%;
     text-align: left;
     border: 1px solid transparent;

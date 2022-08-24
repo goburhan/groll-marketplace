@@ -61,7 +61,7 @@ export default function StepOneButton() {
   `;
 
   const StyledTitle = styled(motion.button)`
-    height: 3rem;
+    height: max-content;
     width: 100%;
     text-align: left;
     border: 1px solid transparent;
@@ -79,8 +79,8 @@ export default function StepOneButton() {
     letter-spacing: -0.02em;
     @media (max-width: ${({ theme }) => theme.mobile}) {
       margin-top: 2px;
-      font-size:14px;
-      font-weight:400;
+      font-size: 14px;
+      font-weight: 400;
     }
   `;
   const Box = styled(motion.div)<prop>`
@@ -111,6 +111,9 @@ export default function StepOneButton() {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-top: 20px;
+    }
   `;
 
   const ChildVariants = {
@@ -199,7 +202,6 @@ export default function StepOneButton() {
                   <StyledSteps color={({ theme }) => theme.titles}>
                     Apply for KYC
                   </StyledSteps>
-             
                 </Box>
 
                 <StyledImg src="/images/Staticlogos/Kyclogo.svg" alt="basic" />

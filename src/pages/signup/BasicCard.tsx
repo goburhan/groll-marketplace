@@ -23,7 +23,10 @@ const SelfieContainer = styled.div<props>`
     min-width: ${(props) => props.width};
     place-self: center;
   }
- 
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+  }
 `;
 const Box = styled.div`
   display: flex;

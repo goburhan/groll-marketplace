@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { userSelect } from "../../actions/wallet/walletSlice";
 import Link from "next/link";
 import { StyledSteps } from ".";
+import { WindowSize } from "../../hooks/useWindowsize";
 
 export default function StepOneButton() {
   function ProgressBar(one: any) {
@@ -126,7 +127,7 @@ export default function StepOneButton() {
     white-space: nowrap;
 
     img {
-      margin-left: 33px;
+      margin-left: 33px;   
     }
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -149,15 +150,16 @@ export default function StepOneButton() {
     closed: {
       opacity: 0,
       height: "0px",
+      y: "-40px",  
       transition: {
         duration: 0.5,
       },
     },
 
     open: {
-      height: "200vh",
+      height: "max-content",
       opacity: 1,
-      y: 30,
+      y: "40px", 
       transition: {
         duration: 0.5,
       },
@@ -172,13 +174,40 @@ export default function StepOneButton() {
     },
   };
 
-  const ButtonParentVariants = {
+  const MChildVariants = {
+    closed: {
+      opacity: 0,
+      height: "0px",
+      y: "-40px",  
+      transition: {
+        duration: 0.5,
+      },
+    },
+
+    open: {
+      height: "270vh",
+      opacity: 1,
+      y: "40px", 
+      transition: {
+        duration: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: [-40, -190],
+      height: "1vh",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  const MButtonParentVariants = {
     closed: {
       opacity: 1,
-      height: "190px",
+      height: "max-content",
       y: 0,
       transition: {
-        when: "afterChildren",
         duration: 0.5,
       },
     },
@@ -191,6 +220,26 @@ export default function StepOneButton() {
       },
     },
   };
+
+  const ButtonParentVariants = {
+    closed: {
+      opacity: 1,
+      height: "190px",
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    open: {
+      height: ["140px", "60px"],
+      opacity: 1,
+      y: [20, 60, 0],
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+
   const user = useSelector(userSelect);
 
   useEffect(() => {
@@ -202,6 +251,8 @@ export default function StepOneButton() {
   });
   console.log(user);
 
+const isMobile = WindowSize()
+
   return (
     <div style={{ display: "flex", width: "100%", margin: "40px 0px 0px 0px" }}>
       <ProgressBar one={open} />
@@ -210,7 +261,7 @@ export default function StepOneButton() {
           <ButtonWrapper
             key="parent"
             initial="closed"
-            variants={ButtonParentVariants}
+            variants={isMobile  ? MButtonParentVariants : ButtonParentVariants}
             animate={open ? "open" : "closed"}
             onClick={() => toggleOpen(!open)}
             disabled={disable}
@@ -267,7 +318,7 @@ export default function StepOneButton() {
               initial="closed"
               animate="open"
               exit="exit"
-              variants={ChildVariants}
+              variants={isMobile ? MChildVariants : ChildVariants}
             >
               <SignupWrapper>
                 <StepOne />
