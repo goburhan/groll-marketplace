@@ -17,6 +17,7 @@ import { Text40 } from "../../components/StyledComponents/Text";
 export const StyledSteps = styled(Text40)`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     font-size: 32px;
+    line-height: ${props => props.lineHeight};
   }
 
 `
@@ -41,7 +42,7 @@ export default function SignUpPage() {
       <BackButton margin="0px 0px 20px 0px" mMargin="0px" />
 
       {user.nickname === "" ? <Reminder /> : null}
-      <Reminder />
+      {/* <Reminder /> */}
       <StepOneButton />
       <StepTwoButton />
       <StepThreeButton />

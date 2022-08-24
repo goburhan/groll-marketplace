@@ -19,6 +19,9 @@ background: ${({ theme }) => theme.kycCard};
 img {
   place-self: center;
 }
+@media (max-width: ${({ theme }) => theme.mobile}) {
+  display: none;
+}
 `;
 const Box = styled.div`
   display: flex;

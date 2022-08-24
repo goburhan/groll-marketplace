@@ -19,7 +19,6 @@ interface prop {
   innerRef?: any;
 }
 
-
 const Flex = styled.div<prop>`
   display: flex;
   flex-direction: ${(props) => props.direction || "column"};
@@ -31,6 +30,11 @@ const Flex = styled.div<prop>`
   }
   button {
     place-self: right;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    img {
+      display: none;
+    }
   }
 `;
 const Botwrapper = styled.div`
@@ -48,7 +52,6 @@ const InputWrapper = styled.div<prop>`
 interface boxprops {
   justify?: any;
 }
-
 
 export default function StepOne() {
   const [userName, setUserName] = useState("");
@@ -70,9 +73,6 @@ export default function StepOne() {
     setBio(e.target.value);
   }
 
-
-
-
   return (
     <Flex>
       <img
@@ -91,7 +91,11 @@ export default function StepOne() {
         <Toggle />
       </InputWrapper>
 
-      <Text14 style={{width:"80%"}}  color={({ theme }) => theme.gray} fontWeight="600">
+      <Text14
+        style={{ width: "80%" }}
+        color={({ theme }) => theme.gray}
+        fontWeight="600"
+      >
         In order to be eligible to apply for the blue checkmark, your account
         must meet the following criteria for verification: The Account Must Be
         Authentic: In order to be considered for verification, your account must
@@ -100,7 +104,7 @@ export default function StepOne() {
       </Text14>
 
       <Botwrapper>
-      <ClearAll/>
+        <ClearAll />
         <BlueButton
           onClick={() => {
             dispatch(
@@ -111,7 +115,6 @@ export default function StepOne() {
               })
             );
           }}
-         
         >
           Confirm
         </BlueButton>

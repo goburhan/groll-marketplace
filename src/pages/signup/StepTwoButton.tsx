@@ -147,7 +147,7 @@ export default function StepOneButton() {
   const ButtonParentVariants = {
     closed: {
       opacity: 1,
-      height: "190px  ",
+      height: "190px",
       y: 0,
       transition: {
         when: "afterChildren",
@@ -199,7 +199,7 @@ export default function StepOneButton() {
                     <StyledSteps color="#00ACFF">Step 2</StyledSteps>
                     <Progress>25% progress</Progress>
                   </Box>
-                  <StyledSteps color={({ theme }) => theme.titles}>
+                  <StyledSteps  color={({ theme }) => theme.titles}>
                     Apply for KYC
                   </StyledSteps>
                 </Box>

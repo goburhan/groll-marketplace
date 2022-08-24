@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import StepOne from "../signup/StepOne";
 import styled from "styled-components";
-import SignUpPage from "../signup";
+import SignUpPage, { StyledSteps } from "../signup";
 import BasicCard from "../signup/BasicCard";
 import { Text40 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
@@ -11,6 +11,7 @@ import StepTwo from "./StepTwo";
 import KycCard from "./KycCard";
 import StepThree from "./StepThree";
 import BlueTickCard from "./BlueTickCard";
+import { WindowSize } from "../../hooks/useWindowsize";
 
 function ProgressBar(one: any) {
   const [open, setOpen] = useState(one);
@@ -20,6 +21,10 @@ function ProgressBar(one: any) {
     width: 10px;
     height: auto;
     margin-right: 40px;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-right: 10px;
+    }
   `;
   useEffect(() => {
     setOpen(one);
@@ -45,7 +50,7 @@ export default function StepOneButton() {
   // This approach is if you only want max one section open at a time. If you want multiple
   // sections to potentially be open simultaneously, they can all be given their own `useState`.
   const [open, toggleOpen] = useState(true);
-
+  const isMobile = WindowSize()
   const Header = styled(motion.header)``;
   const Section = styled(motion.section)`
     overflow: hidden;
@@ -77,6 +82,17 @@ export default function StepOneButton() {
     padding: 2px 26px 2px 16px;
     font-size: 18px;
     letter-spacing: -0.02em;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-top: 2px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  `;
+  const StyledImg = styled.img`
+    max-width: 0px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      max-width: 44px;
+    }
   `;
   const Box = styled(motion.div)<prop>`
     display: flex;
@@ -85,8 +101,23 @@ export default function StepOneButton() {
     gap: ${(props) => props.gap};
     align-items: flex-start;
     img {
-      margin-top: 1rem;
-      max-width: 90px;
+      margin-left: 33px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      gap: ${(props) => props.mGap};
+
+      img {
+        margin-left: 0px;
+      }
+
+      margin-bottom: ${(props) => props.mMb};
+      img:not(${StyledImg}) {
+        display: none;
+      }
+      text {
+        align-self: flex-start;
+      }
     }
   `;
   interface prop {
@@ -95,6 +126,8 @@ export default function StepOneButton() {
     size?: string;
     mr?: string;
     innerRef?: any;
+    mMb?: string;
+    mGap?: string;
     mb?: any;
     gap?: any;
   }
@@ -119,6 +152,32 @@ export default function StepOneButton() {
       height: "100vh",
       opacity: 1,
       y: 30,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: [-160, -250],
+      height: "1vh",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  const MChildVariants = {
+    closed: {
+      opacity: 0,
+      height: "0rem",
+      transition: {
+        duration: 0.5,
+      },
+    },
+
+    open: {
+      height: "80vh",
+      opacity: 1,
+      y: 110,
       transition: {
         duration: 0.5,
       },
@@ -170,13 +229,17 @@ export default function StepOneButton() {
             >
               <Box direction="row">
                 <Box>
-                  <Box gap="15px" mb="15px" direction="row">
-                    <Text40 color="#00ACFF">Step 3</Text40>
+                  <Box mGap="5px" gap="15px" mb="15px" mMb="0px" direction="row">
+                    <StyledSteps color="#00ACFF">Step 3</StyledSteps>
                     <Progress>25% progress</Progress>
+                    <StyledImg
+                      src="/images/Staticlogos/BlueTick.svg"
+                      alt="basic"
+                    />
                   </Box>
-                  <Text40 color={({ theme }) => theme.titles}>
+                  <StyledSteps lineHeight="1.5" color={({ theme }) => theme.titles}>
                     Apply for The Blue Tick
-                  </Text40>
+                  </StyledSteps>
                 </Box>
 
                 <img
@@ -212,7 +275,7 @@ export default function StepOneButton() {
               initial="closed"
               animate="open"
               exit="exit"
-              variants={ChildVariants}
+              variants={isMobile  ? MChildVariants :ChildVariants}
             >
               <SignupWrapper>
                 <StepThree />

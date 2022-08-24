@@ -127,7 +127,7 @@ export default function StepOneButton() {
     white-space: nowrap;
 
     img {
-      margin-left: 33px;   
+      margin-left: 33px;
     }
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -150,7 +150,7 @@ export default function StepOneButton() {
     closed: {
       opacity: 0,
       height: "0px",
-      y: "-40px",  
+      y: "-40px",
       transition: {
         duration: 0.5,
       },
@@ -159,7 +159,7 @@ export default function StepOneButton() {
     open: {
       height: "max-content",
       opacity: 1,
-      y: "40px", 
+      y: "40px",
       transition: {
         duration: 0.5,
       },
@@ -178,7 +178,7 @@ export default function StepOneButton() {
     closed: {
       opacity: 0,
       height: "0px",
-      y: "-40px",  
+      y: "-40px",
       transition: {
         duration: 0.5,
       },
@@ -187,7 +187,7 @@ export default function StepOneButton() {
     open: {
       height: "270vh",
       opacity: 1,
-      y: "40px", 
+      y: "40px",
       transition: {
         duration: 0.5,
       },
@@ -251,7 +251,7 @@ export default function StepOneButton() {
   });
   console.log(user);
 
-const isMobile = WindowSize()
+  const isMobile = WindowSize();
 
   return (
     <div style={{ display: "flex", width: "100%", margin: "40px 0px 0px 0px" }}>
@@ -261,7 +261,7 @@ const isMobile = WindowSize()
           <ButtonWrapper
             key="parent"
             initial="closed"
-            variants={isMobile  ? MButtonParentVariants : ButtonParentVariants}
+            variants={isMobile ? MButtonParentVariants : ButtonParentVariants}
             animate={open ? "open" : "closed"}
             onClick={() => toggleOpen(!open)}
             disabled={disable}
