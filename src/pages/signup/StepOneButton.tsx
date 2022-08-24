@@ -9,6 +9,7 @@ import { OpenCloseButton } from "../../components/StyledComponents/Button";
 import { useSelector } from "react-redux";
 import { userSelect } from "../../actions/wallet/walletSlice";
 import Link from "next/link";
+import { StyledSteps } from ".";
 
 export default function StepOneButton() {
   function ProgressBar(one: any) {
@@ -19,6 +20,10 @@ export default function StepOneButton() {
       width: 10px;
       height: auto;
       margin-right: 40px;
+
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        margin-right: 10px;
+      }
     `;
     useEffect(() => {
       setOpen(one);
@@ -49,6 +54,9 @@ export default function StepOneButton() {
     grid-template-columns: 1.4fr 1fr;
     gap: 238px;
     /* opacity: 0; */
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      grid-template-columns: 1fr;
+    }
   `;
 
   const StyledTitle = styled(motion.button)`
@@ -60,6 +68,9 @@ export default function StepOneButton() {
     color: ${({ theme }) => theme.cardTitle};
     opacity: ${(props) => (user.nickname !== "" ? "0.1" : "1")};
     font-size: 18px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      width: 120%;
+    }
   `;
   const Progress = styled(motion.text)`
     color: white;
@@ -70,18 +81,13 @@ export default function StepOneButton() {
     padding: 2px 26px 2px 16px;
     font-size: 18px;
     letter-spacing: -0.02em;
-  `;
-  const Box = styled(motion.div)<prop>`
-    display: flex;
-    margin-bottom: ${(props) => props.mb};
-    flex-direction: ${(props) => props.direction || "column"};
-    gap: ${(props) => props.gap};
-    align-items: flex-start;
-    img {
-      margin-top: 1rem;
-      max-width: 90px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-top: 2px;
+      font-size: 14px;
+      font-weight: 400;
     }
   `;
+
   const EditButton = styled.div`
     display: flex;
     flex-direction: column;
@@ -94,9 +100,10 @@ export default function StepOneButton() {
     size?: string;
     mr?: string;
     innerRef?: any;
+    mMb?: string;
+    mGap?: string;
     mb?: any;
     gap?: any;
-    disabled?: any;
   }
 
   const ButtonWrapper = styled(motion.button)<prop>`
@@ -106,6 +113,40 @@ export default function StepOneButton() {
     opacity: ${(props) => (props.disabled === true ? "0.5" : "1")};
   `;
 
+  const StyledImg = styled.img`
+    max-width: 0px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      max-width: 44px;
+    }
+  `;
+  const Box = styled(motion.div)<prop>`
+    display: flex;
+    margin-bottom: ${(props) => props.mb};
+    flex-direction: ${(props) => props.direction || "column"};
+    gap: ${(props) => props.gap};
+    align-items: flex-start;
+    white-space: nowrap;
+
+    img {
+      margin-left: 33px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      gap: ${(props) => props.mGap};
+
+      img {
+        margin-left: 0px;
+      }
+
+      margin-bottom: ${(props) => props.mMb};
+      img:not(${StyledImg}) {
+        display: none;
+      }
+      text {
+        align-self: flex-start;
+      }
+    }
+  `;
   const ChildVariants = {
     closed: {
       opacity: 0,
@@ -155,10 +196,10 @@ export default function StepOneButton() {
   const user = useSelector(userSelect);
 
   useEffect(() => {
-    //user.nickname !== "" mean is user doesnt finished first step of auth
+    //user.nickname !== "" mean is user doesnt finished first step of register
     if (user.nickname !== "") {
-      toggleOpen(false);
-      setDisable(true);
+      // toggleOpen(false);
+      // setDisable(true);
     }
   });
   console.log(user);
@@ -179,20 +220,24 @@ export default function StepOneButton() {
             <StyledTitle style={{ cursor: "pointer" }}>
               <Box direction="row">
                 <Box>
-                  <Box gap="15px" mb="15px" direction="row">
-                    <Text40 color="#00ACFF">Step 1</Text40>
+                  <Box
+                    gap="15px"
+                    mGap="5px"
+                    mb="15px"
+                    mMb="4px"
+                    direction="row"
+                  >
+                    <StyledSteps color="#00ACFF">Step 1</StyledSteps>
                     <Progress>50% progress</Progress>
+
+                    <StyledImg src="/images/Basic.svg" alt="basic" />
                   </Box>
-                  <Text40 color={({ theme }) => theme.titles}>
+                  <StyledSteps color={({ theme }) => theme.titles}>
                     Basic information
-                  </Text40>
+                  </StyledSteps>
                 </Box>
 
-                <img
-                  src="/images/Basic.svg"
-                  style={{ borderRadius: "0px", marginLeft: "2%" }}
-                  alt="basic"
-                />
+                <img src="/images/Basic.svg" alt="basic" />
               </Box>
             </StyledTitle>
 
@@ -211,9 +256,9 @@ export default function StepOneButton() {
                   </EditButton>
                 </Link>
               ) : open ? (
-                <img src="/images/Staticlogos/Uparrow.svg"style={{height:20}} />
+                <img src="/images/Staticlogos/Uparrow.svg" />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg"style={{height:20}} />
+                <img src="/images/Staticlogos/Downarrow.svg" />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

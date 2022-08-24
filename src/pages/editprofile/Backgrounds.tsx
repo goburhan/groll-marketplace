@@ -38,17 +38,18 @@ export default function Backgrounds() {
     { name: "#896BA0" },
   ];
   const settings = {
-    infinite: false,
     speed: 250,
     slidesToShow: 5,
+    infinite: false,
     slidesToScroll: 1,
-    arrows: true,
-    variableWidth: false,
+
+    variableWidth: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1800,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -61,35 +62,29 @@ export default function Backgrounds() {
           infinite: true,
         },
       },
-      {
-        breakpoint: 1224,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 0,
-        },
-      },
+
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 0,
+          variableWidth: false,
         },
       },
     ],
   };
   return (
     <>
-      {isMobilee ? (
+      <Slider {...settings}>
+        <InputWrapper>
+          {colors.map((color) => (
+            <Circle key={color.name} color={color.name} />
+          ))}
+        </InputWrapper>
+      </Slider>
+
+      {/* {isMobilee ? (
         <Slider {...settings}>
           <InputWrapper>
             {colors.map((color) => (
@@ -103,7 +98,7 @@ export default function Backgrounds() {
             <Circle key={color.name} color={color.name} />
           ))}
         </InputWrapper>
-      )}
+      )}  */}
     </>
   );
 }

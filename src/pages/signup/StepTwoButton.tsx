@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import StepOne from "../signup/StepOne";
 import styled from "styled-components";
-import SignUpPage from "../signup";
+import SignUpPage, { StyledSteps } from "../signup";
 import BasicCard from "../signup/BasicCard";
 import { Text40 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
@@ -18,6 +18,9 @@ function ProgressBar(one: any) {
     width: 10px;
     height: auto;
     margin-right: 40px;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-right: 10px;
+    }
   `;
   useEffect(() => {
     setOpen(one);
@@ -52,7 +55,9 @@ export default function StepOneButton() {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 238px;
-    /* opacity: 0; */
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      grid-template-columns: 1fr;
+    }
   `;
 
   const StyledTitle = styled(motion.button)`
@@ -67,12 +72,16 @@ export default function StepOneButton() {
   const Progress = styled(motion.text)`
     color: white;
     background: rgba(0, 172, 255, 0.25);
-    padding: 0px 10px 0px 10px;
     font-weight: 700;
     margin-top: 1rem;
     padding: 2px 26px 2px 16px;
     font-size: 18px;
     letter-spacing: -0.02em;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      margin-top: 2px;
+      font-size:14px;
+      font-weight:400;
+    }
   `;
   const Box = styled(motion.div)<prop>`
     display: flex;
@@ -80,9 +89,10 @@ export default function StepOneButton() {
     flex-direction: ${(props) => props.direction || "column"};
     gap: ${(props) => props.gap};
     align-items: flex-start;
-    img {
-      margin-top: 1rem;
-      max-width: 90px;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      gap: ${(props) => props.mGap};
+      margin-bottom: ${(props) => props.mMb};
     }
   `;
   interface prop {
@@ -91,6 +101,8 @@ export default function StepOneButton() {
     size?: string;
     mr?: string;
     innerRef?: any;
+    mMb?: string;
+    mGap?: string;
     mb?: any;
     gap?: any;
   }
@@ -148,6 +160,16 @@ export default function StepOneButton() {
       },
     },
   };
+  const StyledImg = styled.img`
+    max-width: 90px;
+    margin-left: 6.2%;
+    margin-top: 1rem;
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      max-width: 44px;
+      margin-left: 10px;
+      margin-top: 0rem;
+    }
+  `;
 
   return (
     <div style={{ display: "flex", width: "100%" }}>
@@ -164,20 +186,23 @@ export default function StepOneButton() {
             <StyledTitle style={{ cursor: "pointer" }}>
               <Box direction="row">
                 <Box>
-                  <Box gap="15px" mb="15px" direction="row">
-                    <Text40 color="#00ACFF">Step 2</Text40>
+                  <Box
+                    gap="15px"
+                    mGap="5px"
+                    mb="15px"
+                    mMb="8px"
+                    direction="row"
+                  >
+                    <StyledSteps color="#00ACFF">Step 2</StyledSteps>
                     <Progress>25% progress</Progress>
                   </Box>
-                  <Text40 color={({ theme }) => theme.titles}>
+                  <StyledSteps color={({ theme }) => theme.titles}>
                     Apply for KYC
-                  </Text40>
+                  </StyledSteps>
+             
                 </Box>
 
-                <img
-                  src="/images/Staticlogos/Kyclogo.svg"
-                  style={{ marginLeft: "6.2%" }}
-                  alt="basic"
-                />
+                <StyledImg src="/images/Staticlogos/Kyclogo.svg" alt="basic" />
               </Box>
             </StyledTitle>
 
@@ -187,9 +212,9 @@ export default function StepOneButton() {
               }}
             >
               {open ? (
-                <img src="/images/Staticlogos/Uparrow.svg" style={{height:20}} />
+                <img src="/images/Staticlogos/Uparrow.svg" />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg" style={{height:20}} />
+                <img src="/images/Staticlogos/Downarrow.svg" />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

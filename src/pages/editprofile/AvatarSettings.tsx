@@ -31,7 +31,7 @@ const Flex = styled.div<prop>`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-wrap: wrap;
-    gap : ${(props) => props.gap};
+    gap: ${(props) => props.gap};
     place-content: flex-start;
     flex-direction: ${(props) => props.mDirection};
   }
@@ -68,21 +68,6 @@ const InputWrapper = styled.div<prop>`
     width: 100%;
   }
 `;
-const Circle = styled.div<prop>`
-  border-radius: 50%;
-  max-height: 80px;
-  min-width: 80px;
-  background: ${(props) => props.color};
-`;
-
-const colors = [
-  { name: "#fff" },
-  { name: "#282B35" },
-  { name: "#364252" },
-  { name: "#C5C6C8" },
-  { name: "#00D2FF" },
-  { name: "#896BA0" },
-];
 
 export default function AvatarSettings() {
   const isMobilee = WindowSize();
@@ -147,7 +132,7 @@ export default function AvatarSettings() {
       <Flex justify="." direction="column" mDirection="row">
         <Divider width="100%" mb="40px" />
         <Flex gap="10px" alignItems="center" margin="0px 0px 32px 0px">
-          <Flex direction="column" >
+          <Flex direction="column">
             <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
               3D Photo Avatar
             </Text16>
@@ -159,7 +144,7 @@ export default function AvatarSettings() {
         </Flex>
 
         <Flex gap="10px" alignItems="center">
-          <Flex  justify="ss" direction="column">
+          <Flex justify="ss" direction="column">
             <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">
               2D Photo Avatar
             </Text16>

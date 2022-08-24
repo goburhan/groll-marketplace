@@ -44,7 +44,7 @@ function ProgressBar(one: any) {
 export default function StepOneButton() {
   // This approach is if you only want max one section open at a time. If you want multiple
   // sections to potentially be open simultaneously, they can all be given their own `useState`.
-  const [open, toggleOpen] = useState(false);
+  const [open, toggleOpen] = useState(true);
 
   const Header = styled(motion.header)``;
   const Section = styled(motion.section)`
@@ -54,7 +54,9 @@ export default function StepOneButton() {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 236px;
-    /* opacity: 0; */
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      grid-template-columns: 1fr;
+    }
   `;
 
   const StyledTitle = styled(motion.button)`
@@ -100,7 +102,7 @@ export default function StepOneButton() {
   const ButtonWrapper = styled(motion.div)`
     display: flex;
     width: 100%;
-    
+
     justify-content: space-between;
   `;
 
@@ -191,9 +193,15 @@ export default function StepOneButton() {
               }}
             >
               {open ? (
-                <img src="/images/Staticlogos/Uparrow.svg"style={{height:20}} />
+                <img
+                  src="/images/Staticlogos/Uparrow.svg"
+                  style={{ height: 20 }}
+                />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg"style={{height:20}} />
+                <img
+                  src="/images/Staticlogos/Downarrow.svg"
+                  style={{ height: 20 }}
+                />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

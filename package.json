@@ -22,6 +22,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/react-slick": "^0.23.10",
     "@walletconnect/ethereum-provider": "^1.7.8",
     "@walletconnect/web3-provider": "^1.7.8",
     "@web3-react/coinbase-wallet": "^8.0.33-beta.0",

@@ -11,8 +11,15 @@ import StepTwoButton from "./StepTwoButton";
 import StepThreeButton from "./StepThreeButton";
 import Reminder from "./Reminder";
 import { getDefaultConnector } from "../../app/hooks";
+import { Text40 } from "../../components/StyledComponents/Text";
 
-const Flex = styled.div``;
+
+export const StyledSteps = styled(Text40)`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 32px;
+  }
+
+`
 
 export default function SignUpPage() {
   const user = useSelector(userSelect);
@@ -24,11 +31,14 @@ export default function SignUpPage() {
     min-height: 100vh;
     padding: 60px 120px 160px 160px;
     background-color: ${({ theme }) => theme.background};
+    @media (max-width: ${({ theme }) => theme.mobile}) {  
+      padding: 0px;
+      margin-top:120px;
+    }
   `;
-
   return (
     <SignupWrapper>
-      <BackButton margin="0px 0px 40px 0px" />
+      <BackButton margin="0px 0px 20px 0px" mMargin="0px" />
 
       {user.nickname === "" ? <Reminder /> : null}
       <StepOneButton />

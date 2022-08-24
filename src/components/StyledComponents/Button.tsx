@@ -117,8 +117,17 @@ export const Transparent = styled.button<ButtonInterface>`
 export const OpenCloseButton = styled.button`
   background: transparent;
   border: none;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   cursor: pointer;
+  img{
+    height:20px;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin-bottom:130px;
+    img{
+      max-height:12px;
+    }
+  }
 `;
 
 export const BlueButton = styled.button<ButtonInterface>`
