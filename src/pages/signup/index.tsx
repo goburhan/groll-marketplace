@@ -34,6 +34,7 @@ export default function SignUpPage() {
     background-color: ${({ theme }) => theme.background};
     @media (max-width: ${({ theme }) => theme.mobile}) {  
       padding: 0px;
+      margin:0px 32px 0px 12px;
       margin-top:120px;
     }
   `;

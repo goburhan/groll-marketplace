@@ -114,10 +114,10 @@ export const Transparent = styled.button<ButtonInterface>`
     display: ${(props) => props.mDisplay};
   }
 `;
-export const OpenCloseButton = styled.button`
+export const OpenCloseButton = styled.button<ButtonInterface>`
   background: transparent;
   border: none;
-  margin-bottom: 60px;
+  margin: ${(props) => props.margin};
   cursor: pointer;
   img{
     height:20px;

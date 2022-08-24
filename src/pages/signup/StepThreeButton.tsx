@@ -47,10 +47,8 @@ function ProgressBar(one: any) {
 }
 
 export default function StepOneButton() {
-  // This approach is if you only want max one section open at a time. If you want multiple
-  // sections to potentially be open simultaneously, they can all be given their own `useState`.
-  const [open, toggleOpen] = useState(true);
-  const isMobile = WindowSize()
+  const [open, toggleOpen] = useState(false);
+  const isMobile = WindowSize();
   const Header = styled(motion.header)``;
   const Section = styled(motion.section)`
     overflow: hidden;
@@ -229,7 +227,13 @@ export default function StepOneButton() {
             >
               <Box direction="row">
                 <Box>
-                  <Box mGap="5px" gap="15px" mb="15px" mMb="0px" direction="row">
+                  <Box
+                    mGap="5px"
+                    gap="15px"
+                    mb="15px"
+                    mMb="0px"
+                    direction="row"
+                  >
                     <StyledSteps color="#00ACFF">Step 3</StyledSteps>
                     <Progress>25% progress</Progress>
                     <StyledImg
@@ -237,7 +241,10 @@ export default function StepOneButton() {
                       alt="basic"
                     />
                   </Box>
-                  <StyledSteps lineHeight="1.5" color={({ theme }) => theme.titles}>
+                  <StyledSteps
+                    lineHeight="1.5"
+                    color={({ theme }) => theme.titles}
+                  >
                     Apply for The Blue Tick
                   </StyledSteps>
                 </Box>
@@ -251,6 +258,7 @@ export default function StepOneButton() {
             </StyledTitle>
 
             <OpenCloseButton
+            margin="0px 0px 150px 0px"
               onClick={() => {
                 toggleOpen(!open);
               }}
@@ -275,7 +283,7 @@ export default function StepOneButton() {
               initial="closed"
               animate="open"
               exit="exit"
-              variants={isMobile  ? MChildVariants :ChildVariants}
+              variants={isMobile ? MChildVariants : ChildVariants}
             >
               <SignupWrapper>
                 <StepThree />

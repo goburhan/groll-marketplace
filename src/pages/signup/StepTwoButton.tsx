@@ -9,10 +9,10 @@ import { Text40 } from "../../components/StyledComponents/Text";
 import { OpenCloseButton } from "../../components/StyledComponents/Button";
 import StepTwo from "./StepTwo";
 import KycCard from "./KycCard";
+import { WindowSize } from "../../hooks/useWindowsize";
 
 function ProgressBar(one: any) {
   const [open, setOpen] = useState(one);
-
   const Mainbar = styled.div`
     background: rgba(0, 172, 255, 0.25);
     width: 10px;
@@ -46,6 +46,7 @@ export default function StepOneButton() {
   // This approach is if you only want max one section open at a time. If you want multiple
   // sections to potentially be open simultaneously, they can all be given their own `useState`.
   const [open, toggleOpen] = useState(false);
+  const isMobile = WindowSize();
 
   const Header = styled(motion.header)``;
   const Section = styled(motion.section)`
@@ -143,7 +144,33 @@ export default function StepOneButton() {
       },
     },
   };
+  const MChildVariants = {
+    closed: {
+      opacity: 0,
+      height: "0rem",
+      transition: {
+        duration: 0.5,
+      },
+    },
 
+    open: {
+      height: "100%",
+      opacity: 1,
+      y: -20,
+
+      transition: {
+        duration: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: [-100, -190],
+      height: "1vh",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   const ButtonParentVariants = {
     closed: {
       opacity: 1,
@@ -199,7 +226,7 @@ export default function StepOneButton() {
                     <StyledSteps color="#00ACFF">Step 2</StyledSteps>
                     <Progress>25% progress</Progress>
                   </Box>
-                  <StyledSteps  color={({ theme }) => theme.titles}>
+                  <StyledSteps color={({ theme }) => theme.titles}>
                     Apply for KYC
                   </StyledSteps>
                 </Box>
@@ -209,6 +236,7 @@ export default function StepOneButton() {
             </StyledTitle>
 
             <OpenCloseButton
+              margin="0px 0px 50px 0px"
               onClick={() => {
                 toggleOpen(!open);
               }}
@@ -227,7 +255,7 @@ export default function StepOneButton() {
               initial="closed"
               animate="open"
               exit="exit"
-              variants={ChildVariants}
+              variants={isMobile ? MChildVariants : ChildVariants}
             >
               <SignupWrapper>
                 <StepTwo />

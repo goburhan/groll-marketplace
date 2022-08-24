@@ -291,6 +291,7 @@ export default function StepOneButton() {
             </StyledTitle>
 
             <OpenCloseButton
+              margin="50px 0px 0px 0px"
               onClick={() => {
                 toggleOpen(!open);
               }}
