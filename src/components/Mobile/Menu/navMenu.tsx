@@ -133,7 +133,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">FAQ</a>
+          <a href="/signup">Kyc</a>
         </NavLink>
         <NavLink
           initial={false}
