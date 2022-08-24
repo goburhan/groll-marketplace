@@ -194,7 +194,7 @@ export const PrevNextButton = styled.button<ButtonInterface>`
   background-size: 100% 100% !important;
 `;
 const Clear = styled.button`
-  display: flex;
+  display: flex ;
   cursor: pointer;
   align-items: center;
   gap: 4px;

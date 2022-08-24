@@ -154,7 +154,7 @@ export default function StepOneButton() {
     },
 
     open: {
-      height: "100%",
+      height: "90%",
       opacity: 1,
       y: -20,
 

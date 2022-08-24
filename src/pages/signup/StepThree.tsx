@@ -18,7 +18,13 @@ interface prop {
   justify?: string;
   innerRef?: any;
 }
-
+const Botwrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  
+`;
+const StyledImg = styled.img ``
 const Flex = styled.div<prop>`
   display: flex;
   flex-direction: ${(props) => props.direction || "column"};
@@ -32,16 +38,12 @@ const Flex = styled.div<prop>`
     place-self: right;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    img {
+    ${StyledImg} {
       display: none;
     }
   }
 `;
-const Botwrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
-`;
+
 
 const InputWrapper = styled.div<prop>`
   display: flex;
@@ -73,9 +75,12 @@ export default function StepOne() {
     setBio(e.target.value);
   }
 
+
+
+
   return (
     <Flex>
-      <img
+      <StyledImg
         style={{ marginTop: "3rem", marginBottom: "2rem" }}
         src="/images/Staticlogos/BlueTick.svg"
         alt="kyc"

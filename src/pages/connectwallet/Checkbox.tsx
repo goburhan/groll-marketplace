@@ -52,6 +52,7 @@ function BpCheckbox(props) {
       sx={{
         "&:hover": { bgcolor: "transparent" },
         padding: 0,
+        margin: "4px 0px ",
       }}
       disableRipple
       checked={props.checked}

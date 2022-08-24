@@ -50,6 +50,9 @@ const Botwrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+  }
 `;
 
 const Text = styled.text<prop>`
@@ -71,6 +74,7 @@ const Checker = styled.div<boxprops>`
   display: flex;
   text-align: left;
   align-items: center;
+  gap:6px;
   justify-content: ${({ justify }) => justify};
 `;
 const AddMore = styled.button`
@@ -84,6 +88,10 @@ const AddMore = styled.button`
   border-radius: 25px;
   color: #777e91;
   margin-bottom: 6%;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 80%;
+    justify-content: ;
+  }
 `;
 
 export default function StepOne() {
