@@ -177,7 +177,7 @@ export default function StepOneButton() {
   const ButtonParentVariants = {
     closed: {
       opacity: 1,
-      height: "max-content",
+      height: "600px",
       y: 0,
       transition: {
         when: "afterChildren",
