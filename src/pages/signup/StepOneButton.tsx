@@ -291,7 +291,7 @@ export default function StepOneButton() {
             </StyledTitle>
 
             <OpenCloseButton
-              margin="50px 0px 0px 0px"
+              margin="20px 0px 0px 0px"
               onClick={() => {
                 toggleOpen(!open);
               }}
@@ -306,9 +306,15 @@ export default function StepOneButton() {
                   </EditButton>
                 </Link>
               ) : open ? (
-                <img src="/images/Staticlogos/Uparrow.svg" />
+                <img
+                  style={{ height: 20 }}
+                  src="/images/Staticlogos/Uparrow.svg"
+                />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg" />
+                <img
+                  style={{ height: 20 }}
+                  src="/images/Staticlogos/Downarrow.svg"
+                />
               )}
             </OpenCloseButton>
           </ButtonWrapper>
