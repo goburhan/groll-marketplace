@@ -190,6 +190,25 @@ export default function StepOneButton() {
       },
     },
   };
+  const MButtonParentVariants = {
+    closed: {
+      opacity: 1,
+      height: "max-content",
+      y: 0,
+      transition: {
+        when: "afterChildren",
+        duration: 0.5,
+      },
+    },
+    open: {
+      height: ["140px", "100px"],
+      opacity: 1,
+      y: [30, 40, 0],
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
   const StyledImg = styled.img`
     max-width: 90px;
     margin-left: 6.2%;
@@ -209,7 +228,7 @@ export default function StepOneButton() {
           <ButtonWrapper
             key="parent"
             initial="closed"
-            variants={ButtonParentVariants}
+            variants={isMobile ? MButtonParentVariants : ButtonParentVariants}
             animate={open ? "open" : "closed"}
             onClick={() => toggleOpen(!open)}
           >
@@ -236,7 +255,7 @@ export default function StepOneButton() {
             </StyledTitle>
 
             <OpenCloseButton
-              margin="0px 0px 50px 0px"
+              margin="24px 0px 0px 0px"
               onClick={() => {
                 toggleOpen(!open);
               }}

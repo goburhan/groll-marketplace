@@ -175,14 +175,14 @@ export default function StepOneButton() {
     open: {
       height: "80vh",
       opacity: 1,
-      y: 110,
+      y: 150,
       transition: {
         duration: 0.5,
       },
     },
     exit: {
       opacity: 0,
-      y: [-160, -250],
+      y: [-60, -150],
       height: "1vh",
       transition: {
         duration: 0.5,
@@ -209,7 +209,25 @@ export default function StepOneButton() {
       },
     },
   };
-
+  const MButtonParentVariants = {
+    closed: {
+      opacity: 1,
+      height: "max-content",
+      y: 0,
+      transition: {
+        when: "afterChildren",
+        duration: 0.5,
+      },
+    },
+    open: {
+      height: ["140px", "0px"],
+      opacity: 1,
+      y: [ 20, 50, 0 ],
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
   return (
     <div style={{ display: "flex", width: "100%" }}>
       <ProgressBar one={open}></ProgressBar>
@@ -218,7 +236,7 @@ export default function StepOneButton() {
           <ButtonWrapper
             key="parent"
             initial="closed"
-            variants={ButtonParentVariants}
+            variants={isMobile  ? MButtonParentVariants : ButtonParentVariants}
             animate={open ? "open" : "closed"}
           >
             <StyledTitle
@@ -258,7 +276,7 @@ export default function StepOneButton() {
             </StyledTitle>
 
             <OpenCloseButton
-            margin="0px 0px 150px 0px"
+              margin="0px 0px 150px 0px"
               onClick={() => {
                 toggleOpen(!open);
               }}
