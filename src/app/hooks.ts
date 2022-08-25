@@ -52,7 +52,7 @@ export const useInterval = (callback: Function, delay: number) => {
   }, [delay])
 }
 export function fullImageUrl(url:any) {
-  const isAbsoluteURL = (str) => /^[a-z][a-z0-9+.-]*:/.test(str);
+  const isAbsoluteURL = (url) => /^[a-z][a-z0-9+.-]*:/.test(url);
   if (!url) return "";
   if (url.toLowerCase().startsWith("ipfs:/")) {
     let urlArr = url.split("/");

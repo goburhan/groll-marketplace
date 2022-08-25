@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   place-items: center;
   flex-direction: column;
   margin-bottom: 260px;
+  @media (max-width: 768px) {
+    margin-bottom:0px;
+    margin:0px 32px;
+  }
 `;
 
 const UploadCard = styled.div`
@@ -64,18 +68,24 @@ const Button = styled(Transparent)`
   padding: 8px 32px;
 `;
 
+const TextWrapper = styled(Flex)`
+  margin: 0px 0px 20px 0px;
+  flex-direction: column;
+  width: 35%;
+  text-align: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align:left;
+  }
+`;
+
 export default function CreateNft() {
   return (
     <>
-      <BackButton margin="152px 0px 104px 148px" />
+      <BackButton margin="152px 0px 104px 148px" mMargin="130px 0px 32px 32px" />
 
       <Wrapper>
-        <Flex
-          margin="0px 0px 20px 0px"
-          direction="column"
-          width="35%"
-          textAlign="center"
-        >
+        <TextWrapper>
           <Text40 color={({ theme }) => theme.titles} margin="0px 0px 8px 0px">
             Upload item
           </Text40>
@@ -85,7 +95,7 @@ export default function CreateNft() {
             collectible multiple times, you can also create a{" "}
             <span> “collection”</span> or a <span>“Mystery Box” </span> .
           </Text14>
-        </Flex>
+        </TextWrapper>
 
         <CardWrapper>
           <UploadCard>

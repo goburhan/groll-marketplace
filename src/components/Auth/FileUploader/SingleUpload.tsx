@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectConnector,
@@ -6,8 +6,6 @@ import {
   userSelect,
 } from "../../../actions/wallet/walletSlice";
 import { fullImageUrl, getDefaultConnector } from "../../../app/hooks";
-
-
 
 export default function App() {
   const fileRef: any = useRef();
@@ -17,28 +15,53 @@ export default function App() {
   const accounts = getDefaultConnector().useAccounts();
   const id = user.id;
   const nick = user.nickname;
+  const [gokhan, setGokhan] = useState("");
+  const reader = new FileReader();
 
   const handleChange = (e) => {
-    const [file] = e.target.files;
+    let file = e.target.files[0];
+     reader.readAsDataURL(e.target.files[0]);
 
-    const myImg = fullImageUrl(file.name);
-    console.log(myImg);
+    reader.onload = (e) => {
+      file = reader.result;
+    };
 
-    // dispatch(
-    //   updateProfile({
-    //     avatar: myImg,
-    //     coinbase: accounts[0],
-    //     id: id,
-    //     nickname: nick,
+    // console.log(reader.readAsDataURL(file))
+
+    // file.onload = () => {
+    //   this.imgSrc = file.result;
+    // };
+
+    // const myImg = fullImageUrl(file);
+    // console.log(myImg);
+
+    // if(!file) {
+    //   setDataUri('');
+    //   return;
+    // }
+
+    // fileToDataUri(file)
+    //   .then(dataUri => {
+    //     setDataUri(dataUri)
     //   })
-    // );
+    //   fullImageUrl(dataUri)
+
+    dispatch(
+      updateProfile({
+        avatar: file,
+        coinbase: accounts[0],
+        id: id,
+        nickname: nick,
+      })
+    );
   };
+  useEffect(() => {
+    console.log(gokhan);
+  }, [gokhan]);
 
   return (
     <div>
-      <button onClick={() => fileRef.current.click()}>
-        Custom F
-      </button>
+      <button onClick={() => fileRef.current.click()}>Custom F</button>
       <input
         ref={fileRef}
         onChange={handleChange}

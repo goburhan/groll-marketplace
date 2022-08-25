@@ -26,7 +26,7 @@ const PersonalDetail = styled.div`
   margin-top: 60px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-top: 0px;
-    margin-bottom:36px ;
+    margin-bottom: 36px;
   }
 `;
 
@@ -55,7 +55,7 @@ const Text = styled.text<prop>`
   line-height: 20px;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-bottom: ${props => props.mMb || "16px"};
+    margin-bottom: ${(props) => props.mMb || "16px"};
 `;
 
 export default function PersonalDetailWrapper({
@@ -94,10 +94,12 @@ export default function PersonalDetailWrapper({
           <Text16 margin="0px 0px 8px 0px" fontWeight="600" color="#fff">
             {title}
           </Text16>
-          <Text mMb="12px"  color="#777E90">{description}</Text>
+          <Text mMb="12px" color="#777E90">
+            {description}
+          </Text>
 
           <Transparent padding="8px 20px">{buttons}</Transparent>
-          {/* <SingleUpload></SingleUpload> */}
+           <SingleUpload></SingleUpload> 
         </Flex>
       </Flex>
     </PersonalDetail>

@@ -117,7 +117,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="/profile">Profile</a>
+          <a href="/createnft">Create NFT</a>
         </NavLink>
         <NavLink
           initial={false}
