@@ -126,7 +126,7 @@ export default function StepOne() {
         />
         <InputWrapper>
           <Text color="#b1b5c4">Nickname</Text>
-          <Register
+          <InputField
             height="56px"
             placeholder="e.g Mehdi Mairez"
             id="userName"

@@ -261,9 +261,9 @@ export default function StepOneButton() {
               }}
             >
               {open ? (
-                <img src="/images/Staticlogos/Uparrow.svg" />
+                <img src="/images/Staticlogos/Uparrow.svg" alt="collapse" />
               ) : (
-                <img src="/images/Staticlogos/Downarrow.svg" />
+                <img src="/images/Staticlogos/Downarrow.svg" alt="extend" />
               )}
             </OpenCloseButton>
           </ButtonWrapper>

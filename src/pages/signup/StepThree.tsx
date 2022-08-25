@@ -22,9 +22,8 @@ const Botwrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
-  
 `;
-const StyledImg = styled.img ``
+const StyledImg = styled.img``;
 const Flex = styled.div<prop>`
   display: flex;
   flex-direction: ${(props) => props.direction || "column"};
@@ -43,7 +42,6 @@ const Flex = styled.div<prop>`
     }
   }
 `;
-
 
 const InputWrapper = styled.div<prop>`
   display: flex;
@@ -74,9 +72,6 @@ export default function StepOne() {
   function bioChange(e) {
     setBio(e.target.value);
   }
-
-
-
 
   return (
     <Flex>

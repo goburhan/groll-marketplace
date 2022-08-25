@@ -182,7 +182,7 @@ export default function StepOneButton() {
     },
     exit: {
       opacity: 0,
-      y: [-60, -150],
+      y: [-20, -70],
       height: "1vh",
       transition: {
         duration: 0.5,
@@ -222,7 +222,7 @@ export default function StepOneButton() {
     open: {
       height: ["140px", "0px"],
       opacity: 1,
-      y: [ 20, 50, 0 ],
+      y: [20, 50, 0],
       transition: {
         duration: 0.4,
       },
@@ -236,7 +236,7 @@ export default function StepOneButton() {
           <ButtonWrapper
             key="parent"
             initial="closed"
-            variants={isMobile  ? MButtonParentVariants : ButtonParentVariants}
+            variants={isMobile ? MButtonParentVariants : ButtonParentVariants}
             animate={open ? "open" : "closed"}
           >
             <StyledTitle

@@ -44,8 +44,8 @@ export const Text14 = styled.text<TextProps>`
     color: ${({ theme }) => theme.cardTitle};
     font-weight: bold;
   }
-
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: ${(props) => props.mobileSize };
   }
 `;
 export const Text16 = styled.text<TextProps>`

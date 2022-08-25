@@ -92,6 +92,9 @@ export default function StepOneButton() {
     flex-direction: column;
     gap: 6px;
     justify-conent: center;
+    img {
+      min-height: 24px;
+    }
   `;
   interface prop {
     width?: string;
@@ -205,7 +208,7 @@ export default function StepOneButton() {
   const MButtonParentVariants = {
     closed: {
       opacity: 1,
-      height: "max-content",
+      height: "140px",
       y: 0,
       transition: {
         duration: 0.5,
@@ -245,8 +248,8 @@ export default function StepOneButton() {
   useEffect(() => {
     //user.nickname !== "" mean is user doesnt finished first step of register
     if (user.nickname !== "") {
-      // toggleOpen(false);
-      // setDisable(true);
+      toggleOpen(false);
+      setDisable(true);
     }
   });
   console.log(user);
@@ -300,7 +303,11 @@ export default function StepOneButton() {
                 <Link href="/editprofile">
                   <EditButton>
                     <img src="/images/Icons/Editbutton.svg" />
-                    <Text14 color={({ theme }) => theme.gray} fontWeight="600">
+                    <Text14
+                      mobileSize="12px"
+                      color={({ theme }) => theme.gray}
+                      fontWeight="600"
+                    >
                       Edit
                     </Text14>
                   </EditButton>

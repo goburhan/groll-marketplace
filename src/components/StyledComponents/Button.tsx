@@ -119,13 +119,13 @@ export const OpenCloseButton = styled.button<ButtonInterface>`
   border: none;
   margin: ${(props) => props.margin};
   cursor: pointer;
-  img{
-    height:20px;
+  img {
+    height: 20px;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-bottom:130px;
-    img{
-      max-height:12px;
+    margin-bottom: 130px;
+    img {
+      max-height: 12px;
     }
   }
 `;
@@ -194,7 +194,7 @@ export const PrevNextButton = styled.button<ButtonInterface>`
   background-size: 100% 100% !important;
 `;
 const Clear = styled.button`
-  display: flex ;
+  display: flex;
   cursor: pointer;
   align-items: center;
   gap: 4px;
