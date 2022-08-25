@@ -36,7 +36,6 @@ const NftContainer = styled.div`
 
     .slick-prev {
       margin-left: 82%;
-      z-index: 1;
       margin-top: -20px;
       top: 0;
       bottom: 0;

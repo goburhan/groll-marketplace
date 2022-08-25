@@ -39,7 +39,7 @@ const DropDownList = styled("ul")`
   color: #3faffa;
   font-weight: 500;
   &:first-child {
-    padding-top: 1em;
+    padding-top: 0.8em;
   }
 `;
 

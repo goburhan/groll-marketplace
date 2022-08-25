@@ -28,7 +28,7 @@ interface border {
 }
 const Wrapper = styled.div`
   display: flex;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 14px 10px;
   border: 1px solid #484D57;
   border-radius: 15px;
   margin: 24px auto;

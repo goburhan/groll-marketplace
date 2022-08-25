@@ -151,6 +151,7 @@ export const BlueButton = styled.button<ButtonInterface>`
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     padding: ${(props) => props.mPadding || "14px 24px"};
+    font-size:14px;
   }
 `;
 

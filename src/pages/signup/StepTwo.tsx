@@ -138,6 +138,7 @@ export default function StepOne() {
       <Botwrapper>
       <ClearAll/>
         <BlueButton
+         mPadding="8px 12px"
           onClick={() => {
             dispatch(
               updateProfile({

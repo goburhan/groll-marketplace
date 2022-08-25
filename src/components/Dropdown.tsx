@@ -37,7 +37,7 @@ const DropDownListContainer = styled.div`
   width: 19.5em;
   padding: 0px 8px 8px 8px;
   border: 2px solid ${({ theme }) => theme.gray};
-  border-radius: 20px;
+  border-radius: 12px;
 `;
 const DropDownList = styled("ul")`
   box-sizing: border-box;

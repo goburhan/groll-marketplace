@@ -196,6 +196,7 @@ export default function StepOne() {
          <ClearAll/>
           <Link href="/signup">
             <BlueButton
+            mPadding="8px 12px"
               onClick={() => {
                 dispatch(
                   updateProfile({
