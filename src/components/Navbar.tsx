@@ -51,7 +51,6 @@ export default function Navbar() {
     setAvatar(fullImageUrl(user.avatar));
   }, []);
 
-  console.log(user.avatar);
   const Navibar = styled.div`
     top: 0px;
     display: flex;

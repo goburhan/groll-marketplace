@@ -99,7 +99,7 @@ export default function PersonalDetailWrapper({
           </Text>
 
           <Transparent padding="8px 20px">{buttons}</Transparent>
-           <SingleUpload></SingleUpload> 
+           {/* <SingleUpload></SingleUpload>  */}
         </Flex>
       </Flex>
     </PersonalDetail>

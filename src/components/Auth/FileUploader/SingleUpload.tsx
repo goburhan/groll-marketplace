@@ -20,11 +20,16 @@ export default function App() {
 
   const handleChange = (e) => {
     let file = e.target.files[0];
-     reader.readAsDataURL(e.target.files[0]);
+    const formData = new FormData();
+    formData.append("file", file);
+    console.log(formData + "form dataa");
+    let gokhan = formData.getAll("file");
+    console.log(gokhan);
+    //  reader.readAsDataURL(e.target.files[0]);
 
-    reader.onload = (e) => {
-      file = reader.result;
-    };
+    // reader.onload = (e) => {
+    //   file = reader.result;
+    // };
 
     // console.log(reader.readAsDataURL(file))
 
@@ -48,20 +53,19 @@ export default function App() {
 
     dispatch(
       updateProfile({
-        avatar: file,
+        avatar: formData,
         coinbase: accounts[0],
         id: id,
         nickname: nick,
       })
     );
   };
-  useEffect(() => {
-    console.log(gokhan);
-  }, [gokhan]);
 
   return (
     <div>
-      <button onClick={() => fileRef.current.click()}>Custom F</button>
+      <button onClick={() => fileRef.current.click()}>
+        upload image button
+      </button>
       <input
         ref={fileRef}
         onChange={handleChange}

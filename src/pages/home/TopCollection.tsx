@@ -125,7 +125,15 @@ export default function TopCollection() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+          initialSlide: 0,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1.04,
           slidesToScroll: 1,
           initialSlide: 0,
         },

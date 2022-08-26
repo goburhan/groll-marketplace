@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 260px 200px 40px 80px 40px 80px;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    grid-template-rows: 440px 300px 28px 126px 80px;
+    grid-template-rows: 490px 300px 28px 126px 80px;
   }
 `;
 
@@ -113,6 +113,7 @@ export default function AvatarSettings() {
     <Wrapper>
       <Flex>
         {/* <FileInput></FileInput> */}
+        <Divider mt="18px" Mwidth="100%" width="0px" />
         <UploadAvatar
           tag=""
           title="Profile Photo 2D"
@@ -130,7 +131,7 @@ export default function AvatarSettings() {
       </Flex>
 
       <Flex justify="." direction="column" mDirection="row">
-        <Divider width="100%" mb="40px" />
+        <Divider width="100%" mb="30px" />
         <Flex gap="10px" alignItems="center" margin="0px 0px 32px 0px">
           <Flex direction="column">
             <Text16 color={({ theme }) => theme.cardTitle} fontWeight="600">

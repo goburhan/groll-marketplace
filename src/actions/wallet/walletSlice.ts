@@ -293,7 +293,7 @@ const slice = createSlice({
       state.connected = true
     })
     builder.addCase(userLogin.fulfilled, (state, { payload }) => {
-       state = payload
+       state = payload;
       console.log(payload)
       state.token = payload.token;
       state.isLogin= true;

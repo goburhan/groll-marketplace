@@ -21,6 +21,7 @@ interface checkboxProps {
   defaultChecked?: boolean;
   color?: any;
 }
+const StyledImg = styled.img``;
 
 const Flex = styled.div<prop>`
   display: flex;
@@ -34,6 +35,11 @@ const Flex = styled.div<prop>`
   }
   button {
     place-self: right;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    ${StyledImg} {
+      display: none;
+    }
   }
 `;
 const Botwrapper = styled.div`
@@ -54,8 +60,6 @@ const InputWrapper = styled.div<prop>`
   width: ${(props) => props.width || "100%"};
   margin-right: ${(props) => props.mr};
 `;
-
-
 
 export default function StepOne() {
   const [userName, setUserName] = useState("");
@@ -87,10 +91,9 @@ export default function StepOne() {
       color: ${({ theme }) => theme.linkItems};
     }
   `;
-
   return (
     <Flex>
-      <img
+      <StyledImg
         style={{ marginTop: "3rem" }}
         src="/images/Staticlogos/Kycicon.svg"
         alt="kyc"
@@ -136,9 +139,9 @@ export default function StepOne() {
       </InputWrapper>
 
       <Botwrapper>
-      <ClearAll/>
+        <ClearAll />
         <BlueButton
-         mPadding="8px 12px"
+          mPadding="8px 12px"
           onClick={() => {
             dispatch(
               updateProfile({
