@@ -34,7 +34,7 @@ const NftContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0px;
-    padding:0px 32px;
+    padding:0px 0px 0px 32px;
     width: 100%;
 
     .slick-prev {
@@ -133,7 +133,7 @@ export default function TopCollection() {
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 1.04,
+          slidesToShow: 1.1,
           slidesToScroll: 1,
           initialSlide: 0,
         },

@@ -51,17 +51,19 @@ const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-top:40px;
+  gap:20px 16px;
 `;
 const Slidebox = styled.div`
   text-color: white;
 `;
 
 const TitleWrapper = styled(HomeTitleWrapper)`
-@media (max-width: ${({ theme }) => theme.mobile}) {
-  position: absolute;
-  margin-top: -48px;
-}
-`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    position: absolute;
+    margin-top: -68px;
+  }
+`;
 export default function AllItems() {
   const isMobilee = WindowSize();
 

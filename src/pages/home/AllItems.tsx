@@ -31,7 +31,7 @@ const NftContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 100px 0px;
-    padding: 0px 32px;
+    padding: 0px 0px 0px 32px;
     width: 100%;
     ${HomeTitleWrapper} {
       margin-top: -70px;
@@ -89,7 +89,7 @@ export default function AllItems() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1.04,
+          slidesToShow: 1.1,
           slidesToScroll: 1,
         },
       },

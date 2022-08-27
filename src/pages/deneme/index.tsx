@@ -98,67 +98,8 @@ const nft = [
 ];
 
 export default function Deneme() {
-  const [value, setCheckbox] = useState(true);
+  
   return (
-    <div style={{ marginLeft: 100 }}>
-      <NftContainer>
-        <Nft img="/images/Nft/A4.svg" />
-        <div>
-          <Flex>
-            <Box>
-              <Text16 color={({ theme }) => theme.cardTitle}>
-                Amazing Digital Art
-              </Text16>
-            </Box>
-            <PriceContainer />
-          </Flex>
-          <Flex>
-            <Grid>
-              <img
-                src="/images/Staticlogos/Miniprofil.svg"
-                style={{ maxWidth: "25px" }}
-                alt="likes"
-              />
-              <img
-                src="/images/Nft/A3.svg"
-                style={{ maxWidth: "25px" }}
-                alt="likes"
-              />
-              <img
-                src="/images/Staticlogos/Miniprofile3.svg"
-                style={{ maxWidth: "25px", marginRight: "20px" }}
-                alt="likes"
-              />
-            </Grid>
-
-            <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
-              1 in Stock
-            </Text14>
-          </Flex>
-
-          <Divider width="90%" ml="12px" />
-
-          <Container>
-            <Text14 color={({ theme }) => theme.gray} fontWeight="600">
-              <img
-                src="/images/Highestbidlogo.svg"
-                style={{ marginRight: "4px" }}
-                alt="likes"
-              />
-              Highest Bid{" "}
-            </Text14>
-            <Gprice style={{ marginLeft: "6px", marginRight: "6px" }}>
-              0.001 Gulf
-            </Gprice>
-            <Text14 color={({ theme }) => theme.gray} fontWeight="600">
-              New Bid
-              <img src="/images/fire.svg" alt="likes" />
-            </Text14>
-          </Container>
-        </div>
-      </NftContainer>
-
-      <CustomizedCheckbox  />
-    </div>
+   <div>gokhan</div>
   );
 }

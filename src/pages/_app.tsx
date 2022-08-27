@@ -37,13 +37,10 @@ const connectors: [
   [coinbaseWallet, coinbaseWalletHooks],
 ];
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   const { theme, themeToggler } = useThemeMode();
   const themeMode = theme === "dark" ? dark : light;
 
-
-  
   return (
     <Web3ReactProvider connectors={connectors}>
       <ThemeContext>

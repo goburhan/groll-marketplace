@@ -93,7 +93,13 @@ export default function StepOneButton() {
     gap: 6px;
     justify-conent: center;
     img {
-      min-height: 24px;
+      min-height: 28px;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      img {
+        min-height: 26px;
+        min-width: 26px;
+      }
     }
   `;
   interface prop {

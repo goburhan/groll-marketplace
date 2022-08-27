@@ -149,7 +149,7 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <a href="#">Contact</a>
+          <a href="#">Empty button</a>
         </NavLink>
       </NavList>
     </NavMenuContainer>
