@@ -46,9 +46,16 @@ const PageWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 300px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 `;
 const Page = styled.div`
   margin: 60px 150px 0px 150px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin:0px 32px;
+  }
 `;
 const Collections = styled.div`
   display: grid;

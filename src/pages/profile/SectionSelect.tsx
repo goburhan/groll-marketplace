@@ -42,7 +42,7 @@ const Flex = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  
+
   margin: 0 10% 0 5%;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 0px;
@@ -51,8 +51,8 @@ const Flex = styled.div`
 const AppBar1 = styled(AppBar)`
   margin: 48px 10% 0 9%;
   border: 1px solid transparent;
-  span{
-   background-color:
+  span {
+    background-color: ;
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin: 44px 0 0 0;
@@ -60,13 +60,13 @@ const AppBar1 = styled(AppBar)`
 `;
 const Tabs1 = styled(Tabs)`
   width: 700px;
-  
+
   button {
     color: #777e90;
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width:100vw;
+    width: 100vw;
   }
 `;
 
@@ -90,7 +90,6 @@ export default function SectionSelectButtons() {
       sx={{
         width: "100%",
         minHeight: 200,
-
       }}
     >
       <AppBar1
@@ -108,38 +107,52 @@ export default function SectionSelectButtons() {
           textColor="primary"
           variant="scrollable"
           sx={{
-            
             ".Mui-selected": {
               color: "#00ACFF !important",
               fontWeight: "600",
               fontFamily: "Poppins, normal",
 
-              span:{
-                  color: "#00ACFF",
-                }, 
+              span: {
+                color: "#00ACFF",
+              },
             },
           }}
         >
           <Tab
-            style={{fontFamily: "Poppins, normal", border: "1px solid transparent", fontSize: 18 ,}}
+            style={{
+              fontFamily: "Poppins, normal",
+              border: "1px solid transparent",
+              fontSize: 18,
+            }}
             label="CREATED"
-            
             {...a11yProps(0)}
           />
           <Tab
-            style={{ border: "1px solid transparent", fontSize: 18,fontFamily: "Poppins, normal", }}
+            style={{
+              border: "1px solid transparent",
+              fontSize: 18,
+              fontFamily: "Poppins, normal",
+            }}
             label="COLLECTED"
             {...a11yProps(1)}
           />
           <Tab
             label="Collaborations"
             {...a11yProps(2)}
-            style={{ border: "1px solid transparent", fontSize: 18,fontFamily: "Poppins, normal", }}
+            style={{
+              border: "1px solid transparent",
+              fontSize: 18,
+              fontFamily: "Poppins, normal",
+            }}
           />
           <Tab
             label="Transactions"
             {...a11yProps(2)}
-            style={{ border: "1px solid transparent", fontSize: 18 ,fontFamily: "Poppins, normal",}}
+            style={{
+              border: "1px solid transparent",
+              fontSize: 18,
+              fontFamily: "Poppins, normal",
+            }}
           />
         </Tabs1>
       </AppBar1>
@@ -151,13 +164,10 @@ export default function SectionSelectButtons() {
           <Dropdown title="Creator" header="Verified Only" />
           <PriceSelector />
         </Flex>
-        <Items/>
+        <Items />
       </TabPanel>
-      <TabPanel value={value} index={1} dir={theme.direction}>
- 
-      </TabPanel>
-      <TabPanel value={value} index={2} dir={theme.direction}>
-      </TabPanel>
+      <TabPanel value={value} index={1} dir={theme.direction}></TabPanel>
+      <TabPanel value={value} index={2} dir={theme.direction}></TabPanel>
     </Box>
   );
 }
