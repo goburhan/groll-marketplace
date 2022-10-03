@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import { BlueButton } from './StyledComponents/Button';
-import { Vdivider } from './StyledComponents/Divider';
 import ConnectButton from './ConnectButton';
-import { Text14 } from './StyledComponents/Text';
 import { HamburgerMenu } from './Mobile/Menu';
 import useTheme from '../hooks/useThemeMode';
 import { userSelect } from '../actions/wallet/walletSlice';
@@ -48,12 +46,12 @@ export default function Navbar() {
         top: 0px;
         display: flex;
         position: fixed;
+        justify-content: space-between;
         width: 100vw;
         z-index: 1;
-        padding: 24px 160px 24px 160px;
+        padding: 24px 120px 24px 88px;
         background-color: ${({ theme }) => theme.header};
         img {
-            max-width: 53px;
         }
 
         @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -96,12 +94,7 @@ export default function Navbar() {
     `;
     // console.log(user);
 
-    const Menu = [
-        { name: 'Discover' },
-        { name: 'How it Work' },
-        { name: 'Features' },
-    ];
-
+  
     return (
         <Navibar>
             <Link href="/">
@@ -111,18 +104,7 @@ export default function Navbar() {
                     alt="groll"
                 />
             </Link>
-            <Items>
-                <Vdivider ml="2rem" height="70%" />
-                {Menu.map((item, key) => (
-                    <Text14
-                        key={key}
-                        fontWeight="700"
-                        color={({ theme }) => theme.linkItems}
-                    >
-                        {item.name}
-                    </Text14>
-                ))}
-            </Items>
+           
             <HamburgerMenu />
 
             <Items justifyContent="right">

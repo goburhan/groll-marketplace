@@ -27,6 +27,7 @@ import Globalstyle from '../styles/Globalstyle';
 import ThemeContext from '../contexts/ThemeContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
 
 const connectors: [
     MetaMask | WalletConnect | CoinbaseWallet,
@@ -49,6 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <Provider store={store}>
                         <PersistGate loading={null} persistor={persistor}>
                             <Navbar />
+                            <Sidebar />
                             <Component {...pageProps} />
                             <ToastContainer />
                             <Footer />
