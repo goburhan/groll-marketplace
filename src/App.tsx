@@ -2,7 +2,7 @@ import React, { useEffect, useState, Suspense, lazy } from "react";
 import Slide from "./pages/home/Slider";
 import GlobalStyle from "./styles/Globalstyle";
 import Navbar from "./components/Navbar";
-import AccountInformation from "./pages/signup/StepOneButton";
+import AccountInformation from "./pages/signup/components/StepOneButton";
 import SignUpPage from "./pages/signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";

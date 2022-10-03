@@ -1,0 +1,33 @@
+ /* eslint-disable */
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    // "extends": ["next/core-web-vitals", "airbnb-base"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "tsx": true
+        }
+    },
+    "plugins": ["react"],
+    "rules": {
+        "no-unused-vars": "warn",
+        "linebreak-style": "off",
+        "import/extensions": "off",
+        // "indent": ["error", 4],
+        "indent": "off",
+        "no-shadow": "off",
+        "comma-dangle": "off",
+        "@next/next/no-img-element": "off",
+        "object-curly-newline": "off",
+        "no-console": "off",
+        "react/no-unescaped-entities": "off",
+        "arrow-body-style": "off",
+        "prefer-template": "off",
+        "implicit-arrow-linebreak": "off"
+    }
+}

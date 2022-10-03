@@ -1,26 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import Bottom from './Bottom';
 import Center from './Center';
 import NftWrapper from './NftWrapper';
 
-interface NftCard {
-}
+interface NftCard {}
 
 const Block = styled.div`
-  background: #ffffff;
-  border-radius: 2px;
-  margin: 5px 5px 10px;
-  padding: 5px;
-  position: relative;
-  box-shadow: 2px 2px 4px 0px #cfd8dc;
+    background: #ffffff;
+    border-radius: 2px;
+    margin: 5px 5px 10px;
+    padding: 5px;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px #cfd8dc;
 `;
+
+export default function Card() {
+    return (<Card.Image></Card.Image>);
+}
+
 Card.Image = Center;
 Card.Text = NftWrapper;
 Card.Title = Bottom;
-
-export default function Card() {
-  return (
-    <div>index</div>
-  )
-}

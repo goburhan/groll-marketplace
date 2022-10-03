@@ -16,7 +16,7 @@ interface Props {
   children: React.ReactNode;
   value: number;
   index: number;
-  dir: any;
+  dir: any
 }
 
 const TabPanel = ({ children, value, index, ...other }: Props) => {

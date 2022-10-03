@@ -1,151 +1,151 @@
-import React, { useEffect, useState } from "react";
-import styled, { ThemeContext } from "styled-components";
-import { BlueButton } from "./StyledComponents/Button";
-import { Vdivider } from "./StyledComponents/Divider";
-import ConnectButton from "./ConnectButton";
-import Link from "next/link";
-import { Text14 } from "./StyledComponents/Text";
-import { HamburgerMenu } from "./Mobile/Menu";
-import useThemeMode from "../hooks/useThemeMode";
-import { useSelector } from "react-redux";
-import { userSelect } from "../actions/wallet/walletSlice";
-import ProfileIcon from "./ProfileMenu/ProfileIcon";
-import { fullImageUrl } from "../app/hooks";
-import Searchbar from "./StyledComponents/Searchbar";
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import Link from 'next/link';
+import { BlueButton } from './StyledComponents/Button';
+import { Vdivider } from './StyledComponents/Divider';
+import ConnectButton from './ConnectButton';
+import { Text14 } from './StyledComponents/Text';
+import { HamburgerMenu } from './Mobile/Menu';
+import useTheme from '../hooks/useThemeMode';
+import { userSelect } from '../actions/wallet/walletSlice';
+import ProfileIcon from './ProfileMenu/ProfileIcon';
+import Searchbar from './StyledComponents/Searchbar';
 
 export const Search = styled.input`
-  border: 1px solid transparent;
-  border-radius: 25px;
-  background-color: transparent;
-  color: white;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    background-color: transparent;
+    color: white;
 
-  ::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-  }
-  :focus {
-    outline: none;
-  }
+    ::placeholder {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+    }
+    :focus {
+        outline: none;
+    }
 `;
 export const SearchWrapper = styled.div`
-  display: flex;
-  border: 1px solid #484d57;
-  border-radius: 25px;
-  background-color: transparent;
-  padding: 6px 14px 6px 14px;
-  width: 48%;
-  justify-content: space-between;
-
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    display: none;
-  }
-`;
-export default function Navbar() {
-  const { theme, themeToggler } = useThemeMode();
-  const user = useSelector(userSelect);
-  const [imageUrl, setImageUrl] = useState(null);
-  const [avatar, setAvatar] = useState();
-
-  useEffect(() => {
-    setAvatar(fullImageUrl(user.avatar));
-  }, []);
-
-  const Navibar = styled.div`
-    top: 0px;
     display: flex;
-    position: fixed;
-    width: 100vw;
-    z-index: 1;
-    padding: 24px 160px 24px 160px;
-    background-color: ${({ theme }) => theme.header};
-    img {
-      max-width: 53px;
-    }
+    border: 1px solid #484d57;
+    border-radius: 25px;
+    background-color: transparent;
+    padding: 6px 14px 6px 14px;
+    width: 48%;
+    justify-content: space-between;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      padding: 0px;
-      height: 80px;
-      width: 100%;
-      img {
-        margin-left: 32px;
-        max-width: 40px;
-      }
+        display: none;
     }
-  `;
+`;
+export default function Navbar() {
+    const { themeToggler } = useTheme();
+    const user = useSelector(userSelect);
+    // const [imageUrl, setImageUrl] = useState(null);
+    const Navibar = styled.div`
+        top: 0px;
+        display: flex;
+        position: fixed;
+        width: 100vw;
+        z-index: 1;
+        padding: 24px 160px 24px 160px;
+        background-color: ${({ theme }) => theme.header};
+        img {
+            max-width: 53px;
+        }
 
-  const ThemeButton = styled.button`
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    img {
-      min-width: 24px;
+        @media (max-width: ${({ theme }) => theme.mobile}) {
+            padding: 0px;
+            height: 80px;
+            width: 100%;
+            img {
+                margin-left: 32px;
+                max-width: 40px;
+            }
+        }
+    `;
+
+    const ThemeButton = styled.button`
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        img {
+            min-width: 24px;
+        }
+    `;
+
+    interface Item {
+        justifyContent?: string;
     }
-  `;
+    const Items = styled.div<Item>`
+        color: white;
+        display: flex;
+        width: 48%;
+        gap: 2rem;
+        place-items: center;
+        justify-content: ${(props) => props.justifyContent};
+        text {
+            cursor: pointer;
+        }
+        @media (max-width: ${({ theme }) => theme.tablet}) {
+            justify-content: space-around;
+            display: none;
+        }
+    `;
+    // console.log(user);
 
-  interface Item {
-    justifyContent?: string;
-  }
-  const Items = styled.div<Item>`
-    color: white;
-    display: flex;
-    width: 48%;
-    gap: 2rem;
-    place-items: center;
-    justify-content: ${(props) => props.justifyContent};
-    text {
-      cursor: pointer;
-    }
-    @media (max-width: ${({ theme }) => theme.tablet}) {
-      justify-content: space-around;
-      display: none;
-    }
-  `;
-  console.log(user);
+    const Menu = [
+        { name: 'Discover' },
+        { name: 'How it Work' },
+        { name: 'Features' },
+    ];
 
-  const Menu = [
-    { name: "Discover" },
-    { name: "How it Work" },
-    { name: "Features" },
-  ];
+    return (
+        <Navibar>
+            <Link href="/">
+                <img
+                    src="/images/Logo.svg"
+                    style={{ cursor: 'pointer' }}
+                    alt="groll"
+                />
+            </Link>
+            <Items>
+                <Vdivider ml="2rem" height="70%" />
+                {Menu.map((item, key) => (
+                    <Text14
+                        key={key}
+                        fontWeight="700"
+                        color={({ theme }) => theme.linkItems}
+                    >
+                        {item.name}
+                    </Text14>
+                ))}
+            </Items>
+            <HamburgerMenu />
 
-  return (
-    <Navibar>
-      <Link href="/">
-        <img src="/images/Logo.svg" style={{ cursor: "pointer" }} />
-      </Link>
-      <Items>
-        <Vdivider ml="2rem" height="70%" />
-        {Menu.map((item) => (
-          <Text14 fontWeight="700" color={({ theme }) => theme.linkItems}>
-            {item.name}
-          </Text14>
-        ))}
-      </Items>
-      <HamburgerMenu />
+            <Items justifyContent="right">
+                <Searchbar />
 
-      <Items justifyContent="right">
-       
-        <Searchbar />
+                {user.nickname !== '' && (
+                    <Link href="/createnft">
+                        <BlueButton>Create</BlueButton>
+                    </Link>
+                )}
 
-        {user.nickname !== "" && (
-          <Link href="/createnft">
-            <BlueButton>Create</BlueButton>
-          </Link>
-        )}
+                <ConnectButton />
 
-        <ConnectButton />
+                <ProfileIcon />
 
-        <ProfileIcon />
-
-        <ThemeButton
-          onClick={() => {
-            themeToggler();
-          }}
-        >
-          <img src="/images/triangle.svg" />
-        </ThemeButton>
-      </Items>
-    </Navibar>
-  );
+                <ThemeButton
+                    onClick={() => {
+                        themeToggler();
+                    }}
+                >
+                    <img src="/images/triangle.svg" alt="themeToggler" />
+                </ThemeButton>
+            </Items>
+        </Navibar>
+    );
 }

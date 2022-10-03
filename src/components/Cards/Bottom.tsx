@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function Bottom() {
-  return (
-    <div>Bottom</div>
-  )
+    return <div>Bottom</div>;
 }

@@ -1,106 +1,70 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Checkbox from '@mui/material/Checkbox';
 
-const Input = styled.input`
-  height: 0;
-  width: 0;
-  opacity: 0;
-  z-index: -1;
-`;
+const BpIcon = styled('span')(({ theme }) => ({
+    borderRadius: 3,
+    width: 20,
+    height: 20,
+    border: '2px solid #353945',
 
-const Label = styled.label`
-  position: relative;
-  display: inline-block;
-  margin: 0.6em 1em;
-`;
+    boxShadow:
+        theme.palette.mode === 'dark'
+            ? '0 0 0 1px rgb(16 22 26 / 40%)'
+            : 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
+    backgroundColor: theme.palette.mode === 'dark' ? '#394b59' : '#282B35',
 
-const rotate = keyframes`
- from {
-    opacity: 0;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(45deg);
-  }
-`;
+    '.Mui-focusVisible &': {
+        outline: '2px auto rgba(19,124,189,.6)',
+        outlineOffset: 2,
+    },
 
-const Indicator = styled.div`
-  width: 1.2em;
-  height: 1.2em;
-  position: absolute;
-  top: 0em;
-  left: -1.6em;
+    'input:after ~ &': {
+        backgroundColor: theme.palette.mode === 'dark' ? '#30404d' : '#aeaeae',
+    },
+}));
 
-  border: 1px solid #757575;
-  border-radius: 0.2em;
+const BpCheckedIcon = styled(BpIcon)({
+    backgroundColor: '#00ACFF',
+    border: 'none',
 
-  ${Label}:hover & {
-    opacity: 0.9;
-  }
+    backgroundImage:
+        'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+    '&:before': {
+        display: 'block',
+        width: 16,
+        height: 16,
+        backgroundImage:
+            "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath"
+            + " fill-rule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 "
+            + "1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l5-5A1.003 1.003 0 0012 5z' fill='%23fff'/%3E%3C/svg%3E\")",
+        content: '""',
+    },
 
+    'input:hover ~ &': {
+        backgroundColor: '#106ba3',
+    },
+});
 
-  &::after {
-    content: "";
-    position: absolute;
-    display: block;
-  }
+function BpCheckbox(props) {
+    return (
+        <Checkbox
+            sx={{
+                '&:hover': { bgcolor: 'transparent' },
+                padding: 0,
+                margin: '4px 0px ',
+            }}
+            disableRipple
+            checked={props.checked}
+            color="default"
+            checkedIcon={<BpCheckedIcon />}
+            icon={<BpIcon />}
+            inputProps={{ 'aria-label': 'Checkbox demo' }}
+            {...props}
+        />
+    );
+}
 
-  &:checked + &::after {
-    display: block;
-    top: 0.1em;
-    left: 0.35em;
-    width: 35%;
-    height: 70%;
-
-    border: solid #fff;
-    border-width: 0 2px 0.2em 0;
-    animation-name: ${rotate};
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-  }
-
-  ${Input}:checked + &::after {
-    display: block;
-    top: 0.1em;
-    left: 0.35em;
-
-    width: 35%;
-    height: 70%;
-    border: solid #fff;
-    border-width: 0 2px 0.2em 0;
-    animation-name: ${rotate};
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-  }
-
-  &::chechked {
-    cursor: not-allowed;
-  }
-`;
-
-export default function Checkbox({
-  value,
-  checked,
-  onChange,
-  name,
-  id,
-  label,
-  disabled,
-}) {
-  return (
-    <Label htmlFor={id}>
-      {label}
-      <Input
-        id={id}
-        type="checkbox"
-        name={name}
-        value={value}
-        disabled={disabled}
-        checked={checked}
-        onChange={onChange}
-      />
-      <Indicator />
-    </Label>
-  );
+export default function CustomizedCheckbox(props) {
+    return <BpCheckbox />;
 }
