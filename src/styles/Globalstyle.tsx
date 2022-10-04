@@ -1,10 +1,10 @@
-import { createGlobalStyle, withTheme } from "styled-components";
-import ThemeProps from "./themes";
+import { createGlobalStyle, withTheme } from 'styled-components';
+import ThemeProps from './themes';
 
 export const screens = {
-  mobile: "586px",
-  tablet: "1024px",
-  bigscreen: "2000px",
+    mobile: '586px',
+    tablet: '1024px',
+    bigscreen: '2000px',
 };
 
 const GlobalStyle = createGlobalStyle<{ theme: ThemeProps }>`
@@ -53,7 +53,7 @@ font-family: "Poppins", normal;
   
     display: inline-block;
   
-    width: 20px;
+    width: 28px;
     height: 20px;
     margin: 0 3px;
     padding: 0;
@@ -93,13 +93,12 @@ font-family: "Poppins", normal;
     position: absolute;
     top: 0;
     left: 0;
-  
     width: 20px;
     height: 20px;
   
-    content:'•';
+    content: url(images/icons/SliderIcon.svg);
     text-align: center;
-  
+      
     opacity: 0.35;
     color: #484d57;
   

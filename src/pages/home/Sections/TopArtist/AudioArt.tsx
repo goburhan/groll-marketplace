@@ -1,23 +1,16 @@
-import React, { Component, useRef } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
-import Link from 'next/link';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import TCollectionCard from '../../components/NftCards/Cards/TCollectCard';
-import {
-    HomeTitleWrapper,
-    Text40,
-} from '../../components/StyledComponents/Text';
-import PriceContainer from '../../components/NftCards/PriceContainer';
-import PriceSelector from '../../components/Selectors/PriceSelector';
-
-import Dropdown from '../../components/Dropdown';
-import { PrevNextButton } from '../../components/StyledComponents/Button';
+import TopArtistCard from '../../../../components/NftCards/Cards/TopArtistCard';
+import { Text14, Text32 } from '../../../../components/StyledComponents/Text';
+import { PrevNextButton } from '../../../../components/StyledComponents/Button';
 
 const NftContainer = styled.div`
-    text-align: center;
-    margin: 62px 160px;
+    display: block;
+    text-align: left;
+    align-items: flex-start;
 
     .slick-prev:before {
         display: none;
@@ -33,62 +26,47 @@ const NftContainer = styled.div`
     }
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
-        margin: 100px 0px;
+        margin: 12px 0px;
         padding: 0px 0px 0px 32px;
         width: 100%;
 
         .slick-prev {
             margin-left: 82%;
             z-index: 1;
-            margin-top: -4px;
+            margin-top: 16px;
             top: 0;
             bottom: 0;
         }
         .slick-next {
-            margin-top: -4px;
+            margin-top: 16px;
             margin-right: 14%;
             top: 0;
         }
     }
 `;
 
-const Slidebox = styled.div`
-    text-color: white;
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-        margin-top: 3rem;
-    }
-`;
 const Flex = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 19.5em);
-    width: 100%;
-    justify-content: space-between;
-
-    margin-top: 5%;
+    display: flex;
+    flex-direction: ${(props) => props.dir};
+    margin-top: 50px;
+`;
+const TitleWrapper = styled.div`
+    margin-bottom: 32px;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-        margin-top: 2%;
+        position: absolute;
+        margin-top: -52px;
     }
 `;
-
-const icons = [
-    { name: '/images/Nft/1.svg', key: '' },
-    { name: '/images/Nft/2.svg', key: '' },
-    { name: '/images/Nft/3.svg', key: '' },
-    { name: '/images/Nft/4.svg', key: '' },
-    { name: '/images/Nft/5.svg', key: '' },
-    { name: '/images/Nft/6.svg', key: '' },
-];
-
-export default function TopCollection() {
+export default function VisualArt() {
     const settings = {
         infinite: false,
         speed: 250,
         slidesToShow: 5,
-        slidesToScroll: 1,
-        arrows: true,
-        variableWidth: false,
         prevArrow: <PrevNextButton img="/images/Staticlogos/PrevArrow.svg" />,
         nextArrow: <PrevNextButton img="/images/Staticlogos/Arrow.svg" />,
+        slidesToScroll: 1,
+        variableWidth: false,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 1800,
@@ -130,41 +108,35 @@ export default function TopCollection() {
                     initialSlide: 0,
                 },
             },
-            {
-                breakpoint: 400,
-                settings: {
-                    slidesToShow: 1.1,
-                    slidesToScroll: 1,
-                    initialSlide: 0,
-                },
-            },
         ],
     };
 
+    const icons = [
+        { name: '/images/Nft/1.svg' },
+        { name: '/images/Nft/2.svg' },
+        { name: '/images/Nft/3.svg' },
+        { name: '/images/Nft/4.svg' },
+        { name: '/images/Nft/5.svg' },
+    ];
     return (
         <NftContainer>
-            <HomeTitleWrapper>
-                <Text40 color={({ theme }) => theme.titles}>
-                    {' '}
-                    Top collection
-                </Text40>
-            </HomeTitleWrapper>
+            <TitleWrapper>
+                <Flex dir="column">
+                    <Text32>Audio art</Text32>
+                    <Text14
+                        color={({ theme }) => theme.filterText}
+                        letterSpacing="-0.01em"
+                    >
+                        Some audio art from the gallery
+                    </Text14>
+                </Flex>
+            </TitleWrapper>
 
             <Slider {...settings}>
                 {icons.map((icon, key) => (
-                    <Link key={key} style={{ cursor: 'pointer' }} href="/carddetail">
-                        <Slidebox >
-                            <TCollectionCard icon={icon.name} />
-                        </Slidebox>
-                    </Link>
+                    <TopArtistCard nft={icon.name} key={key} />
                 ))}
             </Slider>
-            <Flex>
-                <Dropdown title="Price" header="Highes Price" />
-                <Dropdown title="Likes" header="Most Liked" />
-                <Dropdown title="Creator" header="Verified Only" />
-                <PriceSelector />
-            </Flex>
         </NftContainer>
     );
 }

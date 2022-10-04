@@ -6,10 +6,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import {
     HomeTitleWrapper,
     Text40,
-} from '../../components/StyledComponents/Text';
-import { WindowSize } from '../../hooks/useWindowsize';
-import TopArtistCard from '../../components/NftCards/Cards/TopArtistCard';
-import { PrevNextButton } from '../../components/StyledComponents/Button';
+} from '../../../components/StyledComponents/Text';
+import { WindowSize } from '../../../hooks/useWindowsize';
+import TopArtistCard from '../../../components/NftCards/Cards/TopArtistCard';
+import { PrevNextButton } from '../../../components/StyledComponents/Button';
 
 const NftContainer = styled.div`
     text-align: center;

@@ -11,7 +11,9 @@ const NftContainer = styled.div`
   max-width: 301px;
   height: 400px;
   position: relative;
-  border: 1px solid transparent;
+  border-left: 1px solid ${({ theme }) => theme.blackHover};
+  border-bottom: 1px solid ${({ theme }) => theme.blackHover};
+  border-right: 1px solid ${({ theme }) => theme.blackHover};
   border-radius: 25px;
   background: ${({ theme }) => theme.card};
   @media (max-width: ${({ theme }) => theme.mobile}) {

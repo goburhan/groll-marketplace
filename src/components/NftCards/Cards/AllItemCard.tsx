@@ -9,7 +9,7 @@ const NftContainer = styled.div`
     display: grid;
     grid-template-rows: 1.8fr 1fr;
     background: ${({ theme }) => theme.card};
-    border: 1px solid transparent;
+    border: 1px solid ${({ theme }) => theme.blackHover};
     border-radius: 18px;
     min-height: max-content;
     max-width: 300px;

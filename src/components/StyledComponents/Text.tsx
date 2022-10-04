@@ -16,7 +16,10 @@ export interface TextProps {
     mobileSize?: string;
 }
 export const HomeTitleWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 62px;
+    text-align: left;
     @media (max-width: ${({ theme }) => theme.mobile}) {
         position: absolute;
         margin-top: -20px;
@@ -72,7 +75,7 @@ export const Text22 = styled.text<TextProps>`
     font-size: 22px;
     font-weight: ${(props) => props.fontWeight || '700'};
     line-height: ${(props) => props.lineHeight || 1.5};
-    letter-spacing: -0.01em;
+    letter-spacing: ${(props) => props.letterSpacing || "-0.01em"}; ;
     color: ${(props) => props.color};
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -138,12 +141,19 @@ export const Text48 = styled.text`
     }
 `;
 export const Sliderfont = styled.text`
-    font-weight: 700;
-    font-size: 72px;
-    line-height: 56px;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 64px;
     /* identical to box height, or 78% */
-    letter-spacing: -0.065em;
+    letter-spacing: -0.005em;
+
     color: ${({ theme }) => theme.white};
+    span {
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: ${(props) => props.color};
+    }
+
     @media (max-width: ${({ theme }) => theme.mobile}) {
     }
 `;

@@ -252,3 +252,103 @@ export function BackButton({ ...props }) {
         </Backhome>
     );
 }
+
+export const AddWatch = styled.button<ButtonInterface>`
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #484d57;
+    color: ${({ theme }) => theme.cardTitle};
+    cursor: pointer;
+    margin: ${(props) => props.margin};
+    justify-content: center;
+    border-radius: 24px;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 22px;
+    width: max-content;
+    max-height: 40px;
+    img {
+        margin-right: 6px;
+        min-height: 8px;
+    }
+    :hover {
+        opacity: 0.8;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        margin: ${(props) => props.mMargin};
+    }
+`;
+export function AddWatchList({ ...props }) {
+    return (
+        <AddWatch
+            margin={props.margin}
+            mMargin={props.mMargin}
+            padding={props.padding}
+        >
+            <img src="/images/icons/Yellowstar.svg" />
+            Add to watchlist
+        </AddWatch>
+    );
+}
+
+const Collab = styled.button<ButtonInterface>`
+    background-image: url(${({ img }) => img});
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #b1b5c3;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    :hover {
+        opacity: 0.8;
+    }
+`;
+export function Collaboration({ ...props }) {
+    return (
+        <Collab
+            margin={props.margin}
+            mMargin={props.mMargin}
+            padding={props.padding}
+            img="/images/icons/Collaboration.svg"
+        ></Collab>
+    );
+}
+const Live = styled.button<ButtonInterface>`
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #484D57;
+    color: #FF0D48;
+    cursor: pointer;
+    margin: ${(props) => props.margin};
+    justify-content: center;
+    border-radius: 24px;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 12px 16px;
+    width: max-content;
+    max-height: 40px;
+    img {
+        margin-right: 6px;
+        min-height: 8px;
+    }
+    :hover {
+        opacity: 0.8;
+    }
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        margin: ${(props) => props.mMargin};
+    }
+`;
+export function LiveButton({ ...props }) {
+    return (
+        <Live
+            margin={props.margin}
+            mMargin={props.mMargin}
+            padding={props.padding}
+        >
+            <img src="/images/icons/LiveDot.svg" />
+            LIVE
+        </Live>
+    );
+}

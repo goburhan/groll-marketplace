@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
-import Slide from "./pages/home/Slider";
+import Slide from "./pages/home/Sections/Slider";
 import GlobalStyle from "./styles/Globalstyle";
 import Navbar from "./components/Navbar";
 import AccountInformation from "./pages/signup/components/StepOneButton";

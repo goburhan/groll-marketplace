@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import VisualArt from './VisualArt';
-import { Text40 } from '../../../components/StyledComponents/Text';
+import { Text40 } from '../../../../components/StyledComponents/Text';
 import AudioArt from './AudioArt';
 
 const TopArtistContainer = styled.div`

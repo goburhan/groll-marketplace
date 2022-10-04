@@ -1,11 +1,12 @@
 import React from 'react';
-import Slider from './Slider';
-import TopCollection from './TopCollection';
-import AllItems from './AllItems';
-import HotCollections from './HotCollections';
-import UpComing from './Upcoming';
-import TopArtists from './TopArtist/TopArtists';
-import TopInfluencer from './TopInfluencers';
+import Slider from './Sections/Slider';
+import TopCollection from './Sections/TopCollection';
+import AllItems from './Sections/AllItems';
+import HotCollections from './Sections/HotCollections';
+import Upcoming from './Sections/Upcoming';
+import TopArtists from './Sections/TopArtist/TopArtists';
+import TopInfluencer from './Sections/TopInfluencers';
+import Launchpad from './Sections/Launchpad';
 
 export function Home() {
     return (
@@ -13,8 +14,9 @@ export function Home() {
             <Slider />
             <TopCollection />
             <AllItems />
-            <HotCollections />
-            <UpComing />
+            {/* <HotCollections /> */}
+            <Upcoming />
+            <Launchpad/>
             <TopInfluencer />
             <TopArtists />
             {/* <TopCollectors /> */}

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import {
     Text40,
     HomeTitleWrapper,
-} from '../../components/StyledComponents/Text';
-import HotCollectionCard from '../../components/NftCards/Cards/HotCollectionCard';
+} from '../../../components/StyledComponents/Text';
+import HotCollectionCard from '../../../components/NftCards/Cards/HotCollectionCard';
 
 const NftContainer = styled.div`
     text-align: center;

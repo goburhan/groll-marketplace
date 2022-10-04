@@ -125,7 +125,7 @@ export default function Navbar() {
                         themeToggler();
                     }}
                 >
-                    <img src="/images/triangle.svg" alt="themeToggler" />
+                    <img src="/images/icons/Themetoggler.svg" alt="themeToggler" />
                 </ThemeButton>
             </Items>
         </Navibar>

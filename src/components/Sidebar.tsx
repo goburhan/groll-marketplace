@@ -8,13 +8,14 @@ const Side = styled.div`
     align-items: center;
     position: fixed;
     left: 0;
-    top: 100px;
+    top: 110px;
     height: 100vh;
     width: 88px;
     background-color: ${({ theme }) => theme.header};
     z-index: 10;
     padding: 30px 0px;
     transition: 0.5s;
+    border-right: 0.1rem solid #484D57;
     &:hover {
         width: 240px;
         transition: 0.5s;

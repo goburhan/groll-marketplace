@@ -3,9 +3,9 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import TopArtistCard from '../../../components/NftCards/Cards/TopArtistCard';
-import { Text32, Text14 } from '../../../components/StyledComponents/Text';
-import { PrevNextButton } from '../../../components/StyledComponents/Button';
+import TopArtistCard from '../../../../components/NftCards/Cards/TopArtistCard';
+import { Text32, Text14 } from '../../../../components/StyledComponents/Text';
+import { PrevNextButton } from '../../../../components/StyledComponents/Button';
 
 const NftContainer = styled.div`
     text-align: left;

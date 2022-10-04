@@ -6,20 +6,22 @@ import 'slick-carousel/slick/slick-theme.css';
 import {
     Text40,
     HomeTitleWrapper,
-} from '../../components/StyledComponents/Text';
-import UpcomingCard from '../../components/NftCards/Cards/UpcomingCard';
-import { WindowSize } from '../../hooks/useWindowsize';
-import { PrevNextButton } from '../../components/StyledComponents/Button';
+} from '../../../components/StyledComponents/Text';
+import AllItemCard from '../../../components/NftCards/Cards/AllItemCard';
+import BigItemCard from '../../../components/NftCards/Cards/BigItemCard';
+import { WindowSize } from '../../../hooks/useWindowsize';
+import { PrevNextButton, Transparent } from '../../../components/StyledComponents/Button';
 
 const NftContainer = styled.div`
     text-align: center;
-    margin: 62px 162px;
+    margin: 62px 160px;
+
     .slick-prev:before {
         display: none;
         position: absolute;
         color: #777e90;
         font-size: 30px;
-    }s
+    }
     .slick-next:before {
         color: #777e90;
         display: none;
@@ -31,44 +33,42 @@ const NftContainer = styled.div`
         margin: 100px 0px;
         padding: 0px 0px 0px 32px;
         width: 100%;
-
+        ${HomeTitleWrapper} {
+            margin-top: -70px;
+        }
         .slick-prev {
             margin-left: 82%;
             z-index: 1;
-            margin-top: 30px;
+            margin-top: -52px;
             top: 0;
             bottom: 0;
         }
         .slick-next {
-            margin-top: 30px;
+            margin-top: -52px;
             margin-right: 14%;
             top: 0;
         }
     }
 `;
 const Flex = styled.div`
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, 300px);
-    // justify-content: center;
-    // align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-        flex-direction: column;
-    }
+    justify-content: flex-start;
+    gap: 60px 20px;
 `;
 
-export default function Upcoming() {
+export default function AllItems() {
+    const isMobilee = WindowSize();
+
     const settings = {
         infinite: false,
         speed: 250,
         slidesToShow: 5,
         slidesToScroll: 1,
         variableWidth: false,
-        arrows: true,
         prevArrow: <PrevNextButton img="/images/Staticlogos/PrevArrow.svg" />,
         nextArrow: <PrevNextButton img="/images/Staticlogos/Arrow.svg" />,
+        arrows: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -76,6 +76,7 @@ export default function Upcoming() {
                     slidesToShow: 2,
                     slidesToScroll: 3,
                     infinite: true,
+                    dots: true,
                 },
             },
             {
@@ -94,46 +95,46 @@ export default function Upcoming() {
             },
         ],
     };
-    const TitleWrapper = styled.div`
-        margin-bottom: 62px;
-        @media (max-width: ${({ theme }) => theme.mobile}) {
-            position: absolute;
-            margin-bottom: 23px;
-            height: 20px;
-            width: 10%;
-        }
-    `;
-    const isMobilee = WindowSize();
     const nft = [
-        { name: '/images/Nft/Up1.svg' },
-        { name: '/images/Nft/Up2.svg' },
-        { name: '/images/Nft/Up3.svg' },
-        { name: '/images/Nft/Up4.svg' },
-        { name: '/images/Nft/Up5.svg' },
+        { name: '/images/Nft/A1.svg' },
+        { name: '/images/Nft/A2.svg' },
+        { name: '/images/Nft/A3.svg' },
+        { name: '/images/Nft/A4.svg' },
+        { name: '/images/Nft/A5.svg' },
+        { name: '/images/Nft/A6.svg' },
+        { name: '/images/Nft/A7.svg' },
+        { name: '/images/Nft/A8.svg' },
     ];
+
     return !isMobilee ? (
         <NftContainer>
-            <TitleWrapper>
-                <Text40 color={({ theme }) => theme.titles}>
-                    Upcoming collections
+            <HomeTitleWrapper>
+                <Text40
+                    color={({ theme }) => theme.titles}
+                    margin="0px 10px 0px 0px"
+                >
+                    All items
                 </Text40>
-            </TitleWrapper>
+                <Transparent padding='8px 58px'>
+                    See More
+                </Transparent>
+            </HomeTitleWrapper>
             <Flex>
+                <BigItemCard />
                 {nft.map((nfts, key) => (
-                    <UpcomingCard key={key} nft={nfts.name} />
+                    <AllItemCard nft={nfts.name} key={key} />
                 ))}
             </Flex>
         </NftContainer>
     ) : (
         <NftContainer>
-            <TitleWrapper>
-                <Text40 color={({ theme }) => theme.titles}>
-                    Upcoming collections
-                </Text40>
-            </TitleWrapper>
+            <HomeTitleWrapper>
+                <Text40 color={({ theme }) => theme.titles}> All items</Text40>
+            </HomeTitleWrapper>
+
             <Slider {...settings}>
                 {nft.map((nfts, key) => (
-                    <UpcomingCard key={key} nft={nfts.name} />
+                    <AllItemCard nft={nfts.name} key={key} />
                 ))}
             </Slider>
         </NftContainer>
