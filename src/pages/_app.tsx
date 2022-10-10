@@ -27,7 +27,7 @@ import Globalstyle from '../styles/Globalstyle';
 import ThemeContext from '../contexts/ThemeContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const connectors: [
     MetaMask | WalletConnect | CoinbaseWallet,
