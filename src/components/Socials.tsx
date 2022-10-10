@@ -14,7 +14,7 @@ interface Social {
 
 const Flex = styled.div<Social>`
     display: flex;
-    background: #22242f;
+    background: linear-gradient(180deg, #22242F 4.65%, #1A1D28 86.94%);
     align-items: center;
     border-radius: 80px;
     border: 1px solid #484d57;

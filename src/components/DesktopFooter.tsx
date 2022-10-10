@@ -72,7 +72,7 @@ const Container = styled.div<cont>`
 `;
 
 const Footer = styled.div`
-    width: 99vw;
+    width: 100%;
     height: 397px;
     background: ${({ theme }) => theme.footer};
 

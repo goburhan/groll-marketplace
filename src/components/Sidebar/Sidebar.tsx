@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../StyledComponents/Flex';
 import Buttons from './Buttons';
@@ -65,23 +65,10 @@ const ItemWrapper = styled.div`
     &:hover {
     }
 `;
-const SideItem = styled.div`
-    display: flex;
-    padding: 16px;
-    gap: 12px;
-    white-space: nowrap;
-    &:hover {
-        cursor: pointer;
-        background-color: #282b38;
-        border-radius: 8px;
-    }
-`;
-const Item = styled.button``;
 
-const MenuItems = styled(Flex)``;
+
 export default function Sidebar() {
     const [isHovering, setIsHovering] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
 
     const handleMouseOver = () => {
         setIsHovering(true);
