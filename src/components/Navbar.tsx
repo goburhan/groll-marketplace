@@ -110,11 +110,11 @@ export default function Navbar() {
             <Items justifyContent="right">
                 <Searchbar />
 
-                {user.nickname !== '' && (
+                {/* {user.nickname !== '' && ( */}
                     <Link href="/createnft">
                         <BlueButton>Create</BlueButton>
                     </Link>
-                )}
+                {/* )} */}
 
                 <ConnectButton />
 
